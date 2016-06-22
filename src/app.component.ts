@@ -1,16 +1,22 @@
 import {Component} from '@angular/core';
-import { CalendarComponent } from './calendar.component';
+import {ROUTER_DIRECTIVES} from '@angular/router';
 
 
+console.log(ROUTER_DIRECTIVES);
 @Component({
   selector: 'my-app',
-  directives: [<any> CalendarComponent],
+  directives:[ROUTER_DIRECTIVES],
   template: `
-    <h1>My First Angular 2 App</h1>
-    <calendar></calendar>
+    <h1>Sleep Diary</h1>
+    <ul>
+      <li><a [routerLink]="['/monthly']">Monthly View</a></li>
+      <li><a [routerLink]="['/yearly']">Yearly View</a></li>
+    </ul>
+    <router-outlet></router-outlet>
     `,
   styles: [``]
 
 })
-export class AppComponent { }
+export class AppComponent {
+}
 
