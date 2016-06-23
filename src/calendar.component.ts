@@ -1,4 +1,5 @@
 import {Component, Input} from '@angular/core';
+import * as moment from 'moment';
 import {Month} from './month'
 
 @Component({
@@ -26,7 +27,7 @@ export class CalendarComponent {
 
     for (var i = 0; i < 12; i++) {
       //fix 2016 is hardcoded - parametrize
-      let monthDateRange = this.getMonthDateRange(year, i, true);
+    //  let monthDateRange = this.getMonthDateRange(year, i, true);
       // let months[i].weeks = this.buildMonth(monthDateRange.startDateOfWeek, i);
     }
 
