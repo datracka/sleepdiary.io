@@ -3,10 +3,14 @@ import {Week} from './week'
 export class Month {
 
   weeks:Array<Week>;
-  name:String;
+  name:string;
 
-  constructor(private name2:String) {
+  constructor(name: string) {
     this.weeks = [];
-    this.name = name2;
+    this.name = name;
+  }
+  
+  setWeeks(weeks: Array<Week>) {
+    this.weeks = weeks;
   }
 }

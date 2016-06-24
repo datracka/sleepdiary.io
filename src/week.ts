@@ -1,7 +1,7 @@
 export class Week {
-  numberWeeks: number;
+  numberWeeks:number;
   
-  constructor(public numberWeeks: number) {
+  constructor(numberWeeks:number) {
     this.numberWeeks = numberWeeks;
   }
 }
