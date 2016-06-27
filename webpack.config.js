@@ -14,9 +14,11 @@ module.exports = {
   resolve: {
     extensions: ['' , '.js' , '.ts']
   },
+  devtool: 'inline-source-map',
   module: {
     loaders: [
-      { test: /\.ts?$/, loader: 'ts-loader' , exclude: /node_modules/ }
+      { test: /\.ts?$/, loader: 'ts-loader' , exclude: /node_modules/ },
+      {test: /\.html$/, loader: 'html'}
     ]
   },
   plugins: [
