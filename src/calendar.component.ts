@@ -1,11 +1,12 @@
 import {Component, Input} from '@angular/core';
 import * as moment from 'moment';
-import {Month} from './month'
-import {MomentWrapper} from "./moment-wrapper";
+import {Month} from './month';
+import {MomentWrapper} from './moment-wrapper';
+let template = require('./calendar.component.html');
 
 @Component({
   selector: 'calendar',
-  template: '<b>Calendar component</b>'
+  template: template 
 })
 export class CalendarComponent {
 
@@ -24,14 +25,15 @@ export class CalendarComponent {
     new Month('December'),
   ];
 
-/*  initArrayMonth(lang:String, year:String) {
+  initArrayMonth(lang:String, year:String) {
 
     for (var i = 0; i < 12; i++) {
       let momentWrapper:MomentWrapper = this.getMonthDateRange(year, i, true);
-      let theWeeks: any = this.buildMonth(momentWrapper.startDateOfWeek, i);
-      console.log(momentWrapper);
+      let theWeeks:any = this.buildMonth(momentWrapper.startDateOfWeek, i);
       this.months[i].setWeeks(theWeeks);
     }
+
+    console.log(this.months);
 
   }
 
@@ -49,12 +51,12 @@ export class CalendarComponent {
     let momentWrapper:MomentWrapper = new MomentWrapper(monthStartDate, startDateOfWeek);
     return momentWrapper;
 
-  }*/
+  }
 
-/*  buildMonth(startDateOfWeek: moment, currentMonth:number): any {
+  buildMonth(startDateOfWeek:any, currentMonth:number):any {
 
     let theWeeks:Array<any> = [],
-      currentDate: moment = startDateOfWeek.clone(),
+      currentDate:any = startDateOfWeek.clone(),
       nextMonth:number = 0;
 
     if (currentMonth == 11) {
@@ -68,11 +70,10 @@ export class CalendarComponent {
       currentDate.add(1, "w");
     }
     return theWeeks;
-
   }
 
-  buildWeek(date: any, month:any) {
-    var days = [];
+  buildWeek(date:any, month:any) {
+    var days:any = [];
     for (var i = 0; i < 7; i++) {
       days.push({
         name: date.format("dd").substring(0, 1),
@@ -85,9 +86,9 @@ export class CalendarComponent {
       date.add(1, "d");
     }
     return days;
-  }*/
+  }
 
   constructor() {
-   // this.initArrayMonth('en', '2016');
+    this.initArrayMonth('en', '2016');
   }
 }
