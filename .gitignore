@@ -10,7 +10,8 @@ e2e/**/*.js
 e2e/**/*.js.map
 _test-output
 _temp
-app/js
+app/js/
+
 
 !**/*e2e-spec.js
 !karma*.js
@@ -18,5 +19,4 @@ app/js
 !webpack.config.js
 !typings/typings.d.ts
 !wallaby.js
-
 
