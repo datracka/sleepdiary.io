@@ -19,7 +19,7 @@ import {Router, ROUTER_DIRECTIVES} from '@angular/router';
 export class AppComponent implements AfterViewInit, OnInit {
 
   ngAfterViewInit():any {
-    this.router.navigate(['/']);
+    this.router.navigate(['/yearly']);
   }
 
   ngOnInit():any {

@@ -1,13 +1,14 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, ViewEncapsulation} from '@angular/core';
 import * as moment from 'moment';
 import {Month} from './month';
 let template = require('./calendar.component.html');
-let styles = require('./calendar.component.css')
+let styles = require('./calendar.component.css');
 
 @Component({
     selector: 'calendar',
     template: template,
-    styles: styles
+    styles: [styles],
+    encapsulation: ViewEncapsulation.Native
 })
 export class CalendarComponent {
 
@@ -33,9 +34,6 @@ export class CalendarComponent {
             let theWeeks:any = this.buildMonth(moment.startDateOfWeek, i);
             this.months[i].setWeeks(theWeeks);
         }
-
-        console.log(this.months);
-
     }
 
     getMonthDateRange(year:String, month:number, isStartOnMonday:boolean) {

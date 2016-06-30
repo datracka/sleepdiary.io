@@ -19,7 +19,7 @@ module.exports = {
     loaders: [
       {test: /\.ts?$/, loader: 'ts-loader', exclude: /node_modules/},
       {test: /\.html$/, loader: 'html'},
-      {test: /\.css$/, loader: "style-loader!css-loader"},
+      {test: /\.css$/, loader: 'raw-loader' },
       {test: /\.png$/, loader: "url-loader?limit=100000"},
       {test: /\.jpg$/, loader: "file-loader"}
 
