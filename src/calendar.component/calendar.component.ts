@@ -2,10 +2,12 @@ import {Component, Input} from '@angular/core';
 import * as moment from 'moment';
 import {Month} from './month';
 let template = require('./calendar.component.html');
+let styles = require('./calendar.component.css')
 
 @Component({
     selector: 'calendar',
-    template: template
+    template: template,
+    styles: styles
 })
 export class CalendarComponent {
 

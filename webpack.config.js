@@ -12,13 +12,17 @@ module.exports = {
     filename: "./app/js/bundle.js"
   },
   resolve: {
-    extensions: ['' , '.js' , '.ts']
+    extensions: ['', '.js', '.ts']
   },
   devtool: 'inline-source-map',
   module: {
     loaders: [
-      { test: /\.ts?$/, loader: 'ts-loader' , exclude: /node_modules/ },
-      {test: /\.html$/, loader: 'html'}
+      {test: /\.ts?$/, loader: 'ts-loader', exclude: /node_modules/},
+      {test: /\.html$/, loader: 'html'},
+      {test: /\.css$/, loader: "style-loader!css-loader"},
+      {test: /\.png$/, loader: "url-loader?limit=100000"},
+      {test: /\.jpg$/, loader: "file-loader"}
+
     ]
   },
   plugins: [
