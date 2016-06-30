@@ -1,7 +1,6 @@
 import {Component, Input} from '@angular/core';
 import * as moment from 'moment';
 import {Month} from './month';
-import {MomentWrapper} from './moment-wrapper';
 let template = require('./calendar.component.html');
 
 @Component({
