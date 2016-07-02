@@ -17,7 +17,8 @@
     "postinstall": "typings install",
     "test": "tsc && concurrently \"tsc -w\" \"karma start karma.conf.js\"",
     "typings": "typings",
-    "webdriver:update": "webdriver-manager update"
+    "webdriver:update": "webdriver-manager update",
+    "json-server": "json-server --watch db.json --routes routes.json --port 8080"
   },
   "keywords": [],
   "author": "",

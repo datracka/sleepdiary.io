@@ -1,0 +1,6 @@
+{
+  "test/:id": "/:id",
+  "/calendar/year/:year": "/calendar/year",
+  "/calendar/:uuid": "/calendar/:uuid"
+
+}
