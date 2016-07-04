@@ -8,14 +8,6 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 
-/**
- * Env
- * Get npm lifecycle event to identify the environment
- */
-var ENV = process.env.NODE_ENV;
-var isTest = ENV === 'test' || ENV === 'test-watch';
-var isProd = ENV === 'build';
-
 module.exports = function makeWebpackConfig() {
 
   /**
@@ -39,7 +31,7 @@ module.exports = function makeWebpackConfig() {
    * Entry
    * Reference: http://webpack.github.io/docs/configuration.html#entry
    */
-  config.entry = isTest ? {} : {
+  config.entry =  {
     'main': './src/main.ts' // our angular app
   };
 
@@ -47,7 +39,7 @@ module.exports = function makeWebpackConfig() {
    * Output
    * Reference: http://webpack.github.io/docs/configuration.html#output
    */
-  config.output = isTest ? {} : {
+  config.output = {
     path: root('dist'),
     publicPath: '/',
     filename: 'js/[name].js',
@@ -64,7 +56,7 @@ module.exports = function makeWebpackConfig() {
     loaders: [
       {
         test: /\.ts?$/, loader: 'ts-loader',
-        exclude: [isTest ? /\.(e2e)\.ts$/ : /\.(spec|e2e)\.ts$/, /node_modules\/(?!(ng2-.+))/]
+        exclude: [/\.(spec|e2e)\.ts$/, /node_modules\/(?!(ng2-.+))/]
       },
       // Support for *.json files.
       {test: /\.json$/, loader: 'json'},
@@ -83,15 +75,6 @@ module.exports = function makeWebpackConfig() {
 
   config.plugins = [
 
-    // Define env variables to help with builds
-    // Reference: https://webpack.github.io/docs/list-of-plugins.html#defineplugin
-    new webpack.DefinePlugin({
-      // Environment helpers
-      'process.env': {
-        ENV: JSON.stringify(ENV)
-      }
-    }),
-
     new BrowserSyncPlugin({
       host: 'localhost',
       port: 3000,
@@ -102,7 +85,7 @@ module.exports = function makeWebpackConfig() {
     // Inject script and link tags into html files
     // Reference: https://github.com/ampedandwired/html-webpack-plugin
     new HtmlWebpackPlugin({
-      template: './src/public/index.html',
+      template: './src/index.html',
       inject: 'body',
       chunksSortMode: packageSort(['polyfills', 'vendor', 'app'])
     }),
@@ -110,7 +93,7 @@ module.exports = function makeWebpackConfig() {
     // Copy assets from the public folder
     // Reference: https://github.com/kevlened/copy-webpack-plugin
     new CopyWebpackPlugin([{
-      from: root('/src/public'),
+      from: root('/src/index.html'),
       to: root('/dist')
     }])
 
@@ -128,41 +111,6 @@ module.exports = function makeWebpackConfig() {
   return config;
 
 }();
-
-/*module.exports = {
-
- entry: {
- main: "./src/main.ts", //main app entry point
- },
- output: {
- //filename: './app/js/bundle.js'
- path: __dirname,
- filename: "./app/js/bundle.js"
- },
- resolve: {
- extensions: ['', '.js', '.ts']
- },
- devtool: 'inline-source-map',
- module: {
-
- loaders: [
- {test: /\.ts?$/, loader: 'ts-loader', exclude: /node_modules/},
- {test: /\.html$/, loader: 'html'},
- {test: /\.css$/, loader: 'raw-loader' },
- {test: /\.png$/, loader: "url-loader?limit=100000"},
- {test: /\.jpg$/, loader: "file-loader"}
-
- ]
- },
- plugins: [
- new BrowserSyncPlugin({
- host: 'localhost',
- port: 3000,
- proxy: 'http://localhost:3100/app/', //BS act as a proxy for webpack-de-server
- //server: { baseDir: ['./app'] }
- })
- ]
- }*/
 
 // Helper functions
 function root(args) {

@@ -1,8 +1,8 @@
 import 'reflect-metadata';
 require('zone.js/dist/zone');
 import {bootstrap}    from '@angular/platform-browser-dynamic';
-import {AppComponent} from './app.component';
-import {APP_ROUTER_PROVIDERS} from './app.routes';
+import {AppComponent} from './app/app.component';
+import {APP_ROUTER_PROVIDERS} from './app/app.routes';
 
 
 bootstrap(<any> AppComponent, [
