@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import {CalendarComponent} from './calendar.component/calendar.component';
+import {CalendarComponent} from './calendar.component';
 import {Calendar} from "./calendar.component/calendar.service";
 
 @Component({
