@@ -55,7 +55,8 @@ module.exports = function makeWebpackConfig() {
   config.module = {
     loaders: [
       {
-        test: /\.ts?$/, loader: 'ts-loader',
+        test: /\.ts?$/, 
+        loader: 'ts-loader',
         exclude: [/\.(spec|e2e)\.ts$/, /node_modules\/(?!(ng2-.+))/]
       },
       // Support for *.json files.
@@ -74,6 +75,10 @@ module.exports = function makeWebpackConfig() {
   }
 
   config.plugins = [
+
+    new webpack.DefinePlugin({
+      ENV: require(path.join(__dirname, './config/', 'environment.dev.ts'))
+    }),
 
     new BrowserSyncPlugin({
       host: 'localhost',
@@ -114,9 +119,7 @@ module.exports = function makeWebpackConfig() {
 
 // Helper functions
 function root(args) {
-  console.log("args", args);
   args = Array.prototype.slice.call(arguments, 0);
-  console.log("returns", path.join.apply(path, [__dirname].concat(args)));
   return path.join.apply(path, [__dirname].concat(args));
 }
 
