@@ -18,4 +18,7 @@ import {Router, ROUTER_DIRECTIVES} from '@angular/router';
 })
 export class YearlyViewComponent {
 
+    constructor() {
+      console.log('yearly component');
+    }
 }

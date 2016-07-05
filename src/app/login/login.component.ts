@@ -5,7 +5,6 @@ import { LoginService } from './login.service';
 
 const styles   = require('./login.css');
 const template = require('./login.html');
-declare var ENV: any;
 
 @Component({
     selector: 'login',
@@ -34,7 +33,5 @@ export class Login {
             }
         );
     }
-
-
     
 }
