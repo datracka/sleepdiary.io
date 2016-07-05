@@ -1,9 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 import {CalendarComponent} from '../calendar';
+import {Router, ROUTER_DIRECTIVES} from '@angular/router';
 
 @Component({
   selector: 'yearly-view',
-  directives:[<any>CalendarComponent],
+  directives:[<any>CalendarComponent, ROUTER_DIRECTIVES],
   providers: [CalendarComponent],
   template: `
  <h1>Sleep Diary</h1>
