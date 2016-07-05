@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import {CalendarComponent} from './calendar.component';
+import {CalendarComponent} from '../calendar';
 
 @Component({
   selector: 'monthly-view',

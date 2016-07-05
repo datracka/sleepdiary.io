@@ -8,32 +8,12 @@ import {HTTP_PROVIDERS, Http} from '@angular/http';
   directives:[ROUTER_DIRECTIVES],
   providers: [HTTP_PROVIDERS],
   template: `
-    <h1>Sleep Diary</h1>
-     <ul>
-      <li><a [routerLink]="['/monthly']">Monthly View</a></li>
-      <li><a [routerLink]="['/yearly']">Yearly View</a></li>
-    </ul>
     <router-outlet></router-outlet>
     `,
   styles: [``]
 
 })
-export class AppComponent implements AfterViewInit, OnInit {
-
-  ngAfterViewInit():any {
-    this.router.navigate(['/yearly']);
-  }
-
-  ngOnInit():any {
-    return undefined;
-  }
-
-  publicRoutes: any;
-  constructor(public router: Router) {
-    this.publicRoutes = {
-      '/login': true
-    };
-  }
+export class AppComponent {
 }
 
 

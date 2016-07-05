@@ -13,8 +13,6 @@ export class AuthGuard implements CanActivate {
         //if (tokenNotExpired()) {
         //    return true;
         //}
-        
-        return true;
 
         this.router.navigate(['/login']);
         return false;

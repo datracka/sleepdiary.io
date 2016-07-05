@@ -10,6 +10,7 @@ declare var ENV: any;
 @Component({
     selector: 'login',
     directives: [ ROUTER_DIRECTIVES, CORE_DIRECTIVES, FORM_DIRECTIVES ],
+    providers: [LoginService],
     template: template,
     styles: [ styles ]
 })
