@@ -16,7 +16,7 @@ dist/
 !**/*e2e-spec.js
 !karma*.js
 !protractor*.js
-!webpack.config.js
+!webpack.*
 !typings/typings.d.ts
 !wallaby.js
 
