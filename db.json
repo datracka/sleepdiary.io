@@ -1,38 +1,7 @@
 {
-  "2016": {
-    "test": "test"
-  },
-  "calendar/year": {
-    "2016-01-03": {
-      "sleepingQuality": "good",
-      "tirednessFeeling": "good",
-      "date": "2016-01-03T23:00:00Z",
-      "user": 1,
-      "uuid": "94aa3abf-c134-374e-a4c4-04f4880c8962"
-    },
-    "2016-01-01": {
-      "sleepingQuality": "bad",
-      "tirednessFeeling": "good",
-      "date": "2016-01-01T23:00:00Z",
-      "user": 1,
-      "uuid": "eb23d667-2159-303f-9b9d-acf17a867f0c"
-    },
-    "2016-03-28": {
-      "sleepingQuality": "bad",
-      "tirednessFeeling": "good",
-      "date": "2016-03-28T19:01:35.338257Z",
-      "user": 1,
-      "uuid": "b1aa7baa-5585-34ec-ab12-29cf12db4f78"
-    },
-    "2016-01-02": {
-      "sleepingQuality": "good",
-      "tirednessFeeling": "bad",
-      "date": "2016-01-02T23:00:00Z",
-      "user": 1,
-      "uuid": "d3fea501-4c79-38cd-bf81-c3a3f90112a1"
-    }
-  },
-  "post" : {},
-  "put": {},
-  "delete": {}
+  "login" : {
+    "id_token": "Y2FybG9zOmFzZGY="
+  }
 }
+
+//jwt    "id_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWQiOjIsImlhdCI6MTQ2NzcxMDA3MCwiZXhwIjoxNDY3NzI4MDcwfQ.XF9xaqse5dt27u707YM342YYUGIVXaDks-RIwTuk6L0"

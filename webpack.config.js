@@ -22,7 +22,7 @@ module.exports = function makeWebpackConfig() {
    * Reference: http://webpack.github.io/docs/configuration.html#devtool
    * Type of sourcemap to use per build type
    */
-  config.devtool = 'eval-source-map';
+  config.devtool = 'cheap-module-eval-source-map';
 
   // add debug messages
   config.debug = true;
@@ -45,6 +45,11 @@ module.exports = function makeWebpackConfig() {
     filename: 'js/[name].js',
     chunkFilename: '[id].chunk.js'
   };
+
+  config.devserver  = {
+    historyApiFallback: true,
+    stats: 'minimal'
+  }
 
   /**
    * Loaders
@@ -80,12 +85,12 @@ module.exports = function makeWebpackConfig() {
       ENV: require(path.join(__dirname, './config/', 'environment.dev.ts'))
     }),
 
-    new BrowserSyncPlugin({
+/*    new BrowserSyncPlugin({
       host: 'localhost',
       port: 3000,
       proxy: 'http://localhost:3100/dist/', //BS act as a proxy for webpack-de-server
       //server: { baseDir: ['./app'] }
-    }),
+    }),*/
 
     // Inject script and link tags into html files
     // Reference: https://github.com/ampedandwired/html-webpack-plugin

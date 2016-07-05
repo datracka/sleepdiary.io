@@ -1,8 +1,8 @@
 import {provideRouter, RouterConfig} from '@angular/router';
-import {MonthlyViewComponent} from "./monthy-view.component";
-import {YearlyViewComponent} from "./yearly-view.component";
-import {Login} from "./login.component";
-import {Signup} from "./signup.component";
+import {MonthlyViewComponent} from "./monthly";
+import {YearlyViewComponent} from "./yearly";
+import {Login} from "./login";
+import {Signup} from "./signup";
 
 declare var ENV: any;
 
