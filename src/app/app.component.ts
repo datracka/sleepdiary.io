@@ -3,17 +3,17 @@ import {Component, OnInit, AfterViewInit} from '@angular/core';
 import {Router, ROUTER_DIRECTIVES} from '@angular/router';
 import {HTTP_PROVIDERS, Http} from '@angular/http';
 
+const template = require('./app.html');
+
 @Component({
   selector: 'my-app',
+  template: template,
   directives:[ROUTER_DIRECTIVES],
   providers: [HTTP_PROVIDERS],
-  template: `
-    <router-outlet></router-outlet>
-    `,
-  styles: [``]
 
 })
 export class AppComponent {
+  constructor(public router: Router) {}
 }
 
 

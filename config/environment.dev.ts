@@ -10,7 +10,7 @@ module.exports = function() {
     environment: 'dev',
     baseURL: 'http://localhost:8080',
     fakeBaseUrl : 'http://localhost:8081',
-    apiPath: '/',
+    apiPath: '',
     locationType: 'auto'
   };
 };

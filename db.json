@@ -1,7 +1,6 @@
 {
   "login" : {
-    "id_token": "Y2FybG9zOmFzZGY="
+    "id_token": "Y2FybG9zOmFzZGY=",
+    "id_token-jwt": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWQiOjIsImlhdCI6MTQ2NzcxMDA3MCwiZXhwIjoxNDY3NzI4MDcwfQ.XF9xaqse5dt27u707YM342YYUGIVXaDks-RIwTuk6L0"
   }
 }
-
-//jwt    "id_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWQiOjIsImlhdCI6MTQ2NzcxMDA3MCwiZXhwIjoxNDY3NzI4MDcwfQ.XF9xaqse5dt27u707YM342YYUGIVXaDks-RIwTuk6L0"
