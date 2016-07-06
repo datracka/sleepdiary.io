@@ -22,7 +22,7 @@ export class Login {
         event.preventDefault();
         let body = JSON.stringify({ username, password });
 
-        this.loginService.login().subscribe(
+        this.loginService.login(body).subscribe(
             response => {
                 localStorage.setItem('id_token', response.json().id_token);
                 this.router.navigate(['/yearly']);

@@ -6,14 +6,13 @@ import {HTTP_PROVIDERS, Http} from '@angular/http';
 const template = require('./app.html');
 
 @Component({
-  selector: 'my-app',
-  template: template,
-  directives:[ROUTER_DIRECTIVES],
-  providers: [HTTP_PROVIDERS],
-
+    selector: 'my-app',
+    template: template,
+    directives: [ROUTER_DIRECTIVES]
 })
 export class AppComponent {
-  constructor(public router: Router) {}
+    constructor(public router:Router) {
+    }
 }
 
 
