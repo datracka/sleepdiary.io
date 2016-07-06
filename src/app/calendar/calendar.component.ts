@@ -1,6 +1,7 @@
-import {Component, Input, ViewEncapsulation} from '@angular/core';
+import {Component, Input, ViewEncapsulation, OnInit} from '@angular/core';
 import * as moment from 'moment';
 import {Month} from './month';
+import {CalendarService} from './calendar.service'
 let template = require('./calendar.html');
 let styles = require('./calendar.css');
 
@@ -8,9 +9,10 @@ let styles = require('./calendar.css');
     selector: 'calendar',
     template: template,
     styles: [styles],
+    providers: [CalendarService],
     encapsulation: ViewEncapsulation.Native
 })
-export class CalendarComponent {
+export class CalendarComponent implements OnInit {
 
     months:Array<Month> = [
         new Month('January'),
@@ -26,6 +28,22 @@ export class CalendarComponent {
         new Month('November'),
         new Month('December'),
     ];
+    
+    constructor (public calendarService: CalendarService) {
+        this.initArrayMonth('en', '2016');
+    }
+    
+    ngOnInit() {
+        this.calendarService.getAll().subscribe(
+            response => {
+                console.log(response.json());
+            },
+            error => {
+                alert(error.text());
+                console.log(error.text());
+            }
+        );
+    }
 
     initArrayMonth(lang:String, year:String) {
 
@@ -89,7 +107,4 @@ export class CalendarComponent {
         return days;
     }
 
-    constructor() {
-        this.initArrayMonth('en', '2016');
-    }
 }

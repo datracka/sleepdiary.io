@@ -9,7 +9,6 @@ declare var ENV: any;
 export class LoginService {
 
     private actionUrl: string;
-    private headers: Headers;
 
     constructor(private _http: Http) {
         this.actionUrl = ENV().fakeBaseUrl + ENV().apiPath;

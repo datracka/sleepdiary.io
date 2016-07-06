@@ -8,7 +8,7 @@
 module.exports = function() {
   return {
     environment: 'dev',
-    baseURL: 'http://localhost:8080',
+    baseUrl: 'http://localhost:8080',
     fakeBaseUrl : 'http://localhost:8081',
     apiPath: '',
     locationType: 'auto'

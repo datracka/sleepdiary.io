@@ -1,25 +1,25 @@
-import { Injectable, Component } from '@angular/core';
-import { Http, Response, Headers } from '@angular/http';
-import { Observable } from 'rxjs/Observable';
+import {Injectable} from '@angular/core';
+import { Http, Headers } from '@angular/http';
+import {contentHeaders } from '../common/headers';
 
+declare var ENV: any;
 
 @Injectable()
-export class Calendar {
+export class CalendarService {
 
     private actionUrl: string;
     private headers: Headers;
 
-    constructor(private _http: Http) {
+    constructor(private _http: Http)  {
 
-        this.actionUrl = 'http://localhost:8081';
+        this.actionUrl = ENV().baseUrl  + ENV().apiPath;
 
-        this.headers = new Headers();
-        this.headers.append('Content-Type', 'application/json');
-        this.headers.append('Accept', 'application/json');
+        this.headers = contentHeaders;
+        this.headers.append('Authorization', 'Basic Y2FybG9zOmFzZGY='); //Hardcoded
 
     }
-
-    public GetAll = (): Observable<Response> => {
-        return this._http.get(this.actionUrl + "/calendar/year/2016");
+    
+    public getAll() {
+        return this._http.get(this.actionUrl + "/calendar/year/2016", { headers: this.headers });
     }
 }
