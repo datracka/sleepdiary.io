@@ -2,6 +2,8 @@ import {Component, Input, ViewEncapsulation, OnInit} from '@angular/core';
 import * as moment from 'moment';
 import {Month} from './month';
 import {CalendarService} from './calendar.service'
+import {Observable} from "rxjs/Rx";
+import {Response} from "@angular/http";
 let template = require('./calendar.html');
 let styles = require('./calendar.css');
 
@@ -14,6 +16,7 @@ let styles = require('./calendar.css');
 })
 export class CalendarComponent implements OnInit {
 
+    entries:any;
     months:Array<Month> = [
         new Month('January'),
         new Month('February'),
@@ -28,21 +31,35 @@ export class CalendarComponent implements OnInit {
         new Month('November'),
         new Month('December'),
     ];
-    
-    constructor (public calendarService: CalendarService) {
+
+    constructor(public calendarService:CalendarService) {
         this.initArrayMonth('en', '2016');
     }
-    
+
+    decorateDay(day) {
+
+        let dayFormatted = day.date.format("YYYY-MM-DD");
+
+        //when observable was resolved
+        if (typeof this.entries !== 'undefined') {
+            let data = this.entries[dayFormatted];
+            if (typeof data !== 'undefined') {
+                return [
+                    "sleeping-quality-" + data.sleepingQuality,
+                    "tiredness-feeling-" + data.tirednessFeeling
+                ];
+            }
+        }
+    }
+
     ngOnInit() {
+        console.time("onInit");
         this.calendarService.getAll().subscribe(
             response => {
-                console.log(response.json());
-            },
-            error => {
-                alert(error.text());
-                console.log(error.text());
+                this.entries = response.json();
             }
         );
+        console.timeEnd("onInit");
     }
 
     initArrayMonth(lang:String, year:String) {

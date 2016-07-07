@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
-import { Http, Headers } from '@angular/http';
+import {Http, Headers, Response} from '@angular/http';
 import {contentHeaders } from '../common/headers';
+import {Observable} from "rxjs/Rx";
 
 declare var ENV: any;
 
@@ -19,7 +20,8 @@ export class CalendarService {
 
     }
     
-    public getAll() {
+    public getAll(): Observable<Response> {
+        console.log('subscribed!');
         return this._http.get(this.actionUrl + "/calendar/year/2016", { headers: this.headers });
     }
 }
