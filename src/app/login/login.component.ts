@@ -20,7 +20,7 @@ export class Login {
 
     login(event, username, password) {
         event.preventDefault();
-        let body = JSON.stringify({ username, password });
+        let body:any = JSON.stringify({ username, password });
 
         this.loginService.login(body).subscribe(
             response => {
