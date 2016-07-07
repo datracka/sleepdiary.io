@@ -2,7 +2,6 @@ import {Component, Input, ViewEncapsulation} from '@angular/core';
 import { Router } from '@angular/router';
 import { CORE_DIRECTIVES, FORM_DIRECTIVES } from '@angular/common';
 import { Http } from '@angular/http';
-import { contentHeaders } from '../common/headers';
 
 const styles   = require('./signup.css');
 const template = require('./signup.html');

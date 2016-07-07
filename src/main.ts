@@ -8,8 +8,11 @@ import { AUTH_PROVIDERS } from 'angular2-jwt';
 import { AuthGuard } from './app/common/auth-guard';
 import {AppComponent} from './app/app.component';
 import { routes } from './app/app.routes';
+import { disableDeprecatedForms, provideForms } from '@angular/forms';
 
 bootstrap(<any> AppComponent, [
+    disableDeprecatedForms(),
+    provideForms(),
     provideRouter(routes),
     FORM_PROVIDERS,
     HTTP_PROVIDERS,

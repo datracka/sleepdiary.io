@@ -2,8 +2,6 @@ import {Component, Input, ViewEncapsulation, OnInit} from '@angular/core';
 import * as moment from 'moment';
 import {Month} from './month';
 import {CalendarService} from './calendar.service'
-import {Observable} from "rxjs/Rx";
-import {Response} from "@angular/http";
 let template = require('./calendar.html');
 let styles = require('./calendar.css');
 
