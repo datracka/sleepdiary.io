@@ -1,0 +1,36 @@
+<div class="container">
+    <h1>Calendar entry Form</h1>
+    <form>
+        <div class="form-group">
+            <label for="userId">userId:</label>
+            <input type="text" class="form-control" name="userId" id="userId" disabled>
+        </div>
+        <div class="form-group">
+            <label for="uuid">uuid:</label>
+            <input type="text" class="form-control" name="uuid" id="uuid" disabled>
+        </div>
+        <div class="form-group">
+            <label for="date">date:</label>
+            <input type="text" class="form-control" name="date" id="date" required>
+        </div>
+        <div class="form-group">
+            <legend>Sleeping Quality:</legend>
+            <label for="sq-rb1">Name</label>
+            <input type="radio" class="form-control" value="good" name="sleepingQuality" id="sq-rb1">
+            <label for="sq-rb2">Name</label>
+            <input type="radio" class="form-control" value="regular" name="sleepingQuality" id="sq-rb2">
+            <label for="sq-rb3">Name</label>
+            <input type="radio" class="form-control" value="bad" name="sleepingQuality" id="sq-rb3">
+        </div>
+        <div class="form-group">
+            <legend>Tiredness Feeling:</legend>
+            <label for="tf-rb1">Name</label>
+            <input type="radio" class="form-control" value="good" name="tirednessFeeling" id="tf-rb1">
+            <label for="tf-rb2">Name</label>
+            <input type="radio" class="form-control" value="regular" name="tirednessFeeling" id="tf-rb2">
+            <label for="tf-rb3">Name</label>
+            <input type="radio" class="form-control" value="bad" name="tirednessFeeling" id="tf-rb3">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+</div>

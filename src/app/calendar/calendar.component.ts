@@ -12,7 +12,7 @@ let styles = require('./calendar.css');
     providers: [CalendarService],
     encapsulation: ViewEncapsulation.Native
 })
-export class CalendarComponent implements OnInit {
+export class Calendar implements OnInit {
 
     entries:any;
     months:Array<Month> = [

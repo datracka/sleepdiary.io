@@ -8,7 +8,8 @@ let styles = require('./new-entry.css');
 
 @Component({
     selector: 'form-view',
-    template: '<b>Form View</b>',
+    template: template,
+    styles: [styles],
     directives: [ CORE_DIRECTIVES, FORM_DIRECTIVES ]
 })
 export class NewEntry {

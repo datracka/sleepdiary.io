@@ -1,10 +1,10 @@
 import { Component, Input } from '@angular/core';
-import {CalendarComponent} from '../calendar';
+import {Calendar} from '../calendar';
 import {Router, ROUTER_DIRECTIVES} from '@angular/router';
 
 @Component({
   selector: 'monthly-view',
-  directives:[<any>CalendarComponent, ROUTER_DIRECTIVES],
+  directives:[<any>Calendar, ROUTER_DIRECTIVES],
   template: `
     <b>Monthly View</b>
     <calendar></calendar>
