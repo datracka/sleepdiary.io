@@ -28,5 +28,6 @@
             <input [(ngModel)]="entry.tirednessFeeling" type="radio" class="form-control" value="bad" name="tirednessFeeling" id="tf-rb3">
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
+        <button type="button" (click)="deleteEntry(entry.uuid)">Delete register</button>
     </form>
 </div>

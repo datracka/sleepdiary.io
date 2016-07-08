@@ -21,21 +21,22 @@ export class EntryFormService {
 
     getEntry(uuid: string): Observable<Response> {
         return this._http
-            .get(this.actionUrl + "/calendar/uuid/" + uuid, { headers: this.headers });
+            .get(this.actionUrl + '/calendar/uuid/' + uuid, { headers: this.headers });
     }
 
     newEntry(entry: Entry): Observable<Response> {
         return this._http
-            .post(this.actionUrl + "/calendar", JSON.stringify(entry), { headers: this.headers });
+            .post(this.actionUrl + '/calendar', JSON.stringify(entry), { headers: this.headers });
     }
 
     updateEntry(entry: Entry): Observable<Response> {
         return this._http
-            .put(this.actionUrl + "/calendar", JSON.stringify(entry), { headers: this.headers });
+            .put(this.actionUrl + '/calendar', JSON.stringify(entry), { headers: this.headers });
     }
 
     deleteEntry(uuid:String): Observable<Response> {
-        return null;
+        return this._http
+            .delete(this.actionUrl + '/calendar/uuid/' + uuid, { headers: this.headers })
     }
 
     private handleError(error: any) {

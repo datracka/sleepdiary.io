@@ -61,4 +61,14 @@ export class EntryForm implements OnInit {
         }
         this.submitted = true;
     }
+
+    deleteEntry(uuid:string) {
+        if (this.entry.uuid != '') {
+            this.entryFormService.deleteEntry(uuid).subscribe(
+                response => {
+                    console.log(response.json());
+                }
+            );
+        }
+    }
 }
