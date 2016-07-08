@@ -4,8 +4,8 @@ import {Entry} from '../common/Entry';
 import {CORE_DIRECTIVES} from "@angular/common";
 import { Router, ActivatedRoute } from '@angular/router';
 
-let template = require('./new-entry.html');
-let styles = require('./new-entry.css');
+let template = require('./entry-form.html');
+let styles = require('./entry-form.css');
 
 @Component({
     selector: 'form-view',
@@ -13,7 +13,7 @@ let styles = require('./new-entry.css');
     styles: [styles],
     directives: [ CORE_DIRECTIVES, FORM_DIRECTIVES ]
 })
-export class NewEntry {
+export class EntryForm {
 
     entry:Entry;
     submitted: boolean;
