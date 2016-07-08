@@ -24,17 +24,18 @@ export class EntryFormService {
             .get(this.actionUrl + "/calendar/uuid/" + uuid, { headers: this.headers });
     }
 
-    newEntry(entry: Entry) {
-/*        return this._http
-            .post(this.actionUrl + "/calendar")*/
+    newEntry(entry: Entry): Observable<Response> {
+        return this._http
+            .post(this.actionUrl + "/calendar", JSON.stringify(entry), { headers: this.headers });
     }
 
-    updateEntry(entr: Entry) {
-
+    updateEntry(entry: Entry): Observable<Response> {
+        return this._http
+            .put(this.actionUrl + "/calendar", JSON.stringify(entry), { headers: this.headers });
     }
 
-    deleteEntry(uuid:String) {
-        
+    deleteEntry(uuid:String): Observable<Response> {
+        return null;
     }
 
     private handleError(error: any) {

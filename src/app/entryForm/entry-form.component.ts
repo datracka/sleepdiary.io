@@ -24,7 +24,7 @@ export class EntryForm implements OnInit {
     constructor(public route:ActivatedRoute,
                 public router:Router,
                 public entryFormService:EntryFormService) {
-        this.entry = new Entry('','','good','good');
+        this.entry = new Entry('', '', 'good', 'good');
 
     }
 
@@ -33,20 +33,32 @@ export class EntryForm implements OnInit {
             let uuid:string = params['uuid'];
             if (params['uuid'] === 'new') {
                 console.log("new");
-                this.entry = new Entry('','','good','good');
+                this.entry = new Entry('', '', 'good', 'good');
             } else {
                 this.entryFormService.getEntry(uuid).subscribe(
                     response => {
                         this.entry = response.json()[0];
                         console.log(this.entry.sleepingQuality);
-                });
+                    });
             }
-
-
         });
     }
 
     onSubmit() {
+        console.log("on Submit", this.entry.uuid);
+        if (this.entry.uuid != '') {
+            this.entryFormService.updateEntry(this.entry).subscribe(
+                response => {
+                    console.log(response.json());
+                }
+            );
+        } else {
+            this.entryFormService.newEntry(this.entry).subscribe(
+                response => {
+                    console.log(response.json());
+                }
+            );
+        }
         this.submitted = true;
     }
 }

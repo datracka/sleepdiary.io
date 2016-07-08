@@ -1,6 +1,6 @@
 <div class="container">
     <h1>Calendar entry Form</h1>
-    <form>
+    <form (ngSubmit)="onSubmit()">
        <div class="form-group">
             <label for="uuid">uuid: (disabled)</label>
             <input [(ngModel)]="entry.uuid" type="text" class="form-control" name="uuid" id="uuid" disabled>
