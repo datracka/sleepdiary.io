@@ -10,7 +10,8 @@ import {Router, ROUTER_DIRECTIVES} from '@angular/router';
     template: `
     <h1>Sleep Diary</h1>
      <ul>
-      <li><a [routerLink]="['/entry/new']">Click here to new Entry</a></li>
+      <!-- TODO: Rethink navigation
+        <li><a [routerLink]="['/entry/new']">Click here to new Entry</a></li>--> 
       <li><a [routerLink]="['/monthly']">Monthly View</a></li>
       <li><a [routerLink]="['/yearly']">Yearly View</a></li>
     </ul>
