@@ -2,6 +2,8 @@ import {Injectable} from "@angular/core";
 import {Observable} from "rxjs/Rx";
 import {Http, Headers, Response} from '@angular/http';
 import {contentHeaders } from '../common/headers';
+import {Entry} from "../common/Entry";
+
 
 declare var ENV: any;
 
@@ -20,6 +22,19 @@ export class EntryFormService {
     getEntry(uuid: string): Observable<Response> {
         return this._http
             .get(this.actionUrl + "/calendar/uuid/" + uuid, { headers: this.headers });
+    }
+
+    newEntry(entry: Entry) {
+/*        return this._http
+            .post(this.actionUrl + "/calendar")*/
+    }
+
+    updateEntry(entr: Entry) {
+
+    }
+
+    deleteEntry(uuid:String) {
+        
     }
 
     private handleError(error: any) {
