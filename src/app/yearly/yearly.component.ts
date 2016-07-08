@@ -16,6 +16,10 @@ import {Router, ROUTER_DIRECTIVES} from '@angular/router';
       <li><a [routerLink]="['/yearly']">Yearly View</a></li>
     </ul>
     <b>Yearly view</b>
+    <div>
+        Only display sleepingQuality
+        //TODO: switch to tirednessFeeling
+    </div>
     <calendar></calendar>
     `
 })

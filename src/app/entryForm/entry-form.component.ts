@@ -17,25 +17,32 @@ let styles = require('./entry-form.css');
 })
 export class EntryForm implements OnInit {
 
-    entry: Entry;
+    entry:Entry;
     submitted:boolean;
-    sub: any;
+    sub:any;
 
     constructor(public route:ActivatedRoute,
                 public router:Router,
                 public entryFormService:EntryFormService) {
-        this.entry = new Entry();
+        this.entry = new Entry('','','good','good');
 
     }
 
     ngOnInit() {
         this.sub = this.route.params.subscribe(params => {
             let uuid:string = params['uuid'];
-            this.entryFormService.getEntry(uuid).subscribe(
-                response => {
-                    this.entry = response.json()[0];
-                    console.log(this.entry.sleepingQuality);
+            if (params['uuid'] === 'new') {
+                console.log("new");
+                this.entry = new Entry('','','good','good');
+            } else {
+                this.entryFormService.getEntry(uuid).subscribe(
+                    response => {
+                        this.entry = response.json()[0];
+                        console.log(this.entry.sleepingQuality);
                 });
+            }
+
+
         });
     }
 
