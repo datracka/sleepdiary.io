@@ -14,14 +14,11 @@ export class CalendarService {
     constructor(private _http: Http)  {
 
         this.actionUrl = ENV().baseUrl  + ENV().apiPath;
-
         this.headers = contentHeaders;
-        this.headers.append('Authorization', 'Basic Y2FybG9zOmFzZGY='); //Hardcoded
 
     }
     
     public getAll(): Observable<Response> {
-        console.log('subscribed!');
         return this._http.get(this.actionUrl + "/calendar/year/2016", { headers: this.headers });
     }
 }

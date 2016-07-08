@@ -1,8 +1,9 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Input} from '@angular/core';
 import {NgForm, FORM_DIRECTIVES}    from '@angular/forms';
 import {Entry} from '../common/Entry';
 import {CORE_DIRECTIVES} from "@angular/common";
 import { Router, ActivatedRoute } from '@angular/router';
+import {EntryFormService} from "./entry-form.service";
 
 let template = require('./entry-form.html');
 let styles = require('./entry-form.css');
@@ -11,15 +12,24 @@ let styles = require('./entry-form.css');
     selector: 'form-view',
     template: template,
     styles: [styles],
+    providers: [EntryFormService],
     directives: [ CORE_DIRECTIVES, FORM_DIRECTIVES ]
 })
-export class EntryForm {
+export class EntryForm implements OnInit {
 
-    entry:Entry;
+    /*@Input entry:Entry;*/
     submitted: boolean;
 
-    constructor() {
+    constructor(public entryFormService: EntryFormService) {
 
+    }
+
+    ngOnInit(){
+/*        this.entryFormService.getEntry().subscribe(
+            response => {
+                this.entry = response.json();
+            }
+        );*/
     }
 
     onSubmit() {

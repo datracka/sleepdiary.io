@@ -6,7 +6,7 @@ export class Entry {
     public sleepingQuality:string;
     public tirednessFeeling:string;
 
-    constructor(userId:number, uuid:string, date:any, sleepingQuality:string, tirednessFeeling:string) {
+    constructor(sleepingQuality:string, tirednessFeeling:string, date:any, userId:number, uuid:string) {
         this.userId = userId;
         this.uuid = uuid;
         this.date = date;

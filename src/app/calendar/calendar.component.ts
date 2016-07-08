@@ -2,6 +2,7 @@ import {Component, Input, ViewEncapsulation, OnInit} from '@angular/core';
 import * as moment from 'moment';
 import {Month} from './month';
 import {CalendarService} from './calendar.service'
+import {ActivatedRoute, Router} from "@angular/router";
 let template = require('./calendar.html');
 let styles = require('./calendar.css');
 
@@ -30,11 +31,11 @@ export class Calendar implements OnInit {
         new Month('December'),
     ];
 
-    constructor(public calendarService:CalendarService) {
+    constructor(private router: Router, public route: ActivatedRoute, public calendarService:CalendarService) {
         this.initArrayMonth('en', '2016');
     }
 
-    decorateDay(day) {
+    decorateDay(day: any) {
 
         let dayFormatted = day.date.format("YYYY-MM-DD");
 
@@ -51,13 +52,21 @@ export class Calendar implements OnInit {
     }
 
     ngOnInit() {
-        console.time("onInit");
         this.calendarService.getAll().subscribe(
             response => {
                 this.entries = response.json();
             }
         );
-        console.timeEnd("onInit");
+    }
+    
+    onSelect(day: any) {
+        let dayFormatted = day.date.format("YYYY-MM-DD");
+        let entry = this.entries[dayFormatted];
+        let uuid = 'new';
+        if (typeof entry !== 'undefined') {
+            uuid = entry.uuid;
+        }
+        this.router.navigate(['/entry', uuid]);
     }
 
     initArrayMonth(lang:String, year:String) {

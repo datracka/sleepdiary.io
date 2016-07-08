@@ -2,8 +2,8 @@
 
 ### For Running application 
 
-1- run 
-  `$ npm install && npm run build && npm start`
+1- run (**npm run json-server only in the meanwhile proper login is not implemented)
+  `$ npm install && npm run build && npm start && npm run json-server`
 2- 
   browse http://localhost:3000/app/
   

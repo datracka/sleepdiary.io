@@ -18,7 +18,7 @@
     </div>
     <div class="week" *ngFor="let week of month.weeks">
       <span class="day" *ngFor="let day of week.days"
-      [ngClass]="decorateDay(day)">
+      [ngClass]="decorateDay(day)" (click)="onSelect(day)">
         {{ day.number }}
       </span>
     </div>
