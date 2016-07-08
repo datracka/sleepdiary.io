@@ -1,1 +1,1 @@
-export * from './new-entry.component';
+export * from './entry-form.component';
