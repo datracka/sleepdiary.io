@@ -32,7 +32,7 @@ module.exports = function makeWebpackConfig() {
    * Reference: http://webpack.github.io/docs/configuration.html#entry
    */
   config.entry =  {
-    'main': './src/main.ts' // our angular app
+    'main': './app/main.ts' // our angular app
   };
 
   /**
@@ -95,7 +95,7 @@ module.exports = function makeWebpackConfig() {
     // Inject script and link tags into html files
     // Reference: https://github.com/ampedandwired/html-webpack-plugin
     new HtmlWebpackPlugin({
-      template: './src/index.html',
+      template: './app/index.html',
       inject: 'body',
       chunksSortMode: packageSort(['polyfills', 'vendor', 'app'])
     }),
@@ -103,7 +103,7 @@ module.exports = function makeWebpackConfig() {
     // Copy assets from the public folder
     // Reference: https://github.com/kevlened/copy-webpack-plugin
     new CopyWebpackPlugin([{
-      from: root('/src/index.html'),
+      from: root('/app/index.html'),
       to: root('/dist')
     }])
 

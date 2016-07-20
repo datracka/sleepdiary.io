@@ -15,7 +15,7 @@
     "inlineSources": true
   },
   "files": [
-    "./src/main.ts",
-    "./src/typings.d.ts"
+    "./app/main.ts",
+    "./app/typings.d.ts"
   ]
 }
