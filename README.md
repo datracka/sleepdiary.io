@@ -2,9 +2,13 @@
 
 ### For Running application 
 
-1- run (**npm run json-server only in the meanwhile proper login is not implemented)
-  `$ npm install && npm run build && npm start && npm run json-server`
-2- 
+1- run 
+  `$ npm install && npm run build && npm start`
+  
+2.- in the meanwhile proper login is not implemented in backend, open another terminal window and run
+   `$ npm run json-server`
+   
+3- 
   browse http://localhost:3000/app/
   
 ## TODO Port
