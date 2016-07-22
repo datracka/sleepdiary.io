@@ -1,11 +1,24 @@
 # Sleep diary source code
 
-### For Running application 
+### For Running Web application 
 
-1- run (**npm run json-server only in the meanwhile proper login is not implemented)
-  `$ npm install && npm run build && npm start && npm run json-server`
-2- 
+1- run 
+  `$ npm install && npm run build && npm start &&
+
+2.- In the meanwhile proper login is not implemented 
+    npm run json-server`
+3.- 
   browse http://localhost:3000/app/
+
+### For Running Mobile application
+
+1.- set dependencies https://docs.nativescript.org/start/quick-setup
+Note that if you are not using an apple is not possible develop for iO
+
+2.- `npm install`
+ 
+3.- `cd mobile && tns platform add android && tns platform add ios`
+
   
 ## TODO Port
 

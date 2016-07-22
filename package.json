@@ -16,7 +16,7 @@
     "e2e": "tsc && concurrently \"http-server\" \"protractor protractor.config.js\"",
     "lint": "tslint ./app/**/*.ts -t verbose",
     "lite": "lite-server",
-    "postinstall": "typings install",
+    "postinstall": "typings install && node tools/install.js",
     "test": "tsc && concurrently \"tsc -w\" \"karma start karma.conf.js\"",
     "typings": "typings",
     "webdriver:update": "webdriver-manager update",
@@ -26,7 +26,7 @@
     "start.livesync.ios.device": "cd mobile && tns livesync ios --watch",
     "start.android": "cd mobile && tns emulate android",
     "start.livesync.android": "cd mobile && tns livesync android --emulator --watch",
-    "start.livesync.android.device": "cd mobile && tns livesync android --watch",
+    "start.livesync.android.device": "cd mobile && tns livesync android --watch"
   },
   "keywords": [],
   "author": "",

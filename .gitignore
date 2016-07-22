@@ -12,6 +12,8 @@ _test-output
 _temp
 dist/
 mobile/platforms
+mobile/app/src
+mobile/app/assets
 
 
 !**/*e2e-spec.js
@@ -20,4 +22,5 @@ mobile/platforms
 !webpack.*
 !typings/typings.d.ts
 !wallaby.js
+!install.js
 
