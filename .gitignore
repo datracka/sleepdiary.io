@@ -11,7 +11,8 @@ e2e/**/*.js.map
 _test-output
 _temp
 dist/
-
+mobile/app/src
+mobile/app/assets
 
 
 !**/*e2e-spec.js

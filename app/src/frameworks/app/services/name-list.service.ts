@@ -41,7 +41,8 @@ export class NameListService extends Analytics {
     super(analytics);
     this.category = CATEGORY;
 
-    this.names = store.select('names');
+    console.log(store.select('names'));
+    //this.names = store.select('names');
 
     this.init();
   }  
