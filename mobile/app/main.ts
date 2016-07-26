@@ -1,7 +1,6 @@
 // this import should be first in order to load some required settings (like globals and reflect-metadata)
 
 //test
-/// <reference path="../../typings/globals/lodash/index.d.ts" />
 import * as _ from 'lodash';
 
 //nativescript
