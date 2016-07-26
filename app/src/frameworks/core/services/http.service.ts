@@ -14,7 +14,8 @@ export class HttpService {
   }
   
   public get(url: string): Observable<any> {
-    return this.http.get(url)
-      .map((response: Response) => response.json());
+    return null;
+    /*return this.http.get(url)
+      .map((response: Response) => response.json());*/
   }
 }

@@ -1,9 +1,6 @@
 // angular
 import {Component, ChangeDetectionStrategy} from '@angular/core';
 
-// libs
-import {TranslatePipe} from 'ng2-translate/ng2-translate';
-
 // app
 import {ViewBrokerService} from '../index';
 
@@ -20,7 +17,7 @@ export class DecoratorUtils {
     // default directives
     let DIRECTIVES: any[] = [];
     // default pipes
-    let PIPES: any[] = [TranslatePipe];
+    let PIPES: any[] = [];
 
     // custom decorator options
     if (customDecoratorMetadata) {
