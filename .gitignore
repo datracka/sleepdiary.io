@@ -24,3 +24,4 @@ mobile/app/assets
 !wallaby.js
 !install.js
 
+/mobile/npm-debug.log
