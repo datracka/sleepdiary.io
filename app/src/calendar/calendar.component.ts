@@ -1,7 +1,7 @@
 import {Component, Input, ViewEncapsulation, OnInit} from '@angular/core';
 import * as moment from 'moment';
 import {Month} from './month';
-import {CalendarService} from './calendar.service'
+import {CalendarService} from '../shared/calendar/calendar.service'
 import {ActivatedRoute, Router} from "@angular/router";
 let template = require('./calendar.html');
 let styles = require('./calendar.css');

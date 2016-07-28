@@ -3,7 +3,7 @@ import {MonthlyViewComponent} from "./monthly";
 import {YearlyViewComponent} from "./yearly";
 import {Login} from "./login";
 import {Signup} from "./signup";
-import {AuthGuard} from './common/auth-guard';
+import {AuthGuard} from './shared/common/auth-guard';
 import {EntryForm} from "./entryForm";
 
 export const routes:RouterConfig = <RouterConfig>[

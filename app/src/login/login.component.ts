@@ -1,7 +1,7 @@
 import {Component, Input, ViewEncapsulation} from '@angular/core';
 import { Router, ROUTER_DIRECTIVES } from '@angular/router';
 import { CORE_DIRECTIVES, FORM_DIRECTIVES } from '@angular/common';
-import { LoginService } from './login.service';
+import { LoginService } from '../shared/login/login.service';
 
 const styles   = require('./login.css');
 const template = require('./login.html');

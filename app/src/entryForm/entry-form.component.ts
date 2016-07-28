@@ -1,9 +1,9 @@
 import {Component, OnInit, Input} from '@angular/core';
 import {FORM_DIRECTIVES}    from '@angular/forms';
-import {Entry} from '../common/Entry';
+import {Entry} from '../shared/common/Entry';
 import {CORE_DIRECTIVES} from "@angular/common";
 import {Router, ActivatedRoute}       from '@angular/router';
-import {EntryFormService} from "./entry-form.service";
+import {EntryFormService} from "../shared/entry-form/entry-form.service";
 
 let template = require('./entry-form.html');
 let styles = require('./entry-form.css');
