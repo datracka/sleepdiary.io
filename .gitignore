@@ -19,4 +19,5 @@ dist/
 !webpack.*
 !typings/typings.d.ts
 !wallaby.js
+app/src/shared/
 

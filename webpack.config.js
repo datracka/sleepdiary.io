@@ -76,8 +76,11 @@ module.exports = function makeWebpackConfig() {
   }
 
   config.resolve = {
+    fallback: [path.join(__dirname, 'node_modules')],
+    modulesDirectories: ['node_modules'],
     extensions: ['', '.js', '.ts']
   }
+
 
   config.plugins = [
 
