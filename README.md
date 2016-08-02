@@ -25,9 +25,10 @@ Commits touching only the subtree, intended for backport (e.g. fixes); (below)
 # Backporting to the subtree’s remote
 
 - create a branch `$ git checkout -b backport-shared \ shared/master`
-- cherry-picks: `$ git cherry-pick -x <SHA1>`
-- close cherry pick: `$ git cherry-pick -x \  --strategy=subtree master^` (pending to test)
+- cherry-pick the changes to commit to shared: `$ git cherry-pick -x <SHA1>`
 - `$ git push`
+- Return to the working branch (master)
+- Remove unused branch used for porting back.
   
   
   
