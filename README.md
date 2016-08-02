@@ -7,7 +7,31 @@
 2- 
   browse http://localhost:3000/app/
   
-## TODO Port
+## Github management. 
+  
+Intended for shared management. For repo proceed as usual. 
+take in account that `shared` folder is attach to a shared remote repo. 
+
+# Standart proceed to get shared updates from github repository
+
+`$ git fetch shared`
+`$ git merge -s subtree --squash \ shared/<branch>` where `<branch` is the given branch to update
+usually `master`
+
+# Updating the code:
+
+Commits touching only the subtree, intended for backport (e.g. fixes); (below)
+
+# Backporting to the subtree’s remote
+
+- create a branch `$ git checkout -b backport-shared \ shared/master`
+- cherry-picks: `$ git cherry-pick -x <SHA1>`
+- close cherry pick: `$ git cherry-pick -x \  --strategy=subtree master^` (pending to test)
+- `$ git push`
+  
+  
+  
+## TODO 
 
 - Implement Authentication: https://auth0.com/blog/2015/05/14/creating-your-first-real-world-angular-2-app-from-authentication-to-calling-an-api-and-everything-in-between/
 -- ENV
@@ -19,9 +43,5 @@
 - Form New Item (uuid empty) POST 
 - Form Update Item (uuid) PUT
 - Delete Item by UUID DELETE
-- Fake Login 
 
-# Why? 
 
-- Can I load a route by URL path
-- 
