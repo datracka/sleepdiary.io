@@ -19,6 +19,7 @@ export class LoginService {
     }
 
     constructor(private _http: Http) {
+        console.log("changed from mobile!");
         this.actionUrl = this.ENV.fakeBaseUrl + this.ENV.apiPath;
     }
 
