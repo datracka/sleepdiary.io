@@ -19,6 +19,7 @@ export class LoginService {
     }
 
     constructor(private _http: Http) {
+        console.log("hello world git");
         this.actionUrl = this.ENV.fakeBaseUrl + this.ENV.apiPath;
     }
 
