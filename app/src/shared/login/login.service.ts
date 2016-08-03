@@ -3,27 +3,19 @@ import { Http, Response, Headers } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { contentHeaders } from '../common/headers';
 
-
+declare let ENV:any;
 
 
 @Injectable()
 export class LoginService {
 
     private actionUrl: string;
-    private ENV = {
-        environment: 'dev',
-        baseUrl: 'http://localhost:8080',
-        fakeBaseUrl: 'http://localhost:8081',
-        apiPath: '',
-        locationType: 'auto'
-    }
 
     constructor(private _http: Http) {
-        console.log("changed from mobile!");
-        this.actionUrl = this.ENV.fakeBaseUrl + this.ENV.apiPath;
+        this.actionUrl = process.env.FAKE_BASE_URL + process.env.API_PATH;
     }
 
     public login = (body): Observable<Response> => {
-        return this._http.post(this.actionUrl + '/login', body, { headers: contentHeaders });
+        return this._http.post(this.actionUrl + 'login', body, { headers: contentHeaders });
     }
 }

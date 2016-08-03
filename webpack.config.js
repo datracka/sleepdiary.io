@@ -7,6 +7,14 @@ var CommonsChunkPlugin = webpack.optimize.CommonsChunkPlugin;
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
+var DotenvPlugin = require('webpack-dotenv-plugin');
+
+/**
+ * Webpack Constants
+ */
+
+const ENV = process.env.NODE_ENV = process.env.ENV = 'development';
+
 
 module.exports = function makeWebpackConfig() {
 
@@ -31,7 +39,7 @@ module.exports = function makeWebpackConfig() {
    * Entry
    * Reference: http://webpack.github.io/docs/configuration.html#entry
    */
-  config.entry =  {
+  config.entry = {
     'main': './app/main.ts' // our angular app
   };
 
@@ -46,7 +54,7 @@ module.exports = function makeWebpackConfig() {
     chunkFilename: '[id].chunk.js'
   };
 
-  config.devserver  = {
+  config.devserver = {
     historyApiFallback: true,
     stats: 'minimal'
   }
@@ -60,7 +68,7 @@ module.exports = function makeWebpackConfig() {
   config.module = {
     loaders: [
       {
-        test: /\.ts?$/, 
+        test: /\.ts?$/,
         loader: 'ts-loader',
         exclude: [/\.(spec|e2e)\.ts$/, /node_modules\/(?!(ng2-.+))/]
       },
@@ -84,8 +92,17 @@ module.exports = function makeWebpackConfig() {
 
   config.plugins = [
 
-    new webpack.DefinePlugin({
-      ENV: require(path.join(__dirname, './config/', 'environment.dev.ts'))
+   new webpack.DefinePlugin({
+     'ENV': JSON.stringify(ENV),
+     'process.env': {
+       'ENV': JSON.stringify(ENV),
+       'NODE_ENV': JSON.stringify(ENV),
+     }
+    }),
+
+    new DotenvPlugin({
+      sample: './.env.default',
+      path: './.env.dev'
     }),
 
     new BrowserSyncPlugin({
