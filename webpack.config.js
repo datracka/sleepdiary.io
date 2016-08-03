@@ -88,12 +88,12 @@ module.exports = function makeWebpackConfig() {
       ENV: require(path.join(__dirname, './config/', 'environment.dev.ts'))
     }),
 
-/*    new BrowserSyncPlugin({
+    new BrowserSyncPlugin({
       host: 'localhost',
       port: 3000,
-      proxy: 'http://localhost:3100/dist/', //BS act as a proxy for webpack-de-server
+      proxy: 'http://localhost:3100', //BS act as a proxy for webpack-de-server
       //server: { baseDir: ['./app'] }
-    }),*/
+    }),
 
     // Inject script and link tags into html files
     // Reference: https://github.com/ampedandwired/html-webpack-plugin
