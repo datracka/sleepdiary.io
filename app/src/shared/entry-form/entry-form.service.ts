@@ -14,7 +14,7 @@ export class EntryFormService {
 
     constructor(private _http: Http){
 
-        this.actionUrl = ENV.baseUrl  + ENV.apiPath;
+        this.actionUrl = process.env.BASE_URL + process.env.API_PATH;
         this.headers = contentHeaders;
     }
 

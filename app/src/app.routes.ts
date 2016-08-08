@@ -10,6 +10,7 @@ export const routes:RouterConfig = <RouterConfig>[
     {path: '', component: Login},
     {path: 'login', component: Login},
     {path: 'signup', component: Signup},
+    {path: 'entry', component: EntryForm},
     {path: 'entry/:uuid', component: EntryForm},
     {path: 'monthly', component: MonthlyViewComponent, canActivate: [AuthGuard]},
     {path: 'yearly', component: YearlyViewComponent, canActivate: [AuthGuard]},

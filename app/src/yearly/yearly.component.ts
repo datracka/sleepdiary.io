@@ -14,6 +14,7 @@ import {Router, ROUTER_DIRECTIVES} from '@angular/router';
         <li><a [routerLink]="['/entry/new']">Click here to new Entry</a></li>--> 
       <li><a [routerLink]="['/monthly']">Monthly View</a></li>
       <li><a [routerLink]="['/yearly']">Yearly View</a></li>
+      <li><a [routerLink]="['/entry']">New Entry</a></li>
     </ul>
     <b>Yearly view</b>
     <div>
