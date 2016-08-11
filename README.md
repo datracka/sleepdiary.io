@@ -12,12 +12,25 @@
   browse http://localhost:3000/app/
   
 ## Github management. 
+
   
 Intended for `sleepdiary.io-shared` repo management. For `sleepdiary.io` repo proceed as usual. 
 (take in account that `shared` folder is attach to a shared remote repo) `
 following: https://medium.com/@porteneuve/mastering-git-subtrees-943d29a798ec#.rhx54pb4e
 
-# Standart proceed to get shared updates from github repository
+### Create a subtree repo (manually)
+
+- Add remote 
+
+`$ git remote add shared git@github.com:datracka/sleepdiary.io-shared.git`
+`$ git fetch shared`
+
+- Set remote files in chosen location (shared use master)
+
+`$ git read-tree \` (press enter)
+`> --prefix=app/src/shared shared/master` 
+
+### Updates from github repository (manually, refer to documentation for other options)
 
 `$ git fetch shared`
 `$ git merge -s subtree --squash \ shared/<branch>` where `<branch` is the given branch to update
