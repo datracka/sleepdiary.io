@@ -11,7 +11,6 @@ import { routes } from './src/app.routes';
 import { disableDeprecatedForms, provideForms } from '@angular/forms';
 
 bootstrap(<any> AppComponent, [
-    disableDeprecatedForms(),
     provideForms(),
     provideRouter(routes),
     FORM_PROVIDERS,
