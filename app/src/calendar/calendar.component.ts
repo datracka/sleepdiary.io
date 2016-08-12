@@ -54,7 +54,8 @@ export class Calendar implements OnInit {
     ngOnInit() {
         this.calendarService.getAll().subscribe(
             response => {
-                this.entries = response.json();
+                console.log("aaaaa", response.json());
+                //this.entries = response.json();
             }
         );
     }

@@ -24,7 +24,7 @@ export class Login {
 
         this.loginService.login(body).subscribe(
             response => {
-                localStorage.setItem('id_token', response.json().id_token);
+                localStorage.setItem('token_key', response.json().token_key);
                 this.router.navigate(['/yearly']);
             },
             error => {
