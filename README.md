@@ -7,7 +7,7 @@
 
 * Get shared repository (we use https://medium.com/@porteneuve/mastering-git-subtrees-943d29a798ec#.rhx54pb4e)
 
-    * checout develop as main branch
+    * checkout develop as main branch
         `$ git checkout develop`
 
     * Add remote
@@ -23,7 +23,7 @@
         
         `$ git rm -r --cached src/app/shared ` 
 
-* Install dependencies`
+* Install dependencies
     `$ npm install`
 
 * Run the app
