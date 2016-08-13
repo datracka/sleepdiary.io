@@ -29,7 +29,7 @@
 * Run the app
     `$ npm start`
 
-*  browse http://localhost:3000/app/
+*  browse http://localhost:3000
 
 ## Development & git management
 
