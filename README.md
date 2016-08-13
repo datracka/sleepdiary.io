@@ -14,11 +14,16 @@
         `$ git remote add shared git@github.com:datracka/sleepdiary.io-shared.git`
         `$ git fetch shared`
 
-    * Set remote files in chosen location (shared use master)
+    * Set remote files in chosen location  
         `$ git read-tree \` (press enter)
-        `> --prefix=app/src/shared -u shared/<branch>` default `master
+        `> --prefix=app/src/shared -u shared/<branch>` default develop       
+        
+        **NOTICE**: for any reason after create the SUB-REPO, the directory `app/src/shared` is tracked by GIT 
+        although it is ignored in .gitignore!! Until I understand what it is happening to fix it do the following:  
+        
+        `$ git rm -r --cached src/app/shared ` 
 
-* Install dependencies
+* Install dependencies`
     `$ npm install`
 
 * Run the app
@@ -44,7 +49,7 @@ it is pretty straight forward. Proceed as known.
 
 `$ git fetch shared/<branch>`
 `$ git merge -s subtree --squash \ shared/<branch>` where `<branch` is the given branch to update
-usually `master`
+usually `develop`
 
 #### How to commit changes made in shared folder 
 
@@ -53,12 +58,12 @@ Commits touching only the subtree, intended for backport (e.g. fixes); (below)
 - create a branch `$ git checkout -b backport-shared \ shared/<branch>`
 
 - cherry-pick the changes: `$ git cherry-pick -x <SHA1>`
-   The picked changes should apply only to shared and not to master. Therefore when you commit in the repository
-   you should carefully split the commits into code from container and code from sared.
+   The picked changes should apply only to `shared` and not to `origin`. Therefore, when you commit in the repository
+   you should carefully split the commits for `origin` and `shared`
 
-- push `$ git push shared HEAD:<branch>` usually master
+- push `$ git push shared HEAD:<branch>` usually develop
 
-- Return to the working branch (usually master) ` git checkout <your-development-branch>`
+- Return to the working branch ` git checkout <your-development-branch>`
 
 - Remove unused branch used for porting back.
 
