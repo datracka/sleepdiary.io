@@ -72,7 +72,14 @@ Commits touching only the subtree, intended for backport (e.g. fixes); (below)
 
 So don't complaint and ask if you don't understand something.
 
-- Implement Authentication: https://auth0.com/blog/2015/05/14/creating-your-first-real-world-angular-2-app-from-authentication-to-calling-an-api-and-everything-in-between/
+- Implement Authentication: 
+http://jwtbuilder.jamiekurtz.com/
+https://github.com/auth0/angular2-jwt
+https://auth0.com/blog/2015/05/14/creating-your-first-real-world-angular-2-app-from-authentication-to-calling-an-api-and-everything-in-between/
+https://auth0.com/blog/introducing-angular2-jwt-a-library-for-angular2-authentication/
+https://auth0.com/docs/quickstart/backend/python
+http://stackoverflow.com/questions/36622366/how-to-pass-secure-data-like-user-name-password-in-json-web-token
+
 - Implement ENV parameters following angular-bible
 - Modify python
 - Set class for calendar entries. GET
