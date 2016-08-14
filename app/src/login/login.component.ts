@@ -1,4 +1,4 @@
-import {Component, Input, ViewEncapsulation} from '@angular/core';
+import {Component} from '@angular/core';
 import { Router, ROUTER_DIRECTIVES } from '@angular/router';
 import { CORE_DIRECTIVES, FORM_DIRECTIVES } from '@angular/common';
 import { LoginService } from '../shared/login/login.service';
@@ -24,7 +24,7 @@ export class Login {
 
         this.loginService.login(body).subscribe(
             response => {
-                localStorage.setItem('token_key', response.json().token_key);
+                localStorage.setItem('id_token', response.json().token_key);
                 this.router.navigate(['/yearly']);
             },
             error => {
