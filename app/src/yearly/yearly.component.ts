@@ -1,9 +1,11 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {Router, ROUTER_DIRECTIVES} from '@angular/router';
+
 import {Calendar} from '../calendar';
 import {EntryForm} from '../entryForm';
-import {Router, ROUTER_DIRECTIVES} from '@angular/router';
 import {CalendarService} from "../shared/calendar/calendar.service";
 import {EntryFormService} from "../shared/entry-form/entry-form.service";
+
 
 const template = require('./yearly.html');
 
