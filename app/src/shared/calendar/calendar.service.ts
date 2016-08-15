@@ -17,7 +17,6 @@ export class CalendarService {
 
     constructor(private _http: Http, private authHttp: AuthHttp) {
         this.actionUrl = process.env.BASE_URL + process.env.API_PATH;
-        this.headers = contentHeaders;
     }
 
     public getAll(): Observable<Response> {
