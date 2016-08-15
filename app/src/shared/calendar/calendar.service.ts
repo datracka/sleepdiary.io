@@ -8,7 +8,6 @@ import {AuthHttp} from 'angular2-jwt';
 export class CalendarService {
 
     private actionUrl: string;
-    private headers: Headers;
 
     private options = new RequestOptions({
         body: '',
