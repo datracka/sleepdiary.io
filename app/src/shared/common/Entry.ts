@@ -1,7 +1,7 @@
 export class Entry {
     
-    public uuid:string;
-    public date:any;
+    public uuid:string = "1";
+    public date:any = "1";
     public sleepingQuality:string;
     public tirednessFeeling:string;
 
