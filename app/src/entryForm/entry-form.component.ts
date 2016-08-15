@@ -1,5 +1,4 @@
-import {Component, OnInit, Input} from '@angular/core';
-import {FORM_DIRECTIVES}    from '@angular/forms';
+import {Component, OnInit} from '@angular/core';
 import {Entry} from '../shared/common/Entry';
 import {CORE_DIRECTIVES} from "@angular/common";
 import {Router, ActivatedRoute}       from '@angular/router';
@@ -13,18 +12,33 @@ let styles = require('./entry-form.css');
     template: template,
     styles: [styles],
     providers: [EntryFormService],
-    directives: [CORE_DIRECTIVES, FORM_DIRECTIVES]
+    directives: [CORE_DIRECTIVES]
 })
-export class EntryForm implements OnInit {
+export class EntryForm implements OnInit{
 
-    entry:Entry;
-    submitted:boolean;
+    public entry: Entry;
     sub:any;
 
+    //default values
+    public sleepingQualityValues = [
+        { value: 'good', display: 'Good' },
+        { value: 'regular', display: 'Regular' },
+        { value: 'bad', display: 'Bad' }
+    ];
+
+    //default values
+    public tirednessFeelingValues = [
+        { value: 'good', display: 'Good' },
+        { value: 'regular', display: 'Regular' },
+        { value: 'bad', display: 'Bad' }
+    ];
+
+    // https://github.com/angular/angular/pull/9681
+    // https://scotch.io/tutorials/how-to-deal-with-different-form-controls-in-angular-2
+    // http://blog.angular-university.io/introduction-to-angular-2-forms-template-driven-vs-model-driven/
     constructor(public route:ActivatedRoute,
                 public router:Router,
                 public entryFormService:EntryFormService) {
-        //this.entry = new Entry('', '', 'good', 'good');
 
     }
 
@@ -32,17 +46,25 @@ export class EntryForm implements OnInit {
         this.sub = this.route.params.subscribe(params => {
             let uuid:string = params['uuid'];
             if (params['uuid'] === 'new') {
-               // this.entry = new Entry('', '', 'bad', 'bad');
+                //default form initialization
+                this.entry =  {
+                    uuid: '',
+                    date: '',
+                    sleepingQuality: this.sleepingQualityValues[0].value,
+                    tirednessFeeling: this.tirednessFeelingValues[0].value
+                }
+
             } else {
                 this.entryFormService.getEntry(uuid).subscribe(
                     response => {
-                        this.entry = response.json()[0];
+                      //assign to form from remote!!!
+                        console.log( response.json()[0]);
                     });
             }
         });
     }
 
-    onSubmit() {
+/*    onSubmit() {
         console.log("on Submit", this.entry.uuid);
         if (this.entry.uuid != '') {
             this.entryFormService.updateEntry(this.entry).subscribe(
@@ -68,5 +90,5 @@ export class EntryForm implements OnInit {
                 }
             );
         }
-    }
+    }*/
 }

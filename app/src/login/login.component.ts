@@ -6,6 +6,7 @@ import { LoginService } from '../shared/login/login.service';
 const styles   = require('./login.css');
 const template = require('./login.html');
 
+// http://stackoverflow.com/questions/38907089/forms-deprecated-error-with-rc5
 @Component({
     selector: 'login',
     directives: [ ROUTER_DIRECTIVES, CORE_DIRECTIVES, FORM_DIRECTIVES ],

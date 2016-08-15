@@ -23,10 +23,10 @@ import {AppComponent} from "./app.component";
     declarations: [
         AppComponent,
         Calendar,
-        EntryForm,
         Login,
         MonthlyViewComponent,
         SignUp,
+        EntryForm,
         YearlyViewComponent
     ],
     bootstrap: [AppComponent]
