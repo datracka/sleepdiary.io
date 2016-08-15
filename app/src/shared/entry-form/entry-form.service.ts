@@ -10,7 +10,6 @@ declare let ENV:any
 export class EntryFormService {
 
     private actionUrl: string;
-    private headers: Headers;
     private options = new RequestOptions({
         body: '',
         headers: contentHeaders,
