@@ -11,8 +11,7 @@ const template = require('./yearly.html');
 
 @Component({
     selector: 'yearly-view',
-    directives: [<any>Calendar, ROUTER_DIRECTIVES],
-    providers: [Calendar, EntryForm, CalendarService, EntryFormService],
+    providers: [Calendar, CalendarService],
     template: template
 })
 export class YearlyViewComponent {

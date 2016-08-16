@@ -8,7 +8,6 @@ const template = require('./signup.html');
 
 @Component({
     selector: 'signup',
-    directives: [ CORE_DIRECTIVES, FORM_DIRECTIVES ],
     template: template,
     styles: [ styles ]
 })
