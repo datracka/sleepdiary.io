@@ -1,7 +1,7 @@
 
 <div class="container">
     <h1>Calendar entry Form</h1>
-    <form #f="ngForm" novalidate>
+    <form #f="ngForm" novalidate (ngSubmit)="onSubmit()">
        <div class="form-group">
             <label for="uuid">uuid: (disabled)</label>
             <input [ngModel]="entry.uuid" type="text" class="form-control" name="uuid" id="uuid" disabled>
@@ -11,21 +11,21 @@
             <input [ngModel]="entry.date" type="text" class="form-control" name="date" id="date" disabled>
         </div>
         <div class="form-group">
-            <legend>Sleeping Quality:</legend>
+            <b>Sleeping Quality:</b>
             <label>Name</label>
             <div class="radio" *ngFor="let sleepingQuality of sleepingQualityValues">
                 <label>
-                    <input type="radio" name="sleepingQuality" [ngModel]="entry.sleepingQuality" [value]="sleepingQuality.value">
+                    <input type="radio" name="sleepingQuality" [(ngModel)]="entry.sleepingQuality" [value]="sleepingQuality.value">
                     {{sleepingQuality.display}}
                 </label>
             </div>
         </div>
         <div class="form-group">
-            <legend>Tiredness Feeling:</legend>
+            <b>Tiredness Feeling:</b>
             <label>Name</label>
             <div class="radio" *ngFor="let tirednessFeeling of tirednessFeelingValues">
                 <label>
-                    <input type="radio" name="tirednessFeeling" [ngModel]="entry.tirednessFeeling" [value]="tirednessFeeling.value">
+                    <input type="radio" name="tirednessFeeling" [(ngModel)]="entry.tirednessFeeling" [value]="tirednessFeeling.value">
                     {{tirednessFeeling.display}}
                 </label>
             </div>
@@ -33,4 +33,5 @@
         <button type="submit" class="btn btn-default">Submit</button>
         <button type="button" (click)="deleteEntry(entry.uuid)">Delete register</button>
     </form>
+    <pre>{{ngForm | json }}</pre>
 </div>

@@ -1,7 +1,6 @@
-import {Component, OnInit} from '@angular/core';
-import {Entry} from '../shared/common/Entry';
-import {CORE_DIRECTIVES} from "@angular/common";
-import {Router, ActivatedRoute}       from '@angular/router';
+import {Component, OnInit} from "@angular/core";
+import {Entry} from "../shared/common/Entry";
+import {Router, ActivatedRoute} from "@angular/router";
 import {EntryFormService} from "../shared/entry-form/entry-form.service";
 
 let template = require('./entry-form.html');
@@ -16,6 +15,7 @@ let styles = require('./entry-form.css');
 export class EntryForm implements OnInit{
 
     public entry: Entry;
+    public submitted = false;
     sub:any;
 
     //default values
@@ -32,7 +32,6 @@ export class EntryForm implements OnInit{
         { value: 'bad', display: 'Bad' }
     ];
 
-    // https://github.com/angular/angular/pull/9681
     // https://scotch.io/tutorials/how-to-deal-with-different-form-controls-in-angular-2
     // http://blog.angular-university.io/introduction-to-angular-2-forms-template-driven-vs-model-driven/
     constructor(public route:ActivatedRoute,
@@ -63,8 +62,9 @@ export class EntryForm implements OnInit{
         });
     }
 
-/*    onSubmit() {
+    onSubmit() {
         console.log("on Submit", this.entry.uuid);
+        console.log(this.entry);
         if (this.entry.uuid != '') {
             this.entryFormService.updateEntry(this.entry).subscribe(
                 response => {
@@ -89,5 +89,5 @@ export class EntryForm implements OnInit{
                 }
             );
         }
-    }*/
+    }
 }

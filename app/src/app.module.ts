@@ -1,7 +1,7 @@
 import {BrowserModule} from "@angular/platform-browser";
 import {FormsModule}   from '@angular/forms';
-import {NgModule} from "@angular/core";
-import {HttpModule} from '@angular/http';
+import {NgModule, provide} from "@angular/core";
+import {HttpModule, Http} from '@angular/http';
 
 import {routing} from "./app.routes"
 import {Calendar} from "./calendar/calendar.component";
@@ -12,6 +12,7 @@ import {SignUp} from "./signup/signup.component";
 import {YearlyViewComponent} from "./yearly/yearly.component";
 
 import {AppComponent} from "./app.component";
+import {AuthHttp, AuthConfig} from "angular2-jwt";
 
 @NgModule({
     imports: [
@@ -19,6 +20,22 @@ import {AppComponent} from "./app.component";
         FormsModule,
         routing,
         HttpModule
+    ],
+    providers: [
+        provide(AuthHttp, {
+            useFactory: (http) => {
+                return new AuthHttp(new AuthConfig({
+                    headerName: 'Authorization',
+                    headerPrefix: 'Bearer',
+                    tokenName: 'id_token',
+                    tokenGetter: (() => localStorage.getItem('id_token')),
+                    globalHeaders: [{'Content-Type': 'application/json'}],
+                    noJwtError: false,
+                    noTokenScheme: false
+                }), http);
+            },
+            deps: [Http]
+        })
     ],
     declarations: [
         AppComponent,
