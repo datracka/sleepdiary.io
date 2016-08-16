@@ -10,9 +10,7 @@ let styles = require('./entry-form.css');
 @Component({
     selector: 'form-view',
     template: template,
-    styles: [styles],
-    providers: [EntryFormService],
-    directives: [CORE_DIRECTIVES]
+    styles: [styles]
 })
 export class EntryForm implements OnInit{
 

@@ -18,7 +18,7 @@ import {AppComponent} from "./app.component";
         BrowserModule,
         FormsModule,
         routing,
-        HttpModule,
+        HttpModule
     ],
     declarations: [
         AppComponent,
