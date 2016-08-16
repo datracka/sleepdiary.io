@@ -8,7 +8,6 @@ const template = require('./app.html');
     template: template,
 })
 export class AppComponent {
-
 }
 
 
