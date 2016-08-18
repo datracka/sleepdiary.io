@@ -1,14 +1,21 @@
 export class Entry {
-    
-    public uuid:string = "1";
-    public date:any = "1";
-    public sleepingQuality:string;
-    public tirednessFeeling:string;
 
-    constructor(uuid:string, date:any, sleepingQuality:string, tirednessFeeling:string) {
+    public userId: number;
+    public uuid: string;
+    public date: any;
+    public sleepingQuality: string;
+    public tirednessFeeling: string;
+
+    constructor(userId: number, uuid: string, date: string, sleepingQuality: string, tirednessFeeling: string) {
+        this.userId = userId;
         this.uuid = uuid;
         this.date = date;
         this.sleepingQuality = sleepingQuality;
         this.tirednessFeeling = tirednessFeeling;
     }
+
+    toString() {
+        return JSON.stringify(this);
+    }
+
 }
