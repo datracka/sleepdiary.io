@@ -45,12 +45,13 @@ export class EntryForm implements OnInit{
             let uuid:string = params['uuid'];
             if (params['uuid'] === 'new') {
                 //default form initialization
-                this.entry =  {
-                    uuid: '',
-                    date: '',
-                    sleepingQuality: this.sleepingQualityValues[0].value,
-                    tirednessFeeling: this.tirednessFeelingValues[0].value
-                }
+                this.entry = new Entry(
+                    Number(JSON.parse(localStorage.getItem('user')).userId),
+                    '',
+                    new Date().toISOString(),
+                    this.sleepingQualityValues[0].value,
+                    this.tirednessFeelingValues[0].value
+                );
 
             } else {
                 this.entryFormService.getEntry(uuid).subscribe(
@@ -63,8 +64,6 @@ export class EntryForm implements OnInit{
     }
 
     onSubmit() {
-        console.log("on Submit", this.entry.uuid);
-        console.log(this.entry);
         if (this.entry.uuid != '') {
             this.entryFormService.updateEntry(this.entry).subscribe(
                 response => {
