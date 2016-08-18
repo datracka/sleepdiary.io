@@ -2,10 +2,6 @@
 <div class="container">
     <h1>Calendar entry Form</h1>
     <form #f="ngForm" novalidate (ngSubmit)="onSubmit()">
-        <div class="form-group">
-            <label for="uuid">uuid: (disabled) - for dev purposes</label>
-            <input [ngModel]="entry.userId" type="text" class="form-control" name="userId" id="userId" disabled>
-        </div>
        <div class="form-group">
             <label for="uuid">uuid: (disabled) - for dev purposes</label>
             <input [ngModel]="entry.uuid" type="text" class="form-control" name="uuid" id="uuid" disabled>

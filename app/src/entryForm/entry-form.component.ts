@@ -46,7 +46,6 @@ export class EntryForm implements OnInit{
             if (params['uuid'] === 'new') {
                 //default form initialization
                 this.entry = new Entry(
-                    Number(JSON.parse(localStorage.getItem('user')).userId),
                     '',
                     new Date().toISOString(),
                     this.sleepingQualityValues[0].value,
