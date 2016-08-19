@@ -31,7 +31,7 @@
             </div>
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
-        <button type="button" (click)="deleteEntry(entry.uuid)">Delete register</button>
+        <button *ngIf="entry.uuid" type="button" (click)="deleteEntry(entry.uuid)">Delete register</button>
     </form>
     <pre>{{ngForm | json }}</pre>
 </div>
