@@ -87,3 +87,13 @@ http://stackoverflow.com/questions/36622366/how-to-pass-secure-data-like-user-na
 - Form New Item (uuid empty) POST
 - Form Update Item (uuid) PUT
 - Delete Item by UUID DELETE
+
+## Documentation 
+
+### Api error control codes: 
+
+the status header indicates the type of error. Front-end resolves it and assign proper message.
+
+- Request successful: HTTP_201_CREATED
+- Problem in authorization: HTTP_401_UNAUTHORIZED
+- Problem in the request (another verb, incorrect payload...etc) HTTP_400_BAD_REQUEST
