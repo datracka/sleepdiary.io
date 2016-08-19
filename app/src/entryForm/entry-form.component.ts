@@ -1,6 +1,6 @@
-import {Component, AfterViewInit} from "@angular/core";
+import {Component, AfterViewInit, OnInit} from "@angular/core";
 import {Entry} from "../shared/common/Entry";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {EntryFormService} from "../shared/entry-form/entry-form.service";
 
 let template = require('./entry-form.html');
@@ -12,45 +12,48 @@ let styles = require('./entry-form.css');
     styles: [styles],
     providers: [EntryFormService]
 })
-export class EntryForm implements AfterViewInit{
+export class EntryForm implements OnInit, AfterViewInit {
 
     public entry: Entry;
     public submitted = false;
-    sub:any;
+    sub: any;
 
     //default values
     public sleepingQualityValues = [
-        { value: 'good', display: 'Good' },
-        { value: 'regular', display: 'Regular' },
-        { value: 'bad', display: 'Bad' }
+        {value: 'good', display: 'Good'},
+        {value: 'regular', display: 'Regular'},
+        {value: 'bad', display: 'Bad'}
     ];
 
     //default values
     public tirednessFeelingValues = [
-        { value: 'good', display: 'Good' },
-        { value: 'regular', display: 'Regular' },
-        { value: 'bad', display: 'Bad' }
+        {value: 'good', display: 'Good'},
+        {value: 'regular', display: 'Regular'},
+        {value: 'bad', display: 'Bad'}
     ];
 
     // https://scotch.io/tutorials/how-to-deal-with-different-form-controls-in-angular-2
     // http://blog.angular-university.io/introduction-to-angular-2-forms-template-driven-vs-model-driven/
-    constructor(public route:ActivatedRoute,
-                public entryFormService:EntryFormService) {
+    constructor(private router: Router, public route: ActivatedRoute,
+                public entryFormService: EntryFormService) {
 
+    }
+
+    ngOnInit() {
+        //initialize by default entry (uuid, date of today, 'good', 'good')
         this.entry = new Entry(
             '',
             new Date().toISOString(),
             this.sleepingQualityValues[0].value,
             this.tirednessFeelingValues[0].value
         );
-
     }
 
     ngAfterViewInit() {
         this.sub = this.route.params.subscribe(params => {
-            let uuid:string = params['uuid'];
+            let uuid: string = params['uuid'];
             if (params['uuid'] !== 'new') {
-                this.entryFormService.getEntry(uuid).subscribe(
+                this.sub = this.entryFormService.getEntry(uuid).subscribe(
                     response => {
                         console.log(response.json()[0]);
                         this.entry = new Entry(
@@ -60,7 +63,17 @@ export class EntryForm implements AfterViewInit{
                             response.json()[0].tirednessFeeling
                         );
                     });
+            } else {
+                this.sub = this.route
+                    .params
+                    .subscribe(params => {
+                            if(typeof params['day'] !== 'undefined') {
+                                this.entry.date = new Date(params['day']).toISOString();
+                            }
+                        }
+                    )
             }
+
         });
     }
 
@@ -68,8 +81,8 @@ export class EntryForm implements AfterViewInit{
         if (this.entry.uuid != '') {
             this.entryFormService.updateEntry(this.entry).subscribe(
                 response => {
-                    // do something!!
                     console.log(response.json());
+                    this.router.navigate(['/yearly']);
                 }
             );
         } else {
@@ -77,19 +90,25 @@ export class EntryForm implements AfterViewInit{
                 response => {
                     // do something!!
                     console.log(response.json());
+                    this.router.navigate(['/yearly']);
                 }
             );
         }
         this.submitted = true;
     }
 
-    deleteEntry(uuid:string) {
+    deleteEntry(uuid: string) {
         if (this.entry.uuid != '') {
             this.entryFormService.deleteEntry(uuid).subscribe(
                 response => {
                     console.log(response.json());
+                    this.router.navigate(['/yearly']);
                 }
             );
         }
+    }
+
+    ngOnDestroy() {
+        this.sub.unsubscribe();
     }
 }
