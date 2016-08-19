@@ -1,6 +1,6 @@
-import {Component, OnInit} from "@angular/core";
+import {Component, AfterViewInit} from "@angular/core";
 import {Entry} from "../shared/common/Entry";
-import {Router, ActivatedRoute} from "@angular/router";
+import {ActivatedRoute} from "@angular/router";
 import {EntryFormService} from "../shared/entry-form/entry-form.service";
 
 let template = require('./entry-form.html');
@@ -12,7 +12,7 @@ let styles = require('./entry-form.css');
     styles: [styles],
     providers: [EntryFormService]
 })
-export class EntryForm implements OnInit{
+export class EntryForm implements AfterViewInit{
 
     public entry: Entry;
     public submitted = false;
@@ -35,28 +35,30 @@ export class EntryForm implements OnInit{
     // https://scotch.io/tutorials/how-to-deal-with-different-form-controls-in-angular-2
     // http://blog.angular-university.io/introduction-to-angular-2-forms-template-driven-vs-model-driven/
     constructor(public route:ActivatedRoute,
-                public router:Router,
                 public entryFormService:EntryFormService) {
+
+        this.entry = new Entry(
+            '',
+            new Date().toISOString(),
+            this.sleepingQualityValues[0].value,
+            this.tirednessFeelingValues[0].value
+        );
 
     }
 
-    ngOnInit() {
+    ngAfterViewInit() {
         this.sub = this.route.params.subscribe(params => {
             let uuid:string = params['uuid'];
-            if (params['uuid'] === 'new') {
-                //default form initialization
-                this.entry = new Entry(
-                    '',
-                    new Date().toISOString(),
-                    this.sleepingQualityValues[0].value,
-                    this.tirednessFeelingValues[0].value
-                );
-
-            } else {
+            if (params['uuid'] !== 'new') {
                 this.entryFormService.getEntry(uuid).subscribe(
                     response => {
-                      //assign to form from remote!!!
-                        console.log( response.json()[0]);
+                        console.log(response.json()[0]);
+                        this.entry = new Entry(
+                            response.json()[0].uuid,
+                            response.json()[0].date,
+                            response.json()[0].sleepingQuality,
+                            response.json()[0].tirednessFeeling
+                        );
                     });
             }
         });
@@ -66,12 +68,14 @@ export class EntryForm implements OnInit{
         if (this.entry.uuid != '') {
             this.entryFormService.updateEntry(this.entry).subscribe(
                 response => {
+                    // do something!!
                     console.log(response.json());
                 }
             );
         } else {
             this.entryFormService.newEntry(this.entry).subscribe(
                 response => {
+                    // do something!!
                     console.log(response.json());
                 }
             );
