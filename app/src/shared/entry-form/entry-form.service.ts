@@ -21,6 +21,7 @@ export class EntryFormService {
     }
 
     getEntry(uuid: string): Observable<Response> {
+        console.log("*************")
         return this._http
             .get(this.actionUrl + 'calendar/uuid/' + uuid, this.options);
     }
@@ -31,12 +32,12 @@ export class EntryFormService {
     }
 
     updateEntry(entry: Entry): Observable<Response> {
-        return this._http
-            .put(this.actionUrl + 'calendar', JSON.stringify(entry), this.options);
+        return this._authHttp
+            .put(this.actionUrl + 'calendar', JSON.stringify(entry));
     }
 
     deleteEntry(uuid: String): Observable<Response> {
-        return this._http
+        return this._authHttp
             .delete(this.actionUrl + 'calendar/uuid/' + uuid, this.options)
     }
 
