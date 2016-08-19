@@ -16,13 +16,11 @@
 
     * Set remote files in chosen location  
         `$ git read-tree \` (press enter)
-        `> --prefix=app/src/shared -u shared/<branch>` default develop       
+        `> --prefix=app/src/shared -u shared/<branch>` default develop 
         
-        **NOTICE**: for any reason after create the SUB-REPO, the directory `app/src/shared` is tracked by GIT 
-        although it is ignored in .gitignore!! Until I understand what it is happening to fix it do the following:  
+        **NOTICE** if shared already exists this command will raise an error: `Can't not do binding`. To override
+        this remove the `-u` flag to only set the binding in cache and not write the files themself
         
-        `$ git rm -r --cached src/app/shared ` 
-
 * Install dependencies
     `$ npm install`
 
@@ -61,7 +59,9 @@ Commits touching only the subtree, intended for backport (e.g. fixes); (below)
    The picked changes should apply only to `shared` and not to `origin`. Therefore, when you commit in the repository
    you should carefully split the commits for `origin` and `shared`
 
-- push `$ git push shared HEAD:<branch>` usually develop
+- push `$ git push shared HEAD:<branch>` usually develop. 
+For example id you are deloping in a branch in `shared named `feature-branch``you should run
+`$ git push shared HEAD:feature-branch`
 
 - Return to the working branch ` git checkout <your-development-branch>`
 
@@ -72,7 +72,14 @@ Commits touching only the subtree, intended for backport (e.g. fixes); (below)
 
 So don't complaint and ask if you don't understand something.
 
-- Implement Authentication: https://auth0.com/blog/2015/05/14/creating-your-first-real-world-angular-2-app-from-authentication-to-calling-an-api-and-everything-in-between/
+- Implement Authentication: 
+http://jwtbuilder.jamiekurtz.com/
+https://github.com/auth0/angular2-jwt
+https://auth0.com/blog/2015/05/14/creating-your-first-real-world-angular-2-app-from-authentication-to-calling-an-api-and-everything-in-between/
+https://auth0.com/blog/introducing-angular2-jwt-a-library-for-angular2-authentication/
+https://auth0.com/docs/quickstart/backend/python
+http://stackoverflow.com/questions/36622366/how-to-pass-secure-data-like-user-name-password-in-json-web-token
+
 - Implement ENV parameters following angular-bible
 - Modify python
 - Set class for calendar entries. GET
@@ -80,3 +87,13 @@ So don't complaint and ask if you don't understand something.
 - Form New Item (uuid empty) POST
 - Form Update Item (uuid) PUT
 - Delete Item by UUID DELETE
+
+## Documentation 
+
+### Api error control codes: 
+
+the status header indicates the type of error. Front-end resolves it and assign proper message.
+
+- Request successful: HTTP_201_CREATED
+- Problem in authorization: HTTP_401_UNAUTHORIZED
+- Problem in the request (another verb, incorrect payload...etc) HTTP_400_BAD_REQUEST

@@ -1,5 +1,11 @@
 /* app css stylesheet */
 
+.inactive {
+    color: #ccc !important;
+    pointer-events: none;
+    cursor: default;
+}
+
 .menu {
     list-style: none;
     border-bottom: 0.1em solid black;
@@ -122,7 +128,7 @@
 .calendar > div.week > span.day.today {
     background: #E3F2FF;
 }
-.calendar > div.week > span.day.different-month {
+.calendar > div.week > span.day.different-year {
     color: #C0C0C0;
 }
 .selected {

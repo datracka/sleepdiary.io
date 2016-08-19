@@ -8,11 +8,10 @@ const template = require('./signup.html');
 
 @Component({
     selector: 'signup',
-    directives: [ CORE_DIRECTIVES, FORM_DIRECTIVES ],
     template: template,
     styles: [ styles ]
 })
-export class Signup {
+export class SignUp {
     constructor(public router: Router, public http: Http) {
     }
 }

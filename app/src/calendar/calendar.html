@@ -1,6 +1,15 @@
 <h4>Calendar</h4>
+
+<div>
+  <span>Choose a Value: </span>
+  <select [(ngModel)]="cssDiaryPointer">
+    <option value="sleeping-quality">Sleeping Quality</option>
+    <option value="tiredness-feeling">Tiredness Feeling</option>
+  </select>
+</div>
+<br/><br/>
 <div class="sleeping-quality">
-<div style="display: inline-block" class="month" *ngFor="let month of months">
+<div [ngClass]="decorateCalendar()" style="display: inline-block" class="month" *ngFor="let month of months">
   <div class="calendar">
     <div class="header">
       {{ month.name }}

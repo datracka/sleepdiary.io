@@ -1,17 +1,16 @@
-import {Component, Input, ViewEncapsulation} from '@angular/core';
-import { Router, ROUTER_DIRECTIVES } from '@angular/router';
-import { CORE_DIRECTIVES, FORM_DIRECTIVES } from '@angular/common';
-import { LoginService } from '../shared/login/login.service';
+import {Component} from '@angular/core';
+import {Router} from '@angular/router';
+import {LoginService} from '../shared/login/login.service';
 
-const styles   = require('./login.css');
+
+const styles = require('./login.css');
 const template = require('./login.html');
 
 @Component({
     selector: 'login',
-    directives: [ ROUTER_DIRECTIVES, CORE_DIRECTIVES, FORM_DIRECTIVES ],
     providers: [LoginService],
     template: template,
-    styles: [ styles ]
+    styles: [styles]
 })
 export class Login {
 
@@ -20,11 +19,12 @@ export class Login {
 
     login(event, username, password) {
         event.preventDefault();
-        let body:any = JSON.stringify({ username, password });
+        let body: any = JSON.stringify({username, password});
 
         this.loginService.login(body).subscribe(
             response => {
-                localStorage.setItem('token_key', response.json().token_key);
+                localStorage.setItem('id_token', response.json().token_key);
+                localStorage.setItem('user', JSON.stringify(response.json()));
                 this.router.navigate(['/yearly']);
             },
             error => {
@@ -33,5 +33,5 @@ export class Login {
             }
         );
     }
-    
+
 }

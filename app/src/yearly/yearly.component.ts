@@ -1,16 +1,13 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {Calendar} from '../calendar';
-import {EntryForm} from '../entryForm';
-import {Router, ROUTER_DIRECTIVES} from '@angular/router';
+import {Component} from "@angular/core";
+import {Calendar} from "../calendar";
 import {CalendarService} from "../shared/calendar/calendar.service";
-import {EntryFormService} from "../shared/entry-form/entry-form.service";
+
 
 const template = require('./yearly.html');
 
 @Component({
     selector: 'yearly-view',
-    directives: [<any>Calendar, ROUTER_DIRECTIVES],
-    providers: [Calendar, EntryForm, CalendarService, EntryFormService],
+    providers: [Calendar, CalendarService],
     template: template
 })
 export class YearlyViewComponent {
