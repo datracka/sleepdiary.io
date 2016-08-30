@@ -40,6 +40,8 @@ import 'core-js/es7/reflect';
 import 'zone.js/dist/zone';
 import 'zone.js/dist/long-stack-trace-zone';
 
+import 'hammerjs/hammer.js';
+
 /** end imports */
 
 import {platformBrowserDynamic} from "@angular/platform-browser-dynamic";

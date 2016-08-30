@@ -13,13 +13,15 @@ import {YearlyViewComponent} from "./yearly/yearly.component";
 
 import {AppComponent} from "./app.component";
 import {AuthHttp, AuthConfig} from "angular2-jwt";
+import {MdModule} from "./md.module";
 
 @NgModule({
     imports: [
         BrowserModule,
         FormsModule,
         routing,
-        HttpModule
+        HttpModule,
+        MdModule.forRoot()
     ],
     providers: [
         provide(AuthHttp, {
