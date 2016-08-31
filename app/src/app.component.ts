@@ -5,7 +5,7 @@ const styles = require('./app.component.css');
 const template = require('./app.html');
 
 @Component({
-    selector: 'my-app',
+    selector: 'sleep-diary',
     template: template,
     styles: [styles],
     encapsulation: ViewEncapsulation.Native
