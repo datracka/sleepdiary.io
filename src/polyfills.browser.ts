@@ -1,15 +1,3 @@
-//
-//  **** WHY this import is still needed although angular2-seed does not have it and works well????
-import "reflect-metadata";
-
-/* encapsulate in files folowing angular2-seed example */
-
-import '@angular/platform-browser-dynamic';
-import '@angular/platform-browser';
-import '@angular/core';
-import '@angular/http';
-import '@angular/router';
-
 // Polyfills
 
 import 'ie-shim'; // Internet Explorer 9 support
@@ -39,14 +27,3 @@ import 'core-js/es6/reflect';
 import 'core-js/es7/reflect';
 import 'zone.js/dist/zone';
 import 'zone.js/dist/long-stack-trace-zone';
-
-import 'hammerjs/hammer.js';
-
-/** end imports */
-
-import {platformBrowserDynamic} from "@angular/platform-browser-dynamic";
-import {AppModule} from "./src/app.module";
-
-platformBrowserDynamic().bootstrapModule(AppModule);
-
-

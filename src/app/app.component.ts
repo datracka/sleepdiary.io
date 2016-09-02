@@ -1,4 +1,3 @@
-///<reference path="../../node_modules/@angular/core/src/metadata/lifecycle_hooks.d.ts"/>
 import {Component, ViewEncapsulation} from '@angular/core';
 
 const styles = require('./app.component.css');

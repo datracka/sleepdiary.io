@@ -1,6 +1,6 @@
 import {BrowserModule} from "@angular/platform-browser";
 import {FormsModule}   from '@angular/forms';
-import {NgModule, provide, ApplicationRef} from "@angular/core";
+import {NgModule, ApplicationRef} from "@angular/core";
 import {HttpModule, Http} from '@angular/http';
 
 import {routing} from "./app.routes"
@@ -14,6 +14,7 @@ import {YearlyViewComponent} from "./yearly/yearly.component";
 import {AppComponent} from "./app.component";
 import {AuthHttp, AuthConfig} from "angular2-jwt";
 import {MdlModule} from "angular2-mdl";
+import {provide} from "@angular/core";
 
 @NgModule({
     imports: [

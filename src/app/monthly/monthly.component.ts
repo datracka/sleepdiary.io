@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import {Calendar} from '../calendar';
-import {Router, ROUTER_DIRECTIVES} from '@angular/router';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'monthly-view',
