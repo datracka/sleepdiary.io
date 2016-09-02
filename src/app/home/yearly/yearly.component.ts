@@ -1,6 +1,6 @@
 import {Component} from "@angular/core";
 import {Calendar} from "../calendar";
-import {CalendarService} from "../shared/calendar/calendar.service";
+import {CalendarService} from "../../shared/calendar/calendar.service";
 
 
 const template = require('./yearly.html');

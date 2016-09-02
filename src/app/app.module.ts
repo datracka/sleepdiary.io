@@ -4,17 +4,14 @@ import {NgModule, ApplicationRef} from "@angular/core";
 import {HttpModule, Http} from '@angular/http';
 
 import {routing} from "./app.routes"
-import {Calendar} from "./calendar/calendar.component";
-import {EntryForm} from "./entryForm/entry-form.component";
 import {Login} from "./login/login.component";
-import {MonthlyViewComponent} from "./monthly/monthly.component";
 import {SignUp} from "./signup/signup.component";
-import {YearlyViewComponent} from "./yearly/yearly.component";
 
 import {AppComponent} from "./app.component";
 import {AuthHttp, AuthConfig} from "angular2-jwt";
 import {MdlModule} from "angular2-mdl";
 import {provide} from "@angular/core";
+import {HomeComponent} from "./home/home";
 
 @NgModule({
     imports: [
@@ -42,12 +39,10 @@ import {provide} from "@angular/core";
     ],
     declarations: [
         AppComponent,
-        Calendar,
+        HomeComponent,
         Login,
-        MonthlyViewComponent,
         SignUp,
-        EntryForm,
-        YearlyViewComponent
+
     ],
     entryComponents: [AppComponent]
 })

@@ -1,12 +1,11 @@
 import { Routes, RouterModule } from '@angular/router';
 
-import {MonthlyViewComponent} from "./monthly";
-import {YearlyViewComponent} from "./yearly";
 import {Login} from "./login";
 import {SignUp} from "./signup";
-import {AuthGuard} from './shared/common/auth-guard';
-import {EntryForm} from "./entryForm";
+import {homeRouting} from "./home/home.routes";
+import {ModuleWithProviders} from "@angular/core";
 
+// https://angular.io/docs/ts/latest/guide/router.html
 const appRoutes: Routes = [
     {
         path: '',
@@ -22,23 +21,16 @@ const appRoutes: Routes = [
         component: SignUp
     },
     {
-        path: 'entry',
-        component: EntryForm
-    },
-    {
-        path: 'entry/:uuid',
-        component: EntryForm
-    },
-    {
-        path: 'monthly',
-        component: MonthlyViewComponent
-    },
-    {
-        path: 'yearly',
-        component: YearlyViewComponent
-    },
+        path: 'home',
+        loadChildren: 'app/home/home.module#homeModule'
+    }
 ];
 
-export const routing = RouterModule.forRoot(appRoutes);
+const appRoutes: Routes = [
+    ...homeRouting
+];
+
+export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);
+
 
 
