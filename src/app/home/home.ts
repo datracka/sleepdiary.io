@@ -1,8 +1,13 @@
 import {Component, Input} from '@angular/core';
 
+const template = require('./home.html');
+
 @Component({
-    selector: 'monthly-view',
-    template: `<b>Home</b>`
+    template: `
+        <header-comp></header-comp>
+        <router-outlet></router-outlet>
+        <footer-comp></footer-comp>
+    `
 })
 export class HomeComponent {
 }

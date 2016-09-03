@@ -3,29 +3,31 @@ import {HomeComponent} from "./home";
 import {YearlyViewComponent} from "./yearly/yearly.component";
 import {MonthlyViewComponent} from "./monthly/monthly.component";
 import {EntryForm} from "./entryForm/entry-form.component";
-const appRoutes: Routes = [
+import {ModuleWithProviders} from "@angular/core";
+
+const homeRoutes: Routes = [
     {
-        path: '',
+        path: 'home',
         component: HomeComponent,
         children: [
+            {
+                path: '',
+                component: MonthlyViewComponent,
+            },
+            {
+                path: 'monthly',
+                component: MonthlyViewComponent,
+            }/*,
             {
                 path: 'yearly',
                 component: YearlyViewComponent,
             },
             {
-                path: 'monthly',
-                component: MonthlyViewComponent,
-            },
-            {
                 path: 'entry',
                 component: EntryForm,
-            },
-            {
-                path: '',
-                component: MonthlyViewComponent,
-            }
+            },*/
         ]
     }
 ];
 
-export const homeRouting = RouterModule.forRoot(appRoutes);
+export const homeRouting: ModuleWithProviders = RouterModule.forChild(homeRoutes);

@@ -11,13 +11,14 @@ import {AppComponent} from "./app.component";
 import {AuthHttp, AuthConfig} from "angular2-jwt";
 import {MdlModule} from "angular2-mdl";
 import {provide} from "@angular/core";
-import {HomeComponent} from "./home/home";
+import {HomeModule} from "./home/home.module";
 
 @NgModule({
     imports: [
         BrowserModule,
         FormsModule,
         routing,
+        HomeModule,
         HttpModule,
         MdlModule
     ],
@@ -39,10 +40,8 @@ import {HomeComponent} from "./home/home";
     ],
     declarations: [
         AppComponent,
-        HomeComponent,
         Login,
         SignUp,
-
     ],
     entryComponents: [AppComponent]
 })
