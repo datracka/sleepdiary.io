@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
 
+const template = require('./footer.html');
 @Component({
     selector: 'footer-comp',
-    template: `
-    <b>Footer</b>
-    `
+    template: template
 
 })
 export class Footer {

@@ -19,6 +19,7 @@ import {Footer} from "../footer/footer";
     declarations: [
         HomeComponent,
         MonthlyViewComponent,
+        Calendar,
         Header,
         Footer
     ],

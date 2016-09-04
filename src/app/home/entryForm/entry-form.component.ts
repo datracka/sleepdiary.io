@@ -82,7 +82,7 @@ export class EntryForm implements OnInit, AfterViewInit {
             this.entryFormService.updateEntry(this.entry).subscribe(
                 response => {
                     console.log(response.json());
-                    this.router.navigate(['/yearly']);
+                    this.router.navigate(['/home/monthly']);
                 }
             );
         } else {
@@ -90,7 +90,7 @@ export class EntryForm implements OnInit, AfterViewInit {
                 response => {
                     // do something!!
                     console.log(response.json());
-                    this.router.navigate(['/yearly']);
+                    this.router.navigate(['/home/monthly']);
                 }
             );
         }
@@ -102,7 +102,7 @@ export class EntryForm implements OnInit, AfterViewInit {
             this.entryFormService.deleteEntry(uuid).subscribe(
                 response => {
                     console.log(response.json());
-                    this.router.navigate(['/yearly']);
+                    this.router.navigate(['/home/monthly']);
                 }
             );
         }

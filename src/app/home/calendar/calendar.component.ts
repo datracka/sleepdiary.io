@@ -78,7 +78,7 @@ export class Calendar implements OnInit {
         if (typeof entry !== 'undefined') {
             uuid = entry.uuid;
         }
-        this.router.navigate(['/entry', uuid, {day: dayFormatted}]);
+        this.router.navigate(['/home/entry', uuid, {day: dayFormatted}]);
     }
 
     initArrayMonth(lang: String, year: String) {

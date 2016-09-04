@@ -17,15 +17,15 @@ const homeRoutes: Routes = [
             {
                 path: 'monthly',
                 component: MonthlyViewComponent,
-            }/*,
+            },
             {
                 path: 'yearly',
                 component: YearlyViewComponent,
             },
             {
-                path: 'entry',
+                path: 'entry/:uuid',
                 component: EntryForm,
-            },*/
+            }
         ]
     }
 ];
