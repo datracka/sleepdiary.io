@@ -80,6 +80,13 @@ https://auth0.com/blog/introducing-angular2-jwt-a-library-for-angular2-authentic
 https://auth0.com/docs/quickstart/backend/python
 http://stackoverflow.com/questions/36622366/how-to-pass-secure-data-like-user-name-password-in-json-web-token
 
+- UI
+https://github.com/jelbourn/material2-app
+http://codepen.io/sevilayha/full/IdGKH
+http://codepen.io/ettrics/pen/MYxZyJ/
+http://codepen.io/hone/pen/jERzmd/
+
+
 - Implement ENV parameters following angular-bible
 - Modify python
 - Set class for calendar entries. GET
