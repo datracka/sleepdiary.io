@@ -60,47 +60,21 @@ Commits touching only the subtree, intended for backport (e.g. fixes); (below)
    you should carefully split the commits for `origin` and `shared`
 
 - push `$ git push shared HEAD:<branch>` usually develop. 
-For example id you are deloping in a branch in `shared named `feature-branch``you should run
+For example id you are deloping in a branch in `shared` named `feature-branch` you should run
 `$ git push shared HEAD:feature-branch`
 
 - Return to the working branch ` git checkout <your-development-branch>`
 
-- Remove unused branch used for porting back.
+- Remember to remove the porting branch after use it.
 
 
 ## Last.. It is a WIP!
 
 So don't complaint and ask if you don't understand something.
 
-- Implement Authentication: 
-http://jwtbuilder.jamiekurtz.com/
-https://github.com/auth0/angular2-jwt
-https://auth0.com/blog/2015/05/14/creating-your-first-real-world-angular-2-app-from-authentication-to-calling-an-api-and-everything-in-between/
-https://auth0.com/blog/introducing-angular2-jwt-a-library-for-angular2-authentication/
-https://auth0.com/docs/quickstart/backend/python
-http://stackoverflow.com/questions/36622366/how-to-pass-secure-data-like-user-name-password-in-json-web-token
-
-- UI
-https://github.com/jelbourn/material2-app
-http://codepen.io/sevilayha/full/IdGKH
-http://codepen.io/ettrics/pen/MYxZyJ/
-http://codepen.io/hone/pen/jERzmd/
 
 
-- Implement ENV parameters following angular-bible
-- Modify python
-- Set class for calendar entries. GET
-- Drop down selection SQ (Sleep Quality) and TF (tiredness Feeling)
-- Form New Item (uuid empty) POST
-- Form Update Item (uuid) PUT
-- Delete Item by UUID DELETE
 
-## Documentation 
 
-### Api error control codes: 
 
-the status header indicates the type of error. Front-end resolves it and assign proper message.
 
-- Request successful: HTTP_201_CREATED
-- Problem in authorization: HTTP_401_UNAUTHORIZED
-- Problem in the request (another verb, incorrect payload...etc) HTTP_400_BAD_REQUEST

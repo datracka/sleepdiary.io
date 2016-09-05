@@ -3,14 +3,14 @@ import {Router} from '@angular/router';
 import {LoginService} from '../shared/login/login.service';
 
 
-const styles = require('./login.css');
+const styles = require('./login.scss');
 const template = require('./login.html');
 
 @Component({
     selector: 'login',
     providers: [LoginService],
     template: template,
-    styles: [styles]
+    styleUrls: ['./login.scss']
 })
 export class Login {
 
