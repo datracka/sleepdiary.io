@@ -4,6 +4,10 @@ var path = require('path');
 var DotenvPlugin = require('webpack-dotenv-plugin');
 var BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
+/** postcss plugins */
+var precss       = require('precss');
+var autoprefixer = require('autoprefixer');
+
 /**
  * Webpack Constants
  */
@@ -37,7 +41,7 @@ var webpackConfig = {
     loaders: [
       // .ts files for TypeScript
       { test: /\.ts$/, loaders: ['awesome-typescript-loader', 'angular2-template-loader'] },
-      { test: /\.css$/, loaders: ['to-string-loader', 'css-loader'] },
+      { test: /\.css$/, loaders: ['to-string-loader', 'css-loader', 'postcss-loader'] },
       { test: /\.html$/, loader: 'raw-loader' },
       {
         test: /\.scss$/,
@@ -49,6 +53,9 @@ var webpackConfig = {
         loaders: ['style-loader', 'css-loader', 'sass-loader']
       }
     ]
+  },
+  postcss: function () {
+    return [precss, autoprefixer];
   }
 
 };
