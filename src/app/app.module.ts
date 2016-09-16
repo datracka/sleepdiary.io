@@ -11,6 +11,7 @@ import {AppComponent} from "./app.component";
 import {AuthHttp, AuthConfig} from "angular2-jwt";
 
 import {HomeModule} from "./home/home.module";
+import {MdlModule} from "angular2-mdl";
 
 /*https://angular.io/docs/ts/latest/cookbook/dependency-injection.html#!#usefactory*/
 @NgModule({
@@ -20,6 +21,7 @@ import {HomeModule} from "./home/home.module";
         routing,
         HomeModule,
         HttpModule,
+        MdlModule
     ],
     providers: [
         {   provide: AuthHttp,
