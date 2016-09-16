@@ -9,10 +9,6 @@ const template = require('./yearly.html');
     selector: 'yearly-view',
     template: template,
     providers: [
-        Header,
-        Footer,
-        Calendar,
-        CalendarService
     ]
 
 })
