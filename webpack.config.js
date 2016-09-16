@@ -34,7 +34,7 @@ var webpackConfig = {
       }
     }),
     new DotenvPlugin({ sample: './.env.default', path: './.env.dev' }),
-    new BrowserSyncPlugin({ host: 'localhost', port: 3000, proxy: 'http://localhost:3100'}),
+   new BrowserSyncPlugin({ host: 'localhost', port: 3000, proxy: 'http://localhost:3100'}),
   ],
 
   module: {

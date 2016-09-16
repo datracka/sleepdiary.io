@@ -9,10 +9,10 @@ import {SignUp} from "./signup/signup.component";
 
 import {AppComponent} from "./app.component";
 import {AuthHttp, AuthConfig} from "angular2-jwt";
-import {MdlModule} from "angular2-mdl";
-import {provide} from "@angular/core";
+
 import {HomeModule} from "./home/home.module";
 
+/*https://angular.io/docs/ts/latest/cookbook/dependency-injection.html#!#usefactory*/
 @NgModule({
     imports: [
         BrowserModule,
@@ -20,10 +20,23 @@ import {HomeModule} from "./home/home.module";
         routing,
         HomeModule,
         HttpModule,
-        MdlModule
     ],
     providers: [
-        provide(AuthHttp, {
+        {   provide: AuthHttp,
+            useFactory: (http) => {
+            return new AuthHttp(new AuthConfig({
+                headerName: 'Authorization',
+                headerPrefix: 'Bearer',
+                tokenName: 'id_token',
+                tokenGetter: (() => localStorage.getItem('id_token')),
+                globalHeaders: [{'Content-Type': 'application/json'}],
+                noJwtError: false,
+                noTokenScheme: false
+            }), http);
+            },
+            deps: [Http]
+        },
+/*        provide(AuthHttp, {
             useFactory: (http) => {
                 return new AuthHttp(new AuthConfig({
                     headerName: 'Authorization',
@@ -35,8 +48,8 @@ import {HomeModule} from "./home/home.module";
                     noTokenScheme: false
                 }), http);
             },
-            deps: [Http]
-        })
+
+        })*/
     ],
     declarations: [
         AppComponent,
