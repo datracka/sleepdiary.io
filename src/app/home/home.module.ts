@@ -9,6 +9,7 @@ import {FormsModule} from "@angular/forms";
 import {HomeComponent} from "./home";
 import {Header} from "../header/header";
 import {Footer} from "../footer/footer";
+import {AuthGuard} from "../shared/common/auth-guard";
 
 @NgModule({
     imports: [
@@ -26,6 +27,7 @@ import {Footer} from "../footer/footer";
         Footer
     ],
     providers: [
+        AuthGuard
     ]
 })
 export class HomeModule {}
