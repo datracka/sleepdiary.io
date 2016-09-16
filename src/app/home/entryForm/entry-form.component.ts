@@ -81,7 +81,6 @@ export class EntryForm implements OnInit, AfterViewInit {
         if (this.entry.uuid != '') {
             this.entryFormService.updateEntry(this.entry).subscribe(
                 response => {
-                    console.log(response.json());
                     this.router.navigate(['/home/monthly']);
                 }
             );
@@ -89,7 +88,6 @@ export class EntryForm implements OnInit, AfterViewInit {
             this.entryFormService.newEntry(this.entry).subscribe(
                 response => {
                     // do something!!
-                    console.log(response.json());
                     this.router.navigate(['/home/monthly']);
                 }
             );
@@ -101,7 +99,6 @@ export class EntryForm implements OnInit, AfterViewInit {
         if (this.entry.uuid != '') {
             this.entryFormService.deleteEntry(uuid).subscribe(
                 response => {
-                    console.log(response.json());
                     this.router.navigate(['/home/monthly']);
                 }
             );
