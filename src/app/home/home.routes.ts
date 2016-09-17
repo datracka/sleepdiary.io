@@ -14,19 +14,19 @@ const homeRoutes: Routes = [
         children: [
             {
                 path: '',
-                component: MonthlyViewComponent,
+                component: MonthlyViewComponent
             },
             {
                 path: 'monthly',
-                component: MonthlyViewComponent,
+                component: MonthlyViewComponent
             },
             {
                 path: 'yearly',
-                component: YearlyViewComponent,
+                component: YearlyViewComponent
             },
             {
                 path: 'entry/:uuid',
-                component: EntryForm,
+                component: EntryForm
             }
         ]
     }
