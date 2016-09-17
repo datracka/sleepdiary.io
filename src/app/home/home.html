@@ -1,1 +1,16 @@
-Empty! template in ts
+<div class="demo-container" mdl-shadow="2">
+    <mdl-layout mdl-layout-fixed-header mdl-layout-header-seamed>
+        <header-comp></header-comp>
+        <mdl-layout-drawer>
+            <mdl-layout-title>Title</mdl-layout-title>
+            <nav class="mdl-navigation">
+                <a class="mdl-navigation__link" href>Link</a>
+                <a class="mdl-navigation__link" href>Link</a>
+                <a class="mdl-navigation__link" href>Link</a>
+            </nav>
+        </mdl-layout-drawer>
+        <mdl-layout-content>
+            <router-outlet ></router-outlet>
+        </mdl-layout-content>
+    </mdl-layout>
+</div>
