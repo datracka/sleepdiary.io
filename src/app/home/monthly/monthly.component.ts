@@ -10,9 +10,6 @@ const template = require('./monthly.html');
 @Component({
     selector: 'monthly-view',
     providers: [
-        Header,
-        Footer,
-        Calendar,
         CalendarService
     ],
     template: template
