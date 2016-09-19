@@ -9,21 +9,27 @@ import {FormsModule} from "@angular/forms";
 import {HomeComponent} from "./home";
 import {Header} from "../header/header";
 import {Footer} from "../footer/footer";
+import {AuthGuard} from "../shared/common/auth-guard";
+import {MdlModule} from "angular2-mdl";
 
 @NgModule({
     imports: [
         CommonModule,
         FormsModule,
-        homeRouting
+        homeRouting,
+        MdlModule
     ],
     declarations: [
         HomeComponent,
         MonthlyViewComponent,
+        YearlyViewComponent,
         Calendar,
+        EntryForm,
         Header,
         Footer
     ],
     providers: [
+        AuthGuard
     ]
 })
 export class HomeModule {}

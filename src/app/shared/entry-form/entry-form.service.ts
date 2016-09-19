@@ -21,8 +21,7 @@ export class EntryFormService {
     }
 
     getEntry(uuid: string): Observable<Response> {
-        console.log("*************")
-        return this._http
+        return this._authHttp
             .get(this.actionUrl + 'calendar/uuid/' + uuid, this.options);
     }
 

@@ -4,27 +4,29 @@ import {YearlyViewComponent} from "./yearly/yearly.component";
 import {MonthlyViewComponent} from "./monthly/monthly.component";
 import {EntryForm} from "./entryForm/entry-form.component";
 import {ModuleWithProviders} from "@angular/core";
+import {AuthGuard} from "../shared/common/auth-guard";
 
 const homeRoutes: Routes = [
     {
         path: 'home',
         component: HomeComponent,
+        canActivate: [AuthGuard],
         children: [
             {
                 path: '',
-                component: MonthlyViewComponent,
+                component: MonthlyViewComponent
             },
             {
                 path: 'monthly',
-                component: MonthlyViewComponent,
+                component: MonthlyViewComponent
             },
             {
                 path: 'yearly',
-                component: YearlyViewComponent,
+                component: YearlyViewComponent
             },
             {
                 path: 'entry/:uuid',
-                component: EntryForm,
+                component: EntryForm
             }
         ]
     }

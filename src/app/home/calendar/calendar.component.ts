@@ -10,8 +10,7 @@ let styles = require('./calendar.css');
     selector: 'calendar',
     template: template,
     styles: [styles],
-    providers: [CalendarService],
-    encapsulation: ViewEncapsulation.Native
+    providers: [CalendarService]
 })
 export class Calendar implements OnInit {
 

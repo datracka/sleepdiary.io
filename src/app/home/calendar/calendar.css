@@ -45,16 +45,16 @@
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     background: white;
-    width: 300px;
     border: solid 1px #CCC;
     margin-bottom: 10px;
 }
 .calendar > div.header {
     float: left;
     width: 100%;
-    background: #2875C7;
+    background: #3477AB;
     height: 40px;
     color: white;
+    line-height: 40px;
 }
 
 .calendar > div.header > * {
@@ -141,23 +141,23 @@
 }
 
 .sleeping-quality .sleeping-quality-good {
-    background-color: green !important;
+    background-color: #2EB669 !important;
 }
 .sleeping-quality .sleeping-quality-regular {
-    background-color: yellow !important;
+    background-color: #FFCD41 !important;
 }
 .sleeping-quality .sleeping-quality-bad {
-    background-color: red !important;
+    background-color: #FD4045 !important;
 }
 
 .tiredness-feeling .tiredness-feeling-good {
-    background-color: green !important;
+    background-color: #2EB669 !important;
 }
 .tiredness-feeling .tiredness-feeling-regular {
-    background-color: yellow !important;
+    background-color: #FFCD41 !important;
 }
 .tiredness-feeling .tiredness-feeling-bad {
-    background-color: red !important;
+    background-color: #FD4045 !important;
 }
 
 /** form angular demo */
@@ -168,5 +168,17 @@
 
 .css-form input.ng-valid.ng-touched {
     background-color: #78FA89;
+}
+
+/** add button */
+
+.sd-add-button {
+    position: fixed;
+    display: block;
+    right: 0;
+    bottom: 0;
+    margin-right: 30px;
+    margin-bottom: 20px;
+    z-index: 900;
 }
 
