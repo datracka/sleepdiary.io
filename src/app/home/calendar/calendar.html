@@ -1,5 +1,5 @@
 <div class="mdl-grid">
-    <div class="mdl-cell mdl-cell--4-col" *ngFor="let month of months">
+    <div [ngClass]="decorateCalendar()" class="mdl-cell mdl-cell--4-col" *ngFor="let month of months">
         <div class="calendar">
             <div class="header">
                 {{ month.name }}
@@ -27,3 +27,4 @@
         <mdl-icon>add</mdl-icon>
     </button>
 </div>
+<!--  [ngClass]="decorateDay(day)" (click)="onSelect(day)" -->
