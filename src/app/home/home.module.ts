@@ -11,6 +11,7 @@ import {Header} from "../header/header";
 import {Footer} from "../footer/footer";
 import {AuthGuard} from "../shared/common/auth-guard";
 import {MdlModule} from "angular2-mdl";
+import {Drawer} from "../drawer/drawer";
 
 @NgModule({
     imports: [
@@ -26,6 +27,7 @@ import {MdlModule} from "angular2-mdl";
         Calendar,
         EntryForm,
         Header,
+        Drawer,
         Footer
     ],
     providers: [
