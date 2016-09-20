@@ -5,7 +5,7 @@ import {CalendarService} from '../../shared/calendar/calendar.service'
 import {ActivatedRoute, Router} from "@angular/router";
 import {Week} from "./week";
 import {Day} from "./day";
-import {MetricsIndicators} from "../../shared/common/metric-indicators";
+import {MetricsIndicators} from "../../shared/common/metrics-indicators";
 let template = require('./calendar.html');
 let styles = require('./calendar.css');
 
