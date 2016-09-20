@@ -1,7 +1,10 @@
+import {Day} from "./day";
+
 export class Week {
-  numberWeeks:number;
+
+  public days: Array<Day>;
   
-  constructor(numberWeeks:number) {
-    this.numberWeeks = numberWeeks;
+  constructor(days: Array<Day>) {
+    this.days = days;
   }
 }

@@ -1,8 +1,11 @@
-import {Component, Input, ViewEncapsulation, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import * as moment from 'moment';
 import {Month} from './month';
 import {CalendarService} from '../../shared/calendar/calendar.service'
 import {ActivatedRoute, Router} from "@angular/router";
+import {Week} from "./week";
+import {Day} from "./day";
+import {MetricsIndicators} from "../../shared/common/metric-indicators";
 let template = require('./calendar.html');
 let styles = require('./calendar.css');
 
@@ -14,8 +17,9 @@ let styles = require('./calendar.css');
 })
 export class Calendar implements OnInit {
 
-    cssDiaryPointer: any = 'sleeping-quality';
+    metricIndicatorClass: string = MetricsIndicators.SLEEPING_QUALITY; //default value
     entries: any;
+    backgroundColor;
     months: Array<Month> = [
         new Month('January'),
         new Month('February'),
@@ -32,42 +36,42 @@ export class Calendar implements OnInit {
     ];
 
     constructor(private router: Router, public route: ActivatedRoute, public calendarService: CalendarService) {
-        this.initArrayMonth('en', '2016');
+        this.buildMonths('en', '2016');
     }
 
     decorateCalendar() {
-        let cssClass = [];
-        cssClass.push(this.cssDiaryPointer);
-        return cssClass;
-    }
-    decorateDay(day: any) {
-
-        let cssClasses = [];
-        let dayFormatted = day.date.format("YYYY-MM-DD");
-
-        if (!day.isCurrentMonth) {
-            cssClasses.push('inactive');
+        if (this.metricIndicatorClass === MetricsIndicators.SLEEPING_QUALITY) {
+            this.metricIndicatorClass = MetricsIndicators.TIREDNESS_FEELING;
+        } else {
+            this.metricIndicatorClass = MetricsIndicators.SLEEPING_QUALITY;
         }
-
-        //when observable was resolved
-        if (typeof this.entries !== 'undefined') {
-            let data = this.entries[dayFormatted];
-            if (typeof data !== 'undefined') {
-                //if it is an filled entry highlight it.
-                cssClasses.push("sleeping-quality-" + data.sleepingQuality);
-                cssClasses.push("tiredness-feeling-" + data.tirednessFeeling);
-            }
-        }
-
-        return cssClasses;
     }
 
     ngOnInit() {
         this.calendarService.getAll().subscribe(
             response => {
                 this.entries = response.json();
+                for (var key in this.entries) {
+                    if(this.entries.hasOwnProperty(key)) {
+                        this.decorateDay(this.entries[key]);
+                    }
+                }
             }
         );
+
+    }
+
+    decorateDay(entry) {
+        this.months.forEach(function (month) {
+            month.weeks.forEach(function (week) {
+                week.days.forEach(function (day) {
+                    if (day.date.isSame(entry.date, "day")) {
+                        day.sleepingQuality = entry.sleepingQuality;
+                        day.tirednessFeeling = entry.tirednessFeeling;
+                    }
+                });
+            });
+        });
     }
 
     onSelect(day: any) {
@@ -80,16 +84,7 @@ export class Calendar implements OnInit {
         this.router.navigate(['/home/entry', uuid, {day: dayFormatted}]);
     }
 
-    initArrayMonth(lang: String, year: String) {
-
-        for (var i = 0; i < 12; i++) {
-            let moment: any = this.getMonthDateRange(year, i, true);
-            let theWeeks: any = this.buildMonth(moment.startDateOfWeek, i);
-            this.months[i].setWeeks(theWeeks);
-        }
-    }
-
-    getMonthDateRange(year: String, month: number, isStartOnMonday: boolean) {
+    static getMonthDateRange(year: String, month: number, isStartOnMonday: boolean) {
 
         let monthStartDate: any = moment([year, month]).isoWeekday(1);
 
@@ -107,9 +102,18 @@ export class Calendar implements OnInit {
 
     }
 
-    buildMonth(startDateOfWeek: any, currentMonth: number): any {
+    buildMonths(lang: String, year: String) {
 
-        let theWeeks: Array<any> = [],
+        for (var i = 0; i < 12; i++) {
+            let moment: any = Calendar.getMonthDateRange(year, i, true);
+            let weeks: Array<Week> = Calendar.buildWeeks(moment.startDateOfWeek, i);
+            this.months[i].setWeeks(weeks);
+        }
+    }
+
+    static buildWeeks(startDateOfWeek: any, currentMonth: number): any {
+
+        let days: Array<Week> = [],
             currentDate: any = startDateOfWeek.clone(),
             nextMonth: number = 0;
 
@@ -120,24 +124,26 @@ export class Calendar implements OnInit {
         }
 
         while ((currentDate.month() !== nextMonth)) {
-            theWeeks.push({days: this.buildWeek(currentDate.clone(), currentMonth)});
+            let week: Week = new Week(
+                Calendar.buildDays(currentDate.clone(), currentMonth));
+            days.push(week);
             currentDate.add(1, "w");
         }
-        return theWeeks;
+        return days;
     }
 
-    buildWeek(date: any, month: any) {
-        var days: any = [];
+    static buildDays(date: any, month: any) {
+        var days: Array<Day> = [];
         for (var i = 0; i < 7; i++) {
-            days.push({
-                name: date.format("dd").substring(0, 1),
-                number: date.date(),
-                isCurrentMonth: date.month() === month,
-                isToday: date.isSame(new Date(), "day"),
-                date: date
-            });
+            let day: Day = new Day(
+                date.format("dd").substring(0, 1),
+                date.date(),
+                date.month() === month,
+                date.isSame(new Date(), "day"),
+                date);
             date = date.clone();
             date.add(1, "d");
+            days.push(day);
         }
         return days;
     }

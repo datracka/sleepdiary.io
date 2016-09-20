@@ -1,5 +1,5 @@
-<div class="mdl-grid">
-    <div [ngClass]="decorateCalendar()" class="mdl-cell mdl-cell--4-col" *ngFor="let month of months">
+<div class="mdl-grid sleeping-quality" >
+    <div class="mdl-cell mdl-cell--4-col" *ngFor="let month of months">
         <div class="calendar">
             <div class="header">
                 {{ month.name }}
@@ -16,15 +16,16 @@
                 <span class="day">Sun</span>
             </div>
             <div class="week" *ngFor="let week of month.weeks">
-      <span class="day" *ngFor="let day of week.days">
-        {{ day.number }}
-      </span>
+                <span [ngClass]="day.tirednessFeeling" class="day" *ngFor="let day of week.days">
+                  {{ day.number }}
+                </span>
             </div>
         </div>
     </div>
-    <button routerLink="/home/entry/new" class="sd-add-button" mdl-button mdl-button-type="fab" mdl-colored="accent"
+    <a routerLink="/home/entry/new" class="sd-add-button" mdl-button mdl-button-type="fab" mdl-colored="accent"
             mdl-ripple>
         <mdl-icon>add</mdl-icon>
-    </button>
+    </a>
 </div>
 <!--  [ngClass]="decorateDay(day)" (click)="onSelect(day)" -->
+<!-- [ngStyle]="{'background-color': backgroundColor }" -->

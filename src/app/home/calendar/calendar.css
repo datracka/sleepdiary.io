@@ -39,6 +39,7 @@
     box-sizing: border-box;
     -moz-box-sizing: border-box;
 }
+
 .calendar {
     float: left;
     display: block;
@@ -48,6 +49,7 @@
     border: solid 1px #CCC;
     margin-bottom: 10px;
 }
+
 .calendar > div.header {
     float: left;
     width: 100%;
@@ -98,14 +100,17 @@
     padding-right: 40px;
     color: inherit;
 }
+
 .calendar > div.week {
     float: left;
     width: 100%;
     border-top: solid 1px #CCC;
 }
+
 .calendar > div.week:first-child {
     border-top: none;
 }
+
 .calendar > div.week > span.day {
     float: left;
     width: 14.28571429%;
@@ -122,41 +127,50 @@
     cursor: pointer;
     color: black;
 }
+
 .calendar > div.week > span.day:first-child {
     border-left: none;
 }
+
 .calendar > div.week > span.day.today {
     background: #E3F2FF;
 }
+
 .calendar > div.week > span.day.different-year {
     color: #C0C0C0;
 }
+
 .selected {
     background: #2875C7 !important;
     color: white !important;
 }
+
 .calendar > div.week.names > span {
     color: #2875C7;
     font-weight: bold;
 }
 
-.sleeping-quality .sleeping-quality-good {
+.sleeping-quality .good {
     background-color: #2EB669 !important;
 }
-.sleeping-quality .sleeping-quality-regular {
+
+.sleeping-quality .regular {
     background-color: #FFCD41 !important;
 }
-.sleeping-quality .sleeping-quality-bad {
+
+.sleeping-quality .bad {
     background-color: #FD4045 !important;
 }
 
-.tiredness-feeling .tiredness-feeling-good {
+.tiredness-feeling .good {
     background-color: #2EB669 !important;
 }
-.tiredness-feeling .tiredness-feeling-regular {
+
+.tiredness-feeling .regular {
     background-color: #FFCD41 !important;
 }
-.tiredness-feeling .tiredness-feeling-bad {
+
+.tiredness-feeling .bad {
     background-color: #FD4045 !important;
 }
 
