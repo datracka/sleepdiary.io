@@ -16,7 +16,7 @@
                 <span class="day">Sun</span>
             </div>
             <div class="week" *ngFor="let week of month.weeks">
-                <span [ngClass]="day.tirednessFeeling" class="day" *ngFor="let day of week.days">
+                <span [ngClass]="day.tirednessFeeling" (click)="onSelect(day)" class="day" *ngFor="let day of week.days">
                   {{ day.number }}
                 </span>
             </div>
@@ -27,5 +27,4 @@
         <mdl-icon>add</mdl-icon>
     </a>
 </div>
-<!--  [ngClass]="decorateDay(day)" (click)="onSelect(day)" -->
-<!-- [ngStyle]="{'background-color': backgroundColor }" -->
+
