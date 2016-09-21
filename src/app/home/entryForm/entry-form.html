@@ -1,4 +1,4 @@
-<form #f="ngForm" novalidate (ngSubmit)="onSubmit()">
+<form mdl #f="ngForm" novalidate (ngSubmit)="onSubmit()">
     <input [ngModel]="entry.uuid" type="hidden" class="form-control" name="uuid" id="uuid">
     <input [ngModel]="entry.date" type="hidden" class="form-control" name="date" id="date">
     <div class="mdl-grid">
@@ -6,12 +6,11 @@
         <div style="text-align: left;" class="mdl-cell mdl-cell--12-col">
             <div class="form-group">
                 <h5>How did you sleep last night?</h5>
-                <div class="radio" *ngFor="let sleepingQuality of sleepingQualityValues" style="display: block;">
-                    <label>
-                        <mdl-radio type="radio" name="sleepingQuality" [(ngModel)]="entry.sleepingQuality"
-                                   [value]="sleepingQuality.value"  mdl-ripple>
-                            {{sleepingQuality.display}}
-                        </mdl-radio>
+                <div *ngFor="let sleepingQuality of sleepingQualityValues" style="display: block;">
+                    <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect">
+                        <input type="radio" name="sleepingQuality"  class="mdl-radio__button"
+                               [(ngModel)]="entry.sleepingQuality" [value]="sleepingQuality.value">
+                        <span class="mdl-radio__label">{{sleepingQuality.display}}</span>
                     </label>
                 </div>
             </div>
@@ -20,11 +19,11 @@
             <div class="form-group">
                 <h5>How do you feel of tiredness?</h5>
                 <div class="radio" *ngFor="let tirednessFeeling of tirednessFeelingValues" style="display: block;">
-                    <label>
-                        <mdl-radio type="radio" name="tirednessFeeling" [(ngModel)]="entry.tirednessFeeling"
-                                   [value]="tirednessFeeling.value">
-                            {{tirednessFeeling.display}}
-                        </mdl-radio>
+                    <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect">
+                        <input type="radio" name="tirednessFeeling" class="mdl-radio__button"
+                               [(ngModel)]="entry.tirednessFeeling"
+                               [value]="tirednessFeeling.value">
+                        <span class="mdl-radio__label">{{tirednessFeeling.display}}</span>
                     </label>
                 </div>
             </div>
