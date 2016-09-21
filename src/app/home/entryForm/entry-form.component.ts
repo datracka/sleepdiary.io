@@ -4,12 +4,11 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {EntryFormService} from "../../shared/entry-form/entry-form.service";
 
 let template = require('./entry-form.html');
-let styles = require('./entry-form.css');
 
 @Component({
     selector: 'form-view',
     template: template,
-    styles: [styles],
+    styleUrls: ['./entry-form.html'],
     providers: [EntryFormService]
 })
 export class EntryForm implements OnInit, AfterViewInit {

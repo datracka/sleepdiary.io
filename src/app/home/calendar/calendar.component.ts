@@ -7,12 +7,11 @@ import {Week} from "./week";
 import {Day} from "./day";
 import {MetricsIndicators} from "../../shared/common/metrics-indicators";
 let template = require('./calendar.html');
-let styles = require('./calendar.css');
 
 @Component({
     selector: 'calendar',
     template: template,
-    styles: [styles],
+    styleUrls: ['./calendar.scss'],
     providers: [CalendarService]
 })
 export class Calendar implements OnInit {
