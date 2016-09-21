@@ -8,7 +8,7 @@ let template = require('./entry-form.html');
 @Component({
     selector: 'form-view',
     template: template,
-    styleUrls: ['./entry-form.html'],
+    styleUrls: ['./entry-form.scss'],
     providers: [EntryFormService]
 })
 export class EntryForm implements OnInit, AfterViewInit {
