@@ -1,6 +1,9 @@
 # Sleepdiary.io - track your sleep
 ### For install & running application 
 
+* Install global dependencies
+    - node /  npm (>= 6.2.1)
+
 * Get project
  `git clone git@github.com:datracka/sleepdiary.io.git`
  
