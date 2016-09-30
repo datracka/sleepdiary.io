@@ -89,9 +89,15 @@ export class Calendar implements OnInit {
     }
 
     onSelect(day: any) {
+
         let dayFormatted = day.date.format("YYYY-MM-DD");
         let entry = this.entries[dayFormatted];
         let uuid = 'new';
+
+        if(!day.isCurrentMonth) {
+            return false;
+        }
+
         if (typeof entry !== 'undefined') {
             uuid = entry.uuid;
         }

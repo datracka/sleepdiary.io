@@ -123,7 +123,7 @@
     display: inline-block;
     vertical-align: middle;
     background: white;
-    cursor: pointer;
+    cursor: auto;
     color: grey;
 }
 
@@ -141,6 +141,7 @@
 
 .calendar--current-month {
     color: black !important;
+    cursor: pointer !important;
 }
 
 .calendar > div.week > span.day.different-year {
