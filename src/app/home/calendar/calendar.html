@@ -1,8 +1,14 @@
-<div class="mdl-grid tiredness-feeling">
+<div class="mdl-grid" [ngClass]="metric.metricSelected">
     <div class="mdl-grid mdl-cell--12-col sd-align-right">
-       <!-- select -->
+        <form #f="ngForm" novalidate>
+            <label>Select a Metric</label>
+            <select name="role" [(ngModel)]="metric.metricSelected">
+                <option *ngFor="let metric of metrics" [value]="metric.value">
+                    {{metric.display}}
+                </option>
+            </select>
+        </form>
     </div>
-    {{ formValue }}
     <div class="mdl-cell mdl-cell--4-col" *ngFor="let month of months">
         <div class="calendar">
             <div class="header">

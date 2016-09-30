@@ -6,6 +6,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {Week} from "./week";
 import {Day} from "./day";
 import {MetricsIndicators} from "../../shared/common/metrics-indicators";
+import {Metric} from "../../shared/common/metrics";
 let template = require('./calendar.html');
 
 @Component({
@@ -16,9 +17,7 @@ let template = require('./calendar.html');
 })
 export class Calendar implements OnInit {
 
-    metricIndicatorClass: string = MetricsIndicators.SLEEPING_QUALITY; //default value
     entries: any;
-    backgroundColor;
     months: Array<Month> = [
         new Month('January'),
         new Month('February'),
@@ -33,18 +32,19 @@ export class Calendar implements OnInit {
         new Month('November'),
         new Month('December'),
     ];
+    public metric: Metric;
+    public metrics = [
+        {value: MetricsIndicators.SLEEPING_QUALITY, display: 'Sleeping Quality'},
+        {value: MetricsIndicators.TIREDNESS_FEELING, display: 'Tiredness Feeling'},
+    ];
 
     constructor(private router: Router, public route: ActivatedRoute, public calendarService: CalendarService) {
         this.buildMonths('en', '2016');
-    }
-
-    decorateCalendar() {
-        if (this.metricIndicatorClass === MetricsIndicators.SLEEPING_QUALITY) {
-            this.metricIndicatorClass = MetricsIndicators.TIREDNESS_FEELING;
-        } else {
-            this.metricIndicatorClass = MetricsIndicators.SLEEPING_QUALITY;
+        this.metric =  {
+            metricSelected: MetricsIndicators.SLEEPING_QUALITY
         }
     }
+
 
     ngOnInit() {
         this.calendarService.getAll().subscribe(
@@ -95,7 +95,7 @@ export class Calendar implements OnInit {
         let entry = this.entries[dayFormatted];
         let uuid = 'new';
 
-        if(!day.isCurrentMonth) {
+        if (!day.isCurrentMonth) {
             return false;
         }
 
