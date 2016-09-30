@@ -75,12 +75,14 @@ export class Calendar implements OnInit {
 
     decorateDay(day) {
         let a = [];
-        if (day.isToday) {
-            a.push('calendar--today')
-        }
+
         if (day.isCurrentMonth) {
             a.push('calendar--current-month');
             a.push(day.sleepingQuality);
+
+            if (day.isToday) {
+                a.push('calendar--today')
+            }
         }
 
         return a;
