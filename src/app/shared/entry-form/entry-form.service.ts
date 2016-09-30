@@ -2,7 +2,7 @@ import {Injectable} from "@angular/core";
 import {Observable} from "rxjs/Rx";
 import {Http, Headers, Response, RequestOptions} from '@angular/http';
 import {contentHeaders} from '../common/headers';
-import {Entry} from "../common/Entry";
+import {Entry} from "../common/entry";
 import {AuthHttp} from "angular2-jwt";
 
 declare let ENV: any
