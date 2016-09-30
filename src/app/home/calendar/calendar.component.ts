@@ -1,10 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import * as moment from 'moment';
-import {Month} from './month';
+import {Month} from '../../shared/calendar/month';
 import {CalendarService} from '../../shared/calendar/calendar.service'
 import {ActivatedRoute, Router} from "@angular/router";
-import {Week} from "./week";
-import {Day} from "./day";
+import {Week} from "../../shared/calendar/week";
+import {Day} from "../../shared/calendar/day";
 import {MetricsIndicators} from "../../shared/common/metrics-indicators";
 import {Metric} from "../../shared/common/metrics";
 let template = require('./calendar.html');

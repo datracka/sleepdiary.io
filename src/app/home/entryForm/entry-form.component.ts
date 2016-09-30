@@ -1,5 +1,5 @@
 import {Component, AfterViewInit, OnInit} from "@angular/core";
-import {Entry} from "../../shared/common/Entry";
+import {Entry} from "../../shared/common/entry";
 import {ActivatedRoute, Router} from "@angular/router";
 import {EntryFormService} from "../../shared/entry-form/entry-form.service";
 
