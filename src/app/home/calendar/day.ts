@@ -13,5 +13,7 @@ export class Day {
         this.isCurrentMonth = isCurrentMonth;
         this.isToday = isToday;
         this.date = date;
+        this.tirednessFeeling = '';
+        this.sleepingQuality = '';
     }
 }

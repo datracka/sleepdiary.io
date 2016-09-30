@@ -1,4 +1,4 @@
-<div class="mdl-grid sleeping-quality" >
+<div class="mdl-grid sleeping-quality">
     <div class="mdl-cell mdl-cell--4-col" *ngFor="let month of months">
         <div class="calendar">
             <div class="header">
@@ -16,14 +16,17 @@
                 <span class="day">Sun</span>
             </div>
             <div class="week" *ngFor="let week of month.weeks">
-                <span [ngClass]="day.tirednessFeeling" (click)="onSelect(day)" class="day" *ngFor="let day of week.days">
+                <span [ngClass]="decorateDay(day)"
+                      (click)="onSelect(day)"
+                      class="day"
+                      *ngFor="let day of week.days">
                   {{ day.number }}
                 </span>
             </div>
         </div>
     </div>
     <a routerLink="/home/entry/new" class="sd-add-button" mdl-button mdl-button-type="fab" mdl-colored="accent"
-            mdl-ripple>
+       mdl-ripple>
         <mdl-icon>add</mdl-icon>
     </a>
 </div>

@@ -51,8 +51,8 @@ export class Calendar implements OnInit {
             response => {
                 this.entries = response.json();
                 for (var key in this.entries) {
-                    if(this.entries.hasOwnProperty(key)) {
-                        this.decorateDay(this.entries[key]);
+                    if (this.entries.hasOwnProperty(key)) {
+                        this.paintInitialDayBackground(this.entries[key]);
                     }
                 }
             }
@@ -60,7 +60,7 @@ export class Calendar implements OnInit {
 
     }
 
-    decorateDay(entry) {
+    paintInitialDayBackground(entry) {
         this.months.forEach(function (month) {
             month.weeks.forEach(function (week) {
                 week.days.forEach(function (day) {
@@ -71,6 +71,19 @@ export class Calendar implements OnInit {
                 });
             });
         });
+    }
+
+    decorateDay(day) {
+        let a = [];
+        if (day.isToday) {
+            a.push('calendar--today')
+        }
+        if (day.isCurrentMonth) {
+            a.push('calendar--current-month');
+            a.push(day.sleepingQuality);
+        }
+
+        return a;
     }
 
     onSelect(day: any) {

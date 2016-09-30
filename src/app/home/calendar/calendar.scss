@@ -116,7 +116,6 @@
     width: 14.28571429%;
     box-sizing: border-box;
     -moz-box-sizing: border-box;
-    border-left: solid 1px #CCC;
     font-size: 0.75em;
     text-align: center;
     height: 30px;
@@ -125,7 +124,7 @@
     vertical-align: middle;
     background: white;
     cursor: pointer;
-    color: black;
+    color: grey;
 }
 
 .calendar > div.week > span.day:first-child {
@@ -134,6 +133,14 @@
 
 .calendar > div.week > span.day.today {
     background: #E3F2FF;
+}
+
+.calendar--today {
+    border: medium solid #739dc1;
+}
+
+.calendar--current-month {
+    color: black !important;
 }
 
 .calendar > div.week > span.day.different-year {
