@@ -38,25 +38,11 @@ import {MdlModule} from "angular2-mdl";
             },
             deps: [Http]
         },
-/*        provide(AuthHttp, {
-            useFactory: (http) => {
-                return new AuthHttp(new AuthConfig({
-                    headerName: 'Authorization',
-                    headerPrefix: 'Bearer',
-                    tokenName: 'id_token',
-                    tokenGetter: (() => localStorage.getItem('id_token')),
-                    globalHeaders: [{'Content-Type': 'application/json'}],
-                    noJwtError: false,
-                    noTokenScheme: false
-                }), http);
-            },
-
-        })*/
     ],
     declarations: [
         AppComponent,
         Login,
-        SignUp,
+        SignUp
     ],
     entryComponents: [AppComponent]
 })
