@@ -158,27 +158,27 @@
     font-weight: bold;
 }
 
-.sleeping-quality .good {
+.sleeping-quality .sleeping-quality--good {
     background-color: #2EB669 !important;
 }
 
-.sleeping-quality .regular {
+.sleeping-quality .sleeping-quality--regular {
     background-color: #FFCD41 !important;
 }
 
-.sleeping-quality .bad {
+.sleeping-quality .sleeping-quality--bad {
     background-color: #FD4045 !important;
 }
 
-.tiredness-feeling .good {
+.tiredness-feeling .tiredness-feeling--good {
     background-color: #2EB669 !important;
 }
 
-.tiredness-feeling .regular {
+.tiredness-feeling .tiredness-feeling--regular {
     background-color: #FFCD41 !important;
 }
 
-.tiredness-feeling .bad {
+.tiredness-feeling .tiredness-feeling--bad {
     background-color: #FD4045 !important;
 }
 
@@ -204,3 +204,6 @@
     z-index: 900;
 }
 
+.sd-align-right {
+    flex-direction: row-reverse;
+}

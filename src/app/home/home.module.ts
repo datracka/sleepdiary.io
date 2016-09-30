@@ -34,4 +34,5 @@ import {Drawer} from "../drawer/drawer";
         AuthGuard
     ]
 })
-export class HomeModule {}
+export class HomeModule {
+}

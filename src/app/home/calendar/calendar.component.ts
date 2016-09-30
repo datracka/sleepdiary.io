@@ -65,8 +65,8 @@ export class Calendar implements OnInit {
             month.weeks.forEach(function (week) {
                 week.days.forEach(function (day) {
                     if (day.date.isSame(entry.date, "day")) {
-                        day.sleepingQuality = entry.sleepingQuality;
-                        day.tirednessFeeling = entry.tirednessFeeling;
+                        day.sleepingQuality = 'sleeping-quality--' + entry.sleepingQuality;
+                        day.tirednessFeeling = 'tiredness-feeling--' + entry.tirednessFeeling;
                     }
                 });
             });
@@ -79,6 +79,7 @@ export class Calendar implements OnInit {
         if (day.isCurrentMonth) {
             a.push('calendar--current-month');
             a.push(day.sleepingQuality);
+            a.push(day.tirednessFeeling);
 
             if (day.isToday) {
                 a.push('calendar--today')
