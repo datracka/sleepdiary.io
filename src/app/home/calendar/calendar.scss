@@ -116,7 +116,6 @@
     width: 14.28571429%;
     box-sizing: border-box;
     -moz-box-sizing: border-box;
-    border-left: solid 1px #CCC;
     font-size: 0.75em;
     text-align: center;
     height: 30px;
@@ -124,8 +123,8 @@
     display: inline-block;
     vertical-align: middle;
     background: white;
-    cursor: pointer;
-    color: black;
+    cursor: auto;
+    color: grey;
 }
 
 .calendar > div.week > span.day:first-child {
@@ -134,6 +133,15 @@
 
 .calendar > div.week > span.day.today {
     background: #E3F2FF;
+}
+
+.calendar--today {
+    border: medium solid #739dc1;
+}
+
+.calendar--current-month {
+    color: black !important;
+    cursor: pointer !important;
 }
 
 .calendar > div.week > span.day.different-year {
@@ -150,27 +158,27 @@
     font-weight: bold;
 }
 
-.sleeping-quality .good {
+.sleeping-quality .sleeping-quality--good {
     background-color: #2EB669 !important;
 }
 
-.sleeping-quality .regular {
+.sleeping-quality .sleeping-quality--regular {
     background-color: #FFCD41 !important;
 }
 
-.sleeping-quality .bad {
+.sleeping-quality .sleeping-quality--bad {
     background-color: #FD4045 !important;
 }
 
-.tiredness-feeling .good {
+.tiredness-feeling .tiredness-feeling--good {
     background-color: #2EB669 !important;
 }
 
-.tiredness-feeling .regular {
+.tiredness-feeling .tiredness-feeling--regular {
     background-color: #FFCD41 !important;
 }
 
-.tiredness-feeling .bad {
+.tiredness-feeling .tiredness-feeling--bad {
     background-color: #FD4045 !important;
 }
 
@@ -196,3 +204,6 @@
     z-index: 900;
 }
 
+.sd-align-right {
+    flex-direction: row-reverse;
+}

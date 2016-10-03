@@ -1,4 +1,14 @@
-<div class="mdl-grid sleeping-quality" >
+<div class="mdl-grid" [ngClass]="metric.metricSelected">
+    <div class="mdl-grid mdl-cell--12-col sd-align-right">
+        <form #f="ngForm" novalidate>
+            <label>Select a Metric</label>
+                <select name="metric" [(ngModel)]="metric.metricSelected">
+                    <option *ngFor="let metric of metrics" [value]="metric.value">
+                        {{metric.display}}
+                    </option>
+                </select>
+        </form>
+    </div>
     <div class="mdl-cell mdl-cell--4-col" *ngFor="let month of months">
         <div class="calendar">
             <div class="header">
@@ -16,16 +26,18 @@
                 <span class="day">Sun</span>
             </div>
             <div class="week" *ngFor="let week of month.weeks">
-                <span [ngClass]="day.tirednessFeeling" class="day" *ngFor="let day of week.days">
+                <span [ngClass]="decorateDay(day)"
+                      (click)="onSelect(day)"
+                      class="day"
+                      *ngFor="let day of week.days">
                   {{ day.number }}
                 </span>
             </div>
         </div>
     </div>
     <a routerLink="/home/entry/new" class="sd-add-button" mdl-button mdl-button-type="fab" mdl-colored="accent"
-            mdl-ripple>
+       mdl-ripple>
         <mdl-icon>add</mdl-icon>
     </a>
 </div>
-<!--  [ngClass]="decorateDay(day)" (click)="onSelect(day)" -->
-<!-- [ngStyle]="{'background-color': backgroundColor }" -->
+

@@ -1,2 +1,2 @@
 export * from './headers.ts';
-export * from './Entry.ts';
+export * from './entry.ts';

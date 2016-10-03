@@ -12,6 +12,7 @@ import {Footer} from "../footer/footer";
 import {AuthGuard} from "../shared/common/auth-guard";
 import {MdlModule} from "angular2-mdl";
 import {Drawer} from "../drawer/drawer";
+import {CloseMenuDirective} from "../shared/common/close-menu.directive";
 
 @NgModule({
     imports: [
@@ -28,10 +29,12 @@ import {Drawer} from "../drawer/drawer";
         EntryForm,
         Header,
         Drawer,
-        Footer
+        Footer,
+        CloseMenuDirective
     ],
     providers: [
         AuthGuard
     ]
 })
-export class HomeModule {}
+export class HomeModule {
+}

@@ -1,25 +1,23 @@
 import {Component, OnInit} from '@angular/core';
 import * as moment from 'moment';
-import {Month} from './month';
+import {Month} from '../../shared/calendar/month';
 import {CalendarService} from '../../shared/calendar/calendar.service'
 import {ActivatedRoute, Router} from "@angular/router";
-import {Week} from "./week";
-import {Day} from "./day";
+import {Week} from "../../shared/calendar/week";
+import {Day} from "../../shared/calendar/day";
 import {MetricsIndicators} from "../../shared/common/metrics-indicators";
+import {Metric} from "../../shared/common/metrics";
 let template = require('./calendar.html');
-let styles = require('./calendar.css');
 
 @Component({
     selector: 'calendar',
     template: template,
-    styles: [styles],
+    styleUrls: ['./calendar.scss'],
     providers: [CalendarService]
 })
 export class Calendar implements OnInit {
 
-    metricIndicatorClass: string = MetricsIndicators.SLEEPING_QUALITY; //default value
     entries: any;
-    backgroundColor;
     months: Array<Month> = [
         new Month('January'),
         new Month('February'),
@@ -34,26 +32,27 @@ export class Calendar implements OnInit {
         new Month('November'),
         new Month('December'),
     ];
+    public metric: Metric;
+    public metrics = [
+        {value: MetricsIndicators.SLEEPING_QUALITY, display: 'Sleeping Quality'},
+        {value: MetricsIndicators.TIREDNESS_FEELING, display: 'Tiredness Feeling'},
+    ];
 
     constructor(private router: Router, public route: ActivatedRoute, public calendarService: CalendarService) {
         this.buildMonths('en', '2016');
-    }
-
-    decorateCalendar() {
-        if (this.metricIndicatorClass === MetricsIndicators.SLEEPING_QUALITY) {
-            this.metricIndicatorClass = MetricsIndicators.TIREDNESS_FEELING;
-        } else {
-            this.metricIndicatorClass = MetricsIndicators.SLEEPING_QUALITY;
+        this.metric =  {
+            metricSelected: MetricsIndicators.SLEEPING_QUALITY
         }
     }
+
 
     ngOnInit() {
         this.calendarService.getAll().subscribe(
             response => {
                 this.entries = response.json();
                 for (var key in this.entries) {
-                    if(this.entries.hasOwnProperty(key)) {
-                        this.decorateDay(this.entries[key]);
+                    if (this.entries.hasOwnProperty(key)) {
+                        this.paintInitialDayBackground(this.entries[key]);
                     }
                 }
             }
@@ -61,23 +60,45 @@ export class Calendar implements OnInit {
 
     }
 
-    decorateDay(entry) {
+    paintInitialDayBackground(entry) {
         this.months.forEach(function (month) {
             month.weeks.forEach(function (week) {
                 week.days.forEach(function (day) {
                     if (day.date.isSame(entry.date, "day")) {
-                        day.sleepingQuality = entry.sleepingQuality;
-                        day.tirednessFeeling = entry.tirednessFeeling;
+                        day.sleepingQuality = 'sleeping-quality--' + entry.sleepingQuality;
+                        day.tirednessFeeling = 'tiredness-feeling--' + entry.tirednessFeeling;
                     }
                 });
             });
         });
     }
 
+    decorateDay(day) {
+        let a = [];
+
+        if (day.isCurrentMonth) {
+            a.push('calendar--current-month');
+            a.push(day.sleepingQuality);
+            a.push(day.tirednessFeeling);
+
+            if (day.isToday) {
+                a.push('calendar--today')
+            }
+        }
+
+        return a;
+    }
+
     onSelect(day: any) {
+
         let dayFormatted = day.date.format("YYYY-MM-DD");
         let entry = this.entries[dayFormatted];
         let uuid = 'new';
+
+        if (!day.isCurrentMonth) {
+            return false;
+        }
+
         if (typeof entry !== 'undefined') {
             uuid = entry.uuid;
         }

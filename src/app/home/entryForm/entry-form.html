@@ -1,37 +1,43 @@
+<form mdl #f="ngForm" novalidate (ngSubmit)="onSubmit()">
+    <input [ngModel]="entry.uuid" type="hidden" class="form-control" name="uuid" id="uuid">
+    <input [ngModel]="entry.date" type="hidden" class="form-control" name="date" id="date">
+    <div class="mdl-grid">
+        <div class="mdl-layout-spacer"></div>
+        <div style="text-align: left;" class="mdl-cell mdl-cell--12-col">
+            <a style="text-decoration: none" href="javascript:window.history.back();">
+                <mdl-icon style="vertical-align: middle;">chevron_left</mdl-icon>
+                <span>back</span></a>
+        </div>
+        <div style="text-align: left;" class="mdl-cell mdl-cell--12-col">
+            <div class="form-group">
+                <h5>How did you sleep last night?</h5>
+                <div *ngFor="let sleepingQuality of sleepingQualityValues" style="display: block;">
+                    <mdl-radio name="sleepingQuality" [value]="sleepingQuality.value"
+                               [(ngModel)]="entry.sleepingQuality" mdl-ripple>
+                        {{sleepingQuality.display}}
+                    </mdl-radio>
+                </div>
+            </div>
+        </div>
+        <div style="text-align: left;" class="mdl-cell mdl-cell--12-col">
+            <div class="form-group">
+                <h5>How do you feel of tiredness?</h5>
+                <div *ngFor="let tirednessFeeling of tirednessFeelingValues" style="display: block;">
+                    <mdl-radio name="tirednessFeeling" [value]="tirednessFeeling.value"
+                               [(ngModel)]="entry.tirednessFeeling" mdl-ripple>
+                        {{tirednessFeeling.display}}
+                    </mdl-radio>
+                </div>
+            </div>
+        </div>
+        <div style="text-align: left;" class="mdl-cell mdl-cell--12-col">
+            <button mdl-button mdl-button-type="raised" mdl-colored="accent" type="submit" mdl-ripple>Submit</button>
+            <button mdl-button mdl-button-type="raised" mdl-colored="primary" *ngIf="entry.uuid" type="button"
+                    (click)="deleteEntry(entry.uuid)">Delete register
+            </button>
+        </div>
+        <div class="mdl-layout-spacer"></div>
+    </div>
+</form>
 
-<div class="container">
-    <h1>Calendar entry Form</h1>
-    <form #f="ngForm" novalidate (ngSubmit)="onSubmit()">
-       <div class="form-group">
-            <label for="uuid">uuid: (disabled) - for dev purposes</label>
-            <input [ngModel]="entry.uuid" type="text" class="form-control" name="uuid" id="uuid" disabled>
-        </div>
-        <div class="form-group">
-            <label for="date">date: (disabled) - for dev purposes </label>
-            <input [ngModel]="entry.date" type="text" class="form-control" name="date" id="date" disabled>
-        </div>
-        <div class="form-group">
-            <b>Sleeping Quality:</b>
-            <label>Name</label>
-            <div class="radio" *ngFor="let sleepingQuality of sleepingQualityValues">
-                <label>
-                    <input type="radio" name="sleepingQuality" [(ngModel)]="entry.sleepingQuality" [value]="sleepingQuality.value">
-                    {{sleepingQuality.display}}
-                </label>
-            </div>
-        </div>
-        <div class="form-group">
-            <b>Tiredness Feeling:</b>
-            <label>Name</label>
-            <div class="radio" *ngFor="let tirednessFeeling of tirednessFeelingValues">
-                <label>
-                    <input type="radio" name="tirednessFeeling" [(ngModel)]="entry.tirednessFeeling" [value]="tirednessFeeling.value">
-                    {{tirednessFeeling.display}}
-                </label>
-            </div>
-        </div>
-        <button type="submit" class="btn btn-default">Submit</button>
-        <button *ngIf="entry.uuid" type="button" (click)="deleteEntry(entry.uuid)">Delete register</button>
-    </form>
-    <pre>{{ngForm | json }}</pre>
-</div>
+
