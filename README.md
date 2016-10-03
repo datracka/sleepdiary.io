@@ -1,14 +1,37 @@
 # Sleepdiary.io - track your sleep
-
 ### For install & running application 
+
+* Install global dependencies
+    - node /  npm (>= 6.2.1)
 
 * Get project
  `git clone git@github.com:datracka/sleepdiary.io.git`
+ 
+* Install dependencies
+ `$ npm install`
 
-* Get shared repository (we use https://medium.com/@porteneuve/mastering-git-subtrees-943d29a798ec#.rhx54pb4e)
+* Run the app
+ `$ npm start`
+ 
+*  browse http://localhost:3000
 
-    * checkout develop as main branch
-        `$ git checkout develop`
+(You need the REST backend API running. By default the front-end app 
+is looking for localhost:8080. This can be change in .env.dev file)
+ 
+## Development & git management
+
+We are using develop branch for development. It has a stable and all the time deployable versión. For development we are stick to feature
+branch philosophy 
+
+More info: 
+
+// link to git flow
+// link to feature branch
+
+Besides that wee use a git tree philosophy https://medium.com/@porteneuve/mastering-git-subtrees-943d29a798ec#.rhx54pb4e
+so you need to do the following steps:
+
+* Get shared repository (we use)
 
     * Add remote
         `$ git remote add shared git@github.com:datracka/sleepdiary.io-shared.git`
@@ -20,36 +43,22 @@
         
         **NOTICE** if shared already exists this command will raise an error: `Can't not do binding`. To override
         this remove the `-u` flag to only set the binding in cache and not write the files themself
-        
-* Install dependencies
-    `$ npm install`
 
-* Run the app
-    `$ npm start`
+### To develop and contribute into the project. 
 
-*  browse http://localhost:3000
+Due we use subtree git philosophy there are some steps to take care once you modify the source code.
 
-## Development & git management
-
-Following it is described the steps needed to develop and contribute into the project.
-
-- Due we use subtree git philosophy (again https://medium.com/@porteneuve/mastering-git-subtrees-943d29a798ec#.rhx54pb4e)
-there are some steps to take care once you modify the source code.
-
-- The main branch for CI is `develop`. `Master` remains as backup branch
-- We are following to the feature branch approach for development
-
-#### How to get updates / contribute in main container (sleepdiary.io) 
+##### get updates / contribute in main container (sleepdiary.io) 
 
 it is pretty straight forward. Proceed as known.
 
-#### How to get updates from shared and bring them to local 
+##### get updates from shared and bring them to local 
 
 `$ git fetch shared/<branch>`
 `$ git merge -s subtree --squash \ shared/<branch>` where `<branch` is the given branch to update
 usually `develop`
 
-#### How to commit changes made in shared folder 
+##### commit changes made in shared folder 
 
 Commits touching only the subtree, intended for backport (e.g. fixes); (below)
 
