@@ -1,14 +1,45 @@
-<div class="signup center-block jumbotron">
-    <h1>Signup</h1>
-    <form role="form" (submit)="signup($event, username.value, password.value)">
-        <div class="form-group">
-            <label for="username">Username</label>
-            <input type="text" #username class="form-control" id="username" placeholder="Username">
+<mdl-layout mdl-layout-fixed-header mdl-layout-header-seamed>
+    <mdl-layout-content>
+        <div class="sd-align-center">
+            <main class="mdl-layout__content">
+                <div class="mdl-layout__tab-panel is-active" id="overview">
+                    <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+                        <div>
+                            <form role="form" (submit)="signUp($event, username.value, email.value, password.value)">
+                                <div class="group">
+                                    <input type="text" #username class="form-control" id="username" value="Vicens"
+                                           required>
+                                    <span class="highlight"></span>
+                                    <span class="bar"></span>
+                                    <label>Name</label>
+                                </div>
+                                <div class="group">
+                                    <input type="text" #email class="form-control" id="email" value="datracka@gmail.com"
+                                           required>
+                                    <span class="highlight"></span>
+                                    <span class="bar"></span>
+                                    <label>Email</label>
+                                </div>
+                                <div class="group">
+                                    <input type="password" #password class="form-control" id="password" value="123456a"
+                                           required>
+                                    <span class="highlight"></span>
+                                    <span class="bar"></span>
+                                    <label>Email</label>
+                                </div>
+                                <div class="mdl-layout-spacer"></div>
+                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-button--align-right"
+                                        type="submit">Sign up
+                                </button>
+                            </form>
+                            <div style="text-align: right">You have already an account? <a routerLink="/login" href="#">Sign in</a></div>
+
+                        </div>
+                    </section>
+                </div>
+            </main>
         </div>
-        <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" #password class="form-control" id="password" placeholder="Password">
-        </div>
-        <button type="submit" class="btn btn-default">Submit</button>
-    </form>
-</div>
+    </mdl-layout-content>
+</mdl-layout>
+
+
