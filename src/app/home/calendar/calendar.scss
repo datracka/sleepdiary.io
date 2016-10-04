@@ -127,6 +127,22 @@
     color: grey;
 }
 
+.calendar__day {
+    float: left;
+    width: 14.28571429%;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    font-size: 0.75em;
+    text-align: center;
+    height: 30px;
+    line-height: 30px !important;
+    display: inline-block;
+    vertical-align: middle;
+    background: white;
+    cursor: auto;
+    color: grey;
+}
+
 .calendar > div.week > span.day:first-child {
     border-left: none;
 }
@@ -135,13 +151,13 @@
     background: #E3F2FF;
 }
 
-.calendar--today {
-    border: medium solid #739dc1;
+.calendar__day--today {
+    color: indianred !important;
 }
 
-.calendar--current-month {
-    color: black !important;
-    cursor: pointer !important;
+.calendar__day--current-month {
+    color: black;
+    cursor: pointer;
 }
 
 .calendar > div.week > span.day.different-year {

@@ -77,12 +77,12 @@ export class Calendar implements OnInit {
         let a = [];
 
         if (day.isCurrentMonth) {
-            a.push('calendar--current-month');
+            a.push('calendar__day--current-month');
             a.push(day.sleepingQuality);
             a.push(day.tirednessFeeling);
 
             if (day.isToday) {
-                a.push('calendar--today')
+                a.push('calendar__day--today')
             }
         }
 
