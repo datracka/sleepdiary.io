@@ -16,10 +16,10 @@ export class SignUp {
     constructor(public router: Router, public signUpService: SignupService) {
     }
 
-    signUp(event, username, email, password) {
+    signUp(event, name, email, password) {
         event.preventDefault();
-        let body: any = JSON.stringify({username, email, password});
-
+        let body: any = JSON.stringify({name, email, password});
+        console.log(body);
         this.signUpService.signup(body).subscribe(
             response => {
                 localStorage.setItem('id_token', response.json().token_key);
