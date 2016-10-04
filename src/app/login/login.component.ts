@@ -15,10 +15,9 @@ export class Login {
     constructor(public router: Router, public loginService: LoginService) {
     }
 
-    login(event, username, password) {
+    login(event, email, password) {
         event.preventDefault();
-        let body: any = JSON.stringify({username, password});
-
+        let body: any = JSON.stringify({email, password});
         this.loginService.login(body).subscribe(
             response => {
                 localStorage.setItem('id_token', response.json().token_key);

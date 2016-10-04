@@ -5,21 +5,21 @@
                 <div class="mdl-layout__tab-panel is-active" id="overview">
                     <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
                         <div>
-                            <form role="form" (submit)="login($event, username.value, password.value)">
+                            <form role="form" (submit)="login($event, email.value, password.value)">
                                 <div class="group">
-                                    <input type="text" #username class="form-control" id="username" value="carlos"
+                                    <input type="text" #email class="form-control" id="email" value="datracka@gmail.com"
                                            required>
                                     <span class="highlight"></span>
                                     <span class="bar"></span>
-                                    <label>Name</label>
+                                    <label>E-mail</label>
                                 </div>
 
                                 <div class="group">
-                                    <input type="password" #password class="form-control" id="password" value="asdf"
+                                    <input type="password" #password class="form-control" id="password" value="123456a"
                                            required>
                                     <span class="highlight"></span>
                                     <span class="bar"></span>
-                                    <label>Email</label>
+                                    <label>Password</label>
                                 </div>
                                 <div class="mdl-layout-spacer"></div>
                                 <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-button--align-right"
