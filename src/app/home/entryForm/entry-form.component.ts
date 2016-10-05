@@ -23,7 +23,7 @@ export class EntryForm implements OnInit, AfterViewInit {
 
     public entry: Entry;
     public submitted = false;
-    sub: any;
+    public sub: any;
 
     //default values
     public sleepingQualityValues = [
@@ -43,7 +43,6 @@ export class EntryForm implements OnInit, AfterViewInit {
     // http://blog.angular-university.io/introduction-to-angular-2-forms-template-driven-vs-model-driven/
     constructor(private router: Router, public route: ActivatedRoute,
                 public entryFormService: EntryFormService) {
-
     }
 
     ngOnInit() {
@@ -74,7 +73,7 @@ export class EntryForm implements OnInit, AfterViewInit {
                 this.sub = this.route
                     .params
                     .subscribe(params => {
-                            if(typeof params['day'] !== 'undefined') {
+                            if (typeof params['day'] !== 'undefined') {
                                 this.entry.date = new Date(params['day']).toISOString();
                             }
                         }
@@ -88,14 +87,14 @@ export class EntryForm implements OnInit, AfterViewInit {
         if (this.entry.uuid != '') {
             this.entryFormService.updateEntry(this.entry).subscribe(
                 response => {
-                    this.router.navigate(['/home/monthly']);
+                    this.router.navigate(['/home/monthly', {actionRef: 'update'}]);
                 }
             );
         } else {
             this.entryFormService.newEntry(this.entry).subscribe(
                 response => {
                     // do something!!
-                    this.router.navigate(['/home/monthly']);
+                    this.router.navigate(['/home/monthly', {actionRef: 'insert'}]);
                 }
             );
         }
@@ -106,7 +105,7 @@ export class EntryForm implements OnInit, AfterViewInit {
         if (this.entry.uuid != '') {
             this.entryFormService.deleteEntry(uuid).subscribe(
                 response => {
-                    this.router.navigate(['/home/monthly']);
+                    this.router.navigate(['/home/monthly', {actionRef: 'delete'}]);
                 }
             );
         }

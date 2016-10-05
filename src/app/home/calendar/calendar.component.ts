@@ -1,4 +1,15 @@
-import {Component, Input, style, state, animate, transition, trigger, OnInit} from '@angular/core';
+import {
+    Component,
+    Input,
+    style,
+    state,
+    animate,
+    transition,
+    trigger,
+    OnInit,
+    ViewContainerRef,
+    AfterViewInit
+} from '@angular/core';
 import * as moment from 'moment';
 import {Month} from '../../shared/calendar/month';
 import {CalendarService} from '../../shared/calendar/calendar.service'
@@ -7,8 +18,10 @@ import {Week} from "../../shared/calendar/week";
 import {Day} from "../../shared/calendar/day";
 import {MetricsIndicators} from "../../shared/common/metrics-indicators";
 import {Metric} from "../../shared/common/metrics";
+import {MdlSnackbarService} from "angular2-mdl";
 let template = require('./calendar.html');
 
+//todo:
 @Component({
     selector: 'calendar',
     template: template,
@@ -24,9 +37,10 @@ let template = require('./calendar.html');
         ])
     ]
 })
-export class Calendar implements OnInit {
+export class Calendar implements OnInit, AfterViewInit {
 
     entries: any;
+    sub: any;
     months: Array<Month> = [
         new Month('January'),
         new Month('February'),
@@ -47,11 +61,20 @@ export class Calendar implements OnInit {
         {value: MetricsIndicators.TIREDNESS_FEELING, display: 'Tiredness Feeling'},
     ];
 
-    constructor(private router: Router, public route: ActivatedRoute, public calendarService: CalendarService) {
+    constructor(private mdlSnackbarService: MdlSnackbarService, private vcRef: ViewContainerRef,
+                private router: Router, public route: ActivatedRoute, public calendarService: CalendarService) {
+
+        mdlSnackbarService.setDefaultViewContainerRef(vcRef);
         this.buildMonths('en', '2016');
-        this.metric =  {
+        this.metric = {
             metricSelected: MetricsIndicators.SLEEPING_QUALITY
         }
+    }
+
+    showSnackbar(message) {
+        this.mdlSnackbarService.showSnackbar({
+            message: message,
+        });
     }
 
 
@@ -67,6 +90,30 @@ export class Calendar implements OnInit {
             }
         );
 
+    }
+
+    ngAfterViewInit() {
+        this.sub = this.route
+            .params
+            .subscribe(params => {
+                let text = "";
+                switch (params['actionRef']) {
+                    case 'login':
+                        let user = JSON.parse(localStorage.getItem('user'));
+                        text = "Hi, " + user.name;
+                        break;
+                    case 'insert':
+                        text = "New entry added!";
+                        break;
+                    case 'update':
+                        text = "Entry updated!";
+                        break;
+                    case 'delete':
+                        text = "Entry deleted!";
+                        break;
+                }
+                this.showSnackbar(text);
+            });
     }
 
     paintInitialDayBackground(entry) {
@@ -113,6 +160,8 @@ export class Calendar implements OnInit {
         }
         this.router.navigate(['/home/entry', uuid, {day: dayFormatted}]);
     }
+
+    //** #####  render methods **/
 
     static getMonthDateRange(year: String, month: number, isStartOnMonday: boolean) {
 
@@ -177,5 +226,7 @@ export class Calendar implements OnInit {
         }
         return days;
     }
+
+    /** ## end render methods **/
 
 }

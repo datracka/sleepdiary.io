@@ -32,7 +32,7 @@ export class Login {
             response => {
                 localStorage.setItem('id_token', response.json().token_key);
                 localStorage.setItem('user', JSON.stringify(response.json()));
-                this.router.navigate(['/home/monthly']);
+                this.router.navigate(['/home/monthly', {actionRef: 'login'}]);
             },
             error => {
                 alert(error.text());
