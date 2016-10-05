@@ -1,4 +1,4 @@
-<div class="mdl-grid" [ngClass]="metric.metricSelected">
+<div [@flyInOut]="'in'" class="mdl-grid" [ngClass]="metric.metricSelected">
     <div class="mdl-grid mdl-cell--12-col sd-align-right">
         <form #f="ngForm" novalidate>
             <label>Select a Metric</label>

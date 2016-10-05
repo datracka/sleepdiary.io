@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, style, state, animate, transition, trigger, OnInit} from '@angular/core';
 import * as moment from 'moment';
 import {Month} from '../../shared/calendar/month';
 import {CalendarService} from '../../shared/calendar/calendar.service'
@@ -13,7 +13,16 @@ let template = require('./calendar.html');
     selector: 'calendar',
     template: template,
     styleUrls: ['./calendar.scss'],
-    providers: [CalendarService]
+    providers: [CalendarService],
+    animations: [
+        trigger('flyInOut', [
+            state('in', style({opacity: 1})),
+            transition('void => *', [
+                style({opacity: 0}),
+                animate(300)
+            ])
+        ])
+    ]
 })
 export class Calendar implements OnInit {
 

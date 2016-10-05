@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, style, state, animate, transition, trigger} from '@angular/core';
 import {Router} from '@angular/router';
 import {LoginService} from '../shared/login/login.service';
 
@@ -8,7 +8,17 @@ const template = require('./login.html');
     selector: 'login',
     providers: [LoginService],
     template: template,
-    styleUrls: ['./login.scss']
+    styleUrls: ['./login.scss'],
+    animations: [
+        trigger('flyInOut', [
+            state('in', style({opacity: 1})),
+            transition('void => *', [
+                style({opacity: 0}),
+                animate(300)
+            ])
+        ])
+    ]
+
 })
 export class Login {
 

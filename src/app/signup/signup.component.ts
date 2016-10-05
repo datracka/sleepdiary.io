@@ -1,4 +1,4 @@
-import {Component} from "@angular/core";
+import {Component, style, state, animate, transition, trigger} from "@angular/core";
 import {Router} from "@angular/router";
 import {SignupService} from "../shared/signup/signup.service";
 
@@ -9,7 +9,16 @@ const template = require('./signup.html');
     selector: 'signup',
     providers: [SignupService],
     template: template,
-    styles: [ styles ]
+    styles: [ styles ],
+    animations: [
+        trigger('flyInOut', [
+            state('in', style({opacity: 1})),
+            transition('void => *', [
+                style({opacity: 0}),
+                animate(300)
+            ])
+        ])
+    ]
 })
 export class SignUp {
 

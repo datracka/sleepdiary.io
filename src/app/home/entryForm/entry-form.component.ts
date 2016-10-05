@@ -1,4 +1,4 @@
-import {Component, AfterViewInit, OnInit} from "@angular/core";
+import {Component, AfterViewInit, OnInit, style, state, animate, transition, trigger} from "@angular/core";
 import {Entry} from "../../shared/common/entry";
 import {ActivatedRoute, Router} from "@angular/router";
 import {EntryFormService} from "../../shared/entry-form/entry-form.service";
@@ -9,6 +9,15 @@ let template = require('./entry-form.html');
     template: template,
     styleUrls: ['./entry-form.scss'],
     providers: [EntryFormService],
+    animations: [
+        trigger('flyInOut', [
+            state('in', style({opacity: 1})),
+            transition('void => *', [
+                style({opacity: 0}),
+                animate(300)
+            ])
+        ])
+    ]
 })
 export class EntryForm implements OnInit, AfterViewInit {
 

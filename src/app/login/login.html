@@ -3,7 +3,7 @@
         <div class="sd-align-center">
             <main class="mdl-layout__content">
                 <div class="mdl-layout__tab-panel is-active" id="overview">
-                    <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+                    <section [@flyInOut]="'in'" class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
                         <div>
                             <form role="form" (submit)="login($event, email.value, password.value)">
                                 <div class="group">
