@@ -101,6 +101,10 @@ export class EntryForm implements OnInit, AfterViewInit {
         this.submitted = true;
     }
 
+    back() {
+        this.router.navigate(['/home/monthly']);
+    }
+
     deleteEntry(uuid: string) {
         if (this.entry.uuid != '') {
             this.entryFormService.deleteEntry(uuid).subscribe(

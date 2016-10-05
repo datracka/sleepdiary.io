@@ -112,7 +112,9 @@ export class Calendar implements OnInit, AfterViewInit {
                         text = "Entry deleted!";
                         break;
                 }
-                this.showSnackbar(text);
+                if (text !== '') {
+                    this.showSnackbar(text);
+                }
             });
     }
 
