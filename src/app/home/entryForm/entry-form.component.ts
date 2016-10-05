@@ -24,6 +24,7 @@ export class EntryForm implements OnInit, AfterViewInit {
     public entry: Entry;
     public submitted = false;
     public sub: any;
+    public date: any;
 
     //default values
     public sleepingQualityValues = [
@@ -59,9 +60,9 @@ export class EntryForm implements OnInit, AfterViewInit {
         this.sub = this.route.params.subscribe(params => {
             let uuid: string = params['uuid'];
             if (params['uuid'] !== 'new') {
+                //update existing entry
                 this.sub = this.entryFormService.getEntry(uuid).subscribe(
                     response => {
-                        console.log(response.json()[0]);
                         this.entry = new Entry(
                             response.json()[0].uuid,
                             response.json()[0].date,
@@ -70,6 +71,7 @@ export class EntryForm implements OnInit, AfterViewInit {
                         );
                     });
             } else {
+                //new entry
                 this.sub = this.route
                     .params
                     .subscribe(params => {

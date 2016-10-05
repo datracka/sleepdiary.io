@@ -3,10 +3,11 @@
     <input [ngModel]="entry.date" type="hidden" class="form-control" name="date" id="date">
     <div class="mdl-grid">
         <div class="mdl-layout-spacer"></div>
-        <div style="text-align: left;" class="mdl-cell mdl-cell--12-col">
+        <div class="mdl-cell mdl-cell--12-col sd-text-align">
             <a style="text-decoration: none" (click)="back()">
                 <mdl-icon style="vertical-align: middle;">chevron_left</mdl-icon>
-                <span>back</span></a>
+            </a>
+            <span>{{ entry.date | date: 'fullDate'}}</span>
         </div>
         <div style="text-align: left;" class="mdl-cell mdl-cell--12-col">
             <div class="form-group">
