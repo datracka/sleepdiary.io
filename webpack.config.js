@@ -27,14 +27,14 @@ var webpackConfig = {
 
   plugins: [
     new webpack.optimize.OccurenceOrderPlugin(true),
-    new webpack.optimize.CommonsChunkPlugin({ name: ['main', 'vendor', 'polyfills'], minChunks: Infinity }),
+    //new webpack.optimize.CommonsChunkPlugin({ name: ['main', 'vendor', 'polyfills'], minChunks: Infinity }),
     new webpack.DefinePlugin({ 'ENV': JSON.stringify(ENV), 'process.env': {
         'ENV': JSON.stringify(ENV),
         'NODE_ENV': JSON.stringify(ENV),
       }
     }),
     new DotenvPlugin({ sample: './.env.default', path: './.env.dev' }),
-   new BrowserSyncPlugin({ host: 'localhost', port: 3000, proxy: 'http://localhost:3100'}),
+    //new BrowserSyncPlugin({ host: 'localhost', port: 3000, proxy: 'http://localhost:3100'}),
   ],
 
   module: {
