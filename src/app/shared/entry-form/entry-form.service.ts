@@ -5,7 +5,6 @@ import {contentHeaders} from '../common/headers';
 import {Entry} from "../common/entry";
 import {AuthHttp} from "angular2-jwt";
 
-declare let ENV: any
 
 @Injectable()
 export class EntryFormService {
