@@ -12,7 +12,7 @@ var autoprefixer = require('autoprefixer');
  * Webpack Constants
  */
 const ENV = process.env.NODE_ENV = process.env.ENV = process.env.npm_lifecycle_event;
-
+console.log("ENV " + ENV);
 // Webpack Config
 
 var webpackConfig = {
