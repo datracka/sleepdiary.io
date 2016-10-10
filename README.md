@@ -11,7 +11,7 @@
  `$ npm install`
 
 * Run the app
- `$ npm start`
+ `$ npm run dev`
  
 *  browse http://localhost:3000
 
