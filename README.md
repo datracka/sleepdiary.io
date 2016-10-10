@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/datracka/sleepdiary.io.svg?branch=develop)](https://travis-ci.org/datracka/sleepdiary.io)
+   
 # Sleepdiary.io - track your sleep
 ### For install & running application 
 
