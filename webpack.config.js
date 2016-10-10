@@ -11,31 +11,23 @@ var autoprefixer = require('autoprefixer');
 /**
  * Webpack Constants
  */
-
-const ENV = process.env.NODE_ENV = process.env.ENV = 'development';
+const ENV = process.env.NODE_ENV = process.env.ENV = process.env.npm_lifecycle_event;
 
 // Webpack Config
+
 var webpackConfig = {
+
   entry: {
     'polyfills': './src/polyfills.browser.ts',
     'vendor':    './src/vendor.browser.ts',
     'main':       './src/main.browser.ts',
   },
+
   output: {
     path: './dist'
   },
 
-  plugins: [
-    new webpack.optimize.OccurenceOrderPlugin(true),
-    //new webpack.optimize.CommonsChunkPlugin({ name: ['main', 'vendor', 'polyfills'], minChunks: Infinity }),
-    new webpack.DefinePlugin({ 'ENV': JSON.stringify(ENV), 'process.env': {
-        'ENV': JSON.stringify(ENV),
-        'NODE_ENV': JSON.stringify(ENV),
-      }
-    }),
-    new DotenvPlugin({ sample: './.env.default', path: './.env.dev' }),
-    //new BrowserSyncPlugin({ host: 'localhost', port: 3000, proxy: 'http://localhost:3100'}),
-  ],
+  plugins: [],
 
   module: {
     loaders: [
@@ -59,6 +51,11 @@ var webpackConfig = {
   }
 
 };
+
+webpackConfig.plugins.push(new DotenvPlugin({ sample: './.env.default', path: './.env.dev' }))
+if (ENV !== 'test') { //when test don't want add this plugin
+  webpackConfig.plugins.push(new BrowserSyncPlugin({ host: 'localhost', port: 3000, proxy: 'http://localhost:3100'}));
+}
 
 // Our Webpack Defaults
 var defaultConfig = {

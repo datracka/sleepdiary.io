@@ -3,7 +3,6 @@ import { Http, Response, Headers } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { contentHeaders } from '../common/headers';
 
-declare let ENV:any;
 
 
 @Injectable()

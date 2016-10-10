@@ -5,20 +5,24 @@
   "scripts": {
     "clean": "rimraf ./src/*.js ./src/*.js.map && npm cache clean",
     "clean-install": "npm run clean && npm install",
-    "start": "webpack-dev-server  --progress --display-error-details  --colors --port 3100 --inline --config webpack.config.js --content-base src",
-    "start.prod": "webpack --config config/webpack.prod.js  --progress --profile --colors --display-error-details --display-cached --bail",
-    "clean-start": "npm run clean && npm start.dev",
-    "watch": "webpack --watch --progress --profile",
+
+    "dev": "webpack-dev-server  --progress --display-error-details  --colors --port 3100 --inline --config webpack.config.js --content-base src",
+    "test": "karma start",
     "build": "rimraf dist  && webpack -d --progress --profile --config webpack.config.js",
     "deploy": "webpack -p",
+    "prod": "webpack --config config/webpack.prod.js  --progress --profile --colors --display-error-details --display-cached --bail",
+
+    "watch": "webpack --watch --progress --profile",
+
     "docker-build": "docker build -t ng2-quickstart .",
     "docker": "npm run docker-build && docker run -it --rm -p 3000:3000 -p 3001:3001 ng2-quickstart",
+
     "pree2e": "npm run webdriver:update",
     "e2e": "tsc && concurrently \"http-server\" \"protractor protractor.config.js\"",
+
     "lint": "tslint ./app/**/*.ts -t verbose",
-    "lite": "lite-server",
     "postinstall": "typings install",
-    "test": "karma start",
+
     "webdriver:update": "webdriver-manager update",
     "json-server": "json-server --watch db.json --routes routes.json --port 8081"
   },
