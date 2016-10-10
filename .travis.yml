@@ -1,3 +1,4 @@
+#http://mseemann.io/frontend/2016/05/31/setup-angular-2-app-part-1.html
 language: node_js
 sudo: true
 dist: trusty
