@@ -1,7 +1,8 @@
 {
   "name": "SleepDiary",
   "version": "1.0.0",
-  "description": "QuickStart package.json from the documentation, supplemented with testing support",
+  "description": "Sleepdiary package.json",
+  "author": "Vicens Fayos",
   "scripts": {
     "clean": "rimraf ./src/*.js ./src/*.js.map && npm cache clean",
     "clean-install": "npm run clean && npm install",
