@@ -1,21 +1,26 @@
-# To build and run with Docker:
-#
-#  $ docker build -t ng2-quickstart .
-#  $ docker run -it --rm -p 3000:3000 -p 3001:3001 ng2-quickstart
-#
-FROM readytalk/nodejs:latest
+FROM nginx:latest
 
-RUN mkdir -p /sleepdiary /home/nodejs && \
-    groupadd -r nodejs && \
-    useradd -r -g nodejs -d /home/nodejs -s /sbin/nologin nodejs && \
-    chown -R nodejs:nodejs /home/nodejs
+#create app folder
+RUN mkdir -p /srv/www/sleepdiary.io/
 
-WORKDIR /quickstart
-COPY package.json typings.json /quickstart/
-RUN npm install --unsafe-perm=true
+#add user https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-16-04
+#RUN useradd -ms /bin/bash sleepdiary && \
+#    usermod -aG sudo sleepdiary
 
-COPY . /quickstart
-RUN chown -R nodejs:nodejs /quickstart
-USER nodejs
+# WIP add certificate and https access
+# https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-16-04
 
-CMD npm start
+#copy dist app
+COPY src/index.html /srv/www/sleepdiary.io
+COPY dist /srv/www/sleepdiary.io
+
+#nginx custom configuration
+COPY nginx/sleepdiary.io.conf /etc/nginx/conf.d/sleepdiary.io.conf
+
+# Define working directory.
+WORKDIR /etc/nginx
+
+# Expose ports.
+EXPOSE 80
+EXPOSE 443
+

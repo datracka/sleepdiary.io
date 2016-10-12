@@ -46,6 +46,9 @@ so you need to do the following steps:
         **NOTICE** if shared already exists this command will raise an error: `Can't not do binding`. To override
         this remove the `-u` flag to only set the binding in cache and not write the files themself
 
+### Production (WIP)
+
+
 ### To develop and contribute into the project. 
 
 Due we use subtree git philosophy there are some steps to take care once you modify the source code.
