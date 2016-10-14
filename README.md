@@ -10,7 +10,7 @@
  `git clone git@github.com:datracka/sleepdiary.io.git`
  
 * Install dependencies
- `$ npm install`
+ `$ npm typings -g install && npm install`
 
 * Run the app
  `$ npm start`
