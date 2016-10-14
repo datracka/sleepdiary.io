@@ -11,7 +11,7 @@
     "test": "karma start",
     "build": "rimraf dist  && webpack -d --progress --profile --config webpack.config.js",
     "deploy": "webpack -p",
-    "prod": "webpack --config webpack.config.js  --progress --profile --colors --display-error-details --display-cached --bail --content-base src",
+    "prod": "webpack --config webpack.production.config.js  --progress --profile --colors --port 3100 --display-error-details --display-cached --bail --content-base src",
     "watch": "webpack --watch --progress --profile",
     "docker-build": "docker build -t ng2-quickstart .",
     "docker": "npm run docker-build && docker run -it --rm -p 3000:3000 -p 3001:3001 ng2-quickstart",
