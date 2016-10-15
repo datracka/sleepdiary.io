@@ -64,7 +64,6 @@ export class Calendar implements OnInit, AfterViewInit {
     constructor(private mdlSnackbarService: MdlSnackbarService, private vcRef: ViewContainerRef,
                 private router: Router, public route: ActivatedRoute, public calendarService: CalendarService) {
 
-        mdlSnackbarService.setDefaultViewContainerRef(vcRef);
         this.buildMonths('en', '2016');
         this.metric = {
             metricSelected: MetricsIndicators.SLEEPING_QUALITY
@@ -72,9 +71,9 @@ export class Calendar implements OnInit, AfterViewInit {
     }
 
     showSnackbar(message) {
-        this.mdlSnackbarService.showSnackbar({
+/*        this.mdlSnackbarService.showSnackbar({
             message: message,
-        });
+        });*/
     }
 
 
