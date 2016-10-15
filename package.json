@@ -43,6 +43,10 @@
     "zone.js": "0.6.25"
   },
   "devDependencies": {
+    "@types/jasmine": "^2.5.35",
+    "@types/node": "^6.0.45",
+    "@types/q": "0.0.32",
+    "@types/selenium-webdriver": "^2.53.33",
     "angular2-template-loader": "^0.5.0",
     "autoprefixer": "^6.4.1",
     "awesome-typescript-loader": "^2.2.4",
