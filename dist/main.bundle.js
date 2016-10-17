@@ -50974,9 +50974,9 @@
 	        };
 	    }
 	    Calendar.prototype.showSnackbar = function (message) {
-	        this.mdlSnackbarService.showSnackbar({
-	            message: message,
-	        });
+	        /*        this.mdlSnackbarService.showSnackbar({
+	                    message: message,
+	                });*/
 	    };
 	    Calendar.prototype.ngOnInit = function () {
 	        var _this = this;
@@ -65704,7 +65704,7 @@
 	"use strict";
 	var root_1 = __webpack_require__(9);
 	var toSubscriber_1 = __webpack_require__(410);
-	var observable_1 = __webpack_require__(38);
+	var observable_1 = __webpack_require__(39);
 	/**
 	 * A representation of any set of values over any amount of time. This the most basic building block
 	 * of RxJS.
@@ -65859,10 +65859,10 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var isFunction_1 = __webpack_require__(87);
+	var isFunction_1 = __webpack_require__(88);
 	var Subscription_1 = __webpack_require__(6);
 	var Observer_1 = __webpack_require__(133);
-	var rxSubscriber_1 = __webpack_require__(39);
+	var rxSubscriber_1 = __webpack_require__(40);
 	/**
 	 * Implements the {@link Observer} interface and extends the
 	 * {@link Subscription} class. While the {@link Observer} is the public API for
@@ -66151,7 +66151,7 @@
 	var Observable_1 = __webpack_require__(0);
 	var iterator_1 = __webpack_require__(32);
 	var InnerSubscriber_1 = __webpack_require__(132);
-	var observable_1 = __webpack_require__(38);
+	var observable_1 = __webpack_require__(39);
 	function subscribeToResult(outerSubscriber, result, outerValue, outerIndex) {
 	    var destination = new InnerSubscriber_1.InnerSubscriber(outerSubscriber, outerValue, outerIndex);
 	    if (destination.closed) {
@@ -66233,9 +66233,9 @@
 	var Observable_1 = __webpack_require__(0);
 	var Subscriber_1 = __webpack_require__(2);
 	var Subscription_1 = __webpack_require__(6);
-	var ObjectUnsubscribedError_1 = __webpack_require__(86);
+	var ObjectUnsubscribedError_1 = __webpack_require__(87);
 	var SubjectSubscription_1 = __webpack_require__(135);
-	var rxSubscriber_1 = __webpack_require__(39);
+	var rxSubscriber_1 = __webpack_require__(40);
 	/**
 	 * @class SubjectSubscriber<T>
 	 */
@@ -66393,7 +66393,7 @@
 	"use strict";
 	var isArray_1 = __webpack_require__(13);
 	var isObject_1 = __webpack_require__(408);
-	var isFunction_1 = __webpack_require__(87);
+	var isFunction_1 = __webpack_require__(88);
 	var tryCatch_1 = __webpack_require__(8);
 	var errorObject_1 = __webpack_require__(7);
 	var UnsubscriptionError_1 = __webpack_require__(121);
@@ -66661,7 +66661,7 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var Observable_1 = __webpack_require__(0);
-	var ScalarObservable_1 = __webpack_require__(79);
+	var ScalarObservable_1 = __webpack_require__(80);
 	var EmptyObservable_1 = __webpack_require__(15);
 	var isScheduler_1 = __webpack_require__(16);
 	/**
@@ -66972,6 +66972,263 @@
 	"use strict";
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__angular_core__);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__(125);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs__ = __webpack_require__(78);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs__);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__mdl_simple_dialog_component__ = __webpack_require__(47);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__mdl_dialog_host_component__ = __webpack_require__(46);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__internal_dialog_reference__ = __webpack_require__(128);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__dialog_outlet_mdl_dialog_outlet_service__ = __webpack_require__(28);
+	/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return MDL_CONFIGUARTION; });
+	/* harmony export (binding) */ __webpack_require__.d(exports, "b", function() { return MIN_DIALOG_Z_INDEX; });
+	/* harmony export (binding) */ __webpack_require__.d(exports, "c", function() { return MdlDialogReference; });
+	/* harmony export (binding) */ __webpack_require__.d(exports, "d", function() { return MdlDialogService; });
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var __param = (this && this.__param) || function (paramIndex, decorator) {
+	    return function (target, key) { decorator(target, key, paramIndex); }
+	};
+
+
+
+
+
+
+
+
+	var MDL_CONFIGUARTION = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["OpaqueToken"]('MDL_CONFIGUARTION');
+	var MIN_DIALOG_Z_INDEX = 100000;
+	/**
+	 * The reference to the created and displayed dialog.
+	 */
+	var MdlDialogReference = (function () {
+	    function MdlDialogReference(internaleRef) {
+	        this.internaleRef = internaleRef;
+	        internaleRef.dialogRef = this;
+	    }
+	    /**
+	     * closes the dialog
+	     */
+	    MdlDialogReference.prototype.hide = function () {
+	        this.internaleRef.hide();
+	    };
+	    /**
+	     * Observable that emits, if the dialog was closed.
+	     * @returns {Observable<void>}
+	     */
+	    MdlDialogReference.prototype.onHide = function () {
+	        return this.internaleRef.onHide();
+	    };
+	    return MdlDialogReference;
+	}());
+	/**
+	 * The MdlDialogService is used to open different kind of dialogs. SimpleDialogs and Custom Dialogs.
+	 * @experimental
+	  */
+	var MdlDialogService = (function () {
+	    function MdlDialogService(componentFactoryResolver, doc, appRef, mdlDialogOutletService) {
+	        var _this = this;
+	        this.componentFactoryResolver = componentFactoryResolver;
+	        this.doc = doc;
+	        this.appRef = appRef;
+	        this.mdlDialogOutletService = mdlDialogOutletService;
+	        this.openDialogs = new Array();
+	        this.mdlDialogOutletService.backdropClickEmitter.subscribe(function () {
+	            _this.onBackdropClick();
+	        });
+	    }
+	    /**
+	     * Shows a dialog that is just an alert - e.g. with one button.
+	     * @param alertMessage The message that should be displayed.
+	     * @param okTex The text that the button should have
+	     * @param title The optional title of the dialog
+	     * @returns An Observable that is called if the user hits the Ok button.
+	     */
+	    MdlDialogService.prototype.alert = function (alertMessage, okText, title) {
+	        if (okText === void 0) { okText = 'Ok'; }
+	        var result = new __WEBPACK_IMPORTED_MODULE_2_rxjs__["Subject"]();
+	        this.showDialog({
+	            title: title,
+	            message: alertMessage,
+	            actions: [
+	                { handler: function () {
+	                        result.next(null);
+	                        result.complete();
+	                    }, text: okText }
+	            ],
+	            isModal: true
+	        });
+	        return result;
+	    };
+	    /**
+	     * Shows a dialog that is just a confirm message - e.g. with two button.
+	     * @param question The question that should be displayed.
+	     * @param declineText The text for decline button. defaults to Cancel
+	     * @param confirmText The text for the confirm button . defaults to Ok
+	     * @returns An Observable that is called if the user hits the Ok button.
+	     */
+	    MdlDialogService.prototype.confirm = function (question, declineText, confirmText) {
+	        if (declineText === void 0) { declineText = 'Cancel'; }
+	        if (confirmText === void 0) { confirmText = 'Ok'; }
+	        var result = new __WEBPACK_IMPORTED_MODULE_2_rxjs__["Subject"]();
+	        this.showDialog({
+	            message: question,
+	            actions: [
+	                {
+	                    handler: function () {
+	                        result.next(null);
+	                        result.complete();
+	                    }, text: confirmText
+	                },
+	                {
+	                    handler: function () {
+	                        result.error(null);
+	                    }, text: declineText, isClosingAction: true
+	                }
+	            ],
+	            isModal: true
+	        });
+	        return result.asObservable();
+	    };
+	    /**
+	     * Shows a dialog that is specified by the provided configuration.
+	     * @param config The simple dialog configuration.
+	     * @returns An Observable that returns the MdlDialogReference.
+	     */
+	    MdlDialogService.prototype.showDialog = function (config) {
+	        if (config.actions.length === 0) {
+	            throw new Error('a dialog mus have at least one action');
+	        }
+	        var internalDialogRef = new __WEBPACK_IMPORTED_MODULE_5__internal_dialog_reference__["a" /* InternalMdlDialogReference */](config);
+	        var providers = [
+	            { provide: MdlDialogReference, useValue: new MdlDialogReference(internalDialogRef) },
+	            { provide: MDL_CONFIGUARTION, useValue: config }
+	        ];
+	        var hostComponentRef = this.createHostDialog(internalDialogRef, config);
+	        var cRef = this.createComponentInstance(hostComponentRef.instance.dialogTarget, providers, __WEBPACK_IMPORTED_MODULE_3__mdl_simple_dialog_component__["a" /* MdlSimpleDialogComponent */]);
+	        return __WEBPACK_IMPORTED_MODULE_2_rxjs__["Observable"].of(internalDialogRef.dialogRef);
+	    };
+	    /**
+	     * Shows a dialog that is specified by the provided configuration.
+	     * @param config The custom dialog configuration.
+	     * @returns Am Observable that returns the MdlDialogReference.
+	     */
+	    MdlDialogService.prototype.showCustomDialog = function (config) {
+	        var internalDialogRef = new __WEBPACK_IMPORTED_MODULE_5__internal_dialog_reference__["a" /* InternalMdlDialogReference */](config);
+	        var providers = [
+	            { provide: MdlDialogReference, useValue: new MdlDialogReference(internalDialogRef) }
+	        ];
+	        if (config.providers) {
+	            providers.push.apply(providers, config.providers);
+	        }
+	        var hostComponentRef = this.createHostDialog(internalDialogRef, config);
+	        this.createComponentInstance(hostComponentRef.instance.dialogTarget, providers, config.component);
+	        return __WEBPACK_IMPORTED_MODULE_2_rxjs__["Observable"].of(internalDialogRef.dialogRef);
+	    };
+	    MdlDialogService.prototype.showDialogTemplate = function (template, config) {
+	        var internalDialogRef = new __WEBPACK_IMPORTED_MODULE_5__internal_dialog_reference__["a" /* InternalMdlDialogReference */](config);
+	        var hostComponentRef = this.createHostDialog(internalDialogRef, config);
+	        hostComponentRef.instance.dialogTarget.createEmbeddedView(template);
+	        return __WEBPACK_IMPORTED_MODULE_2_rxjs__["Observable"].of(internalDialogRef.dialogRef);
+	    };
+	    MdlDialogService.prototype.createHostDialog = function (internalDialogRef, dialogConfig) {
+	        var _this = this;
+	        var viewContainerRef = this.mdlDialogOutletService.viewContainerRef;
+	        if (!viewContainerRef) {
+	            throw new Error('You did not provide a ViewContainerRef. ' +
+	                'Please see https://github.com/mseemann/angular2-mdl/wiki/How-to-use-the-MdlDialogService');
+	        }
+	        var providers = [
+	            { provide: MDL_CONFIGUARTION, useValue: dialogConfig }
+	        ];
+	        var hostDialogComponent = this.createComponentInstance(viewContainerRef, providers, __WEBPACK_IMPORTED_MODULE_4__mdl_dialog_host_component__["a" /* MdlDialogHostComponent */]);
+	        internalDialogRef.hostDialogComponentRef = hostDialogComponent;
+	        internalDialogRef.isModal = dialogConfig.isModal;
+	        internalDialogRef.closeCallback = function () {
+	            _this.popDialog(internalDialogRef);
+	            hostDialogComponent.destroy();
+	        };
+	        this.pushDialog(internalDialogRef);
+	        return hostDialogComponent;
+	    };
+	    MdlDialogService.prototype.pushDialog = function (dialogRef) {
+	        this.openDialogs.push(dialogRef);
+	        this.orderDialogStack();
+	    };
+	    MdlDialogService.prototype.popDialog = function (dialogRef) {
+	        this.openDialogs.splice(this.openDialogs.indexOf(dialogRef), 1);
+	        this.orderDialogStack();
+	    };
+	    MdlDialogService.prototype.orderDialogStack = function () {
+	        // +1 because the overlay may have MIN_DIALOG_Z_INDEX if the dialog is modal.
+	        var zIndex = MIN_DIALOG_Z_INDEX + 1;
+	        this.openDialogs.forEach(function (iDialogRef) {
+	            iDialogRef.hostDialog.zIndex = zIndex;
+	            // +2 to make room for the overlay if a dialog is modal
+	            zIndex += 2;
+	        });
+	        // if there is a modal dialog append the overloay to the dom - if not remove the overlay from the body
+	        var topMostModalDialog = this.getTopMostInternalDialogRef();
+	        for (var i = (this.openDialogs.length - 1); i >= 0; i--) {
+	            if (this.openDialogs[i].isModal) {
+	                topMostModalDialog = this.openDialogs[i];
+	                break;
+	            }
+	        }
+	        this.mdlDialogOutletService.hideBackdrop();
+	        if (topMostModalDialog) {
+	            // move the overlay diredct under the topmos modal dialog
+	            this.mdlDialogOutletService.showBackdropWithZIndex(topMostModalDialog.hostDialog.zIndex - 1);
+	        }
+	    };
+	    MdlDialogService.prototype.getTopMostInternalDialogRef = function () {
+	        var topMostModalDialog = null;
+	        for (var i = (this.openDialogs.length - 1); i >= 0; i--) {
+	            if (this.openDialogs[i].isModal) {
+	                topMostModalDialog = this.openDialogs[i];
+	                break;
+	            }
+	        }
+	        return topMostModalDialog;
+	    };
+	    MdlDialogService.prototype.onBackdropClick = function () {
+	        var topMostModalDialog = this.getTopMostInternalDialogRef();
+	        if (topMostModalDialog.config.clickOutsideToClose) {
+	            topMostModalDialog.hide();
+	        }
+	    };
+	    MdlDialogService.prototype.createComponentInstance = function (viewContainerRef, providers, component) {
+	        var cFactory = this.componentFactoryResolver.resolveComponentFactory(component);
+	        var resolvedProviders = __WEBPACK_IMPORTED_MODULE_0__angular_core__["ReflectiveInjector"].resolve(providers);
+	        var parentInjector = viewContainerRef.parentInjector;
+	        var childInjector = __WEBPACK_IMPORTED_MODULE_0__angular_core__["ReflectiveInjector"].fromResolvedProviders(resolvedProviders, parentInjector);
+	        return viewContainerRef.createComponent(cFactory, viewContainerRef.length, childInjector);
+	    };
+	    MdlDialogService = __decorate([
+	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
+	        __param(1, __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Inject"])(__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["DOCUMENT"])), 
+	        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["ComponentFactoryResolver"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_0__angular_core__["ComponentFactoryResolver"]) === 'function' && _a) || Object, Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["ApplicationRef"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_0__angular_core__["ApplicationRef"]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_6__dialog_outlet_mdl_dialog_outlet_service__["a" /* MdlDialogOutletService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_6__dialog_outlet_mdl_dialog_outlet_service__["a" /* MdlDialogOutletService */]) === 'function' && _c) || Object])
+	    ], MdlDialogService);
+	    return MdlDialogService;
+	    var _a, _b, _c;
+	}());
+
+
+	/***/ },
+	/* 21 */
+	/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__angular_core__);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__(17);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__angular_forms__);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common__ = __webpack_require__(10);
@@ -67097,7 +67354,7 @@
 
 
 	/***/ },
-	/* 21 */
+	/* 22 */
 	/***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -67369,249 +67626,13 @@
 
 
 	/***/ },
-	/* 22 */
-	/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__angular_core__);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__(125);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs__ = __webpack_require__(77);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs__);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__mdl_simple_dialog_component__ = __webpack_require__(46);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__mdl_dialog_host_component__ = __webpack_require__(45);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__internal_dialog_reference__ = __webpack_require__(128);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__dialog_outlet_mdl_dialog_outlet_service__ = __webpack_require__(28);
-	/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return MDL_CONFIGUARTION; });
-	/* harmony export (binding) */ __webpack_require__.d(exports, "b", function() { return MIN_DIALOG_Z_INDEX; });
-	/* harmony export (binding) */ __webpack_require__.d(exports, "c", function() { return MdlDialogReference; });
-	/* harmony export (binding) */ __webpack_require__.d(exports, "d", function() { return MdlDialogService; });
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
-	var __metadata = (this && this.__metadata) || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var __param = (this && this.__param) || function (paramIndex, decorator) {
-	    return function (target, key) { decorator(target, key, paramIndex); }
-	};
-
-
-
-
-
-
-
-
-	var MDL_CONFIGUARTION = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["OpaqueToken"]('MDL_CONFIGUARTION');
-	var MIN_DIALOG_Z_INDEX = 100000;
-	/**
-	 * The reference to the created and displayed dialog.
-	 */
-	var MdlDialogReference = (function () {
-	    function MdlDialogReference(internaleRef) {
-	        this.internaleRef = internaleRef;
-	        internaleRef.dialogRef = this;
-	    }
-	    /**
-	     * closes the dialog
-	     */
-	    MdlDialogReference.prototype.hide = function () {
-	        this.internaleRef.hide();
-	    };
-	    /**
-	     * Observable that emits, if the dialog was closed.
-	     * @returns {Observable<void>}
-	     */
-	    MdlDialogReference.prototype.onHide = function () {
-	        return this.internaleRef.onHide();
-	    };
-	    return MdlDialogReference;
-	}());
-	/**
-	 * The MdlDialogService is used to open different kind of dialogs. SimpleDialogs and Custom Dialogs.
-	 * @experimental
-	  */
-	var MdlDialogService = (function () {
-	    function MdlDialogService(componentFactoryResolver, doc, appRef, mdlDialogOutletService) {
-	        this.componentFactoryResolver = componentFactoryResolver;
-	        this.doc = doc;
-	        this.appRef = appRef;
-	        this.mdlDialogOutletService = mdlDialogOutletService;
-	        this.openDialogs = new Array();
-	    }
-	    /**
-	     * Shows a dialog that is just an alert - e.g. with one button.
-	     * @param alertMessage The message that should be displayed.
-	     * @param okTex The text that the button should have
-	     * @param title The optional title of the dialog
-	     * @returns An Observable that is called if the user hits the Ok button.
-	     */
-	    MdlDialogService.prototype.alert = function (alertMessage, okText, title) {
-	        if (okText === void 0) { okText = 'Ok'; }
-	        var result = new __WEBPACK_IMPORTED_MODULE_2_rxjs__["Subject"]();
-	        this.showDialog({
-	            title: title,
-	            message: alertMessage,
-	            actions: [
-	                { handler: function () {
-	                        result.next(null);
-	                        result.complete();
-	                    }, text: okText }
-	            ],
-	            isModal: true
-	        });
-	        return result;
-	    };
-	    /**
-	     * Shows a dialog that is just a confirm message - e.g. with two button.
-	     * @param question The question that should be displayed.
-	     * @param declineText The text for decline button. defaults to Cancel
-	     * @param confirmText The text for the confirm button . defaults to Ok
-	     * @returns An Observable that is called if the user hits the Ok button.
-	     */
-	    MdlDialogService.prototype.confirm = function (question, declineText, confirmText) {
-	        if (declineText === void 0) { declineText = 'Cancel'; }
-	        if (confirmText === void 0) { confirmText = 'Ok'; }
-	        var result = new __WEBPACK_IMPORTED_MODULE_2_rxjs__["Subject"]();
-	        this.showDialog({
-	            message: question,
-	            actions: [
-	                {
-	                    handler: function () {
-	                        result.next(null);
-	                        result.complete();
-	                    }, text: confirmText
-	                },
-	                {
-	                    handler: function () {
-	                        result.error(null);
-	                    }, text: declineText, isClosingAction: true
-	                }
-	            ],
-	            isModal: true
-	        });
-	        return result.asObservable();
-	    };
-	    /**
-	     * Shows a dialog that is specified by the provided configuration.
-	     * @param config The simple dialog configuration.
-	     * @returns An Observable that returns the MdlDialogReference.
-	     */
-	    MdlDialogService.prototype.showDialog = function (config) {
-	        if (config.actions.length === 0) {
-	            throw new Error('a dialog mus have at least one action');
-	        }
-	        var internalDialogRef = new __WEBPACK_IMPORTED_MODULE_5__internal_dialog_reference__["a" /* InternalMdlDialogReference */]();
-	        var providers = [
-	            { provide: MdlDialogReference, useValue: new MdlDialogReference(internalDialogRef) },
-	            { provide: MDL_CONFIGUARTION, useValue: config }
-	        ];
-	        var hostComponentRef = this.createHostDialog(internalDialogRef, config);
-	        var cRef = this.createComponentInstance(hostComponentRef.instance.dialogTarget, providers, __WEBPACK_IMPORTED_MODULE_3__mdl_simple_dialog_component__["a" /* MdlSimpleDialogComponent */]);
-	        return __WEBPACK_IMPORTED_MODULE_2_rxjs__["Observable"].of(internalDialogRef.dialogRef);
-	    };
-	    /**
-	     * Shows a dialog that is specified by the provided configuration.
-	     * @param config The custom dialog configuration.
-	     * @returns Am Observable that returns the MdlDialogReference.
-	     */
-	    MdlDialogService.prototype.showCustomDialog = function (config) {
-	        var internalDialogRef = new __WEBPACK_IMPORTED_MODULE_5__internal_dialog_reference__["a" /* InternalMdlDialogReference */]();
-	        var providers = [
-	            { provide: MdlDialogReference, useValue: new MdlDialogReference(internalDialogRef) }
-	        ];
-	        if (config.providers) {
-	            providers.push.apply(providers, config.providers);
-	        }
-	        var hostComponentRef = this.createHostDialog(internalDialogRef, config);
-	        this.createComponentInstance(hostComponentRef.instance.dialogTarget, providers, config.component);
-	        return __WEBPACK_IMPORTED_MODULE_2_rxjs__["Observable"].of(internalDialogRef.dialogRef);
-	    };
-	    MdlDialogService.prototype.showDialogTemplate = function (template, config) {
-	        var internalDialogRef = new __WEBPACK_IMPORTED_MODULE_5__internal_dialog_reference__["a" /* InternalMdlDialogReference */]();
-	        // FIXME bad design. this should be done in INternalMdlDialogReference
-	        new MdlDialogReference(internalDialogRef);
-	        var hostComponentRef = this.createHostDialog(internalDialogRef, config);
-	        hostComponentRef.instance.dialogTarget.createEmbeddedView(template);
-	        return __WEBPACK_IMPORTED_MODULE_2_rxjs__["Observable"].of(internalDialogRef.dialogRef);
-	    };
-	    MdlDialogService.prototype.createHostDialog = function (internalDialogRef, dialogConfig) {
-	        var _this = this;
-	        var viewContainerRef = this.mdlDialogOutletService.viewContainerRef;
-	        if (!viewContainerRef) {
-	            throw new Error('You did not provide a ViewContainerRef. ' +
-	                'Please see https://github.com/mseemann/angular2-mdl/wiki/How-to-use-the-MdlDialogService');
-	        }
-	        var hostDialogComponent = this.createComponentInstance(viewContainerRef, [], __WEBPACK_IMPORTED_MODULE_4__mdl_dialog_host_component__["a" /* MdlDialogHostComponent */]);
-	        internalDialogRef.hostDialogComponentRef = hostDialogComponent;
-	        internalDialogRef.isModal = dialogConfig.isModal;
-	        internalDialogRef.closeCallback = function () {
-	            _this.popDialog(internalDialogRef);
-	            hostDialogComponent.destroy();
-	        };
-	        this.pushDialog(internalDialogRef);
-	        return hostDialogComponent;
-	    };
-	    MdlDialogService.prototype.pushDialog = function (dialogRef) {
-	        this.openDialogs.push(dialogRef);
-	        this.orderDialogStack();
-	    };
-	    MdlDialogService.prototype.popDialog = function (dialogRef) {
-	        this.openDialogs.splice(this.openDialogs.indexOf(dialogRef), 1);
-	        this.orderDialogStack();
-	    };
-	    MdlDialogService.prototype.orderDialogStack = function () {
-	        // +1 because the overlay may have MIN_DIALOG_Z_INDEX if the dialog is modal.
-	        var zIndex = MIN_DIALOG_Z_INDEX + 1;
-	        this.openDialogs.forEach(function (iDialogRef) {
-	            iDialogRef.hostDialog.zIndex = zIndex;
-	            // +2 to make room for the overlay if a dialog is modal
-	            zIndex += 2;
-	        });
-	        // if there is a modal dialog append the overloay to the dom - if not remove the overlay from the body
-	        var topMostModalDialog = null;
-	        for (var i = (this.openDialogs.length - 1); i >= 0; i--) {
-	            if (this.openDialogs[i].isModal) {
-	                topMostModalDialog = this.openDialogs[i];
-	                break;
-	            }
-	        }
-	        this.mdlDialogOutletService.hideBackdrop();
-	        if (topMostModalDialog) {
-	            // move the overlay diredct under the topmos modal dialog
-	            this.mdlDialogOutletService.showBackdropWithZIndex(topMostModalDialog.hostDialog.zIndex - 1);
-	        }
-	    };
-	    MdlDialogService.prototype.createComponentInstance = function (viewContainerRef, providers, component) {
-	        var cFactory = this.componentFactoryResolver.resolveComponentFactory(component);
-	        var resolvedProviders = __WEBPACK_IMPORTED_MODULE_0__angular_core__["ReflectiveInjector"].resolve(providers);
-	        var parentInjector = viewContainerRef.parentInjector;
-	        var childInjector = __WEBPACK_IMPORTED_MODULE_0__angular_core__["ReflectiveInjector"].fromResolvedProviders(resolvedProviders, parentInjector);
-	        return viewContainerRef.createComponent(cFactory, viewContainerRef.length, childInjector);
-	    };
-	    MdlDialogService = __decorate([
-	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
-	        __param(1, __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Inject"])(__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["DOCUMENT"])), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["ComponentFactoryResolver"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_0__angular_core__["ComponentFactoryResolver"]) === 'function' && _a) || Object, Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["ApplicationRef"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_0__angular_core__["ApplicationRef"]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_6__dialog_outlet_mdl_dialog_outlet_service__["a" /* MdlDialogOutletService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_6__dialog_outlet_mdl_dialog_outlet_service__["a" /* MdlDialogOutletService */]) === 'function' && _c) || Object])
-	    ], MdlDialogService);
-	    return MdlDialogService;
-	    var _a, _b, _c;
-	}());
-
-
-	/***/ },
 	/* 23 */
 	/***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	"use strict";
 	var MulticastObservable_1 = __webpack_require__(102);
-	var ConnectableObservable_1 = __webpack_require__(78);
+	var ConnectableObservable_1 = __webpack_require__(79);
 	/**
 	 * Returns an Observable that emits the results of invoking a specified selector on items
 	 * emitted by a ConnectableObservable that shares a single subscription to the underlying stream.
@@ -67794,9 +67815,9 @@
 	"use strict";
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__angular_core__);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mdl_dialog_outlet_component__ = __webpack_require__(68);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mdl_dialog_outlet_component__ = __webpack_require__(69);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mdl_dialog_outlet_service__ = __webpack_require__(28);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__mdl_backdrop_overlay_component__ = __webpack_require__(44);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__mdl_backdrop_overlay_component__ = __webpack_require__(45);
 	/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return MdlDialogOutletModule; });
 	/* harmony namespace reexport (by used) */ __webpack_require__.d(exports, "b", function() { return __WEBPACK_IMPORTED_MODULE_1__mdl_dialog_outlet_component__["a"]; });
 	/* harmony namespace reexport (by used) */ __webpack_require__.d(exports, "c", function() { return __WEBPACK_IMPORTED_MODULE_1__mdl_dialog_outlet_component__["b"]; });
@@ -67854,12 +67875,12 @@
 
 	"use strict";
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__mdl_tabs_component__ = __webpack_require__(98);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mdl_tab_panel_component__ = __webpack_require__(75);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mdl_tab_panel_title_component__ = __webpack_require__(74);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mdl_tab_panel_component__ = __webpack_require__(76);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mdl_tab_panel_title_component__ = __webpack_require__(75);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_core__ = __webpack_require__(1);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__angular_core__);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__common_mdl_ripple_directive__ = __webpack_require__(21);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__common_index__ = __webpack_require__(67);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__common_mdl_ripple_directive__ = __webpack_require__(22);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__common_index__ = __webpack_require__(68);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_common__ = __webpack_require__(10);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_common___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__angular_common__);
 	/* harmony export (binding) */ __webpack_require__.d(exports, "b", function() { return MdlTabsModule; });
@@ -67948,8 +67969,8 @@
 	"use strict";
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__angular_core__);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mdl_dialog_outlet_component__ = __webpack_require__(68);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mdl_backdrop_overlay_component__ = __webpack_require__(44);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mdl_dialog_outlet_component__ = __webpack_require__(69);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mdl_backdrop_overlay_component__ = __webpack_require__(45);
 	/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return MdlDialogOutletService; });
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
 	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -67967,6 +67988,7 @@
 	    function MdlDialogOutletService(appRef, componentFactoryResolver) {
 	        this.appRef = appRef;
 	        this.componentFactoryResolver = componentFactoryResolver;
+	        this.backdropClickEmitter = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
 	        var dialogOutletCompRef = null;
 	        try {
 	            dialogOutletCompRef = this.appRef.bootstrap(__WEBPACK_IMPORTED_MODULE_1__mdl_dialog_outlet_component__["a" /* MdlDialogOutletComponent */]);
@@ -67988,17 +68010,21 @@
 	        configurable: true
 	    });
 	    MdlDialogOutletService.prototype.setViewContainerRef = function (value) {
+	        var _this = this;
 	        this.viewContainerRef_ = value;
 	        if (this.viewContainerRef_) {
 	            var cFactory = this.componentFactoryResolver.resolveComponentFactory(__WEBPACK_IMPORTED_MODULE_2__mdl_backdrop_overlay_component__["a" /* MdlBackdropOverlayComponent */]);
-	            this.backdropCompoenet = this.viewContainerRef_.createComponent(cFactory).instance;
+	            this.backdropComponet = this.viewContainerRef_.createComponent(cFactory).instance;
+	            this.backdropComponet.clickEmitter.subscribe(function () {
+	                _this.backdropClickEmitter.emit();
+	            });
 	        }
 	    };
 	    MdlDialogOutletService.prototype.hideBackdrop = function () {
-	        this.backdropCompoenet.hide();
+	        this.backdropComponet.hide();
 	    };
 	    MdlDialogOutletService.prototype.showBackdropWithZIndex = function (zIndex) {
-	        this.backdropCompoenet.showWithZIndex(zIndex);
+	        this.backdropComponet.showWithZIndex(zIndex);
 	    };
 	    MdlDialogOutletService = __decorate([
 	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(), 
@@ -68387,6 +68413,12 @@
 
 	/***/ },
 	/* 33 */
+	/***/ function(module, exports) {
+
+
+
+	/***/ },
+	/* 34 */
 	/***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -68397,9 +68429,9 @@
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__common_mdl_error__ = __webpack_require__(19);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__common_boolean_property__ = __webpack_require__(12);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__common_number_property__ = __webpack_require__(27);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__mdl_layout_header_component__ = __webpack_require__(71);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__mdl_layout_drawer_component__ = __webpack_require__(70);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__mdl_layout_content_component__ = __webpack_require__(69);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__mdl_layout_header_component__ = __webpack_require__(72);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__mdl_layout_drawer_component__ = __webpack_require__(71);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__mdl_layout_content_component__ = __webpack_require__(70);
 	/* harmony export (binding) */ __webpack_require__.d(exports, "b", function() { return MdLUnsupportedLayoutTypeError; });
 	/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return MdlLayoutComponent; });
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -68672,13 +68704,13 @@
 
 
 	/***/ },
-	/* 34 */
+	/* 35 */
 	/***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__angular_core__);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mdl_menu_item_component__ = __webpack_require__(73);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mdl_menu_item_component__ = __webpack_require__(74);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__common_mdl_error__ = __webpack_require__(19);
 	/* harmony export (binding) */ __webpack_require__.d(exports, "b", function() { return MdlMenuError; });
 	/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return MdlMenuComponent; });
@@ -68901,7 +68933,7 @@
 
 
 	/***/ },
-	/* 35 */
+	/* 36 */
 	/***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -68955,7 +68987,7 @@
 	//# sourceMappingURL=AsyncSubject.js.map
 
 	/***/ },
-	/* 36 */
+	/* 37 */
 	/***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -68967,7 +68999,7 @@
 	};
 	var Subject_1 = __webpack_require__(5);
 	var queue_1 = __webpack_require__(118);
-	var observeOn_1 = __webpack_require__(83);
+	var observeOn_1 = __webpack_require__(84);
 	/**
 	 * @class ReplaySubject<T>
 	 */
@@ -69040,7 +69072,7 @@
 	//# sourceMappingURL=ReplaySubject.js.map
 
 	/***/ },
-	/* 37 */
+	/* 38 */
 	/***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -69157,7 +69189,7 @@
 	//# sourceMappingURL=mergeAll.js.map
 
 	/***/ },
-	/* 38 */
+	/* 39 */
 	/***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -69185,7 +69217,7 @@
 	//# sourceMappingURL=observable.js.map
 
 	/***/ },
-	/* 39 */
+	/* 40 */
 	/***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -69197,7 +69229,7 @@
 	//# sourceMappingURL=rxSubscriber.js.map
 
 	/***/ },
-	/* 40 */
+	/* 41 */
 	/***/ function(module, exports) {
 
 	"use strict";
@@ -69231,7 +69263,7 @@
 	//# sourceMappingURL=ArgumentOutOfRangeError.js.map
 
 	/***/ },
-	/* 41 */
+	/* 42 */
 	/***/ function(module, exports) {
 
 	"use strict";
@@ -69265,7 +69297,7 @@
 	//# sourceMappingURL=EmptyError.js.map
 
 	/***/ },
-	/* 42 */
+	/* 43 */
 	/***/ function(module, exports) {
 
 	"use strict";
@@ -69277,7 +69309,7 @@
 	//# sourceMappingURL=isDate.js.map
 
 	/***/ },
-	/* 43 */
+	/* 44 */
 	/***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(setImmediate, clearImmediate) {var nextTick = __webpack_require__(131).nextTick;
@@ -69356,10 +69388,10 @@
 	exports.clearImmediate = typeof clearImmediate === "function" ? clearImmediate : function(id) {
 	  delete immediateIds[id];
 	};
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(43).setImmediate, __webpack_require__(43).clearImmediate))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(44).setImmediate, __webpack_require__(44).clearImmediate))
 
 	/***/ },
-	/* 44 */
+	/* 45 */
 	/***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -69378,6 +69410,7 @@
 
 	var MdlBackdropOverlayComponent = (function () {
 	    function MdlBackdropOverlayComponent() {
+	        this.clickEmitter = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
 	        this.visible = false;
 	        this.zIndex = 0;
 	    }
@@ -69389,6 +69422,7 @@
 	        configurable: true
 	    });
 	    MdlBackdropOverlayComponent.prototype.onBackdropClick = function (e) {
+	        this.clickEmitter.emit();
 	        e.stopPropagation();
 	    };
 	    MdlBackdropOverlayComponent.prototype.hide = function () {
@@ -69431,13 +69465,15 @@
 
 
 	/***/ },
-	/* 45 */
+	/* 46 */
 	/***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__angular_core__);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mdl_dialog_service__ = __webpack_require__(22);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mdl_dialog_service__ = __webpack_require__(20);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mdl_dialog_configuration__ = __webpack_require__(33);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mdl_dialog_configuration___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__mdl_dialog_configuration__);
 	/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return MdlDialogHostComponent; });
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
 	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -69448,23 +69484,54 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
+	var __param = (this && this.__param) || function (paramIndex, decorator) {
+	    return function (target, key) { decorator(target, key, paramIndex); }
+	};
+
 
 
 
 	// @experimental
 	var MdlDialogHostComponent = (function () {
-	    function MdlDialogHostComponent() {
+	    function MdlDialogHostComponent(renderer, elementRef, config) {
+	        this.renderer = renderer;
+	        this.elementRef = elementRef;
+	        this.config = config;
 	        this.zIndex = __WEBPACK_IMPORTED_MODULE_1__mdl_dialog_service__["b" /* MIN_DIALOG_Z_INDEX */] + 1;
-	        // open for later extensions - animate or not
-	        this.animate = true;
 	    }
 	    Object.defineProperty(MdlDialogHostComponent.prototype, "animateState", {
 	        get: function () {
-	            return this.animate ? 'animate' : '';
+	            // not present assume it is true.
+	            if (typeof this.config.animate === 'undefined') {
+	                return 'animate';
+	            }
+	            return this.config.animate ? 'animate' : '';
 	        },
 	        enumerable: true,
 	        configurable: true
 	    });
+	    Object.defineProperty(MdlDialogHostComponent.prototype, "classes", {
+	        get: function () {
+	            return this.config.classes ? this.config.classes : '';
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    MdlDialogHostComponent.prototype.animationStarted = function ($event) {
+	        // something like
+	        // {fromState: "void", toState: "animate", totalTime: 200}
+	        // {fromState: "animate", toState: "void", totalTime: 150}
+	    };
+	    MdlDialogHostComponent.prototype.animationDone = function ($event) { };
+	    MdlDialogHostComponent.prototype.ngOnInit = function () {
+	        // apply the styles
+	        var styles = this.config.styles;
+	        if (styles) {
+	            for (var style_1 in styles) {
+	                this.renderer.setElementStyle(this.elementRef.nativeElement, style_1, styles[style_1]);
+	            }
+	        }
+	    };
 	    __decorate([
 	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('dialogTarget', { read: __WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewContainerRef"] }), 
 	        __metadata('design:type', Object)
@@ -69473,11 +69540,14 @@
 	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
 	            selector: 'mdl-dialog-host-component',
 	            host: {
+	                '[class]': 'classes',
 	                '[class.mdl-dialog]': 'true',
 	                '[class.open]': 'true',
 	                '[class.fixed]': 'true',
 	                '[style.zIndex]': 'zIndex',
-	                '[@flyInOut]': 'animateState'
+	                '[@flyInOut]': 'animateState',
+	                '(@flyInOut.start)': 'animationStarted($event)',
+	                '(@flyInOut.done)': 'animationDone($event)'
 	            },
 	            animations: [
 	                __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["trigger"])('flyInOut', [
@@ -69499,22 +69569,24 @@
 	                "\n    mdl-dialog-host-component {\n      position: absolute;\n      left: 0; right: 0;\n      width: -moz-fit-content;\n      width: -webkit-fit-content;\n      width: fit-content;\n      height: -moz-fit-content;\n      height: -webkit-fit-content;\n      height: fit-content;\n      margin: auto;\n      border: solid;\n      padding: 1em;\n      background: white;\n      color: black;\n      display: none;\n      z-index: 1;\n      opacity: 1;\n    }\n    \n    mdl-dialog-host-component.open {\n      display: block;\n    }\n    \n    mdl-dialog-host-component.fixed {\n      position: fixed;\n      top: 50%;\n      transform: translate(0, -50%);\n    }\n\n    "
 	            ],
 	            encapsulation: __WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewEncapsulation"].None
-	        }), 
-	        __metadata('design:paramtypes', [])
+	        }),
+	        __param(2, __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Inject"])(__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["forwardRef"])(function () { return __WEBPACK_IMPORTED_MODULE_1__mdl_dialog_service__["a" /* MDL_CONFIGUARTION */]; }))), 
+	        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["Renderer"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_0__angular_core__["Renderer"]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__mdl_dialog_configuration__["IMdlDialogConfiguration"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__mdl_dialog_configuration__["IMdlDialogConfiguration"]) === 'function' && _c) || Object])
 	    ], MdlDialogHostComponent);
 	    return MdlDialogHostComponent;
+	    var _a, _b, _c;
 	}());
 
 
 	/***/ },
-	/* 46 */
+	/* 47 */
 	/***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__angular_core__);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mdl_dialog_service__ = __webpack_require__(22);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mdl_dialog_configuration__ = __webpack_require__(90);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mdl_dialog_service__ = __webpack_require__(20);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mdl_dialog_configuration__ = __webpack_require__(33);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mdl_dialog_configuration___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__mdl_dialog_configuration__);
 	/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return MdlSimpleDialogComponent; });
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -69579,7 +69651,7 @@
 
 
 	/***/ },
-	/* 47 */
+	/* 48 */
 	/***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -69675,7 +69747,7 @@
 
 
 	/***/ },
-	/* 48 */
+	/* 49 */
 	/***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -69915,7 +69987,7 @@
 
 
 	/***/ },
-	/* 49 */
+	/* 50 */
 	/***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -69924,8 +69996,8 @@
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__(10);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__angular_common__);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__icon_mdl_icon_component__ = __webpack_require__(18);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__mdl_chip_component__ = __webpack_require__(66);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__mdl_chip_contact_directive__ = __webpack_require__(65);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__mdl_chip_component__ = __webpack_require__(67);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__mdl_chip_contact_directive__ = __webpack_require__(66);
 	/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return MdlChipModule; });
 	/* harmony namespace reexport (by used) */ __webpack_require__.d(exports, "b", function() { return __WEBPACK_IMPORTED_MODULE_3__mdl_chip_component__["a"]; });
 	/* harmony namespace reexport (by used) */ __webpack_require__.d(exports, "c", function() { return __WEBPACK_IMPORTED_MODULE_4__mdl_chip_contact_directive__["a"]; });
@@ -69968,7 +70040,7 @@
 
 
 	/***/ },
-	/* 50 */
+	/* 51 */
 	/***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -69976,14 +70048,14 @@
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__angular_core__);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__(10);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__angular_common__);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mdl_dialog_service__ = __webpack_require__(22);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mdl_dialog_service__ = __webpack_require__(20);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__mdl_dialog_component__ = __webpack_require__(91);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__mdl_simple_dialog_component__ = __webpack_require__(46);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__common_index__ = __webpack_require__(67);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__mdl_dialog_host_component__ = __webpack_require__(45);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__mdl_alert_component__ = __webpack_require__(89);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__mdl_simple_dialog_component__ = __webpack_require__(47);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__common_index__ = __webpack_require__(68);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__mdl_dialog_host_component__ = __webpack_require__(46);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__mdl_alert_component__ = __webpack_require__(90);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__dialog_outlet_index__ = __webpack_require__(25);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__mdl_dialog_configuration__ = __webpack_require__(90);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__mdl_dialog_configuration__ = __webpack_require__(33);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__mdl_dialog_configuration___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__mdl_dialog_configuration__);
 	/* harmony export (binding) */ __webpack_require__.d(exports, "MdlDialogModule", function() { return MdlDialogModule; });
 	/* harmony namespace reexport (by provided) */ __webpack_require__.d(exports, "MdlDialogComponent", function() { return __WEBPACK_IMPORTED_MODULE_3__mdl_dialog_component__["a"]; });
@@ -70050,7 +70122,7 @@
 
 
 	/***/ },
-	/* 51 */
+	/* 52 */
 	/***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -70061,7 +70133,7 @@
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(17);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__angular_forms__);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__icon_mdl_icon_component__ = __webpack_require__(18);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__checkbox_mdl_checkbox_component__ = __webpack_require__(20);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__checkbox_mdl_checkbox_component__ = __webpack_require__(21);
 	/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return MdlIconToggleComponent; });
 	/* harmony export (binding) */ __webpack_require__.d(exports, "b", function() { return MdlIconToggleModule; });
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -70134,24 +70206,24 @@
 
 
 	/***/ },
-	/* 52 */
+	/* 53 */
 	/***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__angular_core__);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mdl_layout_component__ = __webpack_require__(33);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mdl_layout_header_component__ = __webpack_require__(71);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__mdl_layout_drawer_component__ = __webpack_require__(70);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__mdl_layout_content_component__ = __webpack_require__(69);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mdl_layout_component__ = __webpack_require__(34);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mdl_layout_header_component__ = __webpack_require__(72);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__mdl_layout_drawer_component__ = __webpack_require__(71);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__mdl_layout_content_component__ = __webpack_require__(70);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__mdl_layout_header_transparent_directive__ = __webpack_require__(93);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__mdl_layout_header_row_component__ = __webpack_require__(92);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__mdl_layout_title_component__ = __webpack_require__(95);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__mdl_layout_spacer_component__ = __webpack_require__(94);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__mdl_layout_tab_panel_component__ = __webpack_require__(72);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__mdl_layout_tab_panel_component__ = __webpack_require__(73);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__icon_mdl_icon_component__ = __webpack_require__(18);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__common_mdl_ripple_directive__ = __webpack_require__(21);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__common_index__ = __webpack_require__(67);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__common_mdl_ripple_directive__ = __webpack_require__(22);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__common_index__ = __webpack_require__(68);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__angular_common__ = __webpack_require__(10);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__angular_common___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13__angular_common__);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__tabs_index__ = __webpack_require__(26);
@@ -70232,7 +70304,7 @@
 
 
 	/***/ },
-	/* 53 */
+	/* 54 */
 	/***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -70531,14 +70603,14 @@
 
 
 	/***/ },
-	/* 54 */
+	/* 55 */
 	/***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__angular_core__);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mdl_menu_component__ = __webpack_require__(34);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mdl_menu_item_component__ = __webpack_require__(73);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mdl_menu_component__ = __webpack_require__(35);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mdl_menu_item_component__ = __webpack_require__(74);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__mdl_menu_item_directive__ = __webpack_require__(96);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_common__ = __webpack_require__(10);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_common___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__angular_common__);
@@ -70594,7 +70666,7 @@
 
 
 	/***/ },
-	/* 55 */
+	/* 56 */
 	/***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -70686,7 +70758,7 @@
 
 
 	/***/ },
-	/* 56 */
+	/* 57 */
 	/***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -70890,7 +70962,7 @@
 
 
 	/***/ },
-	/* 57 */
+	/* 58 */
 	/***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -70980,7 +71052,7 @@
 
 
 	/***/ },
-	/* 58 */
+	/* 59 */
 	/***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -71142,7 +71214,7 @@
 
 
 	/***/ },
-	/* 59 */
+	/* 60 */
 	/***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -71152,7 +71224,7 @@
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__angular_common__);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__dialog_outlet_mdl_dialog_outlet_service__ = __webpack_require__(28);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__dialog_outlet_index__ = __webpack_require__(25);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs__ = __webpack_require__(77);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs__ = __webpack_require__(78);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs__);
 	/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return MdlSnackbarComponent; });
 	/* harmony export (binding) */ __webpack_require__.d(exports, "b", function() { return MdlSnackbarService; });
@@ -71292,7 +71364,7 @@
 
 
 	/***/ },
-	/* 60 */
+	/* 61 */
 	/***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -71370,7 +71442,7 @@
 
 
 	/***/ },
-	/* 61 */
+	/* 62 */
 	/***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -71378,7 +71450,7 @@
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__angular_core__);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__(17);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__angular_forms__);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__checkbox_mdl_checkbox_component__ = __webpack_require__(20);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__checkbox_mdl_checkbox_component__ = __webpack_require__(21);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common__ = __webpack_require__(10);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__angular_common__);
 	/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return MdlSwitchComponent; });
@@ -71453,15 +71525,15 @@
 
 
 	/***/ },
-	/* 62 */
+	/* 63 */
 	/***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__angular_core__);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mdl_table_component__ = __webpack_require__(97);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__checkbox_mdl_checkbox_component__ = __webpack_require__(20);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__common_mdl_ripple_directive__ = __webpack_require__(21);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__checkbox_mdl_checkbox_component__ = __webpack_require__(21);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__common_mdl_ripple_directive__ = __webpack_require__(22);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_common__ = __webpack_require__(10);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_common___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__angular_common__);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_forms__ = __webpack_require__(17);
@@ -71512,7 +71584,7 @@
 
 
 	/***/ },
-	/* 63 */
+	/* 64 */
 	/***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -71789,13 +71861,13 @@
 
 
 	/***/ },
-	/* 64 */
+	/* 65 */
 	/***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__angular_core__);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mdl_tooltip_component__ = __webpack_require__(76);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mdl_tooltip_component__ = __webpack_require__(77);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mdl_tooltip_directive__ = __webpack_require__(99);
 	/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return MdlTooltipModule; });
 	/* harmony namespace reexport (by used) */ __webpack_require__.d(exports, "b", function() { return __WEBPACK_IMPORTED_MODULE_1__mdl_tooltip_component__["b"]; });
@@ -71845,13 +71917,13 @@
 
 
 	/***/ },
-	/* 65 */
+	/* 66 */
 	/***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__angular_core__);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mdl_chip_component__ = __webpack_require__(66);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mdl_chip_component__ = __webpack_require__(67);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__common_mdl_error__ = __webpack_require__(19);
 	/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return MdlChipContactDirective; });
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -71895,13 +71967,13 @@
 
 
 	/***/ },
-	/* 66 */
+	/* 67 */
 	/***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__angular_core__);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mdl_chip_contact_directive__ = __webpack_require__(65);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mdl_chip_contact_directive__ = __webpack_require__(66);
 	/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return MdlChipComponent; });
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
 	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -71955,7 +72027,7 @@
 
 
 	/***/ },
-	/* 67 */
+	/* 68 */
 	/***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -71990,7 +72062,7 @@
 
 
 	/***/ },
-	/* 68 */
+	/* 69 */
 	/***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -72058,13 +72130,13 @@
 
 
 	/***/ },
-	/* 69 */
+	/* 70 */
 	/***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__angular_core__);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mdl_layout_tab_panel_component__ = __webpack_require__(72);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mdl_layout_tab_panel_component__ = __webpack_require__(73);
 	/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return MdlLayoutContentComponent; });
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
 	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -72103,13 +72175,13 @@
 
 
 	/***/ },
-	/* 70 */
+	/* 71 */
 	/***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__angular_core__);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mdl_layout_component__ = __webpack_require__(33);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mdl_layout_component__ = __webpack_require__(34);
 	/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return MdlLayoutDrawerComponent; });
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
 	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -72153,13 +72225,13 @@
 
 
 	/***/ },
-	/* 71 */
+	/* 72 */
 	/***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__angular_core__);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mdl_layout_component__ = __webpack_require__(33);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mdl_layout_component__ = __webpack_require__(34);
 	/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return MdlLayoutHeaderComponent; });
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
 	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -72220,7 +72292,7 @@
 
 
 	/***/ },
-	/* 72 */
+	/* 73 */
 	/***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -72268,13 +72340,13 @@
 
 
 	/***/ },
-	/* 73 */
+	/* 74 */
 	/***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__angular_core__);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mdl_menu_component__ = __webpack_require__(34);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mdl_menu_component__ = __webpack_require__(35);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__common_boolean_property__ = __webpack_require__(12);
 	/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return MdlMenuItemComponent; });
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -72345,7 +72417,7 @@
 
 
 	/***/ },
-	/* 74 */
+	/* 75 */
 	/***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -72380,13 +72452,13 @@
 
 
 	/***/ },
-	/* 75 */
+	/* 76 */
 	/***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__angular_core__);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mdl_tab_panel_title_component__ = __webpack_require__(74);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mdl_tab_panel_title_component__ = __webpack_require__(75);
 	/* harmony export (binding) */ __webpack_require__.d(exports, "b", function() { return MdlTabPanelContent; });
 	/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return MdlTabPanelComponent; });
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -72446,7 +72518,7 @@
 
 
 	/***/ },
-	/* 76 */
+	/* 77 */
 	/***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -72536,7 +72608,7 @@
 
 
 	/***/ },
-	/* 77 */
+	/* 78 */
 	/***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -72688,23 +72760,23 @@
 	exports.Subscription = Subscription_1.Subscription;
 	var Subscriber_1 = __webpack_require__(2);
 	exports.Subscriber = Subscriber_1.Subscriber;
-	var AsyncSubject_1 = __webpack_require__(35);
+	var AsyncSubject_1 = __webpack_require__(36);
 	exports.AsyncSubject = AsyncSubject_1.AsyncSubject;
-	var ReplaySubject_1 = __webpack_require__(36);
+	var ReplaySubject_1 = __webpack_require__(37);
 	exports.ReplaySubject = ReplaySubject_1.ReplaySubject;
 	var BehaviorSubject_1 = __webpack_require__(100);
 	exports.BehaviorSubject = BehaviorSubject_1.BehaviorSubject;
 	var MulticastObservable_1 = __webpack_require__(102);
 	exports.MulticastObservable = MulticastObservable_1.MulticastObservable;
-	var ConnectableObservable_1 = __webpack_require__(78);
+	var ConnectableObservable_1 = __webpack_require__(79);
 	exports.ConnectableObservable = ConnectableObservable_1.ConnectableObservable;
 	var Notification_1 = __webpack_require__(29);
 	exports.Notification = Notification_1.Notification;
-	var EmptyError_1 = __webpack_require__(41);
+	var EmptyError_1 = __webpack_require__(42);
 	exports.EmptyError = EmptyError_1.EmptyError;
-	var ArgumentOutOfRangeError_1 = __webpack_require__(40);
+	var ArgumentOutOfRangeError_1 = __webpack_require__(41);
 	exports.ArgumentOutOfRangeError = ArgumentOutOfRangeError_1.ArgumentOutOfRangeError;
-	var ObjectUnsubscribedError_1 = __webpack_require__(86);
+	var ObjectUnsubscribedError_1 = __webpack_require__(87);
 	exports.ObjectUnsubscribedError = ObjectUnsubscribedError_1.ObjectUnsubscribedError;
 	var UnsubscriptionError_1 = __webpack_require__(121);
 	exports.UnsubscriptionError = UnsubscriptionError_1.UnsubscriptionError;
@@ -72724,9 +72796,9 @@
 	var async_1 = __webpack_require__(11);
 	var queue_1 = __webpack_require__(118);
 	var animationFrame_1 = __webpack_require__(398);
-	var rxSubscriber_1 = __webpack_require__(39);
+	var rxSubscriber_1 = __webpack_require__(40);
 	var iterator_1 = __webpack_require__(32);
-	var observable_1 = __webpack_require__(38);
+	var observable_1 = __webpack_require__(39);
 	/* tslint:enable:no-unused-variable */
 	/**
 	 * @typedef {Object} Rx.Scheduler
@@ -72770,7 +72842,7 @@
 	//# sourceMappingURL=Rx.js.map
 
 	/***/ },
-	/* 78 */
+	/* 79 */
 	/***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -72930,7 +73002,7 @@
 	//# sourceMappingURL=ConnectableObservable.js.map
 
 	/***/ },
-	/* 79 */
+	/* 80 */
 	/***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -72994,7 +73066,7 @@
 	//# sourceMappingURL=ScalarObservable.js.map
 
 	/***/ },
-	/* 80 */
+	/* 81 */
 	/***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -73147,14 +73219,14 @@
 	//# sourceMappingURL=combineLatest.js.map
 
 	/***/ },
-	/* 81 */
+	/* 82 */
 	/***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	"use strict";
 	var isScheduler_1 = __webpack_require__(16);
 	var ArrayObservable_1 = __webpack_require__(14);
-	var mergeAll_1 = __webpack_require__(37);
+	var mergeAll_1 = __webpack_require__(38);
 	/**
 	 * Creates an output Observable which sequentially emits all values from every
 	 * given input Observable after the current Observable.
@@ -73261,7 +73333,7 @@
 	//# sourceMappingURL=concat.js.map
 
 	/***/ },
-	/* 82 */
+	/* 83 */
 	/***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -73354,7 +73426,7 @@
 	//# sourceMappingURL=map.js.map
 
 	/***/ },
-	/* 83 */
+	/* 84 */
 	/***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -73435,7 +73507,7 @@
 	//# sourceMappingURL=observeOn.js.map
 
 	/***/ },
-	/* 84 */
+	/* 85 */
 	/***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -73553,7 +73625,7 @@
 	//# sourceMappingURL=reduce.js.map
 
 	/***/ },
-	/* 85 */
+	/* 86 */
 	/***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -73813,7 +73885,7 @@
 	//# sourceMappingURL=zip.js.map
 
 	/***/ },
-	/* 86 */
+	/* 87 */
 	/***/ function(module, exports) {
 
 	"use strict";
@@ -73846,7 +73918,7 @@
 	//# sourceMappingURL=ObjectUnsubscribedError.js.map
 
 	/***/ },
-	/* 87 */
+	/* 88 */
 	/***/ function(module, exports) {
 
 	"use strict";
@@ -73858,7 +73930,7 @@
 	//# sourceMappingURL=isFunction.js.map
 
 	/***/ },
-	/* 88 */
+	/* 89 */
 	/***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -73876,13 +73948,13 @@
 	//# sourceMappingURL=isNumeric.js.map
 
 	/***/ },
-	/* 89 */
+	/* 90 */
 	/***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__angular_core__);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mdl_dialog_service__ = __webpack_require__(22);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mdl_dialog_service__ = __webpack_require__(20);
 	/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return MdlAlertComponent; });
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
 	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -73939,20 +74011,16 @@
 
 
 	/***/ },
-	/* 90 */
-	/***/ function(module, exports) {
-
-
-
-	/***/ },
 	/* 91 */
 	/***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__angular_core__);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mdl_dialog_service__ = __webpack_require__(22);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mdl_dialog_service__ = __webpack_require__(20);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__common_boolean_property__ = __webpack_require__(12);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__mdl_dialog_configuration__ = __webpack_require__(33);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__mdl_dialog_configuration___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__mdl_dialog_configuration__);
 	/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return MdlDialogComponent; });
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
 	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -73966,9 +74034,11 @@
 
 
 
+
 	var MdlDialogComponent = (function () {
 	    function MdlDialogComponent(dialogService) {
 	        this.dialogService = dialogService;
+	        // @deprecated use mdl-dialog-config instead
 	        this.modal = true;
 	        this.showEmitter = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
 	        this.hideEmitter = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
@@ -73981,7 +74051,11 @@
 	            throw new Error('Only one instance of an embedded mdl-dialog can exist!');
 	        }
 	        this.isShown = true;
-	        var p = this.dialogService.showDialogTemplate(this.template, { isModal: this.modal });
+	        var mergedConfig = this.config || {};
+	        if (this.modal) {
+	            mergedConfig.isModal = true;
+	        }
+	        var p = this.dialogService.showDialogTemplate(this.template, mergedConfig);
 	        p.subscribe(function (dialogRef) {
 	            _this.dialogRef = dialogRef;
 	            _this.showEmitter.emit(dialogRef);
@@ -74008,22 +74082,26 @@
 	        __metadata('design:type', Object)
 	    ], MdlDialogComponent.prototype, "modal", void 0);
 	    __decorate([
+	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])('mdl-dialog-config'), 
+	        __metadata('design:type', (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__mdl_dialog_configuration__["IMdlDialogConfiguration"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3__mdl_dialog_configuration__["IMdlDialogConfiguration"]) === 'function' && _b) || Object)
+	    ], MdlDialogComponent.prototype, "config", void 0);
+	    __decorate([
 	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])('show'), 
-	        __metadata('design:type', (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]) === 'function' && _b) || Object)
+	        __metadata('design:type', (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]) === 'function' && _c) || Object)
 	    ], MdlDialogComponent.prototype, "showEmitter", void 0);
 	    __decorate([
 	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])('hide'), 
-	        __metadata('design:type', (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]) === 'function' && _c) || Object)
+	        __metadata('design:type', (typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]) === 'function' && _d) || Object)
 	    ], MdlDialogComponent.prototype, "hideEmitter", void 0);
 	    MdlDialogComponent = __decorate([
 	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
 	            selector: 'mdl-dialog',
 	            template: "\n    <div *dialogTemplate>\n      <ng-content></ng-content>\n    </div>\n  "
 	        }), 
-	        __metadata('design:paramtypes', [(typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1__mdl_dialog_service__["d" /* MdlDialogService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__mdl_dialog_service__["d" /* MdlDialogService */]) === 'function' && _d) || Object])
+	        __metadata('design:paramtypes', [(typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1__mdl_dialog_service__["d" /* MdlDialogService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__mdl_dialog_service__["d" /* MdlDialogService */]) === 'function' && _e) || Object])
 	    ], MdlDialogComponent);
 	    return MdlDialogComponent;
-	    var _a, _b, _c, _d;
+	    var _a, _b, _c, _d, _e;
 	}());
 
 
@@ -74319,7 +74397,7 @@
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__angular_core__);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__common_boolean_property__ = __webpack_require__(12);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__common_number_property__ = __webpack_require__(27);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__mdl_tab_panel_component__ = __webpack_require__(75);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__mdl_tab_panel_component__ = __webpack_require__(76);
 	/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return MdlTabsComponent; });
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
 	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -74409,7 +74487,7 @@
 	"use strict";
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__angular_core__);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mdl_tooltip_component__ = __webpack_require__(76);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mdl_tooltip_component__ = __webpack_require__(77);
 	/* harmony export (binding) */ __webpack_require__.d(exports, "c", function() { return AbstractMdlTooltipDirective; });
 	/* harmony export (binding) */ __webpack_require__.d(exports, "b", function() { return MdlTooltipDirective; });
 	/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return MdlTooltipLargeDirective; });
@@ -74536,7 +74614,7 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var Subject_1 = __webpack_require__(5);
-	var ObjectUnsubscribedError_1 = __webpack_require__(86);
+	var ObjectUnsubscribedError_1 = __webpack_require__(87);
 	/**
 	 * @class BehaviorSubject<T>
 	 */
@@ -74598,8 +74676,8 @@
 	var ArrayLikeObservable_1 = __webpack_require__(265);
 	var iterator_1 = __webpack_require__(32);
 	var Observable_1 = __webpack_require__(0);
-	var observeOn_1 = __webpack_require__(83);
-	var observable_1 = __webpack_require__(38);
+	var observeOn_1 = __webpack_require__(84);
+	var observable_1 = __webpack_require__(39);
 	var isArrayLike = (function (x) { return x && typeof x.length === 'number'; });
 	/**
 	 * We need this JSDoc comment for affecting ESDoc.
@@ -74713,7 +74791,7 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var Observable_1 = __webpack_require__(0);
-	var ConnectableObservable_1 = __webpack_require__(78);
+	var ConnectableObservable_1 = __webpack_require__(79);
 	var MulticastObservable = (function (_super) {
 	    __extends(MulticastObservable, _super);
 	    function MulticastObservable(source, subjectFactory, selector) {
@@ -74877,7 +74955,7 @@
 	var errorObject_1 = __webpack_require__(7);
 	var Observable_1 = __webpack_require__(0);
 	var Subscriber_1 = __webpack_require__(2);
-	var map_1 = __webpack_require__(82);
+	var map_1 = __webpack_require__(83);
 	function getCORSRequest() {
 	    if (root_1.root.XMLHttpRequest) {
 	        var xhr = new root_1.root.XMLHttpRequest();
@@ -75644,7 +75722,7 @@
 	"use strict";
 	"use strict";
 	var ArrayObservable_1 = __webpack_require__(14);
-	var mergeAll_1 = __webpack_require__(37);
+	var mergeAll_1 = __webpack_require__(38);
 	var isScheduler_1 = __webpack_require__(16);
 	/**
 	 * Creates an output Observable which concurrently emits all values from every
@@ -76949,7 +77027,9 @@
 	"use strict";
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rxjs_Subject__ = __webpack_require__(412);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rxjs_Subject___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_rxjs_Subject__);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mdl_dialog_service__ = __webpack_require__(20);
 	/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return InternalMdlDialogReference; });
+
 
 	/**
 	 * Internal representation of the dialog ref. the service
@@ -76957,9 +77037,11 @@
 	 * and internal implementations.
 	 */
 	var InternalMdlDialogReference = (function () {
-	    function InternalMdlDialogReference() {
+	    function InternalMdlDialogReference(config) {
+	        this.config = config;
 	        this.onHideSubject = new __WEBPACK_IMPORTED_MODULE_0_rxjs_Subject__["Subject"]();
 	        this.isModal = false;
+	        this.dialogRef = new __WEBPACK_IMPORTED_MODULE_1__mdl_dialog_service__["c" /* MdlDialogReference */](this);
 	    }
 	    Object.defineProperty(InternalMdlDialogReference.prototype, "hostDialog", {
 	        get: function () {
@@ -76987,7 +77069,7 @@
 	"use strict";
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__angular_core__);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mdl_menu_component__ = __webpack_require__(34);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mdl_menu_component__ = __webpack_require__(35);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__button_mdl_button_component__ = __webpack_require__(24);
 	/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return MdlToggleMenuDirective; });
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -77858,7 +77940,7 @@
 	"use strict";
 	"use strict";
 	var Observable_1 = __webpack_require__(0);
-	var combineLatest_1 = __webpack_require__(80);
+	var combineLatest_1 = __webpack_require__(81);
 	Observable_1.Observable.prototype.combineLatest = combineLatest_1.combineLatest;
 	//# sourceMappingURL=combineLatest.js.map
 
@@ -77869,7 +77951,7 @@
 	"use strict";
 	"use strict";
 	var Observable_1 = __webpack_require__(0);
-	var concat_1 = __webpack_require__(81);
+	var concat_1 = __webpack_require__(82);
 	Observable_1.Observable.prototype.concat = concat_1.concat;
 	//# sourceMappingURL=concat.js.map
 
@@ -78213,7 +78295,7 @@
 	"use strict";
 	"use strict";
 	var Observable_1 = __webpack_require__(0);
-	var map_1 = __webpack_require__(82);
+	var map_1 = __webpack_require__(83);
 	Observable_1.Observable.prototype.map = map_1.map;
 	//# sourceMappingURL=map.js.map
 
@@ -78268,7 +78350,7 @@
 	"use strict";
 	"use strict";
 	var Observable_1 = __webpack_require__(0);
-	var mergeAll_1 = __webpack_require__(37);
+	var mergeAll_1 = __webpack_require__(38);
 	Observable_1.Observable.prototype.mergeAll = mergeAll_1.mergeAll;
 	//# sourceMappingURL=mergeAll.js.map
 
@@ -78336,7 +78418,7 @@
 	"use strict";
 	"use strict";
 	var Observable_1 = __webpack_require__(0);
-	var observeOn_1 = __webpack_require__(83);
+	var observeOn_1 = __webpack_require__(84);
 	Observable_1.Observable.prototype.observeOn = observeOn_1.observeOn;
 	//# sourceMappingURL=observeOn.js.map
 
@@ -78446,7 +78528,7 @@
 	"use strict";
 	"use strict";
 	var Observable_1 = __webpack_require__(0);
-	var reduce_1 = __webpack_require__(84);
+	var reduce_1 = __webpack_require__(85);
 	Observable_1.Observable.prototype.reduce = reduce_1.reduce;
 	//# sourceMappingURL=reduce.js.map
 
@@ -78854,7 +78936,7 @@
 	"use strict";
 	"use strict";
 	var Observable_1 = __webpack_require__(0);
-	var zip_1 = __webpack_require__(85);
+	var zip_1 = __webpack_require__(86);
 	Observable_1.Observable.prototype.zip = zip_1.zipProto;
 	//# sourceMappingURL=zip.js.map
 
@@ -78881,7 +78963,7 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var Observable_1 = __webpack_require__(0);
-	var ScalarObservable_1 = __webpack_require__(79);
+	var ScalarObservable_1 = __webpack_require__(80);
 	var EmptyObservable_1 = __webpack_require__(15);
 	/**
 	 * We need this JSDoc comment for affecting ESDoc.
@@ -78959,7 +79041,7 @@
 	var Observable_1 = __webpack_require__(0);
 	var tryCatch_1 = __webpack_require__(8);
 	var errorObject_1 = __webpack_require__(7);
-	var AsyncSubject_1 = __webpack_require__(35);
+	var AsyncSubject_1 = __webpack_require__(36);
 	/**
 	 * We need this JSDoc comment for affecting ESDoc.
 	 * @extends {Ignored}
@@ -79129,7 +79211,7 @@
 	var Observable_1 = __webpack_require__(0);
 	var tryCatch_1 = __webpack_require__(8);
 	var errorObject_1 = __webpack_require__(7);
-	var AsyncSubject_1 = __webpack_require__(35);
+	var AsyncSubject_1 = __webpack_require__(36);
 	/**
 	 * We need this JSDoc comment for affecting ESDoc.
 	 * @extends {Ignored}
@@ -79615,7 +79697,7 @@
 	};
 	var Observable_1 = __webpack_require__(0);
 	var tryCatch_1 = __webpack_require__(8);
-	var isFunction_1 = __webpack_require__(87);
+	var isFunction_1 = __webpack_require__(88);
 	var errorObject_1 = __webpack_require__(7);
 	var Subscription_1 = __webpack_require__(6);
 	function isNodeStyleEventEmmitter(sourceObj) {
@@ -80073,7 +80155,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var isNumeric_1 = __webpack_require__(88);
+	var isNumeric_1 = __webpack_require__(89);
 	var Observable_1 = __webpack_require__(0);
 	var async_1 = __webpack_require__(11);
 	/**
@@ -80590,7 +80672,7 @@
 	};
 	var Observable_1 = __webpack_require__(0);
 	var asap_1 = __webpack_require__(117);
-	var isNumeric_1 = __webpack_require__(88);
+	var isNumeric_1 = __webpack_require__(89);
 	/**
 	 * We need this JSDoc comment for affecting ESDoc.
 	 * @extends {Ignored}
@@ -80645,11 +80727,11 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var isNumeric_1 = __webpack_require__(88);
+	var isNumeric_1 = __webpack_require__(89);
 	var Observable_1 = __webpack_require__(0);
 	var async_1 = __webpack_require__(11);
 	var isScheduler_1 = __webpack_require__(16);
-	var isDate_1 = __webpack_require__(42);
+	var isDate_1 = __webpack_require__(43);
 	/**
 	 * We need this JSDoc comment for affecting ESDoc.
 	 * @extends {Ignored}
@@ -80843,7 +80925,7 @@
 	var isScheduler_1 = __webpack_require__(16);
 	var isArray_1 = __webpack_require__(13);
 	var ArrayObservable_1 = __webpack_require__(14);
-	var combineLatest_1 = __webpack_require__(80);
+	var combineLatest_1 = __webpack_require__(81);
 	/* tslint:enable:max-line-length */
 	/**
 	 * Combines multiple Observables to create an Observable whose values are
@@ -80917,7 +80999,7 @@
 
 	"use strict";
 	"use strict";
-	var concat_1 = __webpack_require__(81);
+	var concat_1 = __webpack_require__(82);
 	exports.concat = concat_1.concatStatic;
 	//# sourceMappingURL=concat.js.map
 
@@ -80947,7 +81029,7 @@
 	var Observable_1 = __webpack_require__(0);
 	var Subscription_1 = __webpack_require__(6);
 	var root_1 = __webpack_require__(9);
-	var ReplaySubject_1 = __webpack_require__(36);
+	var ReplaySubject_1 = __webpack_require__(37);
 	var tryCatch_1 = __webpack_require__(8);
 	var errorObject_1 = __webpack_require__(7);
 	var assign_1 = __webpack_require__(407);
@@ -81328,7 +81410,7 @@
 
 	"use strict";
 	"use strict";
-	var zip_1 = __webpack_require__(85);
+	var zip_1 = __webpack_require__(86);
 	exports.zip = zip_1.zipStatic;
 	//# sourceMappingURL=zip.js.map
 
@@ -82257,7 +82339,7 @@
 	"use strict";
 	"use strict";
 	var Observable_1 = __webpack_require__(0);
-	var ReplaySubject_1 = __webpack_require__(36);
+	var ReplaySubject_1 = __webpack_require__(37);
 	/**
 	 * @param bufferSize
 	 * @param windowTime
@@ -82382,7 +82464,7 @@
 
 	"use strict";
 	"use strict";
-	var combineLatest_1 = __webpack_require__(80);
+	var combineLatest_1 = __webpack_require__(81);
 	/**
 	 * Converts a higher-order Observable into a first-order Observable by waiting
 	 * for the outer Observable to complete, then applying {@link combineLatest}.
@@ -82435,7 +82517,7 @@
 
 	"use strict";
 	"use strict";
-	var mergeAll_1 = __webpack_require__(37);
+	var mergeAll_1 = __webpack_require__(38);
 	/**
 	 * Converts a higher-order Observable into a first-order Observable by
 	 * concatenating the inner Observables in order.
@@ -83079,7 +83161,7 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var async_1 = __webpack_require__(11);
-	var isDate_1 = __webpack_require__(42);
+	var isDate_1 = __webpack_require__(43);
 	var Subscriber_1 = __webpack_require__(2);
 	var Notification_1 = __webpack_require__(29);
 	/**
@@ -83671,7 +83753,7 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var Subscriber_1 = __webpack_require__(2);
-	var ArgumentOutOfRangeError_1 = __webpack_require__(40);
+	var ArgumentOutOfRangeError_1 = __webpack_require__(41);
 	/**
 	 * Emits the single value at the specified `index` in a sequence of emissions
 	 * from the source Observable.
@@ -84337,7 +84419,7 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var Subscriber_1 = __webpack_require__(2);
-	var EmptyError_1 = __webpack_require__(41);
+	var EmptyError_1 = __webpack_require__(42);
 	/**
 	 * Emits only the first value (or the first value that meets some condition)
 	 * emitted by the source Observable.
@@ -84840,7 +84922,7 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var Subscriber_1 = __webpack_require__(2);
-	var EmptyError_1 = __webpack_require__(41);
+	var EmptyError_1 = __webpack_require__(42);
 	/**
 	 * Returns an Observable that emits only the last item emitted by the source Observable.
 	 * It optionally takes a predicate function as a parameter, in which case, rather than emitting
@@ -85134,7 +85216,7 @@
 
 	"use strict";
 	"use strict";
-	var reduce_1 = __webpack_require__(84);
+	var reduce_1 = __webpack_require__(85);
 	/**
 	 * The Max operator operates on an Observable that emits numbers (or items that can be evaluated as numbers),
 	 * and when source Observable completes it emits a single item: the item with the largest number.
@@ -85274,7 +85356,7 @@
 
 	"use strict";
 	"use strict";
-	var reduce_1 = __webpack_require__(84);
+	var reduce_1 = __webpack_require__(85);
 	/**
 	 * The Min operator operates on an Observable that emits numbers (or items that can be evaluated as numbers),
 	 * and when source Observable completes it emits a single item: the item with the smallest number.
@@ -85442,7 +85524,7 @@
 
 	"use strict";
 	"use strict";
-	var map_1 = __webpack_require__(82);
+	var map_1 = __webpack_require__(83);
 	/**
 	 * Maps each source value (an object) to its specified nested property.
 	 *
@@ -85554,7 +85636,7 @@
 
 	"use strict";
 	"use strict";
-	var AsyncSubject_1 = __webpack_require__(35);
+	var AsyncSubject_1 = __webpack_require__(36);
 	var multicast_1 = __webpack_require__(23);
 	/**
 	 * @return {ConnectableObservable<T>}
@@ -85573,7 +85655,7 @@
 
 	"use strict";
 	"use strict";
-	var ReplaySubject_1 = __webpack_require__(36);
+	var ReplaySubject_1 = __webpack_require__(37);
 	var multicast_1 = __webpack_require__(23);
 	/**
 	 * @param bufferSize
@@ -86486,7 +86568,7 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var Subscriber_1 = __webpack_require__(2);
-	var EmptyError_1 = __webpack_require__(41);
+	var EmptyError_1 = __webpack_require__(42);
 	/**
 	 * Returns an Observable that emits the single item emitted by the source Observable that matches a specified
 	 * predicate, if that Observable emits one such item. If the source Observable emits more than one such item or no
@@ -86788,9 +86870,9 @@
 	"use strict";
 	"use strict";
 	var ArrayObservable_1 = __webpack_require__(14);
-	var ScalarObservable_1 = __webpack_require__(79);
+	var ScalarObservable_1 = __webpack_require__(80);
 	var EmptyObservable_1 = __webpack_require__(15);
-	var concat_1 = __webpack_require__(81);
+	var concat_1 = __webpack_require__(82);
 	var isScheduler_1 = __webpack_require__(16);
 	/**
 	 * Returns an Observable that emits the items in a specified Iterable before it begins to emit items emitted by the
@@ -87258,7 +87340,7 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var Subscriber_1 = __webpack_require__(2);
-	var ArgumentOutOfRangeError_1 = __webpack_require__(40);
+	var ArgumentOutOfRangeError_1 = __webpack_require__(41);
 	var EmptyObservable_1 = __webpack_require__(15);
 	/**
 	 * Emits only the first `count` values emitted by the source Observable.
@@ -87352,7 +87434,7 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var Subscriber_1 = __webpack_require__(2);
-	var ArgumentOutOfRangeError_1 = __webpack_require__(40);
+	var ArgumentOutOfRangeError_1 = __webpack_require__(41);
 	var EmptyObservable_1 = __webpack_require__(15);
 	/**
 	 * Emits only the last `count` values emitted by the source Observable.
@@ -87859,7 +87941,7 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var async_1 = __webpack_require__(11);
-	var isDate_1 = __webpack_require__(42);
+	var isDate_1 = __webpack_require__(43);
 	var Subscriber_1 = __webpack_require__(2);
 	/**
 	 * @param due
@@ -87967,7 +88049,7 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var async_1 = __webpack_require__(11);
-	var isDate_1 = __webpack_require__(42);
+	var isDate_1 = __webpack_require__(43);
 	var OuterSubscriber_1 = __webpack_require__(3);
 	var subscribeToResult_1 = __webpack_require__(4);
 	/**
@@ -89045,7 +89127,7 @@
 
 	"use strict";
 	"use strict";
-	var zip_1 = __webpack_require__(85);
+	var zip_1 = __webpack_require__(86);
 	/**
 	 * @param project
 	 * @return {Observable<R>|WebSocketSubject<T>|Observable<T>}
@@ -90024,7 +90106,7 @@
 	exports.ImmediateDefinition = ImmediateDefinition;
 	exports.Immediate = new ImmediateDefinition(root_1.root);
 	//# sourceMappingURL=Immediate.js.map
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(43).clearImmediate, __webpack_require__(43).setImmediate))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(44).clearImmediate, __webpack_require__(44).setImmediate))
 
 	/***/ },
 	/* 405 */
@@ -90163,7 +90245,7 @@
 	"use strict";
 	"use strict";
 	var Subscriber_1 = __webpack_require__(2);
-	var rxSubscriber_1 = __webpack_require__(39);
+	var rxSubscriber_1 = __webpack_require__(40);
 	function toSubscriber(nextOrObserver, error, complete) {
 	    if (nextOrObserver) {
 	        if (nextOrObserver instanceof Subscriber_1.Subscriber) {
@@ -90219,33 +90301,33 @@
 	"use strict";
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__angular_core__);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__common_mdl_ripple_directive__ = __webpack_require__(21);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__common_mdl_ripple_directive__ = __webpack_require__(22);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__button_mdl_button_component__ = __webpack_require__(24);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__badge_mdl_badge_directive__ = __webpack_require__(47);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__shadow_mdl_shadow_directive__ = __webpack_require__(57);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__card_mdl_card_component__ = __webpack_require__(48);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__chips_index__ = __webpack_require__(49);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__dialog_index__ = __webpack_require__(50);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__badge_mdl_badge_directive__ = __webpack_require__(48);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__shadow_mdl_shadow_directive__ = __webpack_require__(58);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__card_mdl_card_component__ = __webpack_require__(49);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__chips_index__ = __webpack_require__(50);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__dialog_index__ = __webpack_require__(51);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__dialog_outlet_index__ = __webpack_require__(25);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__checkbox_mdl_checkbox_component__ = __webpack_require__(20);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__radio_mdl_radio_component__ = __webpack_require__(56);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__progress_mdl_progress_component__ = __webpack_require__(55);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__checkbox_mdl_checkbox_component__ = __webpack_require__(21);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__radio_mdl_radio_component__ = __webpack_require__(57);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__progress_mdl_progress_component__ = __webpack_require__(56);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__icon_mdl_icon_component__ = __webpack_require__(18);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__icon_toggle_mdl_icon_toggle_component__ = __webpack_require__(51);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__list_mdl_list_component__ = __webpack_require__(53);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__spinner_mdl_spinner_component__ = __webpack_require__(60);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__slider_mdl_slider_component__ = __webpack_require__(58);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__switch_mdl_switch_component__ = __webpack_require__(61);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__snackbar_mdl_snackbar_service__ = __webpack_require__(59);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__tooltip_index__ = __webpack_require__(64);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__table_index__ = __webpack_require__(62);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__menu_index__ = __webpack_require__(54);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__layout_index__ = __webpack_require__(52);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__icon_toggle_mdl_icon_toggle_component__ = __webpack_require__(52);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__list_mdl_list_component__ = __webpack_require__(54);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__spinner_mdl_spinner_component__ = __webpack_require__(61);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__slider_mdl_slider_component__ = __webpack_require__(59);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__switch_mdl_switch_component__ = __webpack_require__(62);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__snackbar_mdl_snackbar_service__ = __webpack_require__(60);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__tooltip_index__ = __webpack_require__(65);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__table_index__ = __webpack_require__(63);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__menu_index__ = __webpack_require__(55);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__layout_index__ = __webpack_require__(53);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__tabs_index__ = __webpack_require__(26);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__textfield_mdl_textfield_component__ = __webpack_require__(63);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__dialog_outlet_mdl_backdrop_overlay_component__ = __webpack_require__(44);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__dialog_mdl_dialog_host_component__ = __webpack_require__(45);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__dialog_mdl_simple_dialog_component__ = __webpack_require__(46);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__textfield_mdl_textfield_component__ = __webpack_require__(64);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__dialog_outlet_mdl_backdrop_overlay_component__ = __webpack_require__(45);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__dialog_mdl_dialog_host_component__ = __webpack_require__(46);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__dialog_mdl_simple_dialog_component__ = __webpack_require__(47);
 	/* harmony export (binding) */ __webpack_require__.d(exports, "MdlModule", function() { return MdlModule; });
 	/* harmony export (binding) */ __webpack_require__.d(exports, "MdlNonRootModule", function() { return MdlNonRootModule; });
 	/* harmony namespace reexport (by provided) */ __webpack_require__.d(exports, "MdlRippleDirective", function() { return __WEBPACK_IMPORTED_MODULE_1__common_mdl_ripple_directive__["b"]; });
@@ -90558,7 +90640,7 @@
 /* 213 */
 /***/ function(module, exports) {
 
-	module.exports = "<mdl-layout-header-row>\n    <mdl-layout-title>Sleep Diary <sup><small>beta</small></sup></mdl-layout-title>\n    <mdl-layout-spacer></mdl-layout-spacer>\n    <!-- Navigation. We hide it in small screens. -->\n    <nav class=\"mdl-navigation mdl-layout--large-screen-only\">\n    </nav>\n</mdl-layout-header-row>"
+	module.exports = "<mdl-layout-header-row>\n    <mdl-layout-title>Sleep Diary <sup><small>alpha</small></sup></mdl-layout-title>\n    <mdl-layout-spacer></mdl-layout-spacer>\n    <!-- Navigation. We hide it in small screens. -->\n    <nav class=\"mdl-navigation mdl-layout--large-screen-only\">\n    </nav>\n</mdl-layout-header-row>"
 
 /***/ },
 /* 214 */

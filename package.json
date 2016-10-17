@@ -4,7 +4,7 @@
   "description": "Sleepdiary package.json",
   "author": "",
   "scripts": {
-    "clean": "rimraf ./src/*.js ./src/*.js.map && npm cache clean",
+    "clean": "rimraf ./src/*.js ./src/*.js.map && rimraf ./dist/*.js ./dist/*.map && npm cache clean",
     "clean-install": "npm run clean && npm install",
     "start": "npm run dev",
     "dev": "webpack-dev-server  --progress --display-error-details  --colors --port 3100 --inline --config webpack.config.js --content-base src",
