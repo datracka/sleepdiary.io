@@ -18,8 +18,7 @@ docs/
 !karma*.js
 !protractor*.js
 !webpack.*
-!typings/typings.d.ts
 !wallaby.js
-
+!dist/*js
 !install.js
 
