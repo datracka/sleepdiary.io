@@ -47636,7 +47636,7 @@
 	        this.login = function (body) {
 	            return _this._http.post(_this.actionUrl + 'accounts/session', body, { headers: headers_1.contentHeaders });
 	        };
-	        this.actionUrl = ("http://sleepdiary.io") + ("/api/1/");
+	        this.actionUrl = ("//sleepdiary.io") + ("/api/1/");
 	    }
 	    LoginService = __decorate([
 	        core_1.Injectable(), 
@@ -47768,7 +47768,7 @@
 	        this.signup = function (body) {
 	            return _this._http.post(_this.actionUrl + 'accounts/user', body, { headers: headers_1.contentHeaders });
 	        };
-	        this.actionUrl = ("http://sleepdiary.io") + ("/api/1/");
+	        this.actionUrl = ("//sleepdiary.io") + ("/api/1/");
 	    }
 	    SignupService = __decorate([
 	        core_1.Injectable(), 
@@ -50650,7 +50650,7 @@
 	            body: '',
 	            headers: headers_1.contentHeaders,
 	        });
-	        this.actionUrl = ("http://sleepdiary.io") + ("/api/1/");
+	        this.actionUrl = ("//sleepdiary.io") + ("/api/1/");
 	    }
 	    CalendarService.prototype.getAll = function () {
 	        return this._authHttp.get(this.actionUrl + "calendar/year/2016", this.options);
@@ -50836,7 +50836,7 @@
 	            body: '',
 	            headers: headers_1.contentHeaders,
 	        });
-	        this.actionUrl = ("http://sleepdiary.io") + ("/api/1/");
+	        this.actionUrl = ("//sleepdiary.io") + ("/api/1/");
 	    }
 	    EntryFormService.prototype.getEntry = function (uuid) {
 	        return this._authHttp
