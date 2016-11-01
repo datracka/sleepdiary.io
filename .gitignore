@@ -12,7 +12,8 @@ _test-output
 _temp
 coverage/
 docs/
-
+/dist
+/dist_prod/**/*.map
 
 !**/*e2e-spec.js
 !karma*.js
@@ -20,4 +21,4 @@ docs/
 !webpack.*
 !wallaby.js
 !install.js
-
+!/dist_prod/**/*.js

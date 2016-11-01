@@ -51040,16 +51040,21 @@
 	        return a;
 	    };
 	    Calendar.prototype.onSelect = function (day) {
-	        var dayFormatted = day.date.format("YYYY-MM-DD");
-	        var entry = this.entries[dayFormatted];
+	        var dayMoment = day.date;
+	        var entry = this.entries.filter(function (entry) {
+	            //cos date is a ISODate we get 10 firsts characters. Ugly but works
+	            if (dayMoment.isSame(entry.date.substring(0, 10), 'day'))
+	                return entry;
+	        });
+	        console.log(entry[0]);
 	        var uuid = 'new';
 	        if (!day.isCurrentMonth) {
 	            return false;
 	        }
-	        if (typeof entry !== 'undefined') {
-	            uuid = entry.uuid;
+	        if (typeof entry[0] !== 'undefined') {
+	            uuid = entry[0].uuid;
 	        }
-	        this.router.navigate(['/home/entry', uuid, { day: dayFormatted }]);
+	        this.router.navigate(['/home/entry', uuid, { day: day.date.format("YYYY-MM-DD") }]);
 	    };
 	    //** #####  render methods **/
 	    Calendar.getMonthDateRange = function (year, month, isStartOnMonday) {
