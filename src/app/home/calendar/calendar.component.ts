@@ -148,18 +148,23 @@ export class Calendar implements OnInit, AfterViewInit {
 
     onSelect(day: any) {
 
-        let dayFormatted = day.date.format("YYYY-MM-DD");
-        let entry = this.entries[dayFormatted];
+        let dayMoment = day.date;
+        let entry = this.entries.filter((entry) => {
+            //cos date is a ISODate we get 10 firsts characters. Ugly but works
+            if(dayMoment.isSame(entry.date.substring(0,10), 'day'))
+                return entry;
+        });
+        console.log(entry[0]);
         let uuid = 'new';
 
         if (!day.isCurrentMonth) {
             return false;
         }
 
-        if (typeof entry !== 'undefined') {
-            uuid = entry.uuid;
+        if (typeof entry[0] !== 'undefined') {
+            uuid = entry[0].uuid;
         }
-        this.router.navigate(['/home/entry', uuid, {day: dayFormatted}]);
+        this.router.navigate(['/home/entry', uuid, {day: day.date.format("YYYY-MM-DD")}]);
     }
 
     //** #####  render methods **/

@@ -24,7 +24,7 @@ var webpackConfig = {
   },
 
   output: {
-    path: './dist'
+    path: './dist_prod'
   },
 
   plugins: [],
