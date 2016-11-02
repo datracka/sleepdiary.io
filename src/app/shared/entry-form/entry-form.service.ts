@@ -16,7 +16,7 @@ export class EntryFormService {
     });
 
     constructor(private _http: Http, private _authHttp: AuthHttp) {
-        this.actionUrl = process.env.BASE_URL + process.env.API_PATH;
+        this.actionUrl = process.env.API_PATH;
     }
 
     getEntry(uuid: string): Observable<Response> {

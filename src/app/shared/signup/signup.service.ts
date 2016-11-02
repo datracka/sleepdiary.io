@@ -10,7 +10,7 @@ export class SignupService {
     private actionUrl: string;
 
     constructor(private _http: Http) {
-        this.actionUrl = process.env.BASE_URL + process.env.API_PATH;
+        this.actionUrl = process.env.API_PATH;
     }
 
     public signup = (body): Observable<Response> => {
