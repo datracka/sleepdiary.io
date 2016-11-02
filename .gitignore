@@ -12,7 +12,6 @@ _test-output
 _temp
 coverage/
 docs/
-/dist
 /dist_prod/**/*.map
 
 !**/*e2e-spec.js
@@ -22,3 +21,5 @@ docs/
 !wallaby.js
 !install.js
 !/dist_prod/**/*.js
+!/dist/**/*.js
+
