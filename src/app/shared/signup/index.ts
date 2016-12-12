@@ -1,1 +1,1 @@
-export * from './signup.ts';
+export * from './signup';

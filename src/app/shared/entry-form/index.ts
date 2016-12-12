@@ -1,1 +1,1 @@
-export * from './entry-form.service.ts';
+export * from './entry-form.service';

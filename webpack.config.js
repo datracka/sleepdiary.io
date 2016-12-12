@@ -3,6 +3,7 @@ var path = require('path');
 
 var DotenvPlugin = require('webpack-dotenv-plugin');
 var BrowserSyncPlugin = require('browser-sync-webpack-plugin');
+var _ref  = require('awesome-typescript-loader');
 
 /** postcss plugins */
 var precss       = require('precss');
@@ -49,11 +50,11 @@ var webpackConfig = {
   postcss: function () {
     return [precss, autoprefixer];
   }
-
 };
 
 /** plugins **/
 
+webpackConfig.plugins.push(new _ref.CheckerPlugin());
 webpackConfig.plugins.push(new DotenvPlugin({ sample: './.env.default', path: './.env.dev' }))
 if (ENV !== 'test') { //when test don't want add this plugin
   webpackConfig.plugins.push(new BrowserSyncPlugin({ host: 'localhost', port: 3000, proxy: 'http://localhost:3100'}));

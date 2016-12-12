@@ -1,4 +1,6 @@
 
+import {browser, by, element} from "protractor";
+
 describe('QuickStart E2E Tests', function () {
 
 	var expectedMsg = 'My First Angular 2 App';

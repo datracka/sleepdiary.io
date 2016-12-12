@@ -1,1 +1,1 @@
-export * from './calendar.service.ts';
+export * from './calendar.service';
