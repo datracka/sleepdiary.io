@@ -40825,7 +40825,7 @@
 	        var operator = this.operator;
 	        var sink = toSubscriber_1.toSubscriber(observerOrNext, error, complete);
 	        if (operator) {
-	            operator.call(sink, this);
+	            operator.call(sink, this.source);
 	        }
 	        else {
 	            sink.add(this._subscribe(sink));
@@ -57629,6 +57629,9 @@
 	     * var result = Rx.Observable.from(array);
 	     * result.subscribe(x => console.log(x));
 	     *
+	     * // Results in the following:
+	     * // 10 20 30
+	     *
 	     * @example <caption>Convert an infinite iterable (from a generator) to an Observable</caption>
 	     * function* generateDoubles(seed) {
 	     *   var i = seed;
@@ -57641,6 +57644,9 @@
 	     * var iterator = generateDoubles(3);
 	     * var result = Rx.Observable.from(iterator).take(10);
 	     * result.subscribe(x => console.log(x));
+	     *
+	     * // Results in the following:
+	     * // 3 6 12 24 48 96 192 384 768 1536
 	     *
 	     * @see {@link create}
 	     * @see {@link fromEvent}
@@ -58168,6 +58174,12 @@
 	     * );
 	     * result.subscribe(x => console.log(x));
 	     *
+	     * // Results in the following to the console:
+	     * // x is equal to the count on the interval eg(0,1,2,3,...)
+	     * // x will occur every 1000ms
+	     * // if x % 2 is equal to 1 print abc
+	     * // if x % 2 is not equal to 1 nothing will be output
+	     *
 	     * @see {@link create}
 	     * @see {@link never}
 	     * @see {@link of}
@@ -58330,7 +58342,7 @@
 	        this.delay = delay;
 	    }
 	    ObserveOnOperator.prototype.call = function (subscriber, source) {
-	        return source._subscribe(new ObserveOnSubscriber(subscriber, this.scheduler, this.delay));
+	        return source.subscribe(new ObserveOnSubscriber(subscriber, this.scheduler, this.delay));
 	    };
 	    return ObserveOnOperator;
 	}());
@@ -58562,6 +58574,12 @@
 	 * var result = clicks.concatMap(ev => Rx.Observable.interval(1000).take(4));
 	 * result.subscribe(x => console.log(x));
 	 *
+	 * // Results in the following:
+	 * // (results are not concurrent)
+	 * // For every click on the "document" it will emit values 0 to 3 spaced
+	 * // on a 1000ms interval
+	 * // one click = 1000ms-> 0 -1000ms-> 1 -1000ms-> 2 -1000ms-> 3
+	 *
 	 * @see {@link concat}
 	 * @see {@link concatAll}
 	 * @see {@link concatMapTo}
@@ -58633,6 +58651,15 @@
 	 * );
 	 * result.subscribe(x => console.log(x));
 	 *
+	 * // Results in the following:
+	 * // a0
+	 * // b0
+	 * // c0
+	 * // a1
+	 * // b1
+	 * // c1
+	 * // continues to list a,b,c with respective ascending integers
+	 *
 	 * @see {@link concatMap}
 	 * @see {@link exhaustMap}
 	 * @see {@link merge}
@@ -58678,7 +58705,7 @@
 	        this.concurrent = concurrent;
 	    }
 	    MergeMapOperator.prototype.call = function (observer, source) {
-	        return source._subscribe(new MergeMapSubscriber(observer, this.project, this.resultSelector, this.concurrent));
+	        return source.subscribe(new MergeMapSubscriber(observer, this.project, this.resultSelector, this.concurrent));
 	    };
 	    return MergeMapOperator;
 	}());
@@ -58777,6 +58804,7 @@
 	var root_1 = __webpack_require__(/*! ./root */ 6);
 	var isArray_1 = __webpack_require__(/*! ./isArray */ 11);
 	var isPromise_1 = __webpack_require__(/*! ./isPromise */ 34);
+	var isObject_1 = __webpack_require__(/*! ./isObject */ 12);
 	var Observable_1 = __webpack_require__(/*! ../Observable */ 5);
 	var iterator_1 = __webpack_require__(/*! ../symbol/iterator */ 36);
 	var InnerSubscriber_1 = __webpack_require__(/*! ../InnerSubscriber */ 48);
@@ -58796,7 +58824,7 @@
 	            return result.subscribe(destination);
 	        }
 	    }
-	    if (isArray_1.isArray(result)) {
+	    else if (isArray_1.isArray(result)) {
 	        for (var i = 0, len = result.length; i < len && !destination.closed; i++) {
 	            destination.next(result[i]);
 	        }
@@ -58817,7 +58845,7 @@
 	        });
 	        return destination;
 	    }
-	    else if (typeof result[iterator_1.$$iterator] === 'function') {
+	    else if (result && typeof result[iterator_1.$$iterator] === 'function') {
 	        var iterator = result[iterator_1.$$iterator]();
 	        do {
 	            var item = iterator.next();
@@ -58831,17 +58859,20 @@
 	            }
 	        } while (true);
 	    }
-	    else if (typeof result[observable_1.$$observable] === 'function') {
+	    else if (result && typeof result[observable_1.$$observable] === 'function') {
 	        var obs = result[observable_1.$$observable]();
 	        if (typeof obs.subscribe !== 'function') {
-	            destination.error(new Error('invalid observable'));
+	            destination.error(new TypeError('Provided object does not correctly implement Symbol.observable'));
 	        }
 	        else {
 	            return obs.subscribe(new InnerSubscriber_1.InnerSubscriber(outerSubscriber, outerValue, outerIndex));
 	        }
 	    }
 	    else {
-	        destination.error(new TypeError('unknown type returned'));
+	        var value = isObject_1.isObject(result) ? 'an invalid object' : "'" + result + "'";
+	        var msg = ("You provided " + value + " where a stream was expected.")
+	            + ' You can provide an Observable, Promise, Array, or Iterable.';
+	        destination.error(new TypeError(msg));
 	    }
 	    return null;
 	}
@@ -58963,7 +58994,7 @@
 	        this.source = source;
 	    }
 	    EveryOperator.prototype.call = function (observer, source) {
-	        return source._subscribe(new EverySubscriber(observer, this.predicate, this.thisArg, this.source));
+	        return source.subscribe(new EverySubscriber(observer, this.predicate, this.thisArg, this.source));
 	    };
 	    return EveryOperator;
 	}());
@@ -59021,7 +59052,6 @@
 	};
 	var Subscriber_1 = __webpack_require__(/*! ../Subscriber */ 8);
 	var EmptyError_1 = __webpack_require__(/*! ../util/EmptyError */ 52);
-	/* tslint:disable:max-line-length */
 	/**
 	 * Emits only the first value (or the first value that meets some condition)
 	 * emitted by the source Observable.
@@ -59083,7 +59113,7 @@
 	        this.source = source;
 	    }
 	    FirstOperator.prototype.call = function (observer, source) {
-	        return source._subscribe(new FirstSubscriber(observer, this.predicate, this.resultSelector, this.defaultValue, this.source));
+	        return source.subscribe(new FirstSubscriber(observer, this.predicate, this.resultSelector, this.defaultValue, this.source));
 	    };
 	    return FirstOperator;
 	}());
@@ -59263,7 +59293,7 @@
 	        this.thisArg = thisArg;
 	    }
 	    MapOperator.prototype.call = function (subscriber, source) {
-	        return source._subscribe(new MapSubscriber(subscriber, this.project, this.thisArg));
+	        return source.subscribe(new MapSubscriber(subscriber, this.project, this.thisArg));
 	    };
 	    return MapOperator;
 	}());
@@ -59379,7 +59409,7 @@
 	        this.hasSeed = hasSeed;
 	    }
 	    ReduceOperator.prototype.call = function (subscriber, source) {
-	        return source._subscribe(new ReduceSubscriber(subscriber, this.accumulator, this.seed, this.hasSeed));
+	        return source.subscribe(new ReduceSubscriber(subscriber, this.accumulator, this.seed, this.hasSeed));
 	    };
 	    return ReduceOperator;
 	}());
@@ -59466,7 +59496,7 @@
 	        this.selector = selector;
 	    }
 	    CatchOperator.prototype.call = function (subscriber, source) {
-	        return source._subscribe(new CatchSubscriber(subscriber, this.selector, this.caught));
+	        return source.subscribe(new CatchSubscriber(subscriber, this.selector, this.caught));
 	    };
 	    return CatchOperator;
 	}());
@@ -59540,6 +59570,12 @@
 	 * var higherOrder = clicks.map(ev => Rx.Observable.interval(1000).take(4));
 	 * var firstOrder = higherOrder.concatAll();
 	 * firstOrder.subscribe(x => console.log(x));
+	 *
+	 * // Results in the following:
+	 * // (results are not concurrent)
+	 * // For every click on the "document" it will emit values 0 to 3 spaced
+	 * // on a 1000ms interval
+	 * // one click = 1000ms-> 0 -1000ms-> 1 -1000ms-> 2 -1000ms-> 3
 	 *
 	 * @see {@link combineAll}
 	 * @see {@link concat}
@@ -59630,7 +59666,7 @@
 	        this.concurrent = concurrent;
 	    }
 	    MergeAllOperator.prototype.call = function (observer, source) {
-	        return source._subscribe(new MergeAllSubscriber(observer, this.concurrent));
+	        return source.subscribe(new MergeAllSubscriber(observer, this.concurrent));
 	    };
 	    return MergeAllOperator;
 	}());
@@ -59725,7 +59761,7 @@
 	        this.source = source;
 	    }
 	    LastOperator.prototype.call = function (observer, source) {
-	        return source._subscribe(new LastSubscriber(observer, this.predicate, this.resultSelector, this.defaultValue, this.source));
+	        return source.subscribe(new LastSubscriber(observer, this.predicate, this.resultSelector, this.defaultValue, this.source));
 	    };
 	    return LastOperator;
 	}());
@@ -59842,7 +59878,6 @@
 	 * clicksOnDivs.subscribe(x => console.log(x));
 	 *
 	 * @see {@link distinct}
-	 * @see {@link distinctKey}
 	 * @see {@link distinctUntilChanged}
 	 * @see {@link distinctUntilKeyChanged}
 	 * @see {@link ignoreElements}
@@ -59872,7 +59907,7 @@
 	        this.thisArg = thisArg;
 	    }
 	    FilterOperator.prototype.call = function (subscriber, source) {
-	        return source._subscribe(new FilterSubscriber(subscriber, this.predicate, this.thisArg));
+	        return source.subscribe(new FilterSubscriber(subscriber, this.predicate, this.thisArg));
 	    };
 	    return FilterOperator;
 	}());
