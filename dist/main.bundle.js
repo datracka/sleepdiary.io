@@ -82996,6 +82996,34 @@
 	/***/ function(module, exports, __webpack_require__) {
 	
 	"use strict";
+	/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return numberProperty; });
+	function numberProperty() {
+	    return function numberFieldValueMetadata(target, key) {
+	        var defaultValue = target[key];
+	        var localKey = "__mdl_private_symbol_" + key;
+	        target[localKey] = defaultValue;
+	        Object.defineProperty(target, key, {
+	            get: function () { return this[localKey]; },
+	            set: function (value) {
+	                if (typeof value === 'undefined') {
+	                    value = null;
+	                }
+	                else if (typeof value === 'string') {
+	                    value = parseInt(value);
+	                }
+	                this[localKey] = value;
+	            }
+	        });
+	    };
+	}
+	
+	
+	
+	/***/ },
+	/* 8 */
+	/***/ function(module, exports, __webpack_require__) {
+	
+	"use strict";
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__angular_core__);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__(63);
@@ -83103,15 +83131,17 @@
 	    /**
 	     * Shows a dialog that is just a confirm message - e.g. with two button.
 	     * @param question The question that should be displayed.
+	     * @param title The title that should be displayed on top of Question.
 	     * @param declineText The text for decline button. defaults to Cancel
 	     * @param confirmText The text for the confirm button . defaults to Ok
 	     * @returns An Observable that is called if the user hits the Ok button.
 	     */
-	    MdlDialogService.prototype.confirm = function (question, declineText, confirmText) {
+	    MdlDialogService.prototype.confirm = function (question, declineText, confirmText, title) {
 	        if (declineText === void 0) { declineText = 'Cancel'; }
 	        if (confirmText === void 0) { confirmText = 'Ok'; }
 	        var result = new __WEBPACK_IMPORTED_MODULE_2_rxjs_Subject__["Subject"]();
 	        this.showDialog({
+	            title: title,
 	            message: question,
 	            actions: [
 	                {
@@ -83259,7 +83289,7 @@
 	
 	
 	/***/ },
-	/* 8 */
+	/* 9 */
 	/***/ function(module, exports, __webpack_require__) {
 	
 	"use strict";
@@ -83270,6 +83300,7 @@
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common__ = __webpack_require__(1);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__angular_common__);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__common_boolean_property__ = __webpack_require__(2);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__common_number_property__ = __webpack_require__(7);
 	/* harmony export (binding) */ __webpack_require__.d(exports, "c", function() { return CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR; });
 	/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return MdlCheckboxComponent; });
 	/* harmony export (binding) */ __webpack_require__.d(exports, "b", function() { return MdlCheckboxModule; });
@@ -83286,6 +83317,7 @@
 	
 	
 	
+	
 	var noop = function (_) { };
 	var IS_FOCUSED = 'is-focused';
 	var CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR = {
@@ -83298,6 +83330,7 @@
 	        this.elementRef = elementRef;
 	        this.renderer = renderer;
 	        this.disabled = false;
+	        this.tabindex = 1;
 	        this.change = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
 	        this.value_ = false;
 	        this.onTouchedCallback = noop;
@@ -83345,6 +83378,11 @@
 	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__common_boolean_property__["a" /* BooleanProperty */])(), 
 	        __metadata('design:type', Object)
 	    ], MdlCheckboxComponent.prototype, "disabled", void 0);
+	    __decorate([
+	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_4__common_number_property__["a" /* NumberProperty */])(), 
+	        __metadata('design:type', Number)
+	    ], MdlCheckboxComponent.prototype, "tabindex", void 0);
 	    MdlCheckboxComponent = __decorate([
 	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
 	            selector: 'mdl-checkbox',
@@ -83356,7 +83394,7 @@
 	                '[class.is-checked]': 'value',
 	                '[class.is-disabled]': 'disabled'
 	            },
-	            template: "\n  <input type=\"checkbox\" class=\"mdl-checkbox__input\" \n    (focus)=\"onFocus()\" \n    (blur)=\"onBlur()\"\n    [disabled]=\"disabled\"\n    [ngModel]=\"value\">\n  <span class=\"mdl-checkbox__label\"><ng-content></ng-content></span>\n  <span class=\"mdl-checkbox__focus-helper\"></span>\n  <span class=\"mdl-checkbox__box-outline\">\n    <span class=\"mdl-checkbox__tick-outline\"></span>\n  </span>\n  ",
+	            template: "\n  <input type=\"checkbox\" class=\"mdl-checkbox__input\" \n    (focus)=\"onFocus()\" \n    (blur)=\"onBlur()\"\n    [disabled]=\"disabled\"\n    [tabindex]=\"tabindex\"\n    [ngModel]=\"value\">\n  <span class=\"mdl-checkbox__label\"><ng-content></ng-content></span>\n  <span class=\"mdl-checkbox__focus-helper\"></span>\n  <span class=\"mdl-checkbox__box-outline\">\n    <span class=\"mdl-checkbox__tick-outline\"></span>\n  </span>\n  ",
 	            inputs: ['value'],
 	            outputs: ['change'],
 	            encapsulation: __WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewEncapsulation"].None,
@@ -83390,7 +83428,7 @@
 	
 	
 	/***/ },
-	/* 9 */
+	/* 10 */
 	/***/ function(module, exports, __webpack_require__) {
 	
 	"use strict";
@@ -83662,7 +83700,7 @@
 	
 	
 	/***/ },
-	/* 10 */
+	/* 11 */
 	/***/ function(module, exports, __webpack_require__) {
 	
 	"use strict";
@@ -83723,7 +83761,7 @@
 	
 	
 	/***/ },
-	/* 11 */
+	/* 12 */
 	/***/ function(module, exports, __webpack_require__) {
 	
 	"use strict";
@@ -83732,7 +83770,7 @@
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mdl_tab_panel_title_component__ = __webpack_require__(48);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_core__ = __webpack_require__(0);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__angular_core__);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__common_mdl_ripple_directive__ = __webpack_require__(9);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__common_mdl_ripple_directive__ = __webpack_require__(10);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__common_index__ = __webpack_require__(41);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_common__ = __webpack_require__(1);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_common___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__angular_common__);
@@ -83785,34 +83823,6 @@
 	    ], MdlTabsModule);
 	    return MdlTabsModule;
 	}());
-	
-	
-	/***/ },
-	/* 12 */
-	/***/ function(module, exports, __webpack_require__) {
-	
-	"use strict";
-	/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return numberProperty; });
-	function numberProperty() {
-	    return function numberFieldValueMetadata(target, key) {
-	        var defaultValue = target[key];
-	        var localKey = "__mdl_private_symbol_" + key;
-	        target[localKey] = defaultValue;
-	        Object.defineProperty(target, key, {
-	            get: function () { return this[localKey]; },
-	            set: function (value) {
-	                if (typeof value === 'undefined') {
-	                    value = null;
-	                }
-	                else if (typeof value === 'string') {
-	                    value = parseInt(value);
-	                }
-	                this[localKey] = value;
-	            }
-	        });
-	    };
-	}
-	
 	
 	
 	/***/ },
@@ -83905,7 +83915,7 @@
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__common_mdl_error__ = __webpack_require__(6);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__common_boolean_property__ = __webpack_require__(2);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__common_number_property__ = __webpack_require__(12);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__common_number_property__ = __webpack_require__(7);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__mdl_layout_header_component__ = __webpack_require__(45);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__mdl_layout_drawer_component__ = __webpack_require__(44);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__mdl_layout_content_component__ = __webpack_require__(43);
@@ -84540,7 +84550,7 @@
 	"use strict";
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__angular_core__);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mdl_dialog_service__ = __webpack_require__(7);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mdl_dialog_service__ = __webpack_require__(8);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mdl_dialog_configuration__ = __webpack_require__(14);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mdl_dialog_configuration___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__mdl_dialog_configuration__);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__button_mdl_button_component__ = __webpack_require__(4);
@@ -84755,7 +84765,7 @@
 	"use strict";
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__angular_core__);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mdl_dialog_service__ = __webpack_require__(7);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mdl_dialog_service__ = __webpack_require__(8);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mdl_dialog_configuration__ = __webpack_require__(14);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mdl_dialog_configuration___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__mdl_dialog_configuration__);
 	/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return MdlSimpleDialogComponent; });
@@ -85221,13 +85231,13 @@
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__angular_core__);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__(1);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__angular_common__);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mdl_dialog_service__ = __webpack_require__(7);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mdl_dialog_service__ = __webpack_require__(8);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__mdl_dialog_component__ = __webpack_require__(54);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__mdl_simple_dialog_component__ = __webpack_require__(20);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__common_index__ = __webpack_require__(41);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__mdl_dialog_host_component__ = __webpack_require__(19);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__mdl_alert_component__ = __webpack_require__(53);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__dialog_outlet_index__ = __webpack_require__(10);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__dialog_outlet_index__ = __webpack_require__(11);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__button_mdl_button_component__ = __webpack_require__(4);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__mdl_dialog_configuration__ = __webpack_require__(14);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__mdl_dialog_configuration___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__mdl_dialog_configuration__);
@@ -85309,7 +85319,7 @@
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(3);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__angular_forms__);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__icon_mdl_icon_component__ = __webpack_require__(5);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__checkbox_mdl_checkbox_component__ = __webpack_require__(8);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__checkbox_mdl_checkbox_component__ = __webpack_require__(9);
 	/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return MdlIconToggleComponent; });
 	/* harmony export (binding) */ __webpack_require__.d(exports, "b", function() { return MdlIconToggleModule; });
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -85398,11 +85408,11 @@
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__mdl_layout_spacer_component__ = __webpack_require__(57);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__mdl_layout_tab_panel_component__ = __webpack_require__(46);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__icon_mdl_icon_component__ = __webpack_require__(5);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__common_mdl_ripple_directive__ = __webpack_require__(9);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__common_mdl_ripple_directive__ = __webpack_require__(10);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__common_index__ = __webpack_require__(41);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__angular_common__ = __webpack_require__(1);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__angular_common___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13__angular_common__);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__tabs_index__ = __webpack_require__(11);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__tabs_index__ = __webpack_require__(12);
 	/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return MdlLayoutModule; });
 	/* harmony namespace reexport (by used) */ __webpack_require__.d(exports, "b", function() { return __WEBPACK_IMPORTED_MODULE_1__mdl_layout_component__["b"]; });
 	/* harmony namespace reexport (by used) */ __webpack_require__.d(exports, "c", function() { return __WEBPACK_IMPORTED_MODULE_1__mdl_layout_component__["a"]; });
@@ -85487,7 +85497,7 @@
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__angular_core__);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__common_mdl_error__ = __webpack_require__(6);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__common_number_property__ = __webpack_require__(12);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__common_number_property__ = __webpack_require__(7);
 	/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return MdlUnsupportedCountOfListItemLinesError; });
 	/* harmony export (binding) */ __webpack_require__.d(exports, "b", function() { return MdlListComponent; });
 	/* harmony export (binding) */ __webpack_require__.d(exports, "c", function() { return MdlListItemComponent; });
@@ -85946,6 +85956,7 @@
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common__ = __webpack_require__(1);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__angular_common__);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__common_boolean_property__ = __webpack_require__(2);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__common_number_property__ = __webpack_require__(7);
 	/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return MdlRadioGroupRegisty; });
 	/* harmony export (binding) */ __webpack_require__.d(exports, "b", function() { return MdlRadioComponent; });
 	/* harmony export (binding) */ __webpack_require__.d(exports, "c", function() { return MdlRadioModule; });
@@ -85961,6 +85972,7 @@
 	var __param = (this && this.__param) || function (paramIndex, decorator) {
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
+	
 	
 	
 	
@@ -86015,6 +86027,7 @@
 	        this.ragioGroupRegisty = ragioGroupRegisty;
 	        this.formGroupName = formGroupName;
 	        this.disabled = false;
+	        this.tabindex = 1;
 	        this.change = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
 	        // the internal state - used to set the underlaying radio button state.
 	        this.checked = false;
@@ -86086,6 +86099,9 @@
 	    MdlRadioComponent.prototype.throwNameError = function () {
 	        throw new Error("\n      If you define both a name and a formControlName attribute on your radio button, their values\n      must match. Ex: <mdl-radio formControlName=\"food\" name=\"food\"></mdl-radio>\n    ");
 	    };
+	    MdlRadioComponent.prototype.spaceKeyPress = function (event) {
+	        this.checked = false; //in case of space key is pressed radio button value must remain same
+	    };
 	    __decorate([
 	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(), 
 	        __metadata('design:type', String)
@@ -86103,6 +86119,11 @@
 	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__common_boolean_property__["a" /* BooleanProperty */])(), 
 	        __metadata('design:type', Object)
 	    ], MdlRadioComponent.prototype, "disabled", void 0);
+	    __decorate([
+	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_4__common_number_property__["a" /* NumberProperty */])(), 
+	        __metadata('design:type', Number)
+	    ], MdlRadioComponent.prototype, "tabindex", void 0);
 	    __decorate([
 	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(), 
 	        __metadata('design:type', (typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]) === 'function' && _a) || Object)
@@ -86122,7 +86143,7 @@
 	                '[class.is-checked]': 'checked',
 	                '[class.is-disabled]': 'disabled'
 	            },
-	            template: "\n  <input type=\"checkbox\" class=\"mdl-radio__button\" \n    [attr.name]=\"name\"\n    (focus)=\"onFocus()\" \n    (blur)=\"onBlur()\"\n    [disabled]=\"disabled\"\n    [(ngModel)]=\"checked\">\n  <span class=\"mdl-radio__label\"><ng-content></ng-content></span>\n  <span class=\"mdl-radio__outer-circle\"></span>\n  <span class=\"mdl-radio__inner-circle\"></span>\n  ",
+	            template: "\n  <input type=\"checkbox\" class=\"mdl-radio__button\" \n    [attr.name]=\"name\"\n    (focus)=\"onFocus()\" \n    (blur)=\"onBlur()\"\n    (keyup.space)=\"spaceKeyPress($event)\"\n    [disabled]=\"disabled\"\n    [tabindex]=\"tabindex\"\n    [(ngModel)]=\"checked\">\n  <span class=\"mdl-radio__label\"><ng-content></ng-content></span>\n  <span class=\"mdl-radio__outer-circle\"></span>\n  <span class=\"mdl-radio__inner-circle\"></span>\n  ",
 	            encapsulation: __WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewEncapsulation"].None
 	        }),
 	        __param(3, __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Optional"])()), 
@@ -86160,7 +86181,7 @@
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__angular_core__);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__common_mdl_error__ = __webpack_require__(6);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__common_number_property__ = __webpack_require__(12);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__common_number_property__ = __webpack_require__(7);
 	/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return MdlUnsupportedShadowValueError; });
 	/* harmony export (binding) */ __webpack_require__.d(exports, "b", function() { return MdlShadowDirective; });
 	/* harmony export (binding) */ __webpack_require__.d(exports, "c", function() { return MdlShadowModule; });
@@ -86418,7 +86439,7 @@
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__(1);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__angular_common__);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__dialog_outlet_mdl_dialog_outlet_service__ = __webpack_require__(13);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__dialog_outlet_index__ = __webpack_require__(10);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__dialog_outlet_index__ = __webpack_require__(11);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_Subject__ = __webpack_require__(17);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_Subject___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_Subject__);
 	/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return MdlSnackbarComponent; });
@@ -86440,8 +86461,7 @@
 	
 	var ANIMATION_TIME = 250;
 	var MdlSnackbarComponent = (function () {
-	    function MdlSnackbarComponent(ngZone) {
-	        this.ngZone = ngZone;
+	    function MdlSnackbarComponent() {
 	        this.showIt = false;
 	    }
 	    MdlSnackbarComponent.prototype.onClick = function () {
@@ -86461,7 +86481,7 @@
 	                result.next(null);
 	                result.complete();
 	            }, ANIMATION_TIME);
-	        }, 10);
+	        }, ANIMATION_TIME);
 	        return result.asObservable();
 	    };
 	    MdlSnackbarComponent.prototype.hide = function () {
@@ -86480,14 +86500,12 @@
 	            template: "\n    <div id=\"demo-toast-example\" class=\" mdl-snackbar\" [ngClass]=\"{'mdl-snackbar--active': showIt }\">\n      <div class=\"mdl-snackbar__text\">{{message}}</div>\n      <button *ngIf=\"onAction\" class=\"mdl-snackbar__action\" type=\"button\" (click)=\"onClick()\" >{{actionText}}</button>\n    </div>\n  ",
 	            encapsulation: __WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewEncapsulation"].None
 	        }), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["NgZone"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_0__angular_core__["NgZone"]) === 'function' && _a) || Object])
+	        __metadata('design:paramtypes', [])
 	    ], MdlSnackbarComponent);
 	    return MdlSnackbarComponent;
-	    var _a;
 	}());
 	var MdlSnackbarService = (function () {
-	    function MdlSnackbarService(injector, componentFactoryResolver, dialogOutletService) {
-	        this.injector = injector;
+	    function MdlSnackbarService(componentFactoryResolver, dialogOutletService) {
 	        this.componentFactoryResolver = componentFactoryResolver;
 	        this.dialogOutletService = dialogOutletService;
 	        this.cFactory = this.componentFactoryResolver.resolveComponentFactory(MdlSnackbarComponent);
@@ -86500,6 +86518,7 @@
 	    };
 	    MdlSnackbarService.prototype.showSnackbar = function (snackbarMessage) {
 	        var optTimeout = snackbarMessage.timeout || 2750;
+	        var closeAfterTimeout = !!snackbarMessage.closeAfterTimeout;
 	        var viewContainerRef = this.dialogOutletService.viewContainerRef;
 	        if (!viewContainerRef) {
 	            throw new Error('You did not provide a ViewContainerRef. ' +
@@ -86508,9 +86527,22 @@
 	        var cRef = viewContainerRef.createComponent(this.cFactory, viewContainerRef.length);
 	        var mdlSnackbarComponent = cRef.instance;
 	        mdlSnackbarComponent.message = snackbarMessage.message;
-	        // TODO make sure only one snackbar is visible at one time
-	        // observable? push the configured instance and consume one after another?
+	        if (this.previousSnack) {
+	            var previousSnack_1 = this.previousSnack;
+	            var subscription_1 = previousSnack_1.component.hide()
+	                .subscribe(function () {
+	                previousSnack_1.cRef.destroy();
+	                subscription_1.unsubscribe();
+	            });
+	        }
+	        this.previousSnack = {
+	            component: mdlSnackbarComponent,
+	            cRef: cRef
+	        };
 	        if (snackbarMessage.action) {
+	            if (closeAfterTimeout) {
+	                this.hideAndDestroySnack(mdlSnackbarComponent, cRef, optTimeout);
+	            }
 	            mdlSnackbarComponent.actionText = snackbarMessage.action.text;
 	            mdlSnackbarComponent.onAction = function () {
 	                mdlSnackbarComponent.hide().subscribe(function () {
@@ -86520,9 +86552,7 @@
 	            };
 	        }
 	        else {
-	            setTimeout(function () {
-	                mdlSnackbarComponent.hide().subscribe(function () { cRef.destroy(); });
-	            }, optTimeout);
+	            this.hideAndDestroySnack(mdlSnackbarComponent, cRef, optTimeout);
 	        }
 	        var result = new __WEBPACK_IMPORTED_MODULE_4_rxjs_Subject__["Subject"]();
 	        mdlSnackbarComponent.show().subscribe(function () {
@@ -86531,12 +86561,20 @@
 	        });
 	        return result.asObservable();
 	    };
+	    MdlSnackbarService.prototype.hideAndDestroySnack = function (component, componentRef, timeOut) {
+	        setTimeout(function () {
+	            component.hide()
+	                .subscribe(function () {
+	                componentRef.destroy();
+	            });
+	        }, timeOut);
+	    };
 	    MdlSnackbarService = __decorate([
 	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["Injector"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_0__angular_core__["Injector"]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["ComponentFactoryResolver"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_0__angular_core__["ComponentFactoryResolver"]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__dialog_outlet_mdl_dialog_outlet_service__["a" /* MdlDialogOutletService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__dialog_outlet_mdl_dialog_outlet_service__["a" /* MdlDialogOutletService */]) === 'function' && _c) || Object])
+	        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["ComponentFactoryResolver"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_0__angular_core__["ComponentFactoryResolver"]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__dialog_outlet_mdl_dialog_outlet_service__["a" /* MdlDialogOutletService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__dialog_outlet_mdl_dialog_outlet_service__["a" /* MdlDialogOutletService */]) === 'function' && _b) || Object])
 	    ], MdlSnackbarService);
 	    return MdlSnackbarService;
-	    var _a, _b, _c;
+	    var _a, _b;
 	}());
 	var MdlSnackbaModule = (function () {
 	    function MdlSnackbaModule() {
@@ -86647,7 +86685,7 @@
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__angular_core__);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__(3);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__angular_forms__);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__checkbox_mdl_checkbox_component__ = __webpack_require__(8);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__checkbox_mdl_checkbox_component__ = __webpack_require__(9);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common__ = __webpack_require__(1);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__angular_common__);
 	/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return MdlSwitchComponent; });
@@ -86729,8 +86767,8 @@
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__angular_core__);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mdl_table_component__ = __webpack_require__(60);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__checkbox_mdl_checkbox_component__ = __webpack_require__(8);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__common_mdl_ripple_directive__ = __webpack_require__(9);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__checkbox_mdl_checkbox_component__ = __webpack_require__(9);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__common_mdl_ripple_directive__ = __webpack_require__(10);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_common__ = __webpack_require__(1);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_common___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__angular_common__);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_forms__ = __webpack_require__(3);
@@ -86790,7 +86828,7 @@
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__(3);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__angular_forms__);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__common_boolean_property__ = __webpack_require__(2);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__common_number_property__ = __webpack_require__(12);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__common_number_property__ = __webpack_require__(7);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__button_mdl_button_component__ = __webpack_require__(4);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__icon_mdl_icon_component__ = __webpack_require__(5);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_common__ = __webpack_require__(1);
@@ -86841,6 +86879,7 @@
 	        this.isFloatingLabel = false;
 	        this.rows = null;
 	        this.maxrows = -1;
+	        this.tabindex = 1;
 	        this.onTouchedCallback = noop;
 	        this.onChangeCallback = noop;
 	        this.el = elmRef.nativeElement;
@@ -87025,6 +87064,11 @@
 	    ], MdlTextFieldComponent.prototype, "icon", void 0);
 	    __decorate([
 	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__common_number_property__["a" /* NumberProperty */])(), 
+	        __metadata('design:type', Number)
+	    ], MdlTextFieldComponent.prototype, "tabindex", void 0);
+	    __decorate([
+	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
 	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__common_boolean_property__["a" /* BooleanProperty */])(), 
 	        __metadata('design:type', Object)
 	    ], MdlTextFieldComponent.prototype, "disableNativeValidityChecking", void 0);
@@ -87038,7 +87082,7 @@
 	                '[class.mdl-textfield--floating-label]': 'isFloatingLabel',
 	                '[class.has-placeholder]': 'placeholder'
 	            },
-	            template: "\n   <div *ngIf=\"!icon\">\n     <textarea\n        *ngIf=\"rows\"\n        #input\n        [rows]=\"rows\"\n        class=\"mdl-textfield__input\"\n        type=\"text\"\n        [attr.name]=\"name\"\n        [id]=\"id\"\n        [placeholder]=\"placeholder ? placeholder : ''\"\n        (focus)=\"onFocus($event)\"\n        (blur)=\"onBlur($event)\"\n        (keydown)=\"keydownTextarea($event)\"\n        [(ngModel)]=\"value\"\n        [disabled]=\"disabled\"\n        [required]=\"required\"\n        [autofocus]=\"autofocus\"\n        [readonly]=\"readonly\"\n        ></textarea>\n     <input\n        *ngIf=\"!rows\"\n        #input\n        class=\"mdl-textfield__input\"\n        [type]=\"type\"\n        [attr.name]=\"name\"\n        [id]=\"id\"\n        [pattern]=\"pattern ? pattern : '.*'\"\n        [attr.min]=\"min\"\n        [attr.max]=\"max\"\n        [attr.step]=\"step\"\n        [placeholder]=\"placeholder ? placeholder : ''\"\n        [autocomplete]=\"autocomplete ? autocomplete : ''\"\n        (focus)=\"onFocus($event)\"\n        (blur)=\"onBlur($event)\"\n        [(ngModel)]=\"value\"\n        [disabled]=\"disabled\"\n        [required]=\"required\"\n        [autofocus]=\"autofocus\"\n         [readonly]=\"readonly\"\n        >\n     <label class=\"mdl-textfield__label\" [attr.for]=\"id\">{{label}}</label>\n     <span class=\"mdl-textfield__error\">{{errorMessage}}</span>\n   </div>\n   <div *ngIf=\"icon\">\n      <button mdl-button mdl-button-type=\"icon\" (click)=\"setFocus()\">\n         <mdl-icon>{{icon}}</mdl-icon>\n      </button>\n      <div class=\"mdl-textfield__expandable-holder\">\n       <input\n          #input\n          class=\"mdl-textfield__input\"\n          [type]=\"type\"\n          [attr.name]=\"name\"\n          [id]=\"id\"\n          [pattern]=\"pattern ? pattern : '.*'\"\n          [attr.min]=\"min\"\n          [attr.max]=\"max\"\n          [attr.step]=\"step\"\n          [placeholder]=\"placeholder ? placeholder : ''\"\n          [autocomplete]=\"autocomplete ? autocomplete : ''\"\n          (focus)=\"onFocus($event)\"\n          (blur)=\"onBlur($event)\"\n          [(ngModel)]=\"value\"\n          [disabled]=\"disabled\"\n          [required]=\"required\"\n          [autofocus]=\"autofocus\"\n          [readonly]=\"readonly\"\n         >\n     <label class=\"mdl-textfield__label\" [attr.for]=\"id\">{{label}}</label>\n     <span class=\"mdl-textfield__error\">{{errorMessage}}</span>\n      </div>\n   </div>\n   ",
+	            template: "\n   <div *ngIf=\"!icon\">\n     <textarea\n        *ngIf=\"rows\"\n        #input\n        [rows]=\"rows\"\n        class=\"mdl-textfield__input\"\n        type=\"text\"\n        [attr.name]=\"name\"\n        [id]=\"id\"\n        [placeholder]=\"placeholder ? placeholder : ''\"\n        (focus)=\"onFocus($event)\"\n        (blur)=\"onBlur($event)\"\n        (keydown)=\"keydownTextarea($event)\"\n        [(ngModel)]=\"value\"\n        [disabled]=\"disabled\"\n        [required]=\"required\"\n        [autofocus]=\"autofocus\"\n        [readonly]=\"readonly\"\n        ></textarea>\n     <input\n        *ngIf=\"!rows\"\n        #input\n        class=\"mdl-textfield__input\"\n        [type]=\"type\"\n        [attr.name]=\"name\"\n        [id]=\"id\"\n        [pattern]=\"pattern ? pattern : '.*'\"\n        [attr.min]=\"min\"\n        [attr.max]=\"max\"\n        [attr.step]=\"step\"\n        [placeholder]=\"placeholder ? placeholder : ''\"\n        [autocomplete]=\"autocomplete ? autocomplete : ''\"\n        (focus)=\"onFocus($event)\"\n        (blur)=\"onBlur($event)\"\n        [(ngModel)]=\"value\"\n        [disabled]=\"disabled\"\n        [required]=\"required\"\n        [autofocus]=\"autofocus\"\n        [readonly]=\"readonly\"\n        [tabindex]=\"tabindex\"\n        >\n     <label class=\"mdl-textfield__label\" [attr.for]=\"id\">{{label}}</label>\n     <span class=\"mdl-textfield__error\">{{errorMessage}}</span>\n   </div>\n   <div *ngIf=\"icon\">\n      <button mdl-button mdl-button-type=\"icon\" (click)=\"setFocus()\">\n         <mdl-icon>{{icon}}</mdl-icon>\n      </button>\n      <div class=\"mdl-textfield__expandable-holder\">\n       <input\n          #input\n          class=\"mdl-textfield__input\"\n          [type]=\"type\"\n          [attr.name]=\"name\"\n          [id]=\"id\"\n          [pattern]=\"pattern ? pattern : '.*'\"\n          [attr.min]=\"min\"\n          [attr.max]=\"max\"\n          [attr.step]=\"step\"\n          [placeholder]=\"placeholder ? placeholder : ''\"\n          [autocomplete]=\"autocomplete ? autocomplete : ''\"\n          (focus)=\"onFocus($event)\"\n          (blur)=\"onBlur($event)\"\n          [(ngModel)]=\"value\"\n          [disabled]=\"disabled\"\n          [required]=\"required\"\n          [autofocus]=\"autofocus\"\n          [readonly]=\"readonly\"\n          [tabindex]=\"tabindex\"\n         >\n     <label class=\"mdl-textfield__label\" [attr.for]=\"id\">{{label}}</label>\n     <span class=\"mdl-textfield__error\">{{errorMessage}}</span>\n      </div>\n   </div>\n   ",
 	            providers: [{
 	                    provide: __WEBPACK_IMPORTED_MODULE_1__angular_forms__["NG_VALUE_ACCESSOR"],
 	                    useExisting: __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["forwardRef"])(function () { return MdlTextFieldComponent; }),
@@ -87512,7 +87556,7 @@
 	"use strict";
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__angular_core__);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__tabs_index__ = __webpack_require__(11);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__tabs_index__ = __webpack_require__(12);
 	/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return MdlLayoutTabPanelComponent; });
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
 	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -87883,7 +87927,7 @@
 	"use strict";
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rxjs_Subject__ = __webpack_require__(17);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rxjs_Subject___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_rxjs_Subject__);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mdl_dialog_service__ = __webpack_require__(7);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mdl_dialog_service__ = __webpack_require__(8);
 	/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return InternalMdlDialogReference; });
 	
 	
@@ -87933,7 +87977,7 @@
 	"use strict";
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__angular_core__);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mdl_dialog_service__ = __webpack_require__(7);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mdl_dialog_service__ = __webpack_require__(8);
 	/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return MdlAlertComponent; });
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
 	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -87998,7 +88042,7 @@
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__angular_core__);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Subject__ = __webpack_require__(17);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Subject___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_Subject__);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mdl_dialog_service__ = __webpack_require__(7);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mdl_dialog_service__ = __webpack_require__(8);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__common_boolean_property__ = __webpack_require__(2);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__mdl_dialog_configuration__ = __webpack_require__(14);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__mdl_dialog_configuration___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__mdl_dialog_configuration__);
@@ -88385,7 +88429,7 @@
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__angular_core__);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__common_boolean_property__ = __webpack_require__(2);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__common_number_property__ = __webpack_require__(12);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__common_number_property__ = __webpack_require__(7);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__mdl_tab_panel_component__ = __webpack_require__(49);
 	/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return MdlTabsComponent; });
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -88955,15 +88999,15 @@
 	"use strict";
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__angular_core__);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__common_mdl_ripple_directive__ = __webpack_require__(9);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__common_mdl_ripple_directive__ = __webpack_require__(10);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__button_mdl_button_component__ = __webpack_require__(4);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__badge_mdl_badge_directive__ = __webpack_require__(21);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__shadow_mdl_shadow_directive__ = __webpack_require__(31);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__card_mdl_card_component__ = __webpack_require__(22);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__chips_index__ = __webpack_require__(23);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__dialog_index__ = __webpack_require__(24);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__dialog_outlet_index__ = __webpack_require__(10);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__checkbox_mdl_checkbox_component__ = __webpack_require__(8);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__dialog_outlet_index__ = __webpack_require__(11);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__checkbox_mdl_checkbox_component__ = __webpack_require__(9);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__radio_mdl_radio_component__ = __webpack_require__(30);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__progress_mdl_progress_component__ = __webpack_require__(29);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__icon_mdl_icon_component__ = __webpack_require__(5);
@@ -88977,7 +89021,7 @@
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__table_index__ = __webpack_require__(36);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__menu_index__ = __webpack_require__(28);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__layout_index__ = __webpack_require__(26);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__tabs_index__ = __webpack_require__(11);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__tabs_index__ = __webpack_require__(12);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__textfield_mdl_textfield_component__ = __webpack_require__(37);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__dialog_outlet_mdl_backdrop_overlay_component__ = __webpack_require__(18);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__dialog_mdl_dialog_host_component__ = __webpack_require__(19);
