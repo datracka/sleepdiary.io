@@ -67129,7 +67129,7 @@
 	var angular2_mdl_1 = __webpack_require__(/*! angular2-mdl */ 210);
 	var template = __webpack_require__(/*! ./calendar.html */ 211);
 	//todo:
-	var Calendar = Calendar_1 = (function () {
+	var Calendar = (function () {
 	    function Calendar(mdlSnackbarService, vcRef, router, route, calendarService) {
 	        this.mdlSnackbarService = mdlSnackbarService;
 	        this.vcRef = vcRef;
@@ -67154,6 +67154,7 @@
 	            { value: metrics_indicators_1.MetricsIndicators.SLEEPING_QUALITY, display: 'Sleeping Quality' },
 	            { value: metrics_indicators_1.MetricsIndicators.TIREDNESS_FEELING, display: 'Tiredness Feeling' },
 	        ];
+	        this.totalDays = new Map();
 	        this.buildMonths('en', '2016');
 	        this.metric = {
 	            metricSelected: metrics_indicators_1.MetricsIndicators.SLEEPING_QUALITY
@@ -67165,8 +67166,12 @@
 	                });*/
 	    };
 	    Calendar.prototype.ngOnInit = function () {
+	        //nothing happens here.
+	    };
+	    Calendar.prototype.ngAfterViewInit = function () {
 	        var _this = this;
 	        this.calendarService.getAll().subscribe(function (response) {
+	            console.log("returned!", _this.totalDays);
 	            _this.entries = response.json();
 	            for (var key in _this.entries) {
 	                if (_this.entries.hasOwnProperty(key)) {
@@ -67174,9 +67179,6 @@
 	                }
 	            }
 	        });
-	    };
-	    Calendar.prototype.ngAfterViewInit = function () {
-	        var _this = this;
 	        this.sub = this.route
 	            .params
 	            .subscribe(function (params) {
@@ -67202,6 +67204,7 @@
 	        });
 	    };
 	    Calendar.prototype.paintInitialDayBackground = function (entry) {
+	        console.time("painting");
 	        this.months.forEach(function (month) {
 	            month.weeks.forEach(function (week) {
 	                week.days.forEach(function (day) {
@@ -67212,6 +67215,7 @@
 	                });
 	            });
 	        });
+	        console.timeEnd("painting");
 	    };
 	    Calendar.prototype.decorateDay = function (day) {
 	        var a = [];
@@ -67243,7 +67247,7 @@
 	        this.router.navigate(['/home/entry', uuid, { day: day.date.format("YYYY-MM-DD") }]);
 	    };
 	    //** #####  render methods **/
-	    Calendar.getMonthDateRange = function (year, month, isStartOnMonday) {
+	    Calendar.prototype.getMonthDateRange = function (year, month, isStartOnMonday) {
 	        var monthStartDate = moment([year, month]).isoWeekday(1);
 	        var startDateOfWeek = monthStartDate.clone();
 	        if (isStartOnMonday) {
@@ -67259,12 +67263,12 @@
 	    };
 	    Calendar.prototype.buildMonths = function (lang, year) {
 	        for (var i = 0; i < 12; i++) {
-	            var moment_1 = Calendar_1.getMonthDateRange(year, i, true);
-	            var weeks = Calendar_1.buildWeeks(moment_1.startDateOfWeek, i);
+	            var moment_1 = this.getMonthDateRange(year, i, true);
+	            var weeks = this.buildWeeks(moment_1.startDateOfWeek, i);
 	            this.months[i].setWeeks(weeks);
 	        }
 	    };
-	    Calendar.buildWeeks = function (startDateOfWeek, currentMonth) {
+	    Calendar.prototype.buildWeeks = function (startDateOfWeek, currentMonth) {
 	        var days = [], currentDate = startDateOfWeek.clone(), nextMonth = 0;
 	        if (currentMonth == 11) {
 	            nextMonth = 0;
@@ -67273,13 +67277,13 @@
 	            nextMonth = currentMonth + 1;
 	        }
 	        while ((currentDate.month() !== nextMonth)) {
-	            var week = new week_1.Week(Calendar_1.buildDays(currentDate.clone(), currentMonth));
+	            var week = new week_1.Week(this.buildDays(currentDate.clone(), currentMonth));
 	            days.push(week);
 	            currentDate.add(1, "w");
 	        }
 	        return days;
 	    };
-	    Calendar.buildDays = function (date, month) {
+	    Calendar.prototype.buildDays = function (date, month) {
 	        var days = [];
 	        for (var i = 0; i < 7; i++) {
 	            var day = new day_1.Day(date.format("dd").substring(0, 1), date.date(), date.month() === month, date.isSame(new Date(), "day"), date);
@@ -67287,11 +67291,13 @@
 	            date.add(1, "d");
 	            days.push(day);
 	        }
+	        console.log("aa");
+	        this.totalDays.add("hiWorld!", { 'myObj': 'myValue' });
 	        return days;
 	    };
 	    return Calendar;
 	}());
-	Calendar = Calendar_1 = __decorate([
+	Calendar = __decorate([
 	    core_1.Component({
 	        selector: 'calendar',
 	        template: template,
@@ -67311,7 +67317,6 @@
 	        router_1.Router, router_1.ActivatedRoute, calendar_service_1.CalendarService])
 	], Calendar);
 	exports.Calendar = Calendar;
-	var Calendar_1;
 
 
 /***/ },

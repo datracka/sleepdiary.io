@@ -19,7 +19,9 @@ import {Day} from "../../shared/calendar/day";
 import {MetricsIndicators} from "../../shared/common/metrics-indicators";
 import {Metric} from "../../shared/common/metrics";
 import {MdlSnackbarService} from "angular2-mdl";
+import {Entry} from "../../shared/common/entry";
 let template = require('./calendar.html');
+
 
 //todo:
 @Component({
@@ -39,7 +41,8 @@ let template = require('./calendar.html');
 })
 export class Calendar implements OnInit, AfterViewInit {
 
-    entries: any;
+    totalDays: any; //data structure for interpolating styles
+    entries: Array<Entry>;
     sub: any;
     months: Array<Month> = [
         new Month('January'),
@@ -63,7 +66,7 @@ export class Calendar implements OnInit, AfterViewInit {
 
     constructor(private mdlSnackbarService: MdlSnackbarService, private vcRef: ViewContainerRef,
                 private router: Router, public route: ActivatedRoute, public calendarService: CalendarService) {
-
+        this.totalDays = new Map();
         this.buildMonths('en', '2016');
         this.metric = {
             metricSelected: MetricsIndicators.SLEEPING_QUALITY
@@ -71,27 +74,35 @@ export class Calendar implements OnInit, AfterViewInit {
     }
 
     showSnackbar(message) {
-/*        this.mdlSnackbarService.showSnackbar({
-            message: message,
-        });*/
+        /*        this.mdlSnackbarService.showSnackbar({
+         message: message,
+         });*/
     }
 
 
     ngOnInit() {
-        this.calendarService.getAll().subscribe(
-            response => {
-                this.entries = response.json();
-                for (var key in this.entries) {
-                    if (this.entries.hasOwnProperty(key)) {
-                        this.paintInitialDayBackground(this.entries[key]);
-                    }
-                }
-            }
-        );
-
+        //nothing happens here.
     }
 
     ngAfterViewInit() {
+
+        this.calendarService.getAll().subscribe(
+            response => {
+                this.entries = response.json();
+                let dayMatches = [];
+                for (var key in this.entries) {
+                    if (this.entries.hasOwnProperty(key)) {
+                        let entry: Entry = this.entries[key];
+                        let dayMatch: Day = this.totalDays.get(entry.date.substr(0, 10));
+                        dayMatch.sleepingQuality = entry.sleepingQuality;
+                        dayMatch.tirednessFeeling = entry.tirednessFeeling;
+                        dayMatches.push(dayMatch);
+                    }
+                }
+                this.paintInitialDayBackground(dayMatches);
+            }
+        );
+
         this.sub = this.route
             .params
             .subscribe(params => {
@@ -117,16 +128,11 @@ export class Calendar implements OnInit, AfterViewInit {
             });
     }
 
-    paintInitialDayBackground(entry) {
-        this.months.forEach(function (month) {
-            month.weeks.forEach(function (week) {
-                week.days.forEach(function (day) {
-                    if (day.date.isSame(entry.date, "day")) {
-                        day.sleepingQuality = 'sleeping-quality--' + entry.sleepingQuality;
-                        day.tirednessFeeling = 'tiredness-feeling--' + entry.tirednessFeeling;
-                    }
-                });
-            });
+    paintInitialDayBackground(dayMatches) {
+        dayMatches.forEach(function (day) {
+            day.sleepingQuality = 'sleeping-quality--' + day.sleepingQuality;
+            day.tirednessFeeling = 'tiredness-feeling--' + day.tirednessFeeling;
+
         });
     }
 
@@ -151,7 +157,7 @@ export class Calendar implements OnInit, AfterViewInit {
         let dayMoment = day.date;
         let entry = this.entries.filter((entry) => {
             //cos date is a ISODate we get 10 firsts characters. Ugly but works
-            if(dayMoment.isSame(entry.date.substring(0,10), 'day'))
+            if (dayMoment.isSame(entry.date.substring(0, 10), 'day'))
                 return entry;
         });
         console.log(entry[0]);
@@ -169,7 +175,7 @@ export class Calendar implements OnInit, AfterViewInit {
 
     //** #####  render methods **/
 
-    static getMonthDateRange(year: String, month: number, isStartOnMonday: boolean) {
+    getMonthDateRange(year: String, month: number, isStartOnMonday: boolean) {
 
         let monthStartDate: any = moment([year, month]).isoWeekday(1);
 
@@ -190,13 +196,13 @@ export class Calendar implements OnInit, AfterViewInit {
     buildMonths(lang: String, year: String) {
 
         for (var i = 0; i < 12; i++) {
-            let moment: any = Calendar.getMonthDateRange(year, i, true);
-            let weeks: Array<Week> = Calendar.buildWeeks(moment.startDateOfWeek, i);
+            let moment: any = this.getMonthDateRange(year, i, true);
+            let weeks: Array<Week> = this.buildWeeks(moment.startDateOfWeek, i);
             this.months[i].setWeeks(weeks);
         }
     }
 
-    static buildWeeks(startDateOfWeek: any, currentMonth: number): any {
+    buildWeeks(startDateOfWeek: any, currentMonth: number): any {
 
         let days: Array<Week> = [],
             currentDate: any = startDateOfWeek.clone(),
@@ -210,14 +216,14 @@ export class Calendar implements OnInit, AfterViewInit {
 
         while ((currentDate.month() !== nextMonth)) {
             let week: Week = new Week(
-                Calendar.buildDays(currentDate.clone(), currentMonth));
+                this.buildDays(currentDate.clone(), currentMonth));
             days.push(week);
             currentDate.add(1, "w");
         }
         return days;
     }
 
-    static buildDays(date: any, month: any) {
+    buildDays(date: any, month: any) {
         var days: Array<Day> = [];
         for (var i = 0; i < 7; i++) {
             let day: Day = new Day(
@@ -229,7 +235,9 @@ export class Calendar implements OnInit, AfterViewInit {
             date = date.clone();
             date.add(1, "d");
             days.push(day);
+            this.totalDays.set(date.format('YYYY-MM-DD'), day);
         }
+
         return days;
     }
 
