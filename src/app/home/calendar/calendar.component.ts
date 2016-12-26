@@ -43,6 +43,14 @@ export class Calendar implements OnInit, AfterViewInit {
     totalDays: any; //data structure for interpolating styles
     entries: Array<Entry>;
     sub: any;
+    form: any;
+
+    years: any = [
+        {value: '2016', name: '2016'},
+        {value: '2017', name: '2017'},
+        {value: '2018', name: '2018'}
+    ];
+
     months: Array<Month> = [
         new Month('January'),
         new Month('February'),
@@ -57,6 +65,7 @@ export class Calendar implements OnInit, AfterViewInit {
         new Month('November'),
         new Month('December'),
     ];
+
     public metric: Metric;
     public metrics = [
         {value: MetricsIndicators.SLEEPING_QUALITY, display: 'Sleeping Quality'},
@@ -68,11 +77,10 @@ export class Calendar implements OnInit, AfterViewInit {
                 private router: Router,
                 public route: ActivatedRoute,
                 public calendarService: CalendarService) {
+
         this.totalDays = new Map();
         this.buildMonths('en', '2016');
-        this.metric = {
-            metricSelected: MetricsIndicators.SLEEPING_QUALITY
-        }
+
     }
 
     showSnackbar(message) {
@@ -83,12 +91,16 @@ export class Calendar implements OnInit, AfterViewInit {
 
 
     ngOnInit() {
-        //nothing happens here.
+
+        this.form = {
+            yearSelected: '2016',
+            metricSelected:  MetricsIndicators.SLEEPING_QUALITY
+        }
     }
 
     ngAfterViewInit() {
 
-        this.calendarService.getAll().subscribe(
+        this.calendarService.getAll(this.form.yearSelected).subscribe(
             response => {
                 this.entries = response.json();
                 let dayMatches = [];
@@ -152,6 +164,28 @@ export class Calendar implements OnInit, AfterViewInit {
         }
 
         return a;
+    }
+
+    setYear(year) {
+        //build new year
+        this.buildMonths('en', year);
+        //get values for given year
+        this.calendarService.getAll(this.form.yearSelected).subscribe(
+            response => {
+                this.entries = response.json();
+                let dayMatches = [];
+                for (var key in this.entries) {
+                    if (this.entries.hasOwnProperty(key)) {
+                        let entry: Entry = this.entries[key];
+                        let dayMatch: Day = this.totalDays.get(entry.date.substr(0, 10));
+                        dayMatch.sleepingQuality = entry.sleepingQuality;
+                        dayMatch.tirednessFeeling = entry.tirednessFeeling;
+                        dayMatches.push(dayMatch);
+                    }
+                }
+                this.paintInitialDayBackground(dayMatches);
+            }
+        );
     }
 
     onSelect(day: any) {

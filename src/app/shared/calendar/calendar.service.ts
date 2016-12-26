@@ -18,7 +18,7 @@ export class CalendarService {
         this.actionUrl = process.env.API_PATH;
     }
 
-    public getAll(): Observable<Response> {
-        return this._authHttp.get(this.actionUrl + "calendar/year/2016", this.options);
+    public getAll(year): Observable<Response> {
+        return this._authHttp.get(this.actionUrl + "calendar/year/" +  year, this.options);
     }
 }
