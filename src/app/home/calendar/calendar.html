@@ -1,12 +1,27 @@
 <div [@flyInOut]="'in'" class="mdl-grid" [ngClass]="metric.metricSelected">
     <div class="mdl-grid mdl-cell--12-col sd-align-right">
         <form #f="ngForm" novalidate>
-            <label>Select a Metric</label>
-                <select name="metric" [(ngModel)]="metric.metricSelected">
+            <mdl-radio [(ngModel)]="metric.metricSelected" name="metrics" value="sleeping-quality" mdl-ripple>
+                Sleeping Quality
+            </mdl-radio>
+            <mdl-radio [(ngModel)]="metric.metricSelected" name="metrics" value="tiredness-feeling" mdl-ripple>
+                Tiredness Feeling
+            </mdl-radio>
+            <!-- drop down example 1: basic working but ugly -->
+            <!--        <label>Select a Metric</label>
+<select name="metric" [(ngModel)]="metric.metricSelected">
                     <option *ngFor="let metric of metrics" [value]="metric.value">
                         {{metric.display}}
                     </option>
-                </select>
+                </select>-->
+
+            <!-- drop down example 2: using angular-mdl-2. Is not working. -->
+
+            <!--            <mdl-select [(ngModel)]="metric.metricSelected" placeholder="metrics" name="metrics">
+                            <mdl-option *ngFor="let metric of metrics" [value]="metric.value">
+                                {{metric.display}}
+                            </mdl-option>
+                        </mdl-select>-->
         </form>
     </div>
     <div class="mdl-cell mdl-cell--4-col" *ngFor="let month of months">
@@ -35,7 +50,8 @@
             </div>
         </div>
     </div>
-    <a routerLink="/home/entry/new" class="sd-add-button" mdl-button mdl-button-type="fab" mdl-colored="accent" mdl-ripple>
+    <a routerLink="/home/entry/new" class="sd-add-button" mdl-button mdl-button-type="fab" mdl-colored="accent"
+       mdl-ripple>
         <mdl-icon>add</mdl-icon>
     </a>
 </div>

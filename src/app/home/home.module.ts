@@ -13,13 +13,17 @@ import {AuthGuard} from "../shared/common/auth-guard";
 import {MdlModule} from "angular2-mdl";
 import {Drawer} from "../drawer/drawer";
 import {CloseMenuDirective} from "../shared/common/close-menu.directive";
+import {MdlSelectModule} from "@angular2-mdl-ext/select";
+import {MdlPopoverModule} from "@angular2-mdl-ext/popover";
 
 @NgModule({
     imports: [
         CommonModule,
         FormsModule,
         homeRouting,
-        MdlModule
+        MdlModule,
+        MdlPopoverModule,
+        MdlSelectModule
     ],
     declarations: [
         HomeComponent,
