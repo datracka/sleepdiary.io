@@ -79,8 +79,6 @@ export class Calendar implements OnInit, AfterViewInit {
                 public calendarService: CalendarService) {
 
         this.totalDays = new Map();
-        this.buildMonths('en', '2016');
-
     }
 
     showSnackbar(message) {
@@ -92,10 +90,17 @@ export class Calendar implements OnInit, AfterViewInit {
 
     ngOnInit() {
 
+        this.sub = this.route
+            .params
+            .subscribe(params => {
+                console.log('day', params['day']);
+            });
+
         this.form = {
             yearSelected: '2016',
             metricSelected:  MetricsIndicators.SLEEPING_QUALITY
         }
+        this.buildMonths('en', '2016');
     }
 
     ngAfterViewInit() {
@@ -188,6 +193,27 @@ export class Calendar implements OnInit, AfterViewInit {
         );
     }
 
+    /**
+     * FIX: DRY onSelectCurrentDay / onSelect
+     */
+    onSelectCurrentDay() {
+
+        let current = moment();
+
+        let entry = this.entries.filter((entry) => {
+            //cos date is a ISODate we get 10 firsts characters. Ugly but works
+            if (current.isSame(entry.date.substring(0, 10), 'day'))
+                return entry;
+        });
+
+        let uuid = 'new';
+
+        if (typeof entry[0] !== 'undefined') {
+            uuid = entry[0].uuid;
+        }
+        this.router.navigate(['/home/entry', uuid, {day: current.format("YYYY-MM-DD")}]);
+    }
+
     onSelect(day: any) {
 
         let dayMoment = day.date;
@@ -196,7 +222,6 @@ export class Calendar implements OnInit, AfterViewInit {
             if (dayMoment.isSame(entry.date.substring(0, 10), 'day'))
                 return entry;
         });
-        console.log(entry[0]);
         let uuid = 'new';
 
         if (!day.isCurrentMonth) {

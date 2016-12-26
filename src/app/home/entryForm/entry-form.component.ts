@@ -25,6 +25,10 @@ export class EntryForm implements OnInit, AfterViewInit {
     public submitted = false;
     public sub: any;
     public date: any;
+    public params: any = {
+        day: null,
+        uuid: null
+    }
 
     //default values
     public sleepingQualityValues = [
@@ -44,9 +48,6 @@ export class EntryForm implements OnInit, AfterViewInit {
     // http://blog.angular-university.io/introduction-to-angular-2-forms-template-driven-vs-model-driven/
     constructor(private router: Router, public route: ActivatedRoute,
                 public entryFormService: EntryFormService) {
-    }
-
-    ngOnInit() {
         //initialize by default entry (uuid, date of today, 'good', 'good')
         this.entry = new Entry(
             '',
@@ -56,47 +57,50 @@ export class EntryForm implements OnInit, AfterViewInit {
         );
     }
 
-    ngAfterViewInit() {
-        this.sub = this.route.params.subscribe(params => {
-            let uuid: string = params['uuid'];
-            if (params['uuid'] !== 'new') {
-                //update existing entry
-                this.sub = this.entryFormService.getEntry(uuid).subscribe(
-                    response => {
-                        this.entry = new Entry(
-                            response.json()[0].uuid,
-                            response.json()[0].date,
-                            response.json()[0].sleepingQuality,
-                            response.json()[0].tirednessFeeling
-                        );
-                    });
-            } else {
-                //new entry
-                this.sub = this.route
-                    .params
-                    .subscribe(params => {
-                            if (typeof params['day'] !== 'undefined') {
-                                this.entry.date = new Date(params['day']).toISOString();
-                            }
-                        }
-                    )
-            }
+    ngOnInit() {
+        //get params from URL
+        this.sub = this.route
+            .params
+            .subscribe(params => {
+                    this.params.uuid = params['uuid'];
+                    if (typeof params['day'] !== 'undefined') {
+                        this.params.day = params['day'];
+                    }
+                }
+            )
+    }
 
-        });
+    ngAfterViewInit() {
+        if (this.params.uuid !== 'new') {
+            //update existing entry
+            let uuid: string = this.params.uuid;
+            this.sub = this.entryFormService.getEntry(uuid).subscribe(
+                response => {
+                    this.entry = new Entry(
+                        response.json()[0].uuid,
+                        response.json()[0].date,
+                        response.json()[0].sleepingQuality,
+                        response.json()[0].tirednessFeeling
+                    );
+                });
+        } else {
+            this.entry.date = new Date(this.params.day).toISOString();
+        }
+
     }
 
     onSubmit() {
         if (this.entry.uuid != '') {
             this.entryFormService.updateEntry(this.entry).subscribe(
                 response => {
-                    this.router.navigate(['/home/monthly', {actionRef: 'update'}]);
+                    this.router.navigate(['/home/monthly', {actionRef: 'update', day: this.params.day}]);
                 }
             );
         } else {
             this.entryFormService.newEntry(this.entry).subscribe(
                 response => {
                     // do something!!
-                    this.router.navigate(['/home/monthly', {actionRef: 'insert'}]);
+                    this.router.navigate(['/home/monthly', {actionRef: 'insert', day: this.params.day}]);
                 }
             );
         }
@@ -104,14 +108,14 @@ export class EntryForm implements OnInit, AfterViewInit {
     }
 
     back() {
-        this.router.navigate(['/home/monthly']);
+        this.router.navigate(['/home/monthly', {day: this.params.day}]);
     }
 
     deleteEntry(uuid: string) {
         if (this.entry.uuid != '') {
             this.entryFormService.deleteEntry(uuid).subscribe(
                 response => {
-                    this.router.navigate(['/home/monthly', {actionRef: 'delete'}]);
+                    this.router.navigate(['/home/monthly', {actionRef: 'delete', day: this.params.day}]);
                 }
             );
         }
