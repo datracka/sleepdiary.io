@@ -67130,9 +67130,8 @@
 	var template = __webpack_require__(/*! ./calendar.html */ 211);
 	//todo:
 	var Calendar = (function () {
-	    function Calendar(mdlSnackbarService, vcRef, router, route, calendarService) {
+	    function Calendar(mdlSnackbarService, router, route, calendarService) {
 	        this.mdlSnackbarService = mdlSnackbarService;
-	        this.vcRef = vcRef;
 	        this.router = router;
 	        this.route = route;
 	        this.calendarService = calendarService;
@@ -67161,9 +67160,9 @@
 	        };
 	    }
 	    Calendar.prototype.showSnackbar = function (message) {
-	        /*        this.mdlSnackbarService.showSnackbar({
-	                    message: message,
-	                });*/
+	        this.mdlSnackbarService.showSnackbar({
+	            message: message,
+	        });
 	    };
 	    Calendar.prototype.ngOnInit = function () {
 	        //nothing happens here.
@@ -67171,13 +67170,18 @@
 	    Calendar.prototype.ngAfterViewInit = function () {
 	        var _this = this;
 	        this.calendarService.getAll().subscribe(function (response) {
-	            console.log("returned!", _this.totalDays);
 	            _this.entries = response.json();
+	            var dayMatches = [];
 	            for (var key in _this.entries) {
 	                if (_this.entries.hasOwnProperty(key)) {
-	                    _this.paintInitialDayBackground(_this.entries[key]);
+	                    var entry = _this.entries[key];
+	                    var dayMatch = _this.totalDays.get(entry.date.substr(0, 10));
+	                    dayMatch.sleepingQuality = entry.sleepingQuality;
+	                    dayMatch.tirednessFeeling = entry.tirednessFeeling;
+	                    dayMatches.push(dayMatch);
 	                }
 	            }
+	            _this.paintInitialDayBackground(dayMatches);
 	        });
 	        this.sub = this.route
 	            .params
@@ -67203,19 +67207,11 @@
 	            }
 	        });
 	    };
-	    Calendar.prototype.paintInitialDayBackground = function (entry) {
-	        console.time("painting");
-	        this.months.forEach(function (month) {
-	            month.weeks.forEach(function (week) {
-	                week.days.forEach(function (day) {
-	                    if (day.date.isSame(entry.date, "day")) {
-	                        day.sleepingQuality = 'sleeping-quality--' + entry.sleepingQuality;
-	                        day.tirednessFeeling = 'tiredness-feeling--' + entry.tirednessFeeling;
-	                    }
-	                });
-	            });
+	    Calendar.prototype.paintInitialDayBackground = function (dayMatches) {
+	        dayMatches.forEach(function (day) {
+	            day.sleepingQuality = 'sleeping-quality--' + day.sleepingQuality;
+	            day.tirednessFeeling = 'tiredness-feeling--' + day.tirednessFeeling;
 	        });
-	        console.timeEnd("painting");
 	    };
 	    Calendar.prototype.decorateDay = function (day) {
 	        var a = [];
@@ -67287,12 +67283,12 @@
 	        var days = [];
 	        for (var i = 0; i < 7; i++) {
 	            var day = new day_1.Day(date.format("dd").substring(0, 1), date.date(), date.month() === month, date.isSame(new Date(), "day"), date);
+	            days.push(day);
+	            this.totalDays.set(date.format('YYYY-MM-DD'), day);
+	            //increase "counter"
 	            date = date.clone();
 	            date.add(1, "d");
-	            days.push(day);
 	        }
-	        console.log("aa");
-	        this.totalDays.add("hiWorld!", { 'myObj': 'myValue' });
 	        return days;
 	    };
 	    return Calendar;
@@ -67313,8 +67309,7 @@
 	            ])
 	        ]
 	    }),
-	    __metadata("design:paramtypes", [angular2_mdl_1.MdlSnackbarService, core_1.ViewContainerRef,
-	        router_1.Router, router_1.ActivatedRoute, calendar_service_1.CalendarService])
+	    __metadata("design:paramtypes", [angular2_mdl_1.MdlSnackbarService, router_1.Router, router_1.ActivatedRoute, calendar_service_1.CalendarService])
 	], Calendar);
 	exports.Calendar = Calendar;
 

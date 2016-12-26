@@ -7,8 +7,7 @@ import {
     transition,
     trigger,
     OnInit,
-    ViewContainerRef,
-    AfterViewInit
+    AfterViewInit, ViewContainerRef
 } from '@angular/core';
 import * as moment from 'moment';
 import {Month} from '../../shared/calendar/month';
@@ -64,8 +63,11 @@ export class Calendar implements OnInit, AfterViewInit {
         {value: MetricsIndicators.TIREDNESS_FEELING, display: 'Tiredness Feeling'},
     ];
 
-    constructor(private mdlSnackbarService: MdlSnackbarService, private vcRef: ViewContainerRef,
-                private router: Router, public route: ActivatedRoute, public calendarService: CalendarService) {
+    constructor(
+                private mdlSnackbarService: MdlSnackbarService,
+                private router: Router,
+                public route: ActivatedRoute,
+                public calendarService: CalendarService) {
         this.totalDays = new Map();
         this.buildMonths('en', '2016');
         this.metric = {
@@ -74,9 +76,9 @@ export class Calendar implements OnInit, AfterViewInit {
     }
 
     showSnackbar(message) {
-        /*        this.mdlSnackbarService.showSnackbar({
-         message: message,
-         });*/
+        this.mdlSnackbarService.showSnackbar({
+            message: message,
+        });
     }
 
 
