@@ -232,10 +232,13 @@ export class Calendar implements OnInit, AfterViewInit {
                 date.month() === month,
                 date.isSame(new Date(), "day"),
                 date);
-            date = date.clone();
-            date.add(1, "d");
+
             days.push(day);
             this.totalDays.set(date.format('YYYY-MM-DD'), day);
+            //increase "counter"
+            date = date.clone();
+            date.add(1, "d");
+
         }
 
         return days;
