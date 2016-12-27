@@ -61,9 +61,8 @@ if (ENV !== 'test') { //when test don't want add this plugin
 
 // Our Webpack Defaults
 var defaultConfig = {
-  devtool: 'cheap-module-source-map',
-  cache: true,
-  debug: true,
+  cache: false,
+  debug: false,
   output: {
     filename: '[name].bundle.js',
     sourceMapFilename: '[name].map',
@@ -73,11 +72,6 @@ var defaultConfig = {
   resolve: {
     root: [ path.join(__dirname, 'src') ],
     extensions: ['', '.ts', '.js']
-  },
-
-  devServer: {
-    historyApiFallback: true,
-    watchOptions: { aggregateTimeout: 300, poll: 1000 }
   },
 
   node: {

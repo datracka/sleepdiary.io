@@ -53,7 +53,7 @@
 	}
 	platform_browser_dynamic_1.platformBrowserDynamic().bootstrapModule(app_module_1.AppModule)
 	    .catch(function (err) { return console.error(err); });
-	
+
 
 /***/ },
 /* 1 */
@@ -40804,7 +40804,7 @@
 	        var operator = this.operator;
 	        var sink = toSubscriber_1.toSubscriber(observerOrNext, error, complete);
 	        if (operator) {
-	            operator.call(sink, this.source);
+	            operator.call(sink, this);
 	        }
 	        else {
 	            sink.add(this._subscribe(sink));
@@ -49836,7 +49836,7 @@
 	    __metadata("design:paramtypes", [core_1.ApplicationRef])
 	], AppModule);
 	exports.AppModule = AppModule;
-	
+
 
 /***/ },
 /* 24 */
@@ -57766,7 +57766,7 @@
 	];
 	var appRoutes = appRouting.slice();
 	exports.routing = router_1.RouterModule.forRoot(appRoutes);
-	
+
 
 /***/ },
 /* 30 */
@@ -63367,9 +63367,6 @@
 	     * var result = Rx.Observable.from(array);
 	     * result.subscribe(x => console.log(x));
 	     *
-	     * // Results in the following:
-	     * // 10 20 30
-	     *
 	     * @example <caption>Convert an infinite iterable (from a generator) to an Observable</caption>
 	     * function* generateDoubles(seed) {
 	     *   var i = seed;
@@ -63382,9 +63379,6 @@
 	     * var iterator = generateDoubles(3);
 	     * var result = Rx.Observable.from(iterator).take(10);
 	     * result.subscribe(x => console.log(x));
-	     *
-	     * // Results in the following:
-	     * // 3 6 12 24 48 96 192 384 768 1536
 	     *
 	     * @see {@link create}
 	     * @see {@link fromEvent}
@@ -63894,12 +63888,6 @@
 	     * );
 	     * result.subscribe(x => console.log(x));
 	     *
-	     * // Results in the following to the console:
-	     * // x is equal to the count on the interval eg(0,1,2,3,...)
-	     * // x will occur every 1000ms
-	     * // if x % 2 is equal to 1 print abc
-	     * // if x % 2 is not equal to 1 nothing will be output
-	     *
 	     * @see {@link create}
 	     * @see {@link never}
 	     * @see {@link of}
@@ -64053,7 +64041,7 @@
 	        this.delay = delay;
 	    }
 	    ObserveOnOperator.prototype.call = function (subscriber, source) {
-	        return source.subscribe(new ObserveOnSubscriber(subscriber, this.scheduler, this.delay));
+	        return source._subscribe(new ObserveOnSubscriber(subscriber, this.scheduler, this.delay));
 	    };
 	    return ObserveOnOperator;
 	}());
@@ -64276,12 +64264,6 @@
 	 * var result = clicks.concatMap(ev => Rx.Observable.interval(1000).take(4));
 	 * result.subscribe(x => console.log(x));
 	 *
-	 * // Results in the following:
-	 * // (results are not concurrent)
-	 * // For every click on the "document" it will emit values 0 to 3 spaced
-	 * // on a 1000ms interval
-	 * // one click = 1000ms-> 0 -1000ms-> 1 -1000ms-> 2 -1000ms-> 3
-	 *
 	 * @see {@link concat}
 	 * @see {@link concatAll}
 	 * @see {@link concatMapTo}
@@ -64350,15 +64332,6 @@
 	 * );
 	 * result.subscribe(x => console.log(x));
 	 *
-	 * // Results in the following:
-	 * // a0
-	 * // b0
-	 * // c0
-	 * // a1
-	 * // b1
-	 * // c1
-	 * // continues to list a,b,c with respective ascending integers
-	 *
 	 * @see {@link concatMap}
 	 * @see {@link exhaustMap}
 	 * @see {@link merge}
@@ -64404,7 +64377,7 @@
 	        this.concurrent = concurrent;
 	    }
 	    MergeMapOperator.prototype.call = function (observer, source) {
-	        return source.subscribe(new MergeMapSubscriber(observer, this.project, this.resultSelector, this.concurrent));
+	        return source._subscribe(new MergeMapSubscriber(observer, this.project, this.resultSelector, this.concurrent));
 	    };
 	    return MergeMapOperator;
 	}());
@@ -64500,7 +64473,6 @@
 	var root_1 = __webpack_require__(6);
 	var isArray_1 = __webpack_require__(11);
 	var isPromise_1 = __webpack_require__(34);
-	var isObject_1 = __webpack_require__(12);
 	var Observable_1 = __webpack_require__(5);
 	var iterator_1 = __webpack_require__(36);
 	var InnerSubscriber_1 = __webpack_require__(48);
@@ -64520,7 +64492,7 @@
 	            return result.subscribe(destination);
 	        }
 	    }
-	    else if (isArray_1.isArray(result)) {
+	    if (isArray_1.isArray(result)) {
 	        for (var i = 0, len = result.length; i < len && !destination.closed; i++) {
 	            destination.next(result[i]);
 	        }
@@ -64541,7 +64513,7 @@
 	        });
 	        return destination;
 	    }
-	    else if (result && typeof result[iterator_1.$$iterator] === 'function') {
+	    else if (typeof result[iterator_1.$$iterator] === 'function') {
 	        var iterator = result[iterator_1.$$iterator]();
 	        do {
 	            var item = iterator.next();
@@ -64555,20 +64527,17 @@
 	            }
 	        } while (true);
 	    }
-	    else if (result && typeof result[observable_1.$$observable] === 'function') {
+	    else if (typeof result[observable_1.$$observable] === 'function') {
 	        var obs = result[observable_1.$$observable]();
 	        if (typeof obs.subscribe !== 'function') {
-	            destination.error(new TypeError('Provided object does not correctly implement Symbol.observable'));
+	            destination.error(new Error('invalid observable'));
 	        }
 	        else {
 	            return obs.subscribe(new InnerSubscriber_1.InnerSubscriber(outerSubscriber, outerValue, outerIndex));
 	        }
 	    }
 	    else {
-	        var value = isObject_1.isObject(result) ? 'an invalid object' : "'" + result + "'";
-	        var msg = ("You provided " + value + " where a stream was expected.")
-	            + ' You can provide an Observable, Promise, Array, or Iterable.';
-	        destination.error(new TypeError(msg));
+	        destination.error(new TypeError('unknown type returned'));
 	    }
 	    return null;
 	}
@@ -64681,7 +64650,7 @@
 	        this.source = source;
 	    }
 	    EveryOperator.prototype.call = function (observer, source) {
-	        return source.subscribe(new EverySubscriber(observer, this.predicate, this.thisArg, this.source));
+	        return source._subscribe(new EverySubscriber(observer, this.predicate, this.thisArg, this.source));
 	    };
 	    return EveryOperator;
 	}());
@@ -64736,6 +64705,7 @@
 	};
 	var Subscriber_1 = __webpack_require__(8);
 	var EmptyError_1 = __webpack_require__(52);
+	/* tslint:disable:max-line-length */
 	/**
 	 * Emits only the first value (or the first value that meets some condition)
 	 * emitted by the source Observable.
@@ -64797,7 +64767,7 @@
 	        this.source = source;
 	    }
 	    FirstOperator.prototype.call = function (observer, source) {
-	        return source.subscribe(new FirstSubscriber(observer, this.predicate, this.resultSelector, this.defaultValue, this.source));
+	        return source._subscribe(new FirstSubscriber(observer, this.predicate, this.resultSelector, this.defaultValue, this.source));
 	    };
 	    return FirstOperator;
 	}());
@@ -64971,7 +64941,7 @@
 	        this.thisArg = thisArg;
 	    }
 	    MapOperator.prototype.call = function (subscriber, source) {
-	        return source.subscribe(new MapSubscriber(subscriber, this.project, this.thisArg));
+	        return source._subscribe(new MapSubscriber(subscriber, this.project, this.thisArg));
 	    };
 	    return MapOperator;
 	}());
@@ -65084,7 +65054,7 @@
 	        this.hasSeed = hasSeed;
 	    }
 	    ReduceOperator.prototype.call = function (subscriber, source) {
-	        return source.subscribe(new ReduceSubscriber(subscriber, this.accumulator, this.seed, this.hasSeed));
+	        return source._subscribe(new ReduceSubscriber(subscriber, this.accumulator, this.seed, this.hasSeed));
 	    };
 	    return ReduceOperator;
 	}());
@@ -65168,7 +65138,7 @@
 	        this.selector = selector;
 	    }
 	    CatchOperator.prototype.call = function (subscriber, source) {
-	        return source.subscribe(new CatchSubscriber(subscriber, this.selector, this.caught));
+	        return source._subscribe(new CatchSubscriber(subscriber, this.selector, this.caught));
 	    };
 	    return CatchOperator;
 	}());
@@ -65239,12 +65209,6 @@
 	 * var higherOrder = clicks.map(ev => Rx.Observable.interval(1000).take(4));
 	 * var firstOrder = higherOrder.concatAll();
 	 * firstOrder.subscribe(x => console.log(x));
-	 *
-	 * // Results in the following:
-	 * // (results are not concurrent)
-	 * // For every click on the "document" it will emit values 0 to 3 spaced
-	 * // on a 1000ms interval
-	 * // one click = 1000ms-> 0 -1000ms-> 1 -1000ms-> 2 -1000ms-> 3
 	 *
 	 * @see {@link combineAll}
 	 * @see {@link concat}
@@ -65332,7 +65296,7 @@
 	        this.concurrent = concurrent;
 	    }
 	    MergeAllOperator.prototype.call = function (observer, source) {
-	        return source.subscribe(new MergeAllSubscriber(observer, this.concurrent));
+	        return source._subscribe(new MergeAllSubscriber(observer, this.concurrent));
 	    };
 	    return MergeAllOperator;
 	}());
@@ -65424,7 +65388,7 @@
 	        this.source = source;
 	    }
 	    LastOperator.prototype.call = function (observer, source) {
-	        return source.subscribe(new LastSubscriber(observer, this.predicate, this.resultSelector, this.defaultValue, this.source));
+	        return source._subscribe(new LastSubscriber(observer, this.predicate, this.resultSelector, this.defaultValue, this.source));
 	    };
 	    return LastOperator;
 	}());
@@ -65538,6 +65502,7 @@
 	 * clicksOnDivs.subscribe(x => console.log(x));
 	 *
 	 * @see {@link distinct}
+	 * @see {@link distinctKey}
 	 * @see {@link distinctUntilChanged}
 	 * @see {@link distinctUntilKeyChanged}
 	 * @see {@link ignoreElements}
@@ -65567,7 +65532,7 @@
 	        this.thisArg = thisArg;
 	    }
 	    FilterOperator.prototype.call = function (subscriber, source) {
-	        return source.subscribe(new FilterSubscriber(subscriber, this.predicate, this.thisArg));
+	        return source._subscribe(new FilterSubscriber(subscriber, this.predicate, this.thisArg));
 	    };
 	    return FilterOperator;
 	}());
@@ -65613,7 +65578,7 @@
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
 	__export(__webpack_require__(61));
-	
+
 
 /***/ },
 /* 61 */
@@ -65672,7 +65637,7 @@
 	    __metadata("design:paramtypes", [router_1.Router, login_service_1.LoginService])
 	], Login);
 	exports.Login = Login;
-	
+
 
 /***/ },
 /* 62 */
@@ -65707,7 +65672,7 @@
 	    __metadata("design:paramtypes", [http_1.Http])
 	], LoginService);
 	exports.LoginService = LoginService;
-	
+
 
 /***/ },
 /* 63 */
@@ -65718,13 +65683,13 @@
 	exports.contentHeaders = new http_1.Headers();
 	exports.contentHeaders.append('Accept', 'application/json');
 	exports.contentHeaders.append('Content-Type', 'application/json');
-	
+
 
 /***/ },
 /* 64 */
 /***/ function(module, exports) {
 
-	module.exports = "<mdl-layout mdl-layout-fixed-header mdl-layout-header-seamed>\n    <mdl-layout-content>\n        <div class=\"sd-align-center\">\n            <main class=\"mdl-layout__content\">\n                <div class=\"mdl-layout__tab-panel is-active\" id=\"overview\">\n                    <section [@flyInOut]=\"'in'\" class=\"section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp\">\n                        <div>\n                            <form role=\"form\" (submit)=\"login($event, email.value, password.value)\">\n                                <div class=\"group\">\n                                    <input type=\"text\" #email class=\"form-control\" id=\"email\"\n                                           required>\n                                    <span class=\"highlight\"></span>\n                                    <span class=\"bar\"></span>\n                                    <label>E-mail</label>\n                                </div>\n\n                                <div class=\"group\">\n                                    <input type=\"password\" #password class=\"form-control\" id=\"password\"\n                                           required>\n                                    <span class=\"highlight\"></span>\n                                    <span class=\"bar\"></span>\n                                    <label>Password</label>\n                                </div>\n                                <div class=\"mdl-layout-spacer\"></div>\n                                <button class=\"mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-button--align-right\"\n                                        type=\"submit\">Submit\n                                </button>\n                            </form>\n                            <div style=\"text-align: right\">You don't have an account? <a routerLink=\"/signup\" href=\"#\">Sign up</a></div>\n                        </div>\n\n                    </section>\n                </div>\n            </main>\n        </div>\n    </mdl-layout-content>\n</mdl-layout>\n\n"
+	module.exports = "<mdl-layout mdl-layout-fixed-header mdl-layout-header-seamed>\n    <mdl-layout-content>\n        <div class=\"sd-align-center\">\n            <main class=\"mdl-layout__content\">\n                <div class=\"mdl-layout__tab-panel is-active\" id=\"overview\">\n                    <section [@flyInOut]=\"'in'\" class=\"section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp\">\n                        <div>\n                            <form role=\"form\" (submit)=\"login($event, email.value, password.value)\">\n                                <div class=\"group\">\n                                    <input type=\"text\" #email class=\"form-control\" id=\"email\"\n                                           required value=\"test@gmail.com\">\n                                    <span class=\"highlight\"></span>\n                                    <span class=\"bar\"></span>\n                                    <label>E-mail</label>\n                                </div>\n\n                                <div class=\"group\">\n                                    <input type=\"password\" #password class=\"form-control\" id=\"password\"\n                                           required value=\"123456a\">\n                                    <span class=\"highlight\"></span>\n                                    <span class=\"bar\"></span>\n                                    <label>Password</label>\n                                </div>\n                                <div class=\"mdl-layout-spacer\"></div>\n                                <button class=\"mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-button--align-right\"\n                                        type=\"submit\">Submit\n                                </button>\n                            </form>\n                            <div style=\"text-align: right\">You don't have an account? <a routerLink=\"/signup\" href=\"#\">Sign up</a></div>\n                        </div>\n\n                    </section>\n                </div>\n            </main>\n        </div>\n    </mdl-layout-content>\n</mdl-layout>\n\n"
 
 /***/ },
 /* 65 */
@@ -65741,7 +65706,7 @@
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
 	__export(__webpack_require__(67));
-	
+
 
 /***/ },
 /* 67 */
@@ -65802,7 +65767,7 @@
 	    __metadata("design:paramtypes", [router_1.Router, signup_service_1.SignupService])
 	], SignUp);
 	exports.SignUp = SignUp;
-	
+
 
 /***/ },
 /* 68 */
@@ -65837,7 +65802,7 @@
 	    __metadata("design:paramtypes", [http_1.Http])
 	], SignupService);
 	exports.SignupService = SignupService;
-	
+
 
 /***/ },
 /* 69 */
@@ -65959,7 +65924,7 @@
 	    __metadata("design:paramtypes", [])
 	], AppComponent);
 	exports.AppComponent = AppComponent;
-	
+
 
 /***/ },
 /* 74 */
@@ -66347,6 +66312,8 @@
 	var angular2_mdl_1 = __webpack_require__(210);
 	var drawer_1 = __webpack_require__(218);
 	var close_menu_directive_1 = __webpack_require__(220);
+	var select_1 = __webpack_require__(221);
+	var popover_1 = __webpack_require__(222);
 	var HomeModule = (function () {
 	    function HomeModule() {
 	    }
@@ -66358,7 +66325,9 @@
 	            common_1.CommonModule,
 	            forms_1.FormsModule,
 	            home_routes_1.homeRouting,
-	            angular2_mdl_1.MdlModule
+	            angular2_mdl_1.MdlModule,
+	            popover_1.MdlPopoverModule,
+	            select_1.MdlSelectModule
 	        ],
 	        declarations: [
 	            home_1.HomeComponent,
@@ -66378,7 +66347,7 @@
 	    __metadata("design:paramtypes", [])
 	], HomeModule);
 	exports.HomeModule = HomeModule;
-	
+
 
 /***/ },
 /* 80 */
@@ -66417,7 +66386,7 @@
 	    }
 	];
 	exports.homeRouting = router_1.RouterModule.forChild(homeRoutes);
-	
+
 
 /***/ },
 /* 81 */
@@ -66447,13 +66416,13 @@
 	    __metadata("design:paramtypes", [])
 	], HomeComponent);
 	exports.HomeComponent = HomeComponent;
-	
+
 
 /***/ },
 /* 82 */
 /***/ function(module, exports) {
 
-	module.exports = "<mdl-layout mdl-layout-fixed-header mdl-layout-header-seamed>\n    <mdl-layout-header>\n        <header-comp></header-comp>\n    </mdl-layout-header>\n    <mdl-layout-drawer closeDrawerOnClick>\n        <mdl-layout-title>Menu</mdl-layout-title>\n        <drawer-comp></drawer-comp>\n    </mdl-layout-drawer>\n    <mdl-layout-content>\n        <router-outlet ></router-outlet>\n       <!-- <footer-comp></footer-comp>-->\n    </mdl-layout-content>\n</mdl-layout>"
+	module.exports = "<mdl-layout mdl-layout-fixed-header mdl-layout-header-seamed>\n    <mdl-layout-header>\n        <header-comp></header-comp>\n    </mdl-layout-header>\n    <mdl-layout-drawer closeDrawerOnClick>\n        <mdl-layout-title>Menu</mdl-layout-title>\n        <drawer-comp></drawer-comp>\n    </mdl-layout-drawer>\n    <mdl-layout-content>\n        <router-outlet ></router-outlet>\n       <!-- <footer-comp></footer-comp>-->\n    </mdl-layout-content>\n</mdl-layout>\n<dialog-outlet></dialog-outlet>"
 
 /***/ },
 /* 83 */
@@ -66485,7 +66454,7 @@
 	    __metadata("design:paramtypes", [])
 	], YearlyViewComponent);
 	exports.YearlyViewComponent = YearlyViewComponent;
-	
+
 
 /***/ },
 /* 84 */
@@ -66526,7 +66495,7 @@
 	    __metadata("design:paramtypes", [])
 	], MonthlyViewComponent);
 	exports.MonthlyViewComponent = MonthlyViewComponent;
-	
+
 
 /***/ },
 /* 86 */
@@ -66556,8 +66525,8 @@
 	        });
 	        this.actionUrl = ("/api/1/");
 	    }
-	    CalendarService.prototype.getAll = function () {
-	        return this._authHttp.get(this.actionUrl + "calendar/year/2016", this.options);
+	    CalendarService.prototype.getAll = function (year) {
+	        return this._authHttp.get(this.actionUrl + "calendar/year/" + year, this.options);
 	    };
 	    return CalendarService;
 	}());
@@ -66566,7 +66535,7 @@
 	    __metadata("design:paramtypes", [http_1.Http, angular2_jwt_1.AuthHttp])
 	], CalendarService);
 	exports.CalendarService = CalendarService;
-	
+
 
 /***/ },
 /* 87 */
@@ -66601,6 +66570,10 @@
 	        this.route = route;
 	        this.entryFormService = entryFormService;
 	        this.submitted = false;
+	        this.params = {
+	            day: null,
+	            uuid: null
+	        };
 	        //default values
 	        this.sleepingQualityValues = [
 	            { value: 'good', display: 'Good' },
@@ -66613,56 +66586,57 @@
 	            { value: 'regular', display: 'Regular' },
 	            { value: 'bad', display: 'Bad' }
 	        ];
-	    }
-	    EntryForm.prototype.ngOnInit = function () {
 	        //initialize by default entry (uuid, date of today, 'good', 'good')
 	        this.entry = new entry_1.Entry('', new Date().toISOString(), this.sleepingQualityValues[0].value, this.tirednessFeelingValues[0].value);
+	    }
+	    EntryForm.prototype.ngOnInit = function () {
+	        var _this = this;
+	        //get params from URL
+	        this.sub = this.route
+	            .params
+	            .subscribe(function (params) {
+	            _this.params.uuid = params['uuid'];
+	            if (typeof params['day'] !== 'undefined') {
+	                _this.params.day = params['day'];
+	            }
+	        });
 	    };
 	    EntryForm.prototype.ngAfterViewInit = function () {
 	        var _this = this;
-	        this.sub = this.route.params.subscribe(function (params) {
-	            var uuid = params['uuid'];
-	            if (params['uuid'] !== 'new') {
-	                //update existing entry
-	                _this.sub = _this.entryFormService.getEntry(uuid).subscribe(function (response) {
-	                    _this.entry = new entry_1.Entry(response.json()[0].uuid, response.json()[0].date, response.json()[0].sleepingQuality, response.json()[0].tirednessFeeling);
-	                });
-	            }
-	            else {
-	                //new entry
-	                _this.sub = _this.route
-	                    .params
-	                    .subscribe(function (params) {
-	                    if (typeof params['day'] !== 'undefined') {
-	                        _this.entry.date = new Date(params['day']).toISOString();
-	                    }
-	                });
-	            }
-	        });
+	        if (this.params.uuid !== 'new') {
+	            //update existing entry
+	            var uuid = this.params.uuid;
+	            this.sub = this.entryFormService.getEntry(uuid).subscribe(function (response) {
+	                _this.entry = new entry_1.Entry(response.json()[0].uuid, response.json()[0].date, response.json()[0].sleepingQuality, response.json()[0].tirednessFeeling);
+	            });
+	        }
+	        else {
+	            this.entry.date = new Date(this.params.day).toISOString();
+	        }
 	    };
 	    EntryForm.prototype.onSubmit = function () {
 	        var _this = this;
 	        if (this.entry.uuid != '') {
 	            this.entryFormService.updateEntry(this.entry).subscribe(function (response) {
-	                _this.router.navigate(['/home/monthly', { actionRef: 'update' }]);
+	                _this.router.navigate(['/home/monthly', { actionRef: 'update', day: _this.params.day }]);
 	            });
 	        }
 	        else {
 	            this.entryFormService.newEntry(this.entry).subscribe(function (response) {
 	                // do something!!
-	                _this.router.navigate(['/home/monthly', { actionRef: 'insert' }]);
+	                _this.router.navigate(['/home/monthly', { actionRef: 'insert', day: _this.params.day }]);
 	            });
 	        }
 	        this.submitted = true;
 	    };
 	    EntryForm.prototype.back = function () {
-	        this.router.navigate(['/home/monthly']);
+	        this.router.navigate(['/home/monthly', { day: this.params.day }]);
 	    };
 	    EntryForm.prototype.deleteEntry = function (uuid) {
 	        var _this = this;
 	        if (this.entry.uuid != '') {
 	            this.entryFormService.deleteEntry(uuid).subscribe(function (response) {
-	                _this.router.navigate(['/home/monthly', { actionRef: 'delete' }]);
+	                _this.router.navigate(['/home/monthly', { actionRef: 'delete', day: _this.params.day }]);
 	            });
 	        }
 	    };
@@ -66691,7 +66665,7 @@
 	        entry_form_service_1.EntryFormService])
 	], EntryForm);
 	exports.EntryForm = EntryForm;
-	
+
 
 /***/ },
 /* 89 */
@@ -66711,7 +66685,7 @@
 	    return Entry;
 	}());
 	exports.Entry = Entry;
-	
+
 
 /***/ },
 /* 90 */
@@ -66768,7 +66742,7 @@
 	    __metadata("design:paramtypes", [http_1.Http, angular2_jwt_1.AuthHttp])
 	], EntryFormService);
 	exports.EntryFormService = EntryFormService;
-	
+
 
 /***/ },
 /* 91 */
@@ -66817,7 +66791,7 @@
 	    __metadata("design:paramtypes", [router_1.Router])
 	], AuthGuard);
 	exports.AuthGuard = AuthGuard;
-	
+
 
 /***/ },
 /* 94 */
@@ -66844,13 +66818,20 @@
 	var angular2_mdl_1 = __webpack_require__(210);
 	var template = __webpack_require__(211);
 	//todo:
-	var Calendar = Calendar_1 = (function () {
-	    function Calendar(mdlSnackbarService, vcRef, router, route, calendarService) {
+	var Calendar = (function () {
+	    function Calendar(mdlSnackbarService, router, route, calendarService) {
 	        this.mdlSnackbarService = mdlSnackbarService;
-	        this.vcRef = vcRef;
 	        this.router = router;
 	        this.route = route;
 	        this.calendarService = calendarService;
+	        this.params = {
+	            day: null,
+	        };
+	        this.years = [
+	            { value: '2016', name: '2016' },
+	            { value: '2017', name: '2017' },
+	            { value: '2018', name: '2018' }
+	        ];
 	        this.months = [
 	            new month_1.Month('January'),
 	            new month_1.Month('February'),
@@ -66869,29 +66850,48 @@
 	            { value: metrics_indicators_1.MetricsIndicators.SLEEPING_QUALITY, display: 'Sleeping Quality' },
 	            { value: metrics_indicators_1.MetricsIndicators.TIREDNESS_FEELING, display: 'Tiredness Feeling' },
 	        ];
-	        this.buildMonths('en', '2016');
-	        this.metric = {
-	            metricSelected: metrics_indicators_1.MetricsIndicators.SLEEPING_QUALITY
-	        };
+	        this.totalDays = new Map();
 	    }
 	    Calendar.prototype.showSnackbar = function (message) {
-	        /*        this.mdlSnackbarService.showSnackbar({
-	                    message: message,
-	                });*/
+	        this.mdlSnackbarService.showSnackbar({
+	            message: message,
+	        });
 	    };
 	    Calendar.prototype.ngOnInit = function () {
 	        var _this = this;
-	        this.calendarService.getAll().subscribe(function (response) {
-	            _this.entries = response.json();
-	            for (var key in _this.entries) {
-	                if (_this.entries.hasOwnProperty(key)) {
-	                    _this.paintInitialDayBackground(_this.entries[key]);
-	                }
-	            }
+	        this.sub = this.route
+	            .params
+	            .subscribe(function (params) {
+	            _this.params.day = params['day'];
 	        });
+	        this.form = {
+	            yearSelected: '2016',
+	            metricSelected: metrics_indicators_1.MetricsIndicators.SLEEPING_QUALITY
+	        };
+	        var currentYearSelected = moment().format('YYYY');
+	        //if param day is fullfilled we use this information for building the calendar
+	        if (typeof this.params.day !== 'undefined' && this.params.day !== null) {
+	            currentYearSelected = moment(this.params.day).format("YYYY");
+	        }
+	        this.buildMonths('en', currentYearSelected);
+	        this.form.yearSelected = currentYearSelected;
 	    };
 	    Calendar.prototype.ngAfterViewInit = function () {
 	        var _this = this;
+	        this.calendarService.getAll(this.form.yearSelected).subscribe(function (response) {
+	            _this.entries = response.json();
+	            var dayMatches = [];
+	            for (var key in _this.entries) {
+	                if (_this.entries.hasOwnProperty(key)) {
+	                    var entry = _this.entries[key];
+	                    var dayMatch = _this.totalDays.get(entry.date.substr(0, 10));
+	                    dayMatch.sleepingQuality = entry.sleepingQuality;
+	                    dayMatch.tirednessFeeling = entry.tirednessFeeling;
+	                    dayMatches.push(dayMatch);
+	                }
+	            }
+	            _this.paintInitialDayBackground(dayMatches);
+	        });
 	        this.sub = this.route
 	            .params
 	            .subscribe(function (params) {
@@ -66916,16 +66916,10 @@
 	            }
 	        });
 	    };
-	    Calendar.prototype.paintInitialDayBackground = function (entry) {
-	        this.months.forEach(function (month) {
-	            month.weeks.forEach(function (week) {
-	                week.days.forEach(function (day) {
-	                    if (day.date.isSame(entry.date, "day")) {
-	                        day.sleepingQuality = 'sleeping-quality--' + entry.sleepingQuality;
-	                        day.tirednessFeeling = 'tiredness-feeling--' + entry.tirednessFeeling;
-	                    }
-	                });
-	            });
+	    Calendar.prototype.paintInitialDayBackground = function (dayMatches) {
+	        dayMatches.forEach(function (day) {
+	            day.sleepingQuality = 'sleeping-quality--' + day.sleepingQuality;
+	            day.tirednessFeeling = 'tiredness-feeling--' + day.tirednessFeeling;
 	        });
 	    };
 	    Calendar.prototype.decorateDay = function (day) {
@@ -66940,6 +66934,43 @@
 	        }
 	        return a;
 	    };
+	    Calendar.prototype.setYear = function (year) {
+	        var _this = this;
+	        this.form.yearSelected = year;
+	        //build new year
+	        this.buildMonths('en', year);
+	        //get values for given year
+	        this.calendarService.getAll(this.form.yearSelected).subscribe(function (response) {
+	            _this.entries = response.json();
+	            var dayMatches = [];
+	            for (var key in _this.entries) {
+	                if (_this.entries.hasOwnProperty(key)) {
+	                    var entry = _this.entries[key];
+	                    var dayMatch = _this.totalDays.get(entry.date.substr(0, 10));
+	                    dayMatch.sleepingQuality = entry.sleepingQuality;
+	                    dayMatch.tirednessFeeling = entry.tirednessFeeling;
+	                    dayMatches.push(dayMatch);
+	                }
+	            }
+	            _this.paintInitialDayBackground(dayMatches);
+	        });
+	    };
+	    /**
+	     * FIX: DRY onSelectCurrentDay / onSelect
+	     */
+	    Calendar.prototype.onSelectCurrentDay = function () {
+	        var current = moment();
+	        var entry = this.entries.filter(function (entry) {
+	            //cos date is a ISODate we get 10 firsts characters. Ugly but works
+	            if (current.isSame(entry.date.substring(0, 10), 'day'))
+	                return entry;
+	        });
+	        var uuid = 'new';
+	        if (typeof entry[0] !== 'undefined') {
+	            uuid = entry[0].uuid;
+	        }
+	        this.router.navigate(['/home/entry', uuid, { day: current.format("YYYY-MM-DD") }]);
+	    };
 	    Calendar.prototype.onSelect = function (day) {
 	        var dayMoment = day.date;
 	        var entry = this.entries.filter(function (entry) {
@@ -66947,7 +66978,6 @@
 	            if (dayMoment.isSame(entry.date.substring(0, 10), 'day'))
 	                return entry;
 	        });
-	        console.log(entry[0]);
 	        var uuid = 'new';
 	        if (!day.isCurrentMonth) {
 	            return false;
@@ -66958,7 +66988,7 @@
 	        this.router.navigate(['/home/entry', uuid, { day: day.date.format("YYYY-MM-DD") }]);
 	    };
 	    //** #####  render methods **/
-	    Calendar.getMonthDateRange = function (year, month, isStartOnMonday) {
+	    Calendar.prototype.getMonthDateRange = function (year, month, isStartOnMonday) {
 	        var monthStartDate = moment([year, month]).isoWeekday(1);
 	        var startDateOfWeek = monthStartDate.clone();
 	        if (isStartOnMonday) {
@@ -66974,12 +67004,12 @@
 	    };
 	    Calendar.prototype.buildMonths = function (lang, year) {
 	        for (var i = 0; i < 12; i++) {
-	            var moment_1 = Calendar_1.getMonthDateRange(year, i, true);
-	            var weeks = Calendar_1.buildWeeks(moment_1.startDateOfWeek, i);
+	            var moment_1 = this.getMonthDateRange(year, i, true);
+	            var weeks = this.buildWeeks(moment_1.startDateOfWeek, i);
 	            this.months[i].setWeeks(weeks);
 	        }
 	    };
-	    Calendar.buildWeeks = function (startDateOfWeek, currentMonth) {
+	    Calendar.prototype.buildWeeks = function (startDateOfWeek, currentMonth) {
 	        var days = [], currentDate = startDateOfWeek.clone(), nextMonth = 0;
 	        if (currentMonth == 11) {
 	            nextMonth = 0;
@@ -66988,25 +67018,27 @@
 	            nextMonth = currentMonth + 1;
 	        }
 	        while ((currentDate.month() !== nextMonth)) {
-	            var week = new week_1.Week(Calendar_1.buildDays(currentDate.clone(), currentMonth));
+	            var week = new week_1.Week(this.buildDays(currentDate.clone(), currentMonth));
 	            days.push(week);
 	            currentDate.add(1, "w");
 	        }
 	        return days;
 	    };
-	    Calendar.buildDays = function (date, month) {
+	    Calendar.prototype.buildDays = function (date, month) {
 	        var days = [];
 	        for (var i = 0; i < 7; i++) {
 	            var day = new day_1.Day(date.format("dd").substring(0, 1), date.date(), date.month() === month, date.isSame(new Date(), "day"), date);
+	            days.push(day);
+	            this.totalDays.set(date.format('YYYY-MM-DD'), day);
+	            //increase "counter"
 	            date = date.clone();
 	            date.add(1, "d");
-	            days.push(day);
 	        }
 	        return days;
 	    };
 	    return Calendar;
 	}());
-	Calendar = Calendar_1 = __decorate([
+	Calendar = __decorate([
 	    core_1.Component({
 	        selector: 'calendar',
 	        template: template,
@@ -67022,11 +67054,12 @@
 	            ])
 	        ]
 	    }),
-	    __metadata("design:paramtypes", [angular2_mdl_1.MdlSnackbarService, core_1.ViewContainerRef,
-	        router_1.Router, router_1.ActivatedRoute, calendar_service_1.CalendarService])
+	    __metadata("design:paramtypes", [angular2_mdl_1.MdlSnackbarService,
+	        router_1.Router,
+	        router_1.ActivatedRoute,
+	        calendar_service_1.CalendarService])
 	], Calendar);
 	exports.Calendar = Calendar;
-	var Calendar_1;
 
 
 /***/ },
@@ -81945,7 +81978,7 @@
 	    return Month;
 	}());
 	exports.Month = Month;
-	
+
 
 /***/ },
 /* 207 */
@@ -81959,7 +81992,7 @@
 	    return Week;
 	}());
 	exports.Week = Week;
-	
+
 
 /***/ },
 /* 208 */
@@ -81979,7 +82012,7 @@
 	    return Day;
 	}());
 	exports.Day = Day;
-	
+
 
 /***/ },
 /* 209 */
@@ -82008,7 +82041,7 @@
 	    return MetricsIndicators;
 	}());
 	exports.MetricsIndicators = MetricsIndicators;
-	
+
 
 /***/ },
 /* 210 */
@@ -88662,13 +88695,13 @@
 /* 211 */
 /***/ function(module, exports) {
 
-	module.exports = "<div [@flyInOut]=\"'in'\" class=\"mdl-grid\" [ngClass]=\"metric.metricSelected\">\n    <div class=\"mdl-grid mdl-cell--12-col sd-align-right\">\n        <form #f=\"ngForm\" novalidate>\n            <label>Select a Metric</label>\n                <select name=\"metric\" [(ngModel)]=\"metric.metricSelected\">\n                    <option *ngFor=\"let metric of metrics\" [value]=\"metric.value\">\n                        {{metric.display}}\n                    </option>\n                </select>\n        </form>\n    </div>\n    <div class=\"mdl-cell mdl-cell--4-col\" *ngFor=\"let month of months\">\n        <div class=\"calendar\">\n            <div class=\"header\">\n                {{ month.name }}\n                <i class=\"fa fa-angle-left\"></i>\n                <i class=\"fa fa-angle-right\"></i>\n            </div>\n            <div class=\"week names\">\n                <span class=\"day\">Mon</span>\n                <span class=\"day\">Tue</span>\n                <span class=\"day\">Wed</span>\n                <span class=\"day\">Thu</span>\n                <span class=\"day\">Fri</span>\n                <span class=\"day\">Sat</span>\n                <span class=\"day\">Sun</span>\n            </div>\n            <div class=\"week\" *ngFor=\"let week of month.weeks\">\n                <span [ngClass]=\"decorateDay(day)\"\n                      (click)=\"onSelect(day)\"\n                      class=\"calendar__day\"\n                      *ngFor=\"let day of week.days\">\n                  {{ day.number }}\n                </span>\n            </div>\n        </div>\n    </div>\n    <a routerLink=\"/home/entry/new\" class=\"sd-add-button\" mdl-button mdl-button-type=\"fab\" mdl-colored=\"accent\" mdl-ripple>\n        <mdl-icon>add</mdl-icon>\n    </a>\n</div>\n\n"
+	module.exports = "<div [@flyInOut]=\"'in'\" class=\"mdl-grid\" [ngClass]=\"form.metricSelected\">\n    <div class=\"mdl-grid mdl-cell--12-col sd-align-right\">\n\n        <form #f=\"ngForm\" novalidate style=\"width: 100%\">\n            <div class=\"sd-formGroup\">\n                <!--   <select style=\"float: right\" name=\"yearSelected\" [(ngModel)]=\"form.yearSelected\"\n                           (change)=\"setYear(form.yearSelected)\">\n                       <option *ngFor=\"let year of years\" [value]=\"year.value\">\n                           {{year.name}}\n                       </option>\n                   </select>-->\n                <div style=\"float:right\">\n                    <span style=\"font-size:1.4rem; vertical-align: sub\">{{form.yearSelected}}</span>\n                    <button mdl-button #btn1=\"mdlButton\" (click)=\"m1.toggle($event, btn1)\" mdl-button-type=\"icon\"\n                            mdl-ripple>\n                        <mdl-icon>more_vert</mdl-icon>\n                    </button>\n                    <mdl-menu #m1=\"mdlMenu\" mdl-menu-position=\"bottom-right\">\n                        <mdl-menu-item mdl-ripple (click)=\"setYear(year.value)\" *ngFor=\"let year of years\">{{year.name}}\n                        </mdl-menu-item>\n                    </mdl-menu>\n                </div>\n            </div>\n            <div class=\"sd-formGroup\">\n                <mdl-radio [(ngModel)]=\"form.metricSelected\" name=\"metrics\" value=\"sleeping-quality\" mdl-ripple>\n                    Sleeping Quality\n                </mdl-radio>\n                <mdl-radio [(ngModel)]=\"form.metricSelected\" name=\"metrics\" value=\"tiredness-feeling\" mdl-ripple>\n                    Tiredness Feeling\n                </mdl-radio>\n            </div>\n\n        </form>\n\n\n    </div>\n    <div class=\"mdl-cell mdl-cell--4-col\" *ngFor=\"let month of months\">\n        <div class=\"calendar\">\n            <div class=\"header\">\n                {{ month.name }}\n                <i class=\"fa fa-angle-left\"></i>\n                <i class=\"fa fa-angle-right\"></i>\n            </div>\n            <div class=\"week names\">\n                <span class=\"day\">Mon</span>\n                <span class=\"day\">Tue</span>\n                <span class=\"day\">Wed</span>\n                <span class=\"day\">Thu</span>\n                <span class=\"day\">Fri</span>\n                <span class=\"day\">Sat</span>\n                <span class=\"day\">Sun</span>\n            </div>\n            <div class=\"week\" *ngFor=\"let week of month.weeks\">\n    <span [ngClass]=\"decorateDay(day)\"\n          (click)=\"onSelect(day)\"\n          class=\"calendar__day\"\n          *ngFor=\"let day of week.days\">\n      {{ day.number }}\n    </span>\n            </div>\n        </div>\n    </div>\n    <a (click)=\"onSelectCurrentDay()\" class=\"sd-add-button\" mdl-button mdl-button-type=\"fab\" mdl-colored=\"accent\"\n       mdl-ripple>\n        <mdl-icon>add</mdl-icon>\n    </a>\n</div>\n\n"
 
 /***/ },
 /* 212 */
 /***/ function(module, exports) {
 
-	module.exports = "/* app css stylesheet */\n.inactive {\n  color: #ccc !important;\n  pointer-events: none;\n  cursor: default; }\n\n.menu {\n  list-style: none;\n  border-bottom: 0.1em solid black;\n  margin-bottom: 2em;\n  padding: 0 0 0.5em; }\n\n.menu:before {\n  content: \"[\"; }\n\n.menu:after {\n  content: \"]\"; }\n\n.menu > li {\n  display: inline; }\n\n.menu > li:before {\n  content: \"|\";\n  padding-right: 0.3em; }\n\n.menu > li:nth-child(1):before {\n  content: \"\";\n  padding: 0; }\n\n.border-box {\n  box-sizing: border-box;\n  -moz-box-sizing: border-box; }\n\n.calendar {\n  float: left;\n  display: block;\n  box-sizing: border-box;\n  -moz-box-sizing: border-box;\n  background: white;\n  border: solid 1px #CCC;\n  margin-bottom: 10px; }\n\n.calendar > div.header {\n  float: left;\n  width: 100%;\n  background: #3477AB;\n  height: 40px;\n  color: white;\n  line-height: 40px; }\n\n.calendar > div.header > * {\n  height: 40px;\n  line-height: 40px !important;\n  display: inline-block;\n  vertical-align: middle; }\n\n.calendar > div.header > i {\n  float: left;\n  width: 40px;\n  font-size: 1.125em;\n  font-weight: bold;\n  position: relative;\n  box-sizing: border-box;\n  -moz-box-sizing: border-box;\n  padding: 0 10px;\n  cursor: pointer; }\n\n.calendar > div.header > i.fa-angle-left {\n  text-align: left; }\n\n.calendar > div.header > i.fa-angle-right {\n  text-align: right;\n  margin-left: -40px; }\n\n.calendar > div.header > span {\n  float: left;\n  width: 100%;\n  font-weight: bold;\n  text-transform: uppercase;\n  box-sizing: border-box;\n  -moz-box-sizing: border-box;\n  padding-left: 50px;\n  margin-left: -40px;\n  text-align: center;\n  padding-right: 40px;\n  color: inherit; }\n\n.calendar > div.week {\n  float: left;\n  width: 100%;\n  border-top: solid 1px #CCC; }\n\n.calendar > div.week:first-child {\n  border-top: none; }\n\n.calendar > div.week > span.day {\n  float: left;\n  width: 14.28571429%;\n  box-sizing: border-box;\n  -moz-box-sizing: border-box;\n  font-size: 0.75em;\n  text-align: center;\n  height: 30px;\n  line-height: 30px !important;\n  display: inline-block;\n  vertical-align: middle;\n  background: white;\n  cursor: auto;\n  color: grey; }\n\n.calendar__day {\n  float: left;\n  width: 14.28571429%;\n  box-sizing: border-box;\n  -moz-box-sizing: border-box;\n  font-size: 0.75em;\n  text-align: center;\n  height: 30px;\n  line-height: 30px !important;\n  display: inline-block;\n  vertical-align: middle;\n  background: white;\n  cursor: auto;\n  color: grey; }\n\n.calendar > div.week > span.day:first-child {\n  border-left: none; }\n\n.calendar > div.week > span.day.today {\n  background: #E3F2FF; }\n\n.calendar__day--today {\n  color: indianred !important; }\n\n.calendar__day--current-month {\n  color: black;\n  cursor: pointer; }\n\n.calendar > div.week > span.day.different-year {\n  color: #C0C0C0; }\n\n.selected {\n  background: #2875C7 !important;\n  color: white !important; }\n\n.calendar > div.week.names > span {\n  color: #2875C7;\n  font-weight: bold; }\n\n.sleeping-quality .sleeping-quality--good {\n  background-color: #2EB669 !important; }\n\n.sleeping-quality .sleeping-quality--regular {\n  background-color: #FFCD41 !important; }\n\n.sleeping-quality .sleeping-quality--bad {\n  background-color: #FD4045 !important; }\n\n.tiredness-feeling .tiredness-feeling--good {\n  background-color: #2EB669 !important; }\n\n.tiredness-feeling .tiredness-feeling--regular {\n  background-color: #FFCD41 !important; }\n\n.tiredness-feeling .tiredness-feeling--bad {\n  background-color: #FD4045 !important; }\n\n/** form angular demo */\n.css-form input.ng-invalid.ng-touched {\n  background-color: #FA787E; }\n\n.css-form input.ng-valid.ng-touched {\n  background-color: #78FA89; }\n\n/** add button */\n.sd-add-button {\n  position: fixed;\n  display: block;\n  right: 0;\n  bottom: 0;\n  margin-right: 30px;\n  margin-bottom: 20px;\n  z-index: 900; }\n\n.sd-align-right {\n  flex-direction: row-reverse; }\n"
+	module.exports = "/* app css stylesheet */\n.inactive {\n  color: #ccc !important;\n  pointer-events: none;\n  cursor: default; }\n\n.menu {\n  list-style: none;\n  border-bottom: 0.1em solid black;\n  margin-bottom: 2em;\n  padding: 0 0 0.5em; }\n\n.menu:before {\n  content: \"[\"; }\n\n.menu:after {\n  content: \"]\"; }\n\n.menu > li {\n  display: inline; }\n\n.menu > li:before {\n  content: \"|\";\n  padding-right: 0.3em; }\n\n.menu > li:nth-child(1):before {\n  content: \"\";\n  padding: 0; }\n\n.border-box {\n  box-sizing: border-box;\n  -moz-box-sizing: border-box; }\n\n.calendar {\n  float: left;\n  display: block;\n  box-sizing: border-box;\n  -moz-box-sizing: border-box;\n  background: white;\n  border: solid 1px #CCC;\n  margin-bottom: 10px; }\n\n.calendar > div.header {\n  float: left;\n  width: 100%;\n  background: #3477AB;\n  height: 40px;\n  color: white;\n  line-height: 40px; }\n\n.calendar > div.header > * {\n  height: 40px;\n  line-height: 40px !important;\n  display: inline-block;\n  vertical-align: middle; }\n\n.calendar > div.header > i {\n  float: left;\n  width: 40px;\n  font-size: 1.125em;\n  font-weight: bold;\n  position: relative;\n  box-sizing: border-box;\n  -moz-box-sizing: border-box;\n  padding: 0 10px;\n  cursor: pointer; }\n\n.calendar > div.header > i.fa-angle-left {\n  text-align: left; }\n\n.calendar > div.header > i.fa-angle-right {\n  text-align: right;\n  margin-left: -40px; }\n\n.calendar > div.header > span {\n  float: left;\n  width: 100%;\n  font-weight: bold;\n  text-transform: uppercase;\n  box-sizing: border-box;\n  -moz-box-sizing: border-box;\n  padding-left: 50px;\n  margin-left: -40px;\n  text-align: center;\n  padding-right: 40px;\n  color: inherit; }\n\n.calendar > div.week {\n  float: left;\n  width: 100%;\n  border-top: solid 1px #CCC; }\n\n.calendar > div.week:first-child {\n  border-top: none; }\n\n.calendar > div.week > span.day {\n  float: left;\n  width: 14.28571429%;\n  box-sizing: border-box;\n  -moz-box-sizing: border-box;\n  font-size: 0.75em;\n  text-align: center;\n  height: 30px;\n  line-height: 30px !important;\n  display: inline-block;\n  vertical-align: middle;\n  background: white;\n  cursor: auto;\n  color: grey; }\n\n.calendar__day {\n  float: left;\n  width: 14.28571429%;\n  box-sizing: border-box;\n  -moz-box-sizing: border-box;\n  font-size: 0.75em;\n  text-align: center;\n  height: 30px;\n  line-height: 30px !important;\n  display: inline-block;\n  vertical-align: middle;\n  background: white;\n  cursor: auto;\n  color: grey; }\n\n.calendar > div.week > span.day:first-child {\n  border-left: none; }\n\n.calendar > div.week > span.day.today {\n  background: #E3F2FF; }\n\n.calendar__day--today {\n  color: indianred !important; }\n\n.calendar__day--current-month {\n  color: black;\n  cursor: pointer; }\n\n.calendar > div.week > span.day.different-year {\n  color: #C0C0C0; }\n\n.selected {\n  background: #2875C7 !important;\n  color: white !important; }\n\n.calendar > div.week.names > span {\n  color: #2875C7;\n  font-weight: bold; }\n\n.sleeping-quality .sleeping-quality--good {\n  background-color: #2EB669 !important; }\n\n.sleeping-quality .sleeping-quality--regular {\n  background-color: #FFCD41 !important; }\n\n.sleeping-quality .sleeping-quality--bad {\n  background-color: #FD4045 !important; }\n\n.tiredness-feeling .tiredness-feeling--good {\n  background-color: #2EB669 !important; }\n\n.tiredness-feeling .tiredness-feeling--regular {\n  background-color: #FFCD41 !important; }\n\n.tiredness-feeling .tiredness-feeling--bad {\n  background-color: #FD4045 !important; }\n\n/** form angular demo */\n.css-form input.ng-invalid.ng-touched {\n  background-color: #FA787E; }\n\n.css-form input.ng-valid.ng-touched {\n  background-color: #78FA89; }\n\n/** add button */\n.sd-add-button {\n  position: fixed;\n  display: block;\n  right: 0;\n  bottom: 0;\n  margin-right: 30px;\n  margin-bottom: 20px;\n  z-index: 900; }\n\n.sd-align-right {\n  flex-direction: row-reverse; }\n\n.sd-formGroup {\n  width: 100%;\n  display: block; }\n"
 
 /***/ },
 /* 213 */
@@ -88703,7 +88736,7 @@
 	    __metadata("design:paramtypes", [])
 	], Header);
 	exports.Header = Header;
-	
+
 
 /***/ },
 /* 214 */
@@ -88741,7 +88774,7 @@
 	    __metadata("design:paramtypes", [])
 	], Footer);
 	exports.Footer = Footer;
-	
+
 
 /***/ },
 /* 216 */
@@ -88796,7 +88829,7 @@
 	    __metadata("design:paramtypes", [router_1.Router])
 	], Drawer);
 	exports.Drawer = Drawer;
-	
+
 
 /***/ },
 /* 219 */
@@ -88848,8 +88881,689 @@
 	    __metadata("design:paramtypes", [core_1.ElementRef, core_1.Renderer])
 	], CloseMenuDirective);
 	exports.CloseMenuDirective = CloseMenuDirective;
-	
+
+
+/***/ },
+/* 221 */
+/***/ function(module, exports, __webpack_require__) {
+
+	(function (global, factory) {
+	     true ? factory(exports, __webpack_require__(3), __webpack_require__(24), __webpack_require__(22)) :
+	    typeof define === 'function' && define.amd ? define(['exports', '@angular/core', '@angular/forms', '@angular/common'], factory) :
+	    (factory((global.angular2Mdl = global.angular2Mdl || {}, global.angular2Mdl.select = global.angular2Mdl.select || {}),global.ng.core,global.ng.forms,global.ng.common));
+	}(this, (function (exports,_angular_core,_angular_forms,_angular_common) { 'use strict';
+
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var MdlOptionComponent = (function () {
+	    function MdlOptionComponent(changeDetectionRef) {
+	        this.changeDetectionRef = changeDetectionRef;
+	        this.multiple = false;
+	        this.selected = false;
+	        this.onSelect = Function.prototype;
+	    }
+	    MdlOptionComponent.prototype.setMultiple = function (multiple) {
+	        this.multiple = multiple;
+	        this.changeDetectionRef.detectChanges();
+	    };
+	    MdlOptionComponent.prototype.updateSelected = function (value) {
+	        var _this = this;
+	        if (this.multiple) {
+	            this.selected = (value.map(function (v) { return _this.stringifyValue(v); }).indexOf(this.stringValue) != -1);
+	        }
+	        else {
+	            this.selected = this.value == value;
+	        }
+	        this.changeDetectionRef.detectChanges();
+	    };
+	    MdlOptionComponent.prototype.ngAfterViewInit = function () {
+	        this.text = this.contentWrapper.nativeElement.textContent.trim();
+	    };
+	    Object.defineProperty(MdlOptionComponent.prototype, "stringValue", {
+	        get: function () {
+	            return this.stringifyValue(this.value);
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    MdlOptionComponent.prototype.stringifyValue = function (value) {
+	        switch (typeof value) {
+	            case 'number': return String(value);
+	            case 'object': return JSON.stringify(value);
+	            default: return (!!value) ? String(value) : '';
+	        }
+	    };
+	    __decorate([
+	        _angular_core.Input('value'), 
+	        __metadata('design:type', Object)
+	    ], MdlOptionComponent.prototype, "value", void 0);
+	    __decorate([
+	        _angular_core.ViewChild('contentWrapper'), 
+	        __metadata('design:type', _angular_core.ElementRef)
+	    ], MdlOptionComponent.prototype, "contentWrapper", void 0);
+	    MdlOptionComponent = __decorate([
+	        _angular_core.Component({selector: 'mdl-option',
+	            host: {
+	                '[class.mdl-option__container]': 'true'
+	            },
+	            template: "<div class=\"mdl-list__item\" (click)=\"onSelect($event, value)\" [class.is-active]=\"selected\"> <div *ngIf=\"multiple\" class=\"mdl-list__item-secondary-action\"> <div class=\"mdl-checkbox is-upgraded\" [class.is-checked]=\"selected\" (click)=\"onSelect($event, value)\"> <input type=\"checkbox\" class=\"mdl-checkbox__input\"> <span class=\"mdl-checkbox__label\"></span> <span class=\"mdl-checkbox__focus-helper\"></span> <span class=\"mdl-checkbox__box-outline\"> <span class=\"mdl-checkbox__tick-outline\"></span> </span> </div> </div> <div #contentWrapper class=\"mdl-list__item-primary-content\"> <ng-content></ng-content> </div> </div> "
+	        }), 
+	        __metadata('design:paramtypes', [_angular_core.ChangeDetectorRef])
+	    ], MdlOptionComponent);
+	    return MdlOptionComponent;
+	}());
+
+	var __decorate$2 = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata$2 = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var MdlPopoverComponent = (function () {
+	    function MdlPopoverComponent(changeDetectionRef, elementRef) {
+	        this.changeDetectionRef = changeDetectionRef;
+	        this.elementRef = elementRef;
+	        this.hideOnClick = false;
+	        this.isVisible = false;
+	        this.directionUp = false;
+	    }
+	    MdlPopoverComponent.prototype.ngAfterViewInit = function () {
+	        // Add a hide listener to native element
+	        this.elementRef.nativeElement.addEventListener('hide', this.hide.bind(this));
+	    };
+	    MdlPopoverComponent.prototype.onDocumentClick = function (event) {
+	        if (this.isVisible &&
+	            (this.hideOnClick || !this.elementRef.nativeElement.contains(event.target))) {
+	            this.hide();
+	        }
+	    };
+	    MdlPopoverComponent.prototype.ngOnDestroy = function () {
+	        this.elementRef.nativeElement.removeEventListener('hide');
+	    };
+	    MdlPopoverComponent.prototype.toggle = function (event) {
+	        if (this.isVisible) {
+	            this.hide();
+	        }
+	        else {
+	            this.hideAllPopovers();
+	            this.show(event);
+	        }
+	    };
+	    MdlPopoverComponent.prototype.hide = function () {
+	        this.isVisible = false;
+	        this.changeDetectionRef.markForCheck();
+	    };
+	    MdlPopoverComponent.prototype.hideAllPopovers = function () {
+	        var nodeList = document.querySelectorAll('.mdl-popover.is-visible');
+	        for (var i = 0; i < nodeList.length; ++i) {
+	            nodeList[i].dispatchEvent(new Event('hide'));
+	        }
+	    };
+	    MdlPopoverComponent.prototype.show = function (event) {
+	        event.stopPropagation();
+	        this.isVisible = true;
+	        this.updateDirection(event);
+	    };
+	    MdlPopoverComponent.prototype.updateDirection = function (event) {
+	        var _this = this;
+	        var nativeEl = this.elementRef.nativeElement;
+	        var targetRect = event.target.getBoundingClientRect();
+	        var viewHeight = window.innerHeight;
+	        setTimeout(function () {
+	            var height = nativeEl.offsetHeight;
+	            if (height) {
+	                var spaceAvailable = {
+	                    top: targetRect.top,
+	                    bottom: viewHeight - targetRect.bottom
+	                };
+	                _this.directionUp = spaceAvailable.bottom < height;
+	                _this.changeDetectionRef.markForCheck();
+	            }
+	        });
+	    };
+	    __decorate$2([
+	        _angular_core.Input('hide-on-click'), 
+	        __metadata$2('design:type', Boolean)
+	    ], MdlPopoverComponent.prototype, "hideOnClick", void 0);
+	    __decorate$2([
+	        _angular_core.HostBinding('class.is-visible'), 
+	        __metadata$2('design:type', Object)
+	    ], MdlPopoverComponent.prototype, "isVisible", void 0);
+	    __decorate$2([
+	        _angular_core.HostBinding('class.direction-up'), 
+	        __metadata$2('design:type', Object)
+	    ], MdlPopoverComponent.prototype, "directionUp", void 0);
+	    __decorate$2([
+	        _angular_core.HostListener('document:click', ['$event']), 
+	        __metadata$2('design:type', Function), 
+	        __metadata$2('design:paramtypes', [Event]), 
+	        __metadata$2('design:returntype', void 0)
+	    ], MdlPopoverComponent.prototype, "onDocumentClick", null);
+	    MdlPopoverComponent = __decorate$2([
+	        _angular_core.Component({selector: 'mdl-popover',
+	            host: {
+	                '[class.mdl-popover]': 'true'
+	            },
+	            template: "<ng-content></ng-content> ",
+	            encapsulation: _angular_core.ViewEncapsulation.None,
+	        }), 
+	        __metadata$2('design:paramtypes', [_angular_core.ChangeDetectorRef, _angular_core.ElementRef])
+	    ], MdlPopoverComponent);
+	    return MdlPopoverComponent;
+	}());
+	var MdlPopoverModule = (function () {
+	    function MdlPopoverModule() {
+	    }
+	    MdlPopoverModule.forRoot = function () {
+	        return {
+	            ngModule: MdlPopoverModule,
+	            providers: []
+	        };
+	    };
+	    MdlPopoverModule = __decorate$2([
+	        _angular_core.NgModule({
+	            imports: [],
+	            exports: [MdlPopoverComponent],
+	            declarations: [MdlPopoverComponent],
+	        }), 
+	        __metadata$2('design:paramtypes', [])
+	    ], MdlPopoverModule);
+	    return MdlPopoverModule;
+	}());
+
+	var __extends = (this && this.__extends) || function (d, b) {
+	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+	    function __() { this.constructor = d; }
+	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+	};
+	var __decorate$1 = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata$1 = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var uniq = function (array) { return Array.from(new Set(array)); };
+	function randomId() {
+	    var S4 = function () { return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1); };
+	    return (S4() + S4());
+	}
+	var MDL_SELECT_VALUE_ACCESSOR = {
+	    provide: _angular_forms.NG_VALUE_ACCESSOR,
+	    useExisting: _angular_core.forwardRef(function () { return MdlSelectComponent; }),
+	    multi: true
+	};
+	var SearchableComponent = (function () {
+	    function SearchableComponent(searchTimeout) {
+	        if (searchTimeout === void 0) { searchTimeout = 300; }
+	        this.clearTimeout = null;
+	        this.query = '';
+	        this.searchTimeout = searchTimeout;
+	    }
+	    SearchableComponent.prototype.updateSearchQuery = function (event) {
+	        var _this = this;
+	        if (this.clearTimeout) {
+	            clearTimeout(this.clearTimeout);
+	        }
+	        this.clearTimeout = setTimeout(function () {
+	            _this.query = '';
+	        }, this.searchTimeout);
+	        this.query += String.fromCharCode(event.keyCode).toLowerCase();
+	    };
+	    SearchableComponent.prototype.getSearchQuery = function () {
+	        return this.query;
+	    };
+	    return SearchableComponent;
+	}());
+	var MdlSelectComponent = (function (_super) {
+	    __extends(MdlSelectComponent, _super);
+	    function MdlSelectComponent(changeDetectionRef) {
+	        _super.call(this);
+	        this.changeDetectionRef = changeDetectionRef;
+	        this.disabled = false;
+	        this.placeholder = '';
+	        this.multiple = false;
+	        this.change = new _angular_core.EventEmitter(true);
+	        this.text = '';
+	        this.textByValue = {};
+	        this.onChange = Function.prototype;
+	        this.onTouched = Function.prototype;
+	        this.focused = false;
+	        this.textfieldId = "mdl-textfield-" + randomId();
+	    }
+	    MdlSelectComponent.prototype.ngAfterViewInit = function () {
+	        var _this = this;
+	        this.bindOptions();
+	        this.renderValue(this.ngModel);
+	        this.optionComponents.changes.subscribe(function () { return _this.bindOptions(); });
+	    };
+	    MdlSelectComponent.prototype.onKeydown = function ($event) {
+	        if (!this.disabled && this.popoverComponent.isVisible) {
+	            var closeKeys = ["Escape", "Tab", "Enter"];
+	            var closeKeyCodes = [13, 27, 9];
+	            if (closeKeyCodes.indexOf($event.keyCode) != -1 || ($event.key && closeKeys.indexOf($event.key) != -1)) {
+	                this.popoverComponent.hide();
+	            }
+	            else if (!this.multiple) {
+	                if ($event.keyCode == 38 || ($event.key && $event.key == "ArrowUp")) {
+	                    this.onArrowUp($event);
+	                }
+	                else if ($event.keyCode == 40 || ($event.key && $event.key == "ArrowDown")) {
+	                    this.onArrowDown($event);
+	                }
+	                else if ($event.keyCode >= 31 && $event.keyCode <= 90) {
+	                    this.onCharacterKeydown($event);
+	                }
+	            }
+	        }
+	    };
+	    MdlSelectComponent.prototype.onCharacterKeydown = function ($event) {
+	        var _this = this;
+	        this.updateSearchQuery($event);
+	        var optionsList = this.optionComponents.toArray();
+	        var filteredOptions = optionsList.filter(function (option) {
+	            return option.text.toLowerCase().startsWith(_this.getSearchQuery());
+	        });
+	        var selectedOption = optionsList.find(function (option) { return option.selected; });
+	        if (filteredOptions.length > 0) {
+	            var selectedOptionInFiltered = filteredOptions.indexOf(selectedOption) != -1;
+	            if (!selectedOptionInFiltered && !filteredOptions[0].selected) {
+	                this.onSelect($event, filteredOptions[0].value);
+	            }
+	        }
+	        $event.preventDefault();
+	    };
+	    MdlSelectComponent.prototype.onArrowUp = function ($event) {
+	        var arr = this.optionComponents.toArray();
+	        for (var i = 0; i < arr.length; i++) {
+	            if (arr[i].selected) {
+	                if (i - 1 >= 0) {
+	                    this.onSelect($event, arr[i - 1].value);
+	                }
+	                break;
+	            }
+	        }
+	        $event.preventDefault();
+	    };
+	    MdlSelectComponent.prototype.onArrowDown = function ($event) {
+	        var arr = this.optionComponents.toArray();
+	        var selectedOption = arr.find(function (option) { return option.selected; });
+	        if (selectedOption) {
+	            var selectedOptionIndex = arr.indexOf(selectedOption);
+	            if (selectedOptionIndex + 1 < arr.length) {
+	                this.onSelect($event, arr[selectedOptionIndex + 1].value);
+	            }
+	        }
+	        else {
+	            this.onSelect($event, arr[0].value);
+	        }
+	        $event.preventDefault();
+	    };
+	    MdlSelectComponent.prototype.addFocus = function () {
+	        this.focused = true;
+	    };
+	    MdlSelectComponent.prototype.removeFocus = function () {
+	        this.focused = false;
+	    };
+	    MdlSelectComponent.prototype.isEmpty = function () {
+	        return this.multiple ? !this.ngModel.length : !this.ngModel;
+	    };
+	    // rebind options and reset value in connected select
+	    MdlSelectComponent.prototype.reset = function (resetValue) {
+	        if (resetValue === void 0) { resetValue = true; }
+	        if (resetValue && !this.isEmpty()) {
+	            this.ngModel = this.multiple ? [] : '';
+	            this.onChange(this.ngModel);
+	            this.change.emit(this.ngModel);
+	            this.renderValue(this.ngModel);
+	        }
+	    };
+	    MdlSelectComponent.prototype.bindOptions = function () {
+	        var _this = this;
+	        this.optionComponents.forEach(function (selectOptionComponent) {
+	            selectOptionComponent.setMultiple(_this.multiple);
+	            selectOptionComponent.onSelect = _this.onSelect.bind(_this);
+	            if (selectOptionComponent.value != null) {
+	                _this.textByValue[_this.stringifyValue(selectOptionComponent.value)] = selectOptionComponent.text;
+	            }
+	        });
+	    };
+	    MdlSelectComponent.prototype.renderValue = function (value) {
+	        var _this = this;
+	        if (this.multiple) {
+	            this.text = value.map(function (value) { return _this.textByValue[_this.stringifyValue(value)]; }).join(', ');
+	        }
+	        else {
+	            this.text = this.textByValue[this.stringifyValue(value)] || '';
+	        }
+	        this.changeDetectionRef.detectChanges();
+	        if (this.optionComponents) {
+	            this.optionComponents.forEach(function (selectOptionComponent) {
+	                selectOptionComponent.updateSelected(value);
+	            });
+	        }
+	    };
+	    MdlSelectComponent.prototype.stringifyValue = function (value) {
+	        switch (typeof value) {
+	            case 'number': return String(value);
+	            case 'object': return JSON.stringify(value);
+	            default: return (!!value) ? String(value) : '';
+	        }
+	    };
+	    MdlSelectComponent.prototype.toggle = function ($event) {
+	        if (!this.disabled) {
+	            this.popoverComponent.toggle($event);
+	            $event.stopPropagation();
+	        }
+	    };
+	    MdlSelectComponent.prototype.open = function ($event) {
+	        if (!this.disabled && !this.popoverComponent.isVisible) {
+	            this.popoverComponent.show($event);
+	        }
+	    };
+	    MdlSelectComponent.prototype.close = function ($event) {
+	        if (!this.disabled && this.popoverComponent.isVisible) {
+	            this.popoverComponent.hide();
+	        }
+	    };
+	    MdlSelectComponent.prototype.onSelect = function ($event, value) {
+	        if (this.multiple) {
+	            // prevent popup close on click inside popover when selecting multiple
+	            $event.stopPropagation();
+	        }
+	        else {
+	            var popover = this.popoverComponent.elementRef.nativeElement;
+	            var list = popover.querySelector(".mdl-list");
+	            var option_1 = null;
+	            this.optionComponents.forEach(function (o) {
+	                // not great for long lists because break is not available
+	                if (o.value == value) {
+	                    option_1 = o.contentWrapper.nativeElement;
+	                }
+	            });
+	            if (option_1) {
+	                var selectedItemElem = option_1.parentElement;
+	                var computedScrollTop = selectedItemElem.offsetTop - (list.clientHeight / 2) + (selectedItemElem.clientHeight / 2);
+	                list.scrollTop = Math.max(computedScrollTop, 0);
+	            }
+	        }
+	        this.writeValue(value);
+	        this.change.emit(this.ngModel);
+	    };
+	    MdlSelectComponent.prototype.writeValue = function (value) {
+	        if (this.multiple) {
+	            this.ngModel = this.ngModel || [];
+	            if (!value || this.ngModel === value) {
+	            }
+	            else if (Array.isArray(value)) {
+	                this.ngModel = uniq(this.ngModel.concat(value));
+	            }
+	            else if (this.ngModel.indexOf(value) != -1) {
+	                this.ngModel = this.ngModel.filter(function (v) { return v !== value; }).slice();
+	            }
+	            else if (!!value) {
+	                this.ngModel = this.ngModel.concat([value]);
+	            }
+	        }
+	        else {
+	            this.ngModel = value;
+	        }
+	        this.onChange(this.ngModel);
+	        this.renderValue(this.ngModel);
+	    };
+	    MdlSelectComponent.prototype.registerOnChange = function (fn) {
+	        this.onChange = fn;
+	    };
+	    MdlSelectComponent.prototype.registerOnTouched = function (fn) {
+	        this.onTouched = fn;
+	    };
+	    MdlSelectComponent.prototype.getLabelVisibility = function () {
+	        return this.isFloatingLabel == null || (this.isFloatingLabel != null && this.text != null && this.text.length > 0) ? "block" : "none";
+	    };
+	    __decorate$1([
+	        _angular_core.Input(), 
+	        __metadata$1('design:type', Object)
+	    ], MdlSelectComponent.prototype, "ngModel", void 0);
+	    __decorate$1([
+	        _angular_core.Input(), 
+	        __metadata$1('design:type', Boolean)
+	    ], MdlSelectComponent.prototype, "disabled", void 0);
+	    __decorate$1([
+	        _angular_core.Input('floating-label'), 
+	        __metadata$1('design:type', Object)
+	    ], MdlSelectComponent.prototype, "isFloatingLabel", void 0);
+	    __decorate$1([
+	        _angular_core.Input(), 
+	        __metadata$1('design:type', String)
+	    ], MdlSelectComponent.prototype, "placeholder", void 0);
+	    __decorate$1([
+	        _angular_core.Input(), 
+	        __metadata$1('design:type', Boolean)
+	    ], MdlSelectComponent.prototype, "multiple", void 0);
+	    __decorate$1([
+	        _angular_core.Output(), 
+	        __metadata$1('design:type', _angular_core.EventEmitter)
+	    ], MdlSelectComponent.prototype, "change", void 0);
+	    __decorate$1([
+	        _angular_core.ViewChild(MdlPopoverComponent), 
+	        __metadata$1('design:type', MdlPopoverComponent)
+	    ], MdlSelectComponent.prototype, "popoverComponent", void 0);
+	    __decorate$1([
+	        _angular_core.ContentChildren(MdlOptionComponent), 
+	        __metadata$1('design:type', _angular_core.QueryList)
+	    ], MdlSelectComponent.prototype, "optionComponents", void 0);
+	    __decorate$1([
+	        _angular_core.HostListener('document:keydown', ['$event']), 
+	        __metadata$1('design:type', Function), 
+	        __metadata$1('design:paramtypes', [KeyboardEvent]), 
+	        __metadata$1('design:returntype', void 0)
+	    ], MdlSelectComponent.prototype, "onKeydown", null);
+	    MdlSelectComponent = __decorate$1([
+	        _angular_core.Component({selector: 'mdl-select',
+	            host: {
+	                '[class.mdl-select]': 'true',
+	                '[class.mdl-select--floating-label]': 'isFloatingLabel != null'
+	            },
+	            template: "<div class=\"mdl-textfield is-upgraded has-placeholder\" [class.is-focused]=\"this.popoverComponent.isVisible || this.focused\" [class.is-disabled]=\"this.disabled\" [class.is-dirty]=\"text != null && text.length > 0\"> <span [attr.tabindex]=\"!this.disabled ? 0 : null\" (focus)=\"open($event);addFocus();\" (blur)=\"removeFocus()\"> <!-- don't want click to also trigger focus --> </span> <input readonly tabindex=\"-1\" [placeholder]=\"placeholder\" class=\"mdl-textfield__input\" (click)=\"toggle($event)\" [attr.id]=\"textfieldId\" [value]=\"text\"> <span class=\"mdl-select__toggle material-icons\" (click)=\"toggle($event)\"> keyboard_arrow_down </span> <label class=\"mdl-textfield__label\" [attr.for]=\"textfieldId\">{{ placeholder }}</label> <span class=\"mdl-textfield__error\"></span> <mdl-popover hide-on-click=\"!multiple\" [style.width.%]=\"100\"> <div class=\"mdl-list mdl-shadow--6dp\"> <ng-content></ng-content> </div> </mdl-popover> </div> ",
+	            encapsulation: _angular_core.ViewEncapsulation.None,
+	            providers: [MDL_SELECT_VALUE_ACCESSOR]
+	        }), 
+	        __metadata$1('design:paramtypes', [_angular_core.ChangeDetectorRef])
+	    ], MdlSelectComponent);
+	    return MdlSelectComponent;
+	}(SearchableComponent));
+	var MdlSelectModule = (function () {
+	    function MdlSelectModule() {
+	    }
+	    MdlSelectModule.forRoot = function () {
+	        return {
+	            ngModule: MdlSelectModule,
+	            providers: []
+	        };
+	    };
+	    MdlSelectModule = __decorate$1([
+	        _angular_core.NgModule({
+	            imports: [
+	                _angular_common.CommonModule,
+	                MdlPopoverModule
+	            ],
+	            exports: [
+	                MdlSelectComponent,
+	                MdlOptionComponent
+	            ],
+	            declarations: [
+	                MdlSelectComponent,
+	                MdlOptionComponent
+	            ],
+	            providers: [
+	                MDL_SELECT_VALUE_ACCESSOR
+	            ]
+	        }), 
+	        __metadata$1('design:paramtypes', [])
+	    ], MdlSelectModule);
+	    return MdlSelectModule;
+	}());
+
+	exports.MdlOptionComponent = MdlOptionComponent;
+	exports.SearchableComponent = SearchableComponent;
+	exports.MdlSelectComponent = MdlSelectComponent;
+	exports.MdlSelectModule = MdlSelectModule;
+
+	Object.defineProperty(exports, '__esModule', { value: true });
+
+	})));
+
+
+/***/ },
+/* 222 */
+/***/ function(module, exports, __webpack_require__) {
+
+	(function (global, factory) {
+	     true ? factory(exports, __webpack_require__(3)) :
+	    typeof define === 'function' && define.amd ? define(['exports', '@angular/core'], factory) :
+	    (factory((global.angular2Mdl = global.angular2Mdl || {}, global.angular2Mdl.popover = global.angular2Mdl.popover || {}),global.ng.core));
+	}(this, (function (exports,_angular_core) { 'use strict';
+
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var MdlPopoverComponent = (function () {
+	    function MdlPopoverComponent(changeDetectionRef, elementRef) {
+	        this.changeDetectionRef = changeDetectionRef;
+	        this.elementRef = elementRef;
+	        this.hideOnClick = false;
+	        this.isVisible = false;
+	        this.directionUp = false;
+	    }
+	    MdlPopoverComponent.prototype.ngAfterViewInit = function () {
+	        // Add a hide listener to native element
+	        this.elementRef.nativeElement.addEventListener('hide', this.hide.bind(this));
+	    };
+	    MdlPopoverComponent.prototype.onDocumentClick = function (event) {
+	        if (this.isVisible &&
+	            (this.hideOnClick || !this.elementRef.nativeElement.contains(event.target))) {
+	            this.hide();
+	        }
+	    };
+	    MdlPopoverComponent.prototype.ngOnDestroy = function () {
+	        this.elementRef.nativeElement.removeEventListener('hide');
+	    };
+	    MdlPopoverComponent.prototype.toggle = function (event) {
+	        if (this.isVisible) {
+	            this.hide();
+	        }
+	        else {
+	            this.hideAllPopovers();
+	            this.show(event);
+	        }
+	    };
+	    MdlPopoverComponent.prototype.hide = function () {
+	        this.isVisible = false;
+	        this.changeDetectionRef.markForCheck();
+	    };
+	    MdlPopoverComponent.prototype.hideAllPopovers = function () {
+	        var nodeList = document.querySelectorAll('.mdl-popover.is-visible');
+	        for (var i = 0; i < nodeList.length; ++i) {
+	            nodeList[i].dispatchEvent(new Event('hide'));
+	        }
+	    };
+	    MdlPopoverComponent.prototype.show = function (event) {
+	        event.stopPropagation();
+	        this.isVisible = true;
+	        this.updateDirection(event);
+	    };
+	    MdlPopoverComponent.prototype.updateDirection = function (event) {
+	        var _this = this;
+	        var nativeEl = this.elementRef.nativeElement;
+	        var targetRect = event.target.getBoundingClientRect();
+	        var viewHeight = window.innerHeight;
+	        setTimeout(function () {
+	            var height = nativeEl.offsetHeight;
+	            if (height) {
+	                var spaceAvailable = {
+	                    top: targetRect.top,
+	                    bottom: viewHeight - targetRect.bottom
+	                };
+	                _this.directionUp = spaceAvailable.bottom < height;
+	                _this.changeDetectionRef.markForCheck();
+	            }
+	        });
+	    };
+	    __decorate([
+	        _angular_core.Input('hide-on-click'), 
+	        __metadata('design:type', Boolean)
+	    ], MdlPopoverComponent.prototype, "hideOnClick", void 0);
+	    __decorate([
+	        _angular_core.HostBinding('class.is-visible'), 
+	        __metadata('design:type', Object)
+	    ], MdlPopoverComponent.prototype, "isVisible", void 0);
+	    __decorate([
+	        _angular_core.HostBinding('class.direction-up'), 
+	        __metadata('design:type', Object)
+	    ], MdlPopoverComponent.prototype, "directionUp", void 0);
+	    __decorate([
+	        _angular_core.HostListener('document:click', ['$event']), 
+	        __metadata('design:type', Function), 
+	        __metadata('design:paramtypes', [Event]), 
+	        __metadata('design:returntype', void 0)
+	    ], MdlPopoverComponent.prototype, "onDocumentClick", null);
+	    MdlPopoverComponent = __decorate([
+	        _angular_core.Component({selector: 'mdl-popover',
+	            host: {
+	                '[class.mdl-popover]': 'true'
+	            },
+	            template: "<ng-content></ng-content> ",
+	            encapsulation: _angular_core.ViewEncapsulation.None,
+	        }), 
+	        __metadata('design:paramtypes', [_angular_core.ChangeDetectorRef, _angular_core.ElementRef])
+	    ], MdlPopoverComponent);
+	    return MdlPopoverComponent;
+	}());
+	var MdlPopoverModule = (function () {
+	    function MdlPopoverModule() {
+	    }
+	    MdlPopoverModule.forRoot = function () {
+	        return {
+	            ngModule: MdlPopoverModule,
+	            providers: []
+	        };
+	    };
+	    MdlPopoverModule = __decorate([
+	        _angular_core.NgModule({
+	            imports: [],
+	            exports: [MdlPopoverComponent],
+	            declarations: [MdlPopoverComponent],
+	        }), 
+	        __metadata('design:paramtypes', [])
+	    ], MdlPopoverModule);
+	    return MdlPopoverModule;
+	}());
+
+	exports.MdlPopoverComponent = MdlPopoverComponent;
+	exports.MdlPopoverModule = MdlPopoverModule;
+
+	Object.defineProperty(exports, '__esModule', { value: true });
+
+	})));
+
 
 /***/ }
 /******/ ]);
-//# sourceMappingURL=main.map
