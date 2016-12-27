@@ -182,6 +182,8 @@ export class Calendar implements OnInit, AfterViewInit {
     }
 
     setYear(year) {
+
+        this.form.yearSelected = year;
         //build new year
         this.buildMonths('en', year);
         //get values for given year

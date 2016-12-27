@@ -3,17 +3,23 @@
 
         <form #f="ngForm" novalidate style="width: 100%">
             <div class="sd-formGroup">
-                <select style="float: right" name="yearSelected" [(ngModel)]="form.yearSelected"
-                        (change)="setYear(form.yearSelected)">
-                    <option *ngFor="let year of years" [value]="year.value">
-                        {{year.name}}
-                    </option>
-                </select>
-<!--                <mdl-select [(ngModel)]="form.yearSelected" name="yearSelected">
-                    <mdl-option *ngFor="let year of years" [value]="year.value">
-                        {{year.name}}
-                    </mdl-option>
-                </mdl-select>-->
+                <!--   <select style="float: right" name="yearSelected" [(ngModel)]="form.yearSelected"
+                           (change)="setYear(form.yearSelected)">
+                       <option *ngFor="let year of years" [value]="year.value">
+                           {{year.name}}
+                       </option>
+                   </select>-->
+                <div style="float:right">
+                    <span style="font-size:1.4rem; vertical-align: sub">{{form.yearSelected}}</span>
+                    <button mdl-button #btn1="mdlButton" (click)="m1.toggle($event, btn1)" mdl-button-type="icon"
+                            mdl-ripple>
+                        <mdl-icon>more_vert</mdl-icon>
+                    </button>
+                    <mdl-menu #m1="mdlMenu" mdl-menu-position="bottom-right">
+                        <mdl-menu-item mdl-ripple (click)="setYear(year.value)" *ngFor="let year of years">{{year.name}}
+                        </mdl-menu-item>
+                    </mdl-menu>
+                </div>
             </div>
             <div class="sd-formGroup">
                 <mdl-radio [(ngModel)]="form.metricSelected" name="metrics" value="sleeping-quality" mdl-ripple>
