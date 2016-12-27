@@ -44,6 +44,9 @@ export class Calendar implements OnInit, AfterViewInit {
     entries: Array<Entry>;
     sub: any;
     form: any;
+    public params: any = {
+        day: null,
+    }
 
     years: any = [
         {value: '2016', name: '2016'},
@@ -93,14 +96,21 @@ export class Calendar implements OnInit, AfterViewInit {
         this.sub = this.route
             .params
             .subscribe(params => {
-                console.log('day', params['day']);
+                this.params.day = params['day'];
             });
 
         this.form = {
             yearSelected: '2016',
             metricSelected:  MetricsIndicators.SLEEPING_QUALITY
+        };
+
+        let currentYearSelected = moment().format('YYYY');
+        //if param day is fullfilled we use this information for building the calendar
+        if (typeof this.params.day !== 'undefined' && this.params.day !== null) {
+            currentYearSelected = moment(this.params.day).format("YYYY");
         }
-        this.buildMonths('en', '2016');
+        this.buildMonths('en', currentYearSelected);
+        this.form.yearSelected = currentYearSelected;
     }
 
     ngAfterViewInit() {
