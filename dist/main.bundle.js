@@ -1,62 +1,68 @@
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
-
+/******/
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
-
+/******/
 /******/ 		// Check if module is in cache
 /******/ 		if(installedModules[moduleId])
 /******/ 			return installedModules[moduleId].exports;
-
+/******/
 /******/ 		// Create a new module (and put it into the cache)
 /******/ 		var module = installedModules[moduleId] = {
 /******/ 			exports: {},
 /******/ 			id: moduleId,
 /******/ 			loaded: false
 /******/ 		};
-
+/******/
 /******/ 		// Execute the module function
 /******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-
+/******/
 /******/ 		// Flag the module as loaded
 /******/ 		module.loaded = true;
-
+/******/
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
-
-
+/******/
+/******/
 /******/ 	// expose the modules object (__webpack_modules__)
 /******/ 	__webpack_require__.m = modules;
-
+/******/
 /******/ 	// expose the module cache
 /******/ 	__webpack_require__.c = installedModules;
-
+/******/
 /******/ 	// __webpack_public_path__
 /******/ 	__webpack_require__.p = "";
-
+/******/
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(0);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
+/*!*****************************!*\
+  !*** ./src/main.browser.ts ***!
+  \*****************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var platform_browser_dynamic_1 = __webpack_require__(1);
-	var app_module_1 = __webpack_require__(23);
-	var core_1 = __webpack_require__(3);
+	var platform_browser_dynamic_1 = __webpack_require__(/*! @angular/platform-browser-dynamic */ 1);
+	var app_module_1 = __webpack_require__(/*! ./app/app.module */ 23);
+	var core_1 = __webpack_require__(/*! @angular/core */ 3);
 	if (true) {
 	    core_1.enableProdMode();
 	}
 	platform_browser_dynamic_1.platformBrowserDynamic().bootstrapModule(app_module_1.AppModule)
 	    .catch(function (err) { return console.error(err); });
-	
+
 
 /***/ },
 /* 1 */
+/*!*************************************************************************************!*\
+  !*** ./~/@angular/platform-browser-dynamic/bundles/platform-browser-dynamic.umd.js ***!
+  \*************************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {/**
@@ -65,13 +71,13 @@
 	 * License: MIT
 	 */
 	(function (global, factory) {
-	     true ? factory(exports, __webpack_require__(2), __webpack_require__(3), __webpack_require__(21)) :
+	     true ? factory(exports, __webpack_require__(/*! @angular/compiler */ 2), __webpack_require__(/*! @angular/core */ 3), __webpack_require__(/*! @angular/platform-browser */ 21)) :
 	    typeof define === 'function' && define.amd ? define(['exports', '@angular/compiler', '@angular/core', '@angular/platform-browser'], factory) :
 	    (factory((global.ng = global.ng || {}, global.ng.platformBrowserDynamic = global.ng.platformBrowserDynamic || {}),global.ng.compiler,global.ng.core,global.ng.platformBrowser));
 	}(this, function (exports,_angular_compiler,_angular_core,_angular_platformBrowser) { 'use strict';
-
+	
 	    var INTERNAL_BROWSER_PLATFORM_PROVIDERS = _angular_platformBrowser.__platform_browser_private__.INTERNAL_BROWSER_PLATFORM_PROVIDERS;
-
+	
 	    var __extends = (this && this.__extends) || function (d, b) {
 	        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
 	        function __() { this.constructor = d; }
@@ -123,7 +129,7 @@
 	        ResourceLoaderImpl.ctorParameters = function () { return []; };
 	        return ResourceLoaderImpl;
 	    }(_angular_compiler.ResourceLoader));
-
+	
 	    var INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS = [
 	        INTERNAL_BROWSER_PLATFORM_PROVIDERS,
 	        {
@@ -132,7 +138,7 @@
 	            multi: true
 	        },
 	    ];
-
+	
 	    /**
 	     * @license
 	     * Copyright Google Inc. All Rights Reserved.
@@ -162,7 +168,7 @@
 	    _global.assert = function assert(condition) {
 	        // TODO: to be fixed properly via #2830, noop for now
 	    };
-
+	
 	    /**
 	     * @license
 	     * Copyright Google Inc. All Rights Reserved.
@@ -201,17 +207,17 @@
 	        };
 	        return CachedResourceLoader;
 	    }(_angular_compiler.ResourceLoader));
-
+	
 	    var __platform_browser_dynamic_private__ = {
 	        INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS: INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS,
 	        ResourceLoaderImpl: ResourceLoaderImpl
 	    };
-
+	
 	    /**
 	     * @stable
 	     */
 	    var VERSION = new _angular_core.Version('2.3.0');
-
+	
 	    /**
 	     * @experimental
 	     */
@@ -220,17 +226,20 @@
 	     * @stable
 	     */
 	    var platformBrowserDynamic = _angular_core.createPlatformFactory(_angular_compiler.platformCoreDynamic, 'browserDynamic', INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS);
-
+	
 	    exports.RESOURCE_CACHE_PROVIDER = RESOURCE_CACHE_PROVIDER;
 	    exports.platformBrowserDynamic = platformBrowserDynamic;
 	    exports.VERSION = VERSION;
 	    exports.__platform_browser_dynamic_private__ = __platform_browser_dynamic_private__;
-
+	
 	}));
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
 /* 2 */
+/*!*****************************************************!*\
+  !*** ./~/@angular/compiler/bundles/compiler.umd.js ***!
+  \*****************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -239,16 +248,16 @@
 	 * License: MIT
 	 */
 	(function (global, factory) {
-	   true ? factory(exports, __webpack_require__(3)) :
+	   true ? factory(exports, __webpack_require__(/*! @angular/core */ 3)) :
 	  typeof define === 'function' && define.amd ? define(['exports', '@angular/core'], factory) :
 	  (factory((global.ng = global.ng || {}, global.ng.compiler = global.ng.compiler || {}),global.ng.core));
 	}(this, function (exports,_angular_core) { 'use strict';
-
+	
 	  /**
 	   * @stable
 	   */
 	  var /** @type {?} */ VERSION = new _angular_core.Version('2.3.0');
-
+	
 	  /**
 	   * @license
 	   * Copyright Google Inc. All Rights Reserved.
@@ -709,7 +718,7 @@
 	      });
 	      return result;
 	  }
-
+	
 	  /**
 	   *  A token representing the a reference to a static type.
 	    * *
@@ -728,7 +737,7 @@
 	      }
 	      return StaticSymbol;
 	  }());
-
+	
 	  /**
 	   * @param {?} obj
 	   * @return {?}
@@ -814,7 +823,7 @@
 	  function escapeRegExp(s) {
 	      return s.replace(/([.*+?^=!:${}()|[\]\/\\])/g, '\\$1');
 	  }
-
+	
 	  /**
 	   *  Wraps Javascript Objects
 	   */
@@ -927,7 +936,7 @@
 	      };
 	      return ListWrapper;
 	  }());
-
+	
 	  var /** @type {?} */ isDefaultChangeDetectionStrategy = _angular_core.__core_private__.isDefaultChangeDetectionStrategy;
 	  var /** @type {?} */ ChangeDetectorStatus = _angular_core.__core_private__.ChangeDetectorStatus;
 	  var /** @type {?} */ LifecycleHooks = _angular_core.__core_private__.LifecycleHooks;
@@ -968,7 +977,7 @@
 	  var /** @type {?} */ renderStyles = _angular_core.__core_private__.renderStyles;
 	  var /** @type {?} */ ComponentStillLoadingError = _angular_core.__core_private__.ComponentStillLoadingError;
 	  var /** @type {?} */ AnimationTransition = _angular_core.__core_private__.AnimationTransition;
-
+	
 	  var TagContentType = {};
 	  TagContentType.RAW_TEXT = 0;
 	  TagContentType.ESCAPABLE_RAW_TEXT = 1;
@@ -1263,7 +1272,7 @@
 	      'zwj': '\u200D',
 	      'zwnj': '\u200C',
 	  };
-
+	
 	  var HtmlTagDefinition = (function () {
 	      /**
 	       * @param {?=} __0
@@ -1373,7 +1382,7 @@
 	  function getHtmlTagDefinition(tagName) {
 	      return TAG_DEFINITIONS[tagName.toLowerCase()] || _DEFAULT_TAG_DEFINITION;
 	  }
-
+	
 	  var /** @type {?} */ _SELECTOR_REGEXP = new RegExp('(\\:not\\()|' +
 	      '([-\\w]+)|' +
 	      '(?:\\.([-\\w]+))|' +
@@ -1780,7 +1789,7 @@
 	      };
 	      return SelectorContext;
 	  }());
-
+	
 	  var /** @type {?} */ MODULE_SUFFIX = '';
 	  var /** @type {?} */ DASH_CASE_REGEXP = /-+([a-z0-9])/g;
 	  /**
@@ -1894,7 +1903,7 @@
 	      }
 	      return SyncAsyncResult;
 	  }());
-
+	
 	  /**
 	   * @license
 	   * Copyright Google Inc. All Rights Reserved.
@@ -2484,7 +2493,7 @@
 	      }
 	      return ProviderMeta;
 	  }());
-
+	
 	  /**
 	   * @license
 	   * Copyright Google Inc. All Rights Reserved.
@@ -2575,7 +2584,7 @@
 	  function isAsciiHexDigit(code) {
 	      return code >= $a && code <= $f || code >= $A && code <= $F || isDigit(code);
 	  }
-
+	
 	  /**
 	   * @param {?} identifier
 	   * @param {?} value
@@ -2621,7 +2630,7 @@
 	          });
 	      }
 	  }
-
+	
 	  var InterpolationConfig = (function () {
 	      /**
 	       * @param {?} start
@@ -2646,7 +2655,7 @@
 	      return InterpolationConfig;
 	  }());
 	  var /** @type {?} */ DEFAULT_INTERPOLATION_CONFIG = new InterpolationConfig('{{', '}}');
-
+	
 	  /**
 	   * @license
 	   * Copyright Google Inc. All Rights Reserved.
@@ -3406,7 +3415,7 @@
 	      RecursiveAstVisitor.prototype.visitQuote = function (ast, context) { return null; };
 	      return RecursiveAstVisitor;
 	  }());
-
+	
 	  var TokenType = {};
 	  TokenType.Character = 0;
 	  TokenType.Identifier = 1;
@@ -3907,7 +3916,7 @@
 	              return code;
 	      }
 	  }
-
+	
 	  var SplitInterpolation = (function () {
 	      /**
 	       * @param {?} strings
@@ -4955,7 +4964,7 @@
 	      SimpleExpressionChecker.prototype.visitQuote = function (ast, context) { };
 	      return SimpleExpressionChecker;
 	  }());
-
+	
 	  var ParseLocation = (function () {
 	      /**
 	       * @param {?} file
@@ -5071,7 +5080,7 @@
 	      };
 	      return ParseError;
 	  }());
-
+	
 	  /**
 	   * @license
 	   * Copyright Google Inc. All Rights Reserved.
@@ -5225,7 +5234,7 @@
 	      });
 	      return result;
 	  }
-
+	
 	  /**
 	   * @license
 	   * Copyright Google Inc. All Rights Reserved.
@@ -6132,7 +6141,7 @@
 	      }
 	      return dstTokens;
 	  }
-
+	
 	  /**
 	   * @license
 	   * Copyright Google Inc. All Rights Reserved.
@@ -6601,7 +6610,7 @@
 	  function lastOnStack(stack, element) {
 	      return stack.length > 0 && stack[stack.length - 1] === element;
 	  }
-
+	
 	  /**
 	   * @license
 	   * Copyright Google Inc. All Rights Reserved.
@@ -6747,7 +6756,7 @@
 	      IcuPlaceholder.prototype.visit = function (visitor, context) { return visitor.visitIcuPlaceholder(this, context); };
 	      return IcuPlaceholder;
 	  }());
-
+	
 	  /**
 	   * @license
 	   * Copyright Google Inc. All Rights Reserved.
@@ -6880,7 +6889,7 @@
 	      };
 	      return PlaceholderRegistry;
 	  }());
-
+	
 	  var /** @type {?} */ _expParser = new Parser(new Lexer());
 	  /**
 	   *  Returns a function converting html nodes to an i18n Message given an interpolationConfig
@@ -7045,7 +7054,7 @@
 	  function _extractPlaceholderName(input) {
 	      return input.split(_CUSTOM_PH_EXP)[1];
 	  }
-
+	
 	  /**
 	   * @license
 	   * Copyright Google Inc. All Rights Reserved.
@@ -7072,7 +7081,7 @@
 	      }
 	      return I18nError;
 	  }(ParseError));
-
+	
 	  var /** @type {?} */ _I18N_ATTR = 'i18n';
 	  var /** @type {?} */ _I18N_ATTR_PREFIX = 'i18n-';
 	  var /** @type {?} */ _I18N_COMMENT_PREFIX_REGEXP = /^i18n:?/;
@@ -7574,7 +7583,7 @@
 	      var /** @type {?} */ pipeIndex = i18n.indexOf('|');
 	      return pipeIndex == -1 ? ['', i18n] : [i18n.slice(0, pipeIndex), i18n.slice(pipeIndex + 1)];
 	  }
-
+	
 	  var XmlTagDefinition = (function () {
 	      function XmlTagDefinition() {
 	          this.closedByParent = false;
@@ -7603,7 +7612,7 @@
 	  function getXmlTagDefinition(tagName) {
 	      return _TAG_DEFINITION;
 	  }
-
+	
 	  /**
 	   * @license
 	   * Copyright Google Inc. All Rights Reserved.
@@ -7633,7 +7642,7 @@
 	      };
 	      return XmlParser;
 	  }(Parser$1));
-
+	
 	  /**
 	   * @license
 	   * Copyright Google Inc. All Rights Reserved.
@@ -8127,7 +8136,7 @@
 	      }
 	      return product;
 	  }
-
+	
 	  /**
 	   * @license
 	   * Copyright Google Inc. All Rights Reserved.
@@ -8292,7 +8301,7 @@
 	  function _escapeXml(text) {
 	      return _ESCAPED_CHARS.reduce(function (text, entry) { return text.replace(entry[0], entry[1]); }, text);
 	  }
-
+	
 	  var /** @type {?} */ _VERSION = '1.2';
 	  var /** @type {?} */ _XMLNS = 'urn:oasis:names:tc:xliff:document:1.2';
 	  // TODO(vicb): make this a param (s/_/-/)
@@ -8637,7 +8646,7 @@
 	              return "x-" + tag;
 	      }
 	  }
-
+	
 	  var /** @type {?} */ _MESSAGES_TAG = 'messagebundle';
 	  var /** @type {?} */ _MESSAGE_TAG = 'msg';
 	  var /** @type {?} */ _PLACEHOLDER_TAG$1 = 'ph';
@@ -8779,7 +8788,7 @@
 	  function digest$1(message) {
 	      return decimalDigest(message);
 	  }
-
+	
 	  var /** @type {?} */ _TRANSLATIONS_TAG = 'translationbundle';
 	  var /** @type {?} */ _TRANSLATION_TAG = 'translation';
 	  var /** @type {?} */ _PLACEHOLDER_TAG$2 = 'ph';
@@ -8997,7 +9006,7 @@
 	      };
 	      return XmlToI18n;
 	  }());
-
+	
 	  /**
 	   * @license
 	   * Copyright Google Inc. All Rights Reserved.
@@ -9034,7 +9043,7 @@
 	      HtmlParser.ctorParameters = function () { return []; };
 	      return HtmlParser;
 	  }(Parser$1));
-
+	
 	  /**
 	   *  A container for translated messages
 	   */
@@ -9193,7 +9202,7 @@
 	      };
 	      return I18nToHtmlVisitor;
 	  }());
-
+	
 	  var I18NHtmlParser = (function () {
 	      /**
 	       * @param {?} _htmlParser
@@ -9246,7 +9255,7 @@
 	      };
 	      return I18NHtmlParser;
 	  }());
-
+	
 	  var /** @type {?} */ APP_VIEW_MODULE_URL = assetUrl('core', 'linker/view');
 	  var /** @type {?} */ VIEW_UTILS_MODULE_URL = assetUrl('core', 'linker/view_utils');
 	  var /** @type {?} */ CD_MODULE_URL = assetUrl('core', 'change_detection/change_detection');
@@ -9613,7 +9622,7 @@
 	      var /** @type {?} */ resolvedEnum = reflector.resolveEnum(resolveIdentifier(enumType), name);
 	      return { reference: resolvedEnum };
 	  }
-
+	
 	  /**
 	   * @license
 	   * Copyright Google Inc. All Rights Reserved.
@@ -9771,7 +9780,7 @@
 	      var /** @type {?} */ switchAttr = new Attribute$1('[ngSwitch]', ast.switchValue, ast.switchValueSourceSpan);
 	      return new Element('ng-container', [switchAttr], children, ast.sourceSpan, ast.sourceSpan, ast.sourceSpan);
 	  }
-
+	
 	  /**
 	   * @license
 	   * Copyright Google Inc. All Rights Reserved.
@@ -10318,7 +10327,7 @@
 	          entry.push(query);
 	      });
 	  }
-
+	
 	  /**
 	   * @license
 	   * Copyright Google Inc. All Rights Reserved.
@@ -10399,7 +10408,7 @@
 	      ElementSchemaRegistry.prototype.normalizeAnimationStyleValue = function (camelCaseProp, userProvidedProp, val) { };
 	      return ElementSchemaRegistry;
 	  }());
-
+	
 	  var StyleWithImports = (function () {
 	      /**
 	       * @param {?} style
@@ -10448,7 +10457,7 @@
 	  }
 	  var /** @type {?} */ _cssImportRe = /@import\s+(?:url\()?\s*(?:(?:['"]([^'"]*))|([^;\)\s]*))[^;]*;?/g;
 	  var /** @type {?} */ _urlWithSchemaRe = /^([^:/?#]+):/;
-
+	
 	  /**
 	   * @license
 	   * Copyright Google Inc. All Rights Reserved.
@@ -10987,7 +10996,7 @@
 	      });
 	      return ctxs.length === 0 ? [_angular_core.SecurityContext.NONE] : Array.from(new Set(ctxs)).sort();
 	  }
-
+	
 	  var /** @type {?} */ NG_CONTENT_SELECT_ATTR = 'select';
 	  var /** @type {?} */ NG_CONTENT_ELEMENT = 'ng-content';
 	  var /** @type {?} */ LINK_ELEMENT = 'link';
@@ -11083,7 +11092,7 @@
 	      }
 	      return selectAttr;
 	  }
-
+	
 	  /**
 	   * @license
 	   * Copyright Google Inc. All Rights Reserved.
@@ -12019,7 +12028,7 @@
 	      });
 	      return Array.from(map.values());
 	  }
-
+	
 	  /**
 	   * @return {?}
 	   */
@@ -12138,7 +12147,7 @@
 	      ;
 	      return DefaultRenderTypes;
 	  }());
-
+	
 	  var __extends$14 = (this && this.__extends) || function (d, b) {
 	      for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
 	      function __() { this.constructor = d; }
@@ -12376,7 +12385,7 @@
 	      };
 	      return AnimationSequenceAst;
 	  }(AnimationWithStepsAst));
-
+	
 	  var StylesCollectionEntry = (function () {
 	      /**
 	       * @param {?} time
@@ -12452,7 +12461,7 @@
 	      };
 	      return StylesCollection;
 	  }());
-
+	
 	  /**
 	   * @license
 	   * Copyright Google Inc. All Rights Reserved.
@@ -13090,7 +13099,7 @@
 	      });
 	      return new AnimationKeyframeAst(_INITIAL_KEYFRAME, new AnimationStylesAst([values]));
 	  }
-
+	
 	  /**
 	   *  An interface for retrieving documents by URL that the compiler uses
 	    * to load templates.
@@ -13105,7 +13114,7 @@
 	      ResourceLoader.prototype.get = function (url) { return null; };
 	      return ResourceLoader;
 	  }());
-
+	
 	  /**
 	   *  Create a {@link UrlResolver} with no package prefix.
 	   * @return {?}
@@ -13434,7 +13443,7 @@
 	      parts[_ComponentIndex.Path] = path;
 	      return _joinAndCanonicalizePath(parts);
 	  }
-
+	
 	  var DirectiveNormalizer = (function () {
 	      /**
 	       * @param {?} _resourceLoader
@@ -13699,7 +13708,7 @@
 	      TemplatePreparseVisitor.prototype.visitExpansionCase = function (ast, context) { return null; };
 	      return TemplatePreparseVisitor;
 	  }());
-
+	
 	  /*
 	   * Resolve a `Type` for {@link Directive}.
 	   *
@@ -13889,7 +13898,7 @@
 	  function isDirectiveMetadata(type) {
 	      return type instanceof _angular_core.Directive;
 	  }
-
+	
 	  /**
 	   * @license
 	   * Copyright Google Inc. All Rights Reserved.
@@ -15710,7 +15719,7 @@
 	      if (type === void 0) { type = null; }
 	      return new LiteralExpr(value, type);
 	  }
-
+	
 	  var CheckBindingField = (function () {
 	      /**
 	       * @param {?} expression
@@ -15762,7 +15771,7 @@
 	  function createBindFieldExpr(bindingId) {
 	      return THIS_EXPR.prop("_expr_" + bindingId);
 	  }
-
+	
 	  /**
 	   * @param {?} token
 	   * @return {?}
@@ -15820,7 +15829,7 @@
 	      }
 	      return importExpr(createEnumIdentifier(enumType, enumName));
 	  }
-
+	
 	  var /** @type {?} */ VAL_UNWRAPPER_VAR = variable("valUnwrapper");
 	  var EventHandlerVars = (function () {
 	      function EventHandlerVars() {
@@ -16751,7 +16760,7 @@
 	      }
 	      return null;
 	  }
-
+	
 	  /**
 	   * @param {?} view
 	   * @param {?} boundProp
@@ -16867,7 +16876,7 @@
 	      detachStmts.push.apply(detachStmts, registerStmts);
 	      return { updateStmts: updateStmts, detachStmts: detachStmts };
 	  }
-
+	
 	  /**
 	   *  Create a new class stmts based on the given data.
 	   * @param {?} config
@@ -16893,7 +16902,7 @@
 	      };
 	      var _a, _b, _c, _d;
 	  }
-
+	
 	  var DirectiveWrapperCompileResult = (function () {
 	      /**
 	       * @param {?} statements
@@ -17375,7 +17384,7 @@
 	      };
 	      return DirectiveWrapperExpressions;
 	  }());
-
+	
 	  /**
 	   * @param {?} hook
 	   * @param {?} token
@@ -17408,7 +17417,7 @@
 	              return 'ngAfterViewChecked';
 	      }
 	  }
-
+	
 	  /**
 	   * @param {?} obj
 	   * @return {?}
@@ -17459,7 +17468,7 @@
 	      ]; };
 	      return NgModuleResolver;
 	  }());
-
+	
 	  /**
 	   * @param {?} type
 	   * @return {?}
@@ -17519,7 +17528,7 @@
 	      ]; };
 	      return PipeResolver;
 	  }());
-
+	
 	  var SummaryResolver = (function () {
 	      function SummaryResolver() {
 	      }
@@ -17535,7 +17544,7 @@
 	      SummaryResolver.ctorParameters = function () { return []; };
 	      return SummaryResolver;
 	  }());
-
+	
 	  /**
 	   * @license
 	   * Copyright Google Inc. All Rights Reserved.
@@ -18562,7 +18571,7 @@
 	      };
 	      return _CompileValueConverter;
 	  }(ValueTransformer));
-
+	
 	  /**
 	   * @param {?} value
 	   * @param {?=} type
@@ -18616,7 +18625,7 @@
 	      };
 	      return _ValueOutputAstTransformer;
 	  }());
-
+	
 	  var ComponentFactoryDependency = (function () {
 	      /**
 	       * @param {?} comp
@@ -18865,7 +18874,7 @@
 	      InjectMethodVars.notFoundResult = variable('notFoundResult');
 	      return InjectMethodVars;
 	  }());
-
+	
 	  var /** @type {?} */ _SINGLE_QUOTE_ESCAPE_STRING_RE = /'|\\|\n|\r|\$/g;
 	  var /** @type {?} */ _LEGAL_IDENTIFIER_RE = /^[$A-Z_][0-9A-Z_$]*$/i;
 	  var /** @type {?} */ CATCH_ERROR_VAR$1 = variable('error');
@@ -19509,7 +19518,7 @@
 	      }
 	      return res;
 	  }
-
+	
 	  /**
 	   * @license
 	   * Copyright Google Inc. All Rights Reserved.
@@ -19964,7 +19973,7 @@
 	      };
 	      return _TsEmitterVisitor;
 	  }(AbstractEmitterVisitor));
-
+	
 	  // =================================================================================================
 	  // =================================================================================================
 	  // =========== S T O P   -  S T O P   -  S T O P   -  S T O P   -  S T O P   -  S T O P  ===========
@@ -20017,7 +20026,7 @@
 	      'object|data',
 	      'script|src',
 	  ]);
-
+	
 	  /**
 	   * @license
 	   * Copyright Google Inc. All Rights Reserved.
@@ -20482,7 +20491,7 @@
 	              return false;
 	      }
 	  }
-
+	
 	  /**
 	   * @license
 	   * Copyright Google Inc. All Rights Reserved.
@@ -20503,103 +20512,103 @@
 	  /*
 	    This is a limited shim for ShadowDOM css styling.
 	    https://dvcs.w3.org/hg/webcomponents/raw-file/tip/spec/shadow/index.html#styles
-
+	
 	    The intention here is to support only the styling features which can be
 	    relatively simply implemented. The goal is to allow users to avoid the
 	    most obvious pitfalls and do so without compromising performance significantly.
 	    For ShadowDOM styling that's not covered here, a set of best practices
 	    can be provided that should allow users to accomplish more complex styling.
-
+	
 	    The following is a list of specific ShadowDOM styling features and a brief
 	    discussion of the approach used to shim.
-
+	
 	    Shimmed features:
-
+	
 	    * :host, :host-context: ShadowDOM allows styling of the shadowRoot's host
 	    element using the :host rule. To shim this feature, the :host styles are
 	    reformatted and prefixed with a given scope name and promoted to a
 	    document level stylesheet.
 	    For example, given a scope name of .foo, a rule like this:
-
+	
 	      :host {
 	          background: red;
 	        }
 	      }
-
+	
 	    becomes:
-
+	
 	      .foo {
 	        background: red;
 	      }
-
+	
 	    * encapsulation: Styles defined within ShadowDOM, apply only to
 	    dom inside the ShadowDOM. Polymer uses one of two techniques to implement
 	    this feature.
-
+	
 	    By default, rules are prefixed with the host element tag name
 	    as a descendant selector. This ensures styling does not leak out of the 'top'
 	    of the element's ShadowDOM. For example,
-
+	
 	    div {
 	        font-weight: bold;
 	      }
-
+	
 	    becomes:
-
+	
 	    x-foo div {
 	        font-weight: bold;
 	      }
-
+	
 	    becomes:
-
-
+	
+	
 	    Alternatively, if WebComponents.ShadowCSS.strictStyling is set to true then
 	    selectors are scoped by adding an attribute selector suffix to each
 	    simple selector that contains the host element tag name. Each element
 	    in the element's ShadowDOM template is also given the scope attribute.
 	    Thus, these rules match only elements that have the scope attribute.
 	    For example, given a scope name of x-foo, a rule like this:
-
+	
 	      div {
 	        font-weight: bold;
 	      }
-
+	
 	    becomes:
-
+	
 	      div[x-foo] {
 	        font-weight: bold;
 	      }
-
+	
 	    Note that elements that are dynamically added to a scope must have the scope
 	    selector added to them manually.
-
+	
 	    * upper/lower bound encapsulation: Styles which are defined outside a
 	    shadowRoot should not cross the ShadowDOM boundary and should not apply
 	    inside a shadowRoot.
-
+	
 	    This styling behavior is not emulated. Some possible ways to do this that
 	    were rejected due to complexity and/or performance concerns include: (1) reset
 	    every possible property for every possible selector for a given scope name;
 	    (2) re-implement css in javascript.
-
+	
 	    As an alternative, users should make sure to use selectors
 	    specific to the scope in which they are working.
-
+	
 	    * ::distributed: This behavior is not emulated. It's often not necessary
 	    to style the contents of a specific insertion point and instead, descendants
 	    of the host element can be styled selectively. Users can also create an
 	    extra node around an insertion point and style that node's contents
 	    via descendent selectors. For example, with a shadowRoot like this:
-
+	
 	      <style>
 	        ::content(div) {
 	          background: red;
 	        }
 	      </style>
 	      <content></content>
-
+	
 	    could become:
-
+	
 	      <style>
 	        / *@polyfill .content-container div * /
 	        ::content(div) {
@@ -20609,7 +20618,7 @@
 	      <div class="content-container">
 	        <content></content>
 	      </div>
-
+	
 	    Note the use of @polyfill in the comment above a ShadowDOM specific style
 	    declaration. This is a directive to the styling shim to use the selector
 	    in comments in lieu of the next selector when running under polyfill.
@@ -21113,7 +21122,7 @@
 	      }
 	      return new StringWithEscapedBlocks(resultParts.join(''), escapedBlocks);
 	  }
-
+	
 	  var /** @type {?} */ COMPONENT_VARIABLE = '%COMP%';
 	  var /** @type {?} */ HOST_ATTR = "_nghost-" + COMPONENT_VARIABLE;
 	  var /** @type {?} */ CONTENT_ATTR = "_ngcontent-" + COMPONENT_VARIABLE;
@@ -21238,7 +21247,7 @@
 	      }
 	      return result;
 	  }
-
+	
 	  var _DebugState = (function () {
 	      /**
 	       * @param {?} nodeIndex
@@ -21347,7 +21356,7 @@
 	      CompileMethod.prototype.isEmpty = function () { return this._bodyStatements.length === 0; };
 	      return CompileMethod;
 	  }());
-
+	
 	  /**
 	   * @license
 	   * Copyright Google Inc. All Rights Reserved.
@@ -21461,7 +21470,7 @@
 	  function getHandleEventMethodName(elementIndex) {
 	      return "handleEvent_" + elementIndex;
 	  }
-
+	
 	  var ViewQueryValues = (function () {
 	      /**
 	       * @param {?} view
@@ -21609,7 +21618,7 @@
 	          entry.push(query);
 	      });
 	  }
-
+	
 	  var ViewTypeEnum = (function () {
 	      function ViewTypeEnum() {
 	      }
@@ -21678,7 +21687,7 @@
 	      DetectChangesVars.changed = variable("changed");
 	      return DetectChangesVars;
 	  }());
-
+	
 	  /**
 	   * @license
 	   * Copyright Google Inc. All Rights Reserved.
@@ -21723,7 +21732,7 @@
 	      }
 	      return DirectiveWrapperDependency;
 	  }());
-
+	
 	  /**
 	   * @license
 	   * Copyright Google Inc. All Rights Reserved.
@@ -22199,7 +22208,7 @@
 	      }
 	      return _QueryWithRead;
 	  }());
-
+	
 	  var CompilePipe = (function () {
 	      /**
 	       * @param {?} view
@@ -22298,7 +22307,7 @@
 	      }
 	      return pipeMeta;
 	  }
-
+	
 	  var CompileViewRootNodeType = {};
 	  CompileViewRootNodeType.Node = 0;
 	  CompileViewRootNodeType.ViewContainer = 1;
@@ -22452,7 +22461,7 @@
 	      }
 	      return ViewType.COMPONENT;
 	  }
-
+	
 	  /**
 	   * @param {?} boundEvents
 	   * @param {?} directives
@@ -22569,7 +22578,7 @@
 	      var /** @type {?} */ handleEventMethodName = getHandleEventMethodName(compileElement.nodeIndex);
 	      return THIS_EXPR.callMethod('eventHandler', [THIS_EXPR.prop(handleEventMethodName)]);
 	  }
-
+	
 	  var /** @type {?} */ STATE_IS_NEVER_CHECKED = THIS_EXPR.prop('numberOfChecks').identical(new LiteralExpr(0));
 	  var /** @type {?} */ NOT_THROW_ON_CHANGES = not(DetectChangesVars.throwOnChange);
 	  /**
@@ -22645,7 +22654,7 @@
 	          onDestroyMethod.addStmt(pipeInstance.callMethod('ngOnDestroy', []).toStmt());
 	      }
 	  }
-
+	
 	  /**
 	   * @param {?} boundText
 	   * @param {?} compileNode
@@ -22762,7 +22771,7 @@
 	          directiveDetectChangesExpr.toStmt();
 	      detectChangesInInputsMethod.addStmt(directiveDetectChangesStmt);
 	  }
-
+	
 	  /**
 	   * @param {?} view
 	   * @param {?} parsedTemplate
@@ -22909,7 +22918,7 @@
 	      ViewBinderVisitor.prototype.visitElementProperty = function (ast, context) { return null; };
 	      return ViewBinderVisitor;
 	  }());
-
+	
 	  var /** @type {?} */ IMPLICIT_TEMPLATE_VAR = '\$implicit';
 	  var /** @type {?} */ CLASS_ATTR$1 = 'class';
 	  var /** @type {?} */ STYLE_ATTR = 'style';
@@ -23631,7 +23640,7 @@
 	      }
 	      return new ClassMethod('createEmbeddedViewInternal', [new FnParam(nodeIndexVar.name, NUMBER_TYPE)], stmts, importType(createIdentifier(Identifiers.AppView), [DYNAMIC_TYPE]));
 	  }
-
+	
 	  var ViewCompileResult = (function () {
 	      /**
 	       * @param {?} statements
@@ -23683,7 +23692,7 @@
 	      ]; };
 	      return ViewCompiler;
 	  }());
-
+	
 	  var AnimationEntryCompileResult = (function () {
 	      /**
 	       * @param {?} name
@@ -24068,7 +24077,7 @@
 	  function _getStylesArray(obj) {
 	      return obj.styles.styles;
 	  }
-
+	
 	  /**
 	   * @license undefined
 	    * Copyright Google Inc. All Rights Reserved.
@@ -24089,7 +24098,7 @@
 	      }
 	      return GeneratedFile;
 	  }());
-
+	
 	  /**
 	   * @license undefined
 	    * Copyright Google Inc. All Rights Reserved.
@@ -24111,7 +24120,7 @@
 	      }
 	      return match;
 	  }
-
+	
 	  var AotCompiler = (function () {
 	      /**
 	       * @param {?} _metadataResolver
@@ -24537,7 +24546,7 @@
 	      var /** @type {?} */ symbolsMissingModule = programPipesAndDirectives.filter(function (s) { return !ngModulePipesAndDirective.has(s); });
 	      return { ngModules: Array.from(ngModules.values()), symbolsMissingModule: symbolsMissingModule };
 	  }
-
+	
 	  var StaticAndDynamicReflectionCapabilities = (function () {
 	      /**
 	       * @param {?} staticDelegate
@@ -24646,7 +24655,7 @@
 	  function isStaticType(type) {
 	      return typeof type === 'object' && type.name && type.filePath;
 	  }
-
+	
 	  /**
 	   * @license
 	   * Copyright Google Inc. All Rights Reserved.
@@ -25608,7 +25617,7 @@
 	      ((result)).column = column;
 	      return result;
 	  }
-
+	
 	  var /** @type {?} */ STRIP_SRC_FILE_SUFFIXES = /(\.ts|\.d\.ts|\.js|\.jsx|\.tsx)$/;
 	  var AotSummaryResolver = (function () {
 	      /**
@@ -25718,7 +25727,7 @@
 	      var /** @type {?} */ fileNameWithoutSuffix = fileName.replace(STRIP_SRC_FILE_SUFFIXES, '');
 	      return fileNameWithoutSuffix + ".ngsummary.json";
 	  }
-
+	
 	  /**
 	   *  Creates a new AotCompiler based on options and a host.
 	   * @param {?} compilerHost
@@ -25748,7 +25757,7 @@
 	      var /** @type {?} */ compiler = new AotCompiler(resolver, tmplParser, new StyleCompiler(urlResolver), new ViewCompiler(config, elementSchemaRegistry), new DirectiveWrapperCompiler(config, expressionParser, elementSchemaRegistry, console), new NgModuleCompiler(), new TypeScriptEmitter(compilerHost), summaryResolver, options.locale, options.i18nFormat, new AnimationParser(elementSchemaRegistry), staticReflector, options);
 	      return { compiler: compiler, reflector: staticReflector };
 	  }
-
+	
 	  /**
 	   * @param {?} statements
 	   * @param {?} resultVar
@@ -26265,7 +26274,7 @@
 	  }
 	  var /** @type {?} */ CATCH_ERROR_VAR$2 = 'error';
 	  var /** @type {?} */ CATCH_STACK_VAR$2 = 'stack';
-
+	
 	  /**
 	   * @license
 	   * Copyright Google Inc. All Rights Reserved.
@@ -26499,7 +26508,7 @@
 	      };
 	      return AbstractJsEmitterVisitor;
 	  }(AbstractEmitterVisitor));
-
+	
 	  /**
 	   * @license
 	   * Copyright Google Inc. All Rights Reserved.
@@ -26577,7 +26586,7 @@
 	      };
 	      return JitEmitterVisitor;
 	  }(AbstractJsEmitterVisitor));
-
+	
 	  /**
 	   *  An internal module of the Angular compiler that begins with component types,
 	    * extracts templates, and eventually produces a compiled version of the component
@@ -27086,7 +27095,7 @@
 	      ModuleBoundCompiler.prototype.clearCacheFor = function (type) { this._delegate.clearCacheFor(type); };
 	      return ModuleBoundCompiler;
 	  }());
-
+	
 	  /**
 	   *  A container for message extracted from the templates.
 	   */
@@ -27131,7 +27140,7 @@
 	      MessageBundle.prototype.write = function (serializer) { return serializer.write(this._messages); };
 	      return MessageBundle;
 	  }());
-
+	
 	  var Extractor = (function () {
 	      /**
 	       * @param {?} options
@@ -27205,7 +27214,7 @@
 	      };
 	      return Extractor;
 	  }());
-
+	
 	  var /** @type {?} */ _NO_RESOURCE_LOADER = {
 	      /**
 	       * @param {?} url
@@ -27357,7 +27366,7 @@
 	      parts.forEach(function (part) { return part && result.push.apply(result, part); });
 	      return result;
 	  }
-
+	
 	  /**
 	   *  Interface that defines how import statements should be generated.
 	   * @abstract
@@ -27376,7 +27385,7 @@
 	      ImportResolver.prototype.fileNameToModuleName = function (importedFilePath, containingFilePath) { };
 	      return ImportResolver;
 	  }());
-
+	
 	  exports.VERSION = VERSION;
 	  exports.TextAst = TextAst;
 	  exports.BoundTextAst = BoundTextAst;
@@ -27496,11 +27505,14 @@
 	  exports.removeSummaryDuplicates = removeSummaryDuplicates;
 	  exports.ViewCompiler = ViewCompiler;
 	  exports.AnimationParser = AnimationParser;
-
+	
 	}));
 
 /***/ },
 /* 3 */
+/*!*********************************************!*\
+  !*** ./~/@angular/core/bundles/core.umd.js ***!
+  \*********************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {/**
@@ -27509,11 +27521,11 @@
 	 * License: MIT
 	 */
 	(function (global, factory) {
-	     true ? factory(exports, __webpack_require__(4), __webpack_require__(5)) :
+	     true ? factory(exports, __webpack_require__(/*! rxjs/Subject */ 4), __webpack_require__(/*! rxjs/Observable */ 5)) :
 	    typeof define === 'function' && define.amd ? define(['exports', 'rxjs/Subject', 'rxjs/Observable'], factory) :
 	    (factory((global.ng = global.ng || {}, global.ng.core = global.ng.core || {}),global.Rx,global.Rx));
 	}(this, function (exports,rxjs_Subject,rxjs_Observable) { 'use strict';
-
+	
 	    /**
 	     * @license
 	     * Copyright Google Inc. All Rights Reserved.
@@ -27652,7 +27664,7 @@
 	    function isPrimitive(obj) {
 	        return !isJsObject(obj);
 	    }
-
+	
 	    var /** @type {?} */ _nextClassId = 0;
 	    var /** @type {?} */ Reflect = global$1.Reflect;
 	    /**
@@ -27978,7 +27990,7 @@
 	        ((PropDecoratorFactory)).annotationCls = PropDecoratorFactory;
 	        return PropDecoratorFactory;
 	    }
-
+	
 	    /**
 	     * Inject decorator and metadata.
 	     *
@@ -28021,7 +28033,7 @@
 	     * @Annotation
 	     */
 	    var /** @type {?} */ Host = makeParamDecorator('Host', []);
-
+	
 	    /**
 	     * Creates a token that can be used in a DI Provider.
 	     *
@@ -28065,7 +28077,7 @@
 	        ]; };
 	        return OpaqueToken;
 	    }());
-
+	
 	    /**
 	     * This token can be used to create a virtual provider that will populate the
 	     * `entryComponents` fields of components and ng modules based on its `useValue`.
@@ -28223,7 +28235,7 @@
 	            read: undefined,
 	        }
 	    ], Query);
-
+	
 	    var ChangeDetectionStrategy = {};
 	    ChangeDetectionStrategy.OnPush = 0;
 	    ChangeDetectionStrategy.Default = 1;
@@ -28250,7 +28262,7 @@
 	        return isBlank(changeDetectionStrategy) ||
 	            changeDetectionStrategy === ChangeDetectionStrategy.Default;
 	    }
-
+	
 	    /**
 	     * Directive decorator and metadata.
 	     *
@@ -28330,7 +28342,7 @@
 	     * @Annotation
 	     */
 	    var /** @type {?} */ HostListener = makePropDecorator('HostListener', [['eventName', undefined], ['args', []]]);
-
+	
 	    /**
 	     * @license
 	     * Copyright Google Inc. All Rights Reserved.
@@ -28523,7 +28535,7 @@
 	        AfterViewChecked.prototype.ngAfterViewChecked = function () { };
 	        return AfterViewChecked;
 	    }());
-
+	
 	    /**
 	     * Defines a schema that will allow:
 	     * - any non-Angular elements with a `-` in their name,
@@ -28559,7 +28571,7 @@
 	        schemas: undefined,
 	        id: undefined,
 	    }));
-
+	
 	    /**
 	     * @license
 	     * Copyright Google Inc. All Rights Reserved.
@@ -28614,7 +28626,7 @@
 	        }
 	        return ViewMetadata;
 	    }());
-
+	
 	    /**
 	     *  *
 	     */
@@ -28655,7 +28667,7 @@
 	     * @stable
 	     */
 	    var /** @type {?} */ VERSION = new Version('2.3.0');
-
+	
 	    /**
 	     *  Allows to refer to references which are not yet defined.
 	      * *
@@ -28696,7 +28708,7 @@
 	            return type;
 	        }
 	    }
-
+	
 	    var __extends = (this && this.__extends) || function (d, b) {
 	        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
 	        function __() { this.constructor = d; }
@@ -28793,7 +28805,7 @@
 	        });
 	        return WrappedError;
 	    }(BaseError));
-
+	
 	    var /** @type {?} */ _THROW_IF_NOT_FOUND = new Object();
 	    var /** @type {?} */ THROW_IF_NOT_FOUND = _THROW_IF_NOT_FOUND;
 	    var _NullInjector = (function () {
@@ -28848,7 +28860,7 @@
 	        Injector.NULL = new _NullInjector();
 	        return Injector;
 	    }());
-
+	
 	    /**
 	     * @license
 	     * Copyright Google Inc. All Rights Reserved.
@@ -29169,7 +29181,7 @@
 	        }
 	        return MixingMultiProvidersWithRegularProvidersError;
 	    }(BaseError));
-
+	
 	    /**
 	     *  A unique object used for retrieving items from the {@link ReflectiveInjector}.
 	      * *
@@ -29257,7 +29269,7 @@
 	        return KeyRegistry;
 	    }());
 	    var /** @type {?} */ _globalKeyRegistry = new KeyRegistry();
-
+	
 	    /**
 	     * @license
 	     * Copyright Google Inc. All Rights Reserved.
@@ -29276,7 +29288,7 @@
 	     * @stable
 	     */
 	    var /** @type {?} */ Type = Function;
-
+	
 	    /**
 	     * Attention: This regex has to hold even if the code is minified!
 	     */
@@ -29554,7 +29566,7 @@
 	            return new (annotationCls.bind.apply(annotationCls, [void 0].concat(annotationArgs)))();
 	        });
 	    }
-
+	
 	    /**
 	     *  Provides read-only access to reflection data about symbols. Used internally by Angular
 	      * to power dependency injection and compilation.
@@ -29604,7 +29616,7 @@
 	        ReflectorReader.prototype.resolveEnum = function (identifier, name) { };
 	        return ReflectorReader;
 	    }());
-
+	
 	    /**
 	     * @license
 	     * Copyright Google Inc. All Rights Reserved.
@@ -29708,13 +29720,13 @@
 	        };
 	        return Reflector;
 	    }(ReflectorReader));
-
+	
 	    /**
 	     * The {@link Reflector} used internally in Angular to access metadata
 	     * about symbols.
 	     */
 	    var /** @type {?} */ reflector = new Reflector(new ReflectionCapabilities());
-
+	
 	    /**
 	     *  `Dependency` is used by the framework to extend DI.
 	      * This is internal to Angular and should not be used directly.
@@ -29976,7 +29988,7 @@
 	    function _createDependency(token, optional, lowerBoundVisibility, upperBoundVisibility, depProps) {
 	        return new ReflectiveDependency(ReflectiveKey.get(token), optional, lowerBoundVisibility, upperBoundVisibility, depProps);
 	    }
-
+	
 	    // Threshold for the dynamic version
 	    var /** @type {?} */ _MAX_CONSTRUCTION_COUNTER = 10;
 	    var /** @type {?} */ UNDEFINED = new Object();
@@ -30940,7 +30952,7 @@
 	        }
 	        return res;
 	    }
-
+	
 	    /**
 	     * @license
 	     * Copyright Google Inc. All Rights Reserved.
@@ -31055,7 +31067,7 @@
 	        };
 	        return ErrorHandler;
 	    }());
-
+	
 	    /**
 	     *  Wraps Javascript Objects
 	     */
@@ -31218,7 +31230,7 @@
 	            }
 	        }
 	    }
-
+	
 	    /**
 	     * @license undefined
 	      * Copyright Google Inc. All Rights Reserved.
@@ -31233,7 +31245,7 @@
 	        // It's up to the caller to ensure that obj.then conforms to the spec
 	        return !!obj && typeof obj.then === 'function';
 	    }
-
+	
 	    /**
 	     * A function that will be executed when an application is initialized.
 	     * @experimental
@@ -31289,7 +31301,7 @@
 	        ]; };
 	        return ApplicationInitStatus;
 	    }());
-
+	
 	    /**
 	     * A DI Token representing a unique string id assigned to the application by Angular and used
 	     * primarily for prefixing application attributes and CSS styles when
@@ -31341,7 +31353,7 @@
 	     * @experimental
 	     */
 	    var /** @type {?} */ PACKAGE_ROOT_URL = new OpaqueToken('Application Packages Root URL');
-
+	
 	    var Console = (function () {
 	        function Console() {
 	        }
@@ -31362,7 +31374,7 @@
 	        Console.ctorParameters = function () { return []; };
 	        return Console;
 	    }());
-
+	
 	    /**
 	     * @license
 	     * Copyright Google Inc. All Rights Reserved.
@@ -31488,7 +31500,7 @@
 	        CompilerFactory.prototype.createCompiler = function (options) { };
 	        return CompilerFactory;
 	    }());
-
+	
 	    /**
 	     * @license
 	     * Copyright Google Inc. All Rights Reserved.
@@ -31520,7 +31532,7 @@
 	        }
 	        return ElementRef;
 	    }());
-
+	
 	    var DefaultIterableDifferFactory = (function () {
 	        function DefaultIterableDifferFactory() {
 	        }
@@ -32368,7 +32380,7 @@
 	        }
 	        return previousIndex + addRemoveOffset + moveOffset;
 	    }
-
+	
 	    var DefaultKeyValueDifferFactory = (function () {
 	        function DefaultKeyValueDifferFactory() {
 	        }
@@ -32749,7 +32761,7 @@
 	        };
 	        return KeyValueChangeRecord;
 	    }());
-
+	
 	    /**
 	     *  A repository of different iterable diffing strategies used by NgFor, NgClass, and others.
 	     */
@@ -32826,7 +32838,7 @@
 	        };
 	        return IterableDiffers;
 	    }());
-
+	
 	    /**
 	     *  A repository of different Map diffing strategies used by NgClass, NgStyle, and others.
 	     */
@@ -32903,7 +32915,7 @@
 	        };
 	        return KeyValueDiffers;
 	    }());
-
+	
 	    var /** @type {?} */ UNINITIALIZED = {
 	        toString: function () { return 'CD_INIT_VALUE'; }
 	    };
@@ -32998,7 +33010,7 @@
 	        SimpleChange.prototype.isFirstChange = function () { return this.previousValue === UNINITIALIZED; };
 	        return SimpleChange;
 	    }());
-
+	
 	    /**
 	     * @abstract
 	     */
@@ -33187,7 +33199,7 @@
 	        ChangeDetectorRef.prototype.reattach = function () { };
 	        return ChangeDetectorRef;
 	    }());
-
+	
 	    /**
 	     * Structural diffing for `Object`s and `Map`s.
 	     */
@@ -33198,7 +33210,7 @@
 	    var /** @type {?} */ iterableDiff = [new DefaultIterableDifferFactory()];
 	    var /** @type {?} */ defaultIterableDiffers = new IterableDiffers(iterableDiff);
 	    var /** @type {?} */ defaultKeyValueDiffers = new KeyValueDiffers(keyValDiff);
-
+	
 	    /**
 	     * @experimental
 	     */
@@ -33457,7 +33469,7 @@
 	        RootRenderer.prototype.renderComponent = function (componentType) { };
 	        return RootRenderer;
 	    }());
-
+	
 	    var SecurityContext = {};
 	    SecurityContext.NONE = 0;
 	    SecurityContext.HTML = 1;
@@ -33488,7 +33500,7 @@
 	        Sanitizer.prototype.sanitize = function (context, value) { };
 	        return Sanitizer;
 	    }());
-
+	
 	    /**
 	     * @license
 	     * Copyright Google Inc. All Rights Reserved.
@@ -33581,7 +33593,7 @@
 	        }
 	        return ViewDestroyedError;
 	    }(BaseError));
-
+	
 	    var ViewUtils = (function () {
 	        /**
 	         * @param {?} _renderer
@@ -34451,8 +34463,8 @@
 	        return InlineArrayDynamic;
 	    }());
 	    var /** @type {?} */ EMPTY_INLINE_ARRAY = new InlineArray0();
-
-
+	
+	
 	    var view_utils = Object.freeze({
 	        ViewUtils: ViewUtils,
 	        createRenderComponentType: createRenderComponentType,
@@ -34486,7 +34498,7 @@
 	        InlineArrayDynamic: InlineArrayDynamic,
 	        EMPTY_INLINE_ARRAY: EMPTY_INLINE_ARRAY
 	    });
-
+	
 	    /**
 	     * @license
 	     * Copyright Google Inc. All Rights Reserved.
@@ -34699,7 +34711,7 @@
 	        };
 	        return ComponentFactory;
 	    }());
-
+	
 	    /**
 	     * @license
 	     * Copyright Google Inc. All Rights Reserved.
@@ -34779,7 +34791,7 @@
 	        };
 	        return CodegenComponentFactoryResolver;
 	    }());
-
+	
 	    var /** @type {?} */ trace;
 	    var /** @type {?} */ events;
 	    /**
@@ -34829,7 +34841,7 @@
 	    function endTimeRange(range) {
 	        trace.endTimeRange(range);
 	    }
-
+	
 	    /**
 	     * True if WTF is enabled.
 	     */
@@ -34904,7 +34916,7 @@
 	     * @experimental
 	     */
 	    var /** @type {?} */ wtfEndTimeRange = wtfEnabled ? endTimeRange : function (r) { return null; };
-
+	
 	    /**
 	     * @license
 	     * Copyright Google Inc. All Rights Reserved.
@@ -35018,7 +35030,7 @@
 	        };
 	        return EventEmitter;
 	    }(rxjs_Subject.Subject));
-
+	
 	    /**
 	     *  An injectable service for executing work inside or outside of the Angular zone.
 	      * *
@@ -35342,7 +35354,7 @@
 	        NgZone.prototype.triggerError = function (error) { this._onErrorEvents.emit(error); };
 	        return NgZone;
 	    }());
-
+	
 	    /**
 	     *  The Testability service provides testing hooks that can be accessed from
 	      * the browser and by services such as Protractor. Each bootstrapped Angular
@@ -35552,7 +35564,7 @@
 	        _testabilityGetter = getter;
 	    }
 	    var /** @type {?} */ _testabilityGetter = new _NoopGetTestability();
-
+	
 	    /**
 	     * @license
 	     * Copyright Google Inc. All Rights Reserved.
@@ -36203,7 +36215,7 @@
 	        ]; };
 	        return ApplicationRef_;
 	    }(ApplicationRef));
-
+	
 	    /**
 	     * @license
 	     * Copyright Google Inc. All Rights Reserved.
@@ -36390,7 +36402,7 @@
 	        NgModuleInjector.prototype.destroyInternal = function () { };
 	        return NgModuleInjector;
 	    }(CodegenComponentFactoryResolver));
-
+	
 	    /**
 	     * @license
 	     * Copyright Google Inc. All Rights Reserved.
@@ -36440,7 +36452,7 @@
 	            throw new Error("No module with ID " + id + " loaded");
 	        return factory;
 	    }
-
+	
 	    /**
 	     *  An unmodifiable list of items that Angular keeps up to date when the state
 	      * of the application changes.
@@ -36589,7 +36601,7 @@
 	        });
 	        return QueryList;
 	    }());
-
+	
 	    var /** @type {?} */ _SEPARATOR = '#';
 	    var /** @type {?} */ FACTORY_CLASS_SUFFIX = 'NgFactory';
 	    /**
@@ -36679,7 +36691,7 @@
 	        }
 	        return value;
 	    }
-
+	
 	    /**
 	     * @license
 	     * Copyright Google Inc. All Rights Reserved.
@@ -36756,7 +36768,7 @@
 	        });
 	        return TemplateRef_;
 	    }(TemplateRef));
-
+	
 	    /**
 	     *  Represents a container where one or more Views can be attached.
 	      * *
@@ -37066,7 +37078,7 @@
 	        };
 	        return ViewContainerRef_;
 	    }());
-
+	
 	    /**
 	     * @license
 	     * Copyright Google Inc. All Rights Reserved.
@@ -37103,7 +37115,7 @@
 	        }
 	        _queuedAnimations = [];
 	    }
-
+	
 	    /**
 	     * @license
 	     * Copyright Google Inc. All Rights Reserved.
@@ -37307,7 +37319,7 @@
 	        ViewRef_.prototype.destroy = function () { this._view.detachAndDestroy(); };
 	        return ViewRef_;
 	    }());
-
+	
 	    /**
 	     * @license
 	     * Copyright Google Inc. All Rights Reserved.
@@ -37578,7 +37590,7 @@
 	    function removeDebugNodeFromIndex(node) {
 	        _nativeNodeToDebugNode.delete(node.nativeNode);
 	    }
-
+	
 	    /**
 	     * @return {?}
 	     */
@@ -37599,7 +37611,7 @@
 	     * @experimental
 	     */
 	    var /** @type {?} */ platformCore = createPlatformFactory(null, 'core', _CORE_PLATFORM_PROVIDERS);
-
+	
 	    /**
 	     * @experimental i18n support is experimental.
 	     */
@@ -37612,7 +37624,7 @@
 	     * @experimental i18n support is experimental.
 	     */
 	    var /** @type {?} */ TRANSLATIONS_FORMAT = new OpaqueToken('TranslationsFormat');
-
+	
 	    /**
 	     * @return {?}
 	     */
@@ -37652,7 +37664,7 @@
 	        ApplicationModule.ctorParameters = function () { return []; };
 	        return ApplicationModule;
 	    }());
-
+	
 	    /**
 	     * @license
 	     * Copyright Google Inc. All Rights Reserved.
@@ -37664,7 +37676,7 @@
 	    var /** @type {?} */ ANY_STATE = '*';
 	    var /** @type {?} */ DEFAULT_STATE = '*';
 	    var /** @type {?} */ EMPTY_STATE = 'void';
-
+	
 	    var AnimationGroupPlayer = (function () {
 	        /**
 	         * @param {?} _players
@@ -37798,7 +37810,7 @@
 	        });
 	        return AnimationGroupPlayer;
 	    }());
-
+	
 	    /**
 	     * @license
 	     * Copyright Google Inc. All Rights Reserved.
@@ -37817,7 +37829,7 @@
 	        }
 	        return AnimationKeyframe;
 	    }());
-
+	
 	    /**
 	     * @abstract
 	     */
@@ -37977,7 +37989,7 @@
 	        NoOpAnimationPlayer.prototype.getPosition = function () { return 0; };
 	        return NoOpAnimationPlayer;
 	    }());
-
+	
 	    var AnimationSequencePlayer = (function () {
 	        /**
 	         * @param {?} _players
@@ -38121,7 +38133,7 @@
 	        });
 	        return AnimationSequencePlayer;
 	    }());
-
+	
 	    /**
 	     * @license
 	     * Copyright Google Inc. All Rights Reserved.
@@ -38833,7 +38845,7 @@
 	    function trigger(name, animation) {
 	        return new AnimationEntryMetadata(name, animation);
 	    }
-
+	
 	    /**
 	     * @param {?} previousStyles
 	     * @param {?} newStyles
@@ -38956,7 +38968,7 @@
 	        });
 	        return finalStyles;
 	    }
-
+	
 	    /**
 	     * @license undefined
 	      * Copyright Google Inc. All Rights Reserved.
@@ -38973,7 +38985,7 @@
 	        }
 	        return AnimationStyles;
 	    }());
-
+	
 	    /**
 	     *  An instance of this class is returned as an event parameter when an animation
 	      * callback is captured for an animation either during the start or done phase.
@@ -39016,7 +39028,7 @@
 	        }
 	        return AnimationTransitionEvent;
 	    }());
-
+	
 	    var AnimationTransition = (function () {
 	        /**
 	         * @param {?} _player
@@ -39060,7 +39072,7 @@
 	        };
 	        return AnimationTransition;
 	    }());
-
+	
 	    var DebugDomRootRenderer = (function () {
 	        /**
 	         * @param {?} _delegate
@@ -39303,7 +39315,7 @@
 	        };
 	        return DebugDomRenderer;
 	    }());
-
+	
 	    var ViewType = {};
 	    ViewType.HOST = 0;
 	    ViewType.COMPONENT = 1;
@@ -39311,7 +39323,7 @@
 	    ViewType[ViewType.HOST] = "HOST";
 	    ViewType[ViewType.COMPONENT] = "COMPONENT";
 	    ViewType[ViewType.EMBEDDED] = "EMBEDDED";
-
+	
 	    var StaticNodeDebugInfo = (function () {
 	        /**
 	         * @param {?} providerTokens
@@ -39457,7 +39469,7 @@
 	        });
 	        return DebugContext;
 	    }());
-
+	
 	    var ViewAnimationMap = (function () {
 	        function ViewAnimationMap() {
 	            this._map = new Map();
@@ -39524,7 +39536,7 @@
 	        };
 	        return ViewAnimationMap;
 	    }());
-
+	
 	    var AnimationViewContext = (function () {
 	        function AnimationViewContext() {
 	            this._players = new ViewAnimationMap();
@@ -39589,7 +39601,7 @@
 	            collectedPlayers.push(player);
 	        }
 	    }
-
+	
 	    /**
 	     * @license
 	     * Copyright Google Inc. All Rights Reserved.
@@ -39624,7 +39636,7 @@
 	        };
 	        return ElementInjector;
 	    }(Injector));
-
+	
 	    /**
 	     * @license
 	     * Copyright Google Inc. All Rights Reserved.
@@ -40230,7 +40242,7 @@
 	        };
 	        return DebugAppView;
 	    }(AppView));
-
+	
 	    /**
 	     *  A ViewContainer is created for elements that have a ViewContainerRef
 	      * to keep track of the nested views.
@@ -40403,7 +40415,7 @@
 	        };
 	        return ViewContainer;
 	    }());
-
+	
 	    var /** @type {?} */ __core_private__ = {
 	        isDefaultChangeDetectionStrategy: isDefaultChangeDetectionStrategy,
 	        ChangeDetectorStatus: ChangeDetectorStatus,
@@ -40455,7 +40467,7 @@
 	        isPromise: isPromise,
 	        AnimationTransition: AnimationTransition
 	    };
-
+	
 	    exports.createPlatform = createPlatform;
 	    exports.assertPlatform = assertPlatform;
 	    exports.destroyPlatform = destroyPlatform;
@@ -40590,12 +40602,15 @@
 	    exports.keyframes = keyframes;
 	    exports.transition = transition;
 	    exports.trigger = trigger;
-
+	
 	}));
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
 /* 4 */
+/*!***************************!*\
+  !*** ./~/rxjs/Subject.js ***!
+  \***************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -40604,12 +40619,12 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var Observable_1 = __webpack_require__(5);
-	var Subscriber_1 = __webpack_require__(8);
-	var Subscription_1 = __webpack_require__(10);
-	var ObjectUnsubscribedError_1 = __webpack_require__(19);
-	var SubjectSubscription_1 = __webpack_require__(20);
-	var rxSubscriber_1 = __webpack_require__(17);
+	var Observable_1 = __webpack_require__(/*! ./Observable */ 5);
+	var Subscriber_1 = __webpack_require__(/*! ./Subscriber */ 8);
+	var Subscription_1 = __webpack_require__(/*! ./Subscription */ 10);
+	var ObjectUnsubscribedError_1 = __webpack_require__(/*! ./util/ObjectUnsubscribedError */ 19);
+	var SubjectSubscription_1 = __webpack_require__(/*! ./SubjectSubscription */ 20);
+	var rxSubscriber_1 = __webpack_require__(/*! ./symbol/rxSubscriber */ 17);
 	/**
 	 * @class SubjectSubscriber<T>
 	 */
@@ -40761,12 +40776,15 @@
 
 /***/ },
 /* 5 */
+/*!******************************!*\
+  !*** ./~/rxjs/Observable.js ***!
+  \******************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var root_1 = __webpack_require__(6);
-	var toSubscriber_1 = __webpack_require__(7);
-	var observable_1 = __webpack_require__(18);
+	var root_1 = __webpack_require__(/*! ./util/root */ 6);
+	var toSubscriber_1 = __webpack_require__(/*! ./util/toSubscriber */ 7);
+	var observable_1 = __webpack_require__(/*! ./symbol/observable */ 18);
 	/**
 	 * A representation of any set of values over any amount of time. This the most basic building block
 	 * of RxJS.
@@ -40804,7 +40822,7 @@
 	        var operator = this.operator;
 	        var sink = toSubscriber_1.toSubscriber(observerOrNext, error, complete);
 	        if (operator) {
-	            operator.call(sink, this);
+	            operator.call(sink, this.source);
 	        }
 	        else {
 	            sink.add(this._subscribe(sink));
@@ -40895,6 +40913,9 @@
 
 /***/ },
 /* 6 */
+/*!*****************************!*\
+  !*** ./~/rxjs/util/root.js ***!
+  \*****************************/
 /***/ function(module, exports) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {"use strict";
@@ -40914,12 +40935,15 @@
 
 /***/ },
 /* 7 */
+/*!*************************************!*\
+  !*** ./~/rxjs/util/toSubscriber.js ***!
+  \*************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var Subscriber_1 = __webpack_require__(8);
-	var rxSubscriber_1 = __webpack_require__(17);
-	var Observer_1 = __webpack_require__(16);
+	var Subscriber_1 = __webpack_require__(/*! ../Subscriber */ 8);
+	var rxSubscriber_1 = __webpack_require__(/*! ../symbol/rxSubscriber */ 17);
+	var Observer_1 = __webpack_require__(/*! ../Observer */ 16);
 	function toSubscriber(nextOrObserver, error, complete) {
 	    if (nextOrObserver) {
 	        if (nextOrObserver instanceof Subscriber_1.Subscriber) {
@@ -40939,6 +40963,9 @@
 
 /***/ },
 /* 8 */
+/*!******************************!*\
+  !*** ./~/rxjs/Subscriber.js ***!
+  \******************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -40947,10 +40974,10 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var isFunction_1 = __webpack_require__(9);
-	var Subscription_1 = __webpack_require__(10);
-	var Observer_1 = __webpack_require__(16);
-	var rxSubscriber_1 = __webpack_require__(17);
+	var isFunction_1 = __webpack_require__(/*! ./util/isFunction */ 9);
+	var Subscription_1 = __webpack_require__(/*! ./Subscription */ 10);
+	var Observer_1 = __webpack_require__(/*! ./Observer */ 16);
+	var rxSubscriber_1 = __webpack_require__(/*! ./symbol/rxSubscriber */ 17);
 	/**
 	 * Implements the {@link Observer} interface and extends the
 	 * {@link Subscription} class. While the {@link Observer} is the public API for
@@ -41193,6 +41220,9 @@
 
 /***/ },
 /* 9 */
+/*!***********************************!*\
+  !*** ./~/rxjs/util/isFunction.js ***!
+  \***********************************/
 /***/ function(module, exports) {
 
 	"use strict";
@@ -41204,15 +41234,18 @@
 
 /***/ },
 /* 10 */
+/*!********************************!*\
+  !*** ./~/rxjs/Subscription.js ***!
+  \********************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var isArray_1 = __webpack_require__(11);
-	var isObject_1 = __webpack_require__(12);
-	var isFunction_1 = __webpack_require__(9);
-	var tryCatch_1 = __webpack_require__(13);
-	var errorObject_1 = __webpack_require__(14);
-	var UnsubscriptionError_1 = __webpack_require__(15);
+	var isArray_1 = __webpack_require__(/*! ./util/isArray */ 11);
+	var isObject_1 = __webpack_require__(/*! ./util/isObject */ 12);
+	var isFunction_1 = __webpack_require__(/*! ./util/isFunction */ 9);
+	var tryCatch_1 = __webpack_require__(/*! ./util/tryCatch */ 13);
+	var errorObject_1 = __webpack_require__(/*! ./util/errorObject */ 14);
+	var UnsubscriptionError_1 = __webpack_require__(/*! ./util/UnsubscriptionError */ 15);
 	/**
 	 * Represents a disposable resource, such as the execution of an Observable. A
 	 * Subscription has one important method, `unsubscribe`, that takes no argument
@@ -41362,6 +41395,9 @@
 
 /***/ },
 /* 11 */
+/*!********************************!*\
+  !*** ./~/rxjs/util/isArray.js ***!
+  \********************************/
 /***/ function(module, exports) {
 
 	"use strict";
@@ -41370,6 +41406,9 @@
 
 /***/ },
 /* 12 */
+/*!*********************************!*\
+  !*** ./~/rxjs/util/isObject.js ***!
+  \*********************************/
 /***/ function(module, exports) {
 
 	"use strict";
@@ -41381,10 +41420,13 @@
 
 /***/ },
 /* 13 */
+/*!*********************************!*\
+  !*** ./~/rxjs/util/tryCatch.js ***!
+  \*********************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var errorObject_1 = __webpack_require__(14);
+	var errorObject_1 = __webpack_require__(/*! ./errorObject */ 14);
 	var tryCatchTarget;
 	function tryCatcher() {
 	    try {
@@ -41405,6 +41447,9 @@
 
 /***/ },
 /* 14 */
+/*!************************************!*\
+  !*** ./~/rxjs/util/errorObject.js ***!
+  \************************************/
 /***/ function(module, exports) {
 
 	"use strict";
@@ -41414,6 +41459,9 @@
 
 /***/ },
 /* 15 */
+/*!********************************************!*\
+  !*** ./~/rxjs/util/UnsubscriptionError.js ***!
+  \********************************************/
 /***/ function(module, exports) {
 
 	"use strict";
@@ -41444,6 +41492,9 @@
 
 /***/ },
 /* 16 */
+/*!****************************!*\
+  !*** ./~/rxjs/Observer.js ***!
+  \****************************/
 /***/ function(module, exports) {
 
 	"use strict";
@@ -41457,10 +41508,13 @@
 
 /***/ },
 /* 17 */
+/*!***************************************!*\
+  !*** ./~/rxjs/symbol/rxSubscriber.js ***!
+  \***************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var root_1 = __webpack_require__(6);
+	var root_1 = __webpack_require__(/*! ../util/root */ 6);
 	var Symbol = root_1.root.Symbol;
 	exports.$$rxSubscriber = (typeof Symbol === 'function' && typeof Symbol.for === 'function') ?
 	    Symbol.for('rxSubscriber') : '@@rxSubscriber';
@@ -41468,10 +41522,13 @@
 
 /***/ },
 /* 18 */
+/*!*************************************!*\
+  !*** ./~/rxjs/symbol/observable.js ***!
+  \*************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var root_1 = __webpack_require__(6);
+	var root_1 = __webpack_require__(/*! ../util/root */ 6);
 	function getSymbolObservable(context) {
 	    var $$observable;
 	    var Symbol = context.Symbol;
@@ -41495,6 +41552,9 @@
 
 /***/ },
 /* 19 */
+/*!************************************************!*\
+  !*** ./~/rxjs/util/ObjectUnsubscribedError.js ***!
+  \************************************************/
 /***/ function(module, exports) {
 
 	"use strict";
@@ -41527,6 +41587,9 @@
 
 /***/ },
 /* 20 */
+/*!***************************************!*\
+  !*** ./~/rxjs/SubjectSubscription.js ***!
+  \***************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -41535,7 +41598,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var Subscription_1 = __webpack_require__(10);
+	var Subscription_1 = __webpack_require__(/*! ./Subscription */ 10);
 	/**
 	 * We need this JSDoc comment for affecting ESDoc.
 	 * @ignore
@@ -41572,6 +41635,9 @@
 
 /***/ },
 /* 21 */
+/*!*********************************************************************!*\
+  !*** ./~/@angular/platform-browser/bundles/platform-browser.umd.js ***!
+  \*********************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {/**
@@ -41580,14 +41646,14 @@
 	 * License: MIT
 	 */
 	(function (global, factory) {
-	   true ? factory(exports, __webpack_require__(22), __webpack_require__(3)) :
+	   true ? factory(exports, __webpack_require__(/*! @angular/common */ 22), __webpack_require__(/*! @angular/core */ 3)) :
 	  typeof define === 'function' && define.amd ? define(['exports', '@angular/common', '@angular/core'], factory) :
 	  (factory((global.ng = global.ng || {}, global.ng.platformBrowser = global.ng.platformBrowser || {}),global.ng.common,global.ng.core));
 	}(this, function (exports,_angular_common,core) { 'use strict';
-
+	
 	  var /** @type {?} */ DebugDomRootRenderer = core.__core_private__.DebugDomRootRenderer;
 	  var /** @type {?} */ NoOpAnimationPlayer = core.__core_private__.NoOpAnimationPlayer;
-
+	
 	  var _NoOpAnimationDriver = (function () {
 	      function _NoOpAnimationDriver() {
 	      }
@@ -41628,7 +41694,7 @@
 	      AnimationDriver.NOOP = new _NoOpAnimationDriver();
 	      return AnimationDriver;
 	  }());
-
+	
 	  /**
 	   * @license
 	   * Copyright Google Inc. All Rights Reserved.
@@ -41716,7 +41782,7 @@
 	      }
 	      obj[parts.shift()] = value;
 	  }
-
+	
 	  /**
 	   * @license
 	   * Copyright Google Inc. All Rights Reserved.
@@ -42513,7 +42579,7 @@
 	      DomAdapter.prototype.setCookie = function (name, value) { };
 	      return DomAdapter;
 	  }());
-
+	
 	  var WebAnimationsPlayer = (function () {
 	      /**
 	       * @param {?} element
@@ -42748,7 +42814,7 @@
 	      }
 	      return startingKeyframe;
 	  }
-
+	
 	  var WebAnimationsDriver = (function () {
 	      function WebAnimationsDriver() {
 	      }
@@ -42824,7 +42890,7 @@
 	  function filterWebAnimationPlayerFn(player) {
 	      return player instanceof WebAnimationsPlayer;
 	  }
-
+	
 	  /**
 	   * @license
 	   * Copyright Google Inc. All Rights Reserved.
@@ -42921,7 +42987,7 @@
 	      };
 	      return GenericBrowserDomAdapter;
 	  }(DomAdapter));
-
+	
 	  /**
 	   * @license
 	   * Copyright Google Inc. All Rights Reserved.
@@ -43838,7 +43904,7 @@
 	      }
 	      return null;
 	  }
-
+	
 	  /**
 	   * @license undefined
 	    * Copyright Google Inc. All Rights Reserved.
@@ -43850,7 +43916,7 @@
 	  function supportsState() {
 	      return !!window.history.pushState;
 	  }
-
+	
 	  /**
 	   * @license
 	   * Copyright Google Inc. All Rights Reserved.
@@ -43979,7 +44045,7 @@
 	      BrowserPlatformLocation.ctorParameters = function () { return []; };
 	      return BrowserPlatformLocation;
 	  }(_angular_common.PlatformLocation));
-
+	
 	  var BrowserGetTestability = (function () {
 	      function BrowserGetTestability() {
 	      }
@@ -44046,7 +44112,7 @@
 	      };
 	      return BrowserGetTestability;
 	  }());
-
+	
 	  /**
 	   *  A service that can be used to get and set the title of a current HTML document.
 	    * *
@@ -44072,7 +44138,7 @@
 	      Title.prototype.setTitle = function (newTitle) { getDOM().setTitle(newTitle); };
 	      return Title;
 	  }());
-
+	
 	  /**
 	   *  Wraps Javascript Objects
 	   */
@@ -44117,7 +44183,7 @@
 	      };
 	      return StringMapWrapper;
 	  }());
-
+	
 	  /**
 	   * A DI Token representing the main rendering context. In a browser this is the DOM Document.
 	   *
@@ -44127,7 +44193,7 @@
 	   * @stable
 	   */
 	  var /** @type {?} */ DOCUMENT = new core.OpaqueToken('DocumentToken');
-
+	
 	  /**
 	   * @stable
 	   */
@@ -44236,7 +44302,7 @@
 	      ;
 	      return EventManagerPlugin;
 	  }());
-
+	
 	  /**
 	   * @license
 	   * Copyright Google Inc. All Rights Reserved.
@@ -44340,7 +44406,7 @@
 	      ]; };
 	      return DomSharedStylesHost;
 	  }(SharedStylesHost));
-
+	
 	  /**
 	   * @license
 	   * Copyright Google Inc. All Rights Reserved.
@@ -44842,7 +44908,7 @@
 	      var /** @type {?} */ match = name.match(NS_PREFIX_RE);
 	      return [match[1], match[2]];
 	  }
-
+	
 	  var /** @type {?} */ CORE_TOKENS = {
 	      'ApplicationRef': core.ApplicationRef,
 	      'NgZone': core.NgZone,
@@ -44913,7 +44979,7 @@
 	              [core.NgProbeToken, new core.Optional()]
 	          ]
 	      }];
-
+	
 	  /**
 	   * @license
 	   * Copyright Google Inc. All Rights Reserved.
@@ -44953,7 +45019,7 @@
 	      DomEventsPlugin.ctorParameters = function () { return []; };
 	      return DomEventsPlugin;
 	  }(EventManagerPlugin));
-
+	
 	  /**
 	   * @license
 	   * Copyright Google Inc. All Rights Reserved.
@@ -45094,7 +45160,7 @@
 	      ]; };
 	      return HammerGesturesPlugin;
 	  }(EventManagerPlugin));
-
+	
 	  /**
 	   * @license
 	   * Copyright Google Inc. All Rights Reserved.
@@ -45227,7 +45293,7 @@
 	      KeyEventsPlugin.ctorParameters = function () { return []; };
 	      return KeyEventsPlugin;
 	  }(EventManagerPlugin));
-
+	
 	  /**
 	   * A pattern that recognizes a commonly useful subset of URLs that are safe.
 	   *
@@ -45278,7 +45344,7 @@
 	      srcset = String(srcset);
 	      return srcset.split(',').map(function (srcset) { return sanitizeUrl(srcset.trim()); }).join(', ');
 	  }
-
+	
 	  /** A <body> element that can be safely used to parse untrusted HTML. Lazily initialized below. */
 	  var /** @type {?} */ inertElement = null;
 	  /** Lazily initialized to make sure the DOM adapter gets set before use. */
@@ -45562,7 +45628,7 @@
 	          throw e;
 	      }
 	  }
-
+	
 	  /**
 	   * Regular expression for safe style values.
 	   *
@@ -45647,7 +45713,7 @@
 	      }
 	      return 'unsafe';
 	  }
-
+	
 	  /**
 	   * @license
 	   * Copyright Google Inc. All Rights Reserved.
@@ -45935,7 +46001,7 @@
 	      SafeResourceUrlImpl.prototype.getTypeName = function () { return 'ResourceURL'; };
 	      return SafeResourceUrlImpl;
 	  }(SafeValueImpl));
-
+	
 	  var /** @type {?} */ INTERNAL_BROWSER_PLATFORM_PROVIDERS = [
 	      { provide: core.PLATFORM_INITIALIZER, useValue: initDomAdapter, multi: true },
 	      { provide: _angular_common.PlatformLocation, useClass: BrowserPlatformLocation }
@@ -46019,7 +46085,7 @@
 	      ]; };
 	      return BrowserModule;
 	  }());
-
+	
 	  /**
 	   * @license
 	   * Copyright Google Inc. All Rights Reserved.
@@ -46031,7 +46097,7 @@
 	   * JS version of browser APIs. This library can only run in the browser.
 	   */
 	  var /** @type {?} */ win = typeof window !== 'undefined' && window || ({});
-
+	
 	  var ChangeDetectionPerfRecord = (function () {
 	      /**
 	       * @param {?} msPerTick
@@ -46114,7 +46180,7 @@
 	      };
 	      return AngularProfiler;
 	  }());
-
+	
 	  var /** @type {?} */ context = (global$1);
 	  /**
 	   *  Enabled Angular 2 debug tools that are accessible via your browser's
@@ -46144,7 +46210,7 @@
 	          delete context.ng.profiler;
 	      }
 	  }
-
+	
 	  /**
 	   *  Predicates for use with {@link DebugElement}'s query functions.
 	    * *
@@ -46191,7 +46257,7 @@
 	      };
 	      return By;
 	  }());
-
+	
 	  var /** @type {?} */ __platform_browser_private__ = {
 	      BrowserPlatformLocation: BrowserPlatformLocation,
 	      DomAdapter: DomAdapter,
@@ -46218,12 +46284,12 @@
 	      BROWSER_SANITIZATION_PROVIDERS: BROWSER_SANITIZATION_PROVIDERS,
 	      WebAnimationsDriver: WebAnimationsDriver
 	  };
-
+	
 	  /**
 	   * @stable
 	   */
 	  var /** @type {?} */ VERSION = new core.Version('2.3.0');
-
+	
 	  exports.BrowserModule = BrowserModule;
 	  exports.platformBrowser = platformBrowser;
 	  exports.Title = Title;
@@ -46240,12 +46306,15 @@
 	  exports.DomSanitizer = DomSanitizer;
 	  exports.VERSION = VERSION;
 	  exports.__platform_browser_private__ = __platform_browser_private__;
-
+	
 	}));
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
 /* 22 */
+/*!*************************************************!*\
+  !*** ./~/@angular/common/bundles/common.umd.js ***!
+  \*************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {/**
@@ -46254,11 +46323,11 @@
 	 * License: MIT
 	 */
 	(function (global, factory) {
-	     true ? factory(exports, __webpack_require__(3)) :
+	     true ? factory(exports, __webpack_require__(/*! @angular/core */ 3)) :
 	    typeof define === 'function' && define.amd ? define(['exports', '@angular/core'], factory) :
 	    (factory((global.ng = global.ng || {}, global.ng.common = global.ng.common || {}),global.ng.core));
 	}(this, function (exports,_angular_core) { 'use strict';
-
+	
 	    /**
 	     *  This class should not be used directly by an application developer. Instead, use
 	      * {@link Location}.
@@ -46357,7 +46426,7 @@
 	        PlatformLocation.prototype.back = function () { };
 	        return PlatformLocation;
 	    }());
-
+	
 	    /**
 	     *  `LocationStrategy` is responsible for representing and reading route state
 	      * from the browser's URL. Angular provides two strategies:
@@ -46455,7 +46524,7 @@
 	     * @stable
 	     */
 	    var /** @type {?} */ APP_BASE_HREF = new _angular_core.OpaqueToken('appBaseHref');
-
+	
 	    /**
 	     * @license
 	     * Copyright Google Inc. All Rights Reserved.
@@ -46585,7 +46654,7 @@
 	        }
 	        return _symbolIterator;
 	    }
-
+	
 	    /**
 	     *  `Location` is a service that applications can use to interact with a browser's URL.
 	      * Depending on which {@link LocationStrategy} is used, `Location` will either persist
@@ -46787,7 +46856,7 @@
 	    function _stripIndexHtml(url) {
 	        return url.replace(/\/index.html$/, '');
 	    }
-
+	
 	    /**
 	     * @license
 	     * Copyright Google Inc. All Rights Reserved.
@@ -46917,7 +46986,7 @@
 	        ]; };
 	        return HashLocationStrategy;
 	    }(LocationStrategy));
-
+	
 	    /**
 	     * @license
 	     * Copyright Google Inc. All Rights Reserved.
@@ -47039,7 +47108,7 @@
 	        ]; };
 	        return PathLocationStrategy;
 	    }(LocationStrategy));
-
+	
 	    /**
 	     * @license
 	     * Copyright Google Inc. All Rights Reserved.
@@ -47553,7 +47622,7 @@
 	                return Plural.Other;
 	        }
 	    }
-
+	
 	    /**
 	     * @param {?} obj
 	     * @return {?}
@@ -47565,7 +47634,7 @@
 	            (!(obj instanceof Map) &&
 	                getSymbolIterator() in obj); // JS Iterable have a Symbol.iterator prop
 	    }
-
+	
 	    /**
 	     *  *
 	      * *
@@ -47747,7 +47816,7 @@
 	        };
 	        return NgClass;
 	    }());
-
+	
 	    var NgForRow = (function () {
 	        /**
 	         * @param {?} $implicit
@@ -47983,7 +48052,7 @@
 	        }
 	        return RecordViewTuple;
 	    }());
-
+	
 	    /**
 	     *  Removes or recreates a portion of the DOM tree based on an {expression}.
 	      * *
@@ -48048,7 +48117,7 @@
 	        };
 	        return NgIf;
 	    }());
-
+	
 	    var SwitchView = (function () {
 	        /**
 	         * @param {?} _viewContainerRef
@@ -48282,7 +48351,7 @@
 	        ]; };
 	        return NgSwitchDefault;
 	    }());
-
+	
 	    /**
 	     *  *
 	      * *
@@ -48411,7 +48480,7 @@
 	        ]; };
 	        return NgPluralCase;
 	    }());
-
+	
 	    /**
 	     *  *
 	      * *
@@ -48499,7 +48568,7 @@
 	        };
 	        return NgStyle;
 	    }());
-
+	
 	    /**
 	     *  *
 	      * *
@@ -48567,7 +48636,7 @@
 	        };
 	        return NgTemplateOutlet;
 	    }());
-
+	
 	    /**
 	     * A collection of Angular directives that are likely to be used in each and every Angular
 	     * application.
@@ -48584,9 +48653,9 @@
 	        NgPlural,
 	        NgPluralCase,
 	    ];
-
+	
 	    var /** @type {?} */ isPromise = _angular_core.__core_private__.isPromise;
-
+	
 	    var __extends$4 = (this && this.__extends) || function (d, b) {
 	        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
 	        function __() { this.constructor = d; }
@@ -48672,7 +48741,7 @@
 	        });
 	        return WrappedError;
 	    }(BaseError));
-
+	
 	    /**
 	     * @license
 	     * Copyright Google Inc. All Rights Reserved.
@@ -48696,7 +48765,7 @@
 	        }
 	        return InvalidPipeArgumentError;
 	    }(BaseError));
-
+	
 	    var ObservableStrategy = (function () {
 	        function ObservableStrategy() {
 	        }
@@ -48860,7 +48929,7 @@
 	        ]; };
 	        return AsyncPipe;
 	    }());
-
+	
 	    var NumberFormatStyle = {};
 	    NumberFormatStyle.Decimal = 0;
 	    NumberFormatStyle.Percent = 1;
@@ -49113,7 +49182,7 @@
 	        };
 	        return DateFormatter;
 	    }());
-
+	
 	    /**
 	     *  *
 	      * Where:
@@ -49252,7 +49321,7 @@
 	    function isBlank$1(obj) {
 	        return obj == null || obj === '';
 	    }
-
+	
 	    var /** @type {?} */ _INTERPOLATION_REGEXP = /#/g;
 	    /**
 	     *  *
@@ -49296,7 +49365,7 @@
 	        ]; };
 	        return I18nPluralPipe;
 	    }());
-
+	
 	    /**
 	     *  *
 	      * Where `mapping` is an object that indicates the text that should be displayed
@@ -49339,7 +49408,7 @@
 	        I18nSelectPipe.ctorParameters = function () { return []; };
 	        return I18nSelectPipe;
 	    }());
-
+	
 	    /**
 	     *  *
 	      * Converts value into string using `JSON.stringify`. Useful for debugging.
@@ -49363,7 +49432,7 @@
 	        JsonPipe.ctorParameters = function () { return []; };
 	        return JsonPipe;
 	    }());
-
+	
 	    /**
 	     *  *
 	      * Converts value into a lowercase string using `String.prototype.toLowerCase()`.
@@ -49395,7 +49464,7 @@
 	        LowerCasePipe.ctorParameters = function () { return []; };
 	        return LowerCasePipe;
 	    }());
-
+	
 	    var /** @type {?} */ _NUMBER_FORMAT_REGEXP = /^(\d+)?\.((\d+)(-(\d+))?)?$/;
 	    /**
 	     * @param {?} pipe
@@ -49585,7 +49654,7 @@
 	        ]; };
 	        return CurrencyPipe;
 	    }());
-
+	
 	    /**
 	     *  *
 	      * Where the input expression is a `List` or `String`, and:
@@ -49654,7 +49723,7 @@
 	        SlicePipe.ctorParameters = function () { return []; };
 	        return SlicePipe;
 	    }());
-
+	
 	    /**
 	     *  *
 	      * Converts value into an uppercase string using `String.prototype.toUpperCase()`.
@@ -49686,7 +49755,7 @@
 	        UpperCasePipe.ctorParameters = function () { return []; };
 	        return UpperCasePipe;
 	    }());
-
+	
 	    /**
 	     * A collection of Angular pipes that are likely to be used in each and every application.
 	     */
@@ -49703,7 +49772,7 @@
 	        I18nPluralPipe,
 	        I18nSelectPipe,
 	    ];
-
+	
 	    /**
 	     *  The module that includes all the basic Angular directives like {@link NgIf}, {@link NgFor}, ...
 	      * *
@@ -49724,12 +49793,12 @@
 	        CommonModule.ctorParameters = function () { return []; };
 	        return CommonModule;
 	    }());
-
+	
 	    /**
 	     * @stable
 	     */
 	    var /** @type {?} */ VERSION = new _angular_core.Version('2.3.0');
-
+	
 	    exports.NgLocalization = NgLocalization;
 	    exports.CommonModule = CommonModule;
 	    exports.NgClass = NgClass;
@@ -49761,12 +49830,15 @@
 	    exports.HashLocationStrategy = HashLocationStrategy;
 	    exports.PathLocationStrategy = PathLocationStrategy;
 	    exports.Location = Location;
-
+	
 	}));
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
 /* 23 */
+/*!*******************************!*\
+  !*** ./src/app/app.module.ts ***!
+  \*******************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -49779,17 +49851,17 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var platform_browser_1 = __webpack_require__(21);
-	var forms_1 = __webpack_require__(24);
-	var core_1 = __webpack_require__(3);
-	var http_1 = __webpack_require__(28);
-	var app_routes_1 = __webpack_require__(29);
-	var login_component_1 = __webpack_require__(61);
-	var signup_component_1 = __webpack_require__(67);
-	var app_component_1 = __webpack_require__(73);
-	var angular2_jwt_1 = __webpack_require__(76);
-	var home_module_1 = __webpack_require__(79);
-	var angular2_mdl_1 = __webpack_require__(210);
+	var platform_browser_1 = __webpack_require__(/*! @angular/platform-browser */ 21);
+	var forms_1 = __webpack_require__(/*! @angular/forms */ 24);
+	var core_1 = __webpack_require__(/*! @angular/core */ 3);
+	var http_1 = __webpack_require__(/*! @angular/http */ 28);
+	var app_routes_1 = __webpack_require__(/*! ./app.routes */ 29);
+	var login_component_1 = __webpack_require__(/*! ./login/login.component */ 61);
+	var signup_component_1 = __webpack_require__(/*! ./signup/signup.component */ 67);
+	var app_component_1 = __webpack_require__(/*! ./app.component */ 73);
+	var angular2_jwt_1 = __webpack_require__(/*! angular2-jwt */ 76);
+	var home_module_1 = __webpack_require__(/*! ./home/home.module */ 79);
+	var angular2_mdl_1 = __webpack_require__(/*! angular2-mdl */ 210);
 	/*https://angular.io/docs/ts/latest/cookbook/dependency-injection.html#!#usefactory*/
 	var AppModule = (function () {
 	    function AppModule(appRef) {
@@ -49836,10 +49908,13 @@
 	    __metadata("design:paramtypes", [core_1.ApplicationRef])
 	], AppModule);
 	exports.AppModule = AppModule;
-	
+
 
 /***/ },
 /* 24 */
+/*!***********************************************!*\
+  !*** ./~/@angular/forms/bundles/forms.umd.js ***!
+  \***********************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -49848,11 +49923,11 @@
 	 * License: MIT
 	 */
 	(function (global, factory) {
-	     true ? factory(exports, __webpack_require__(3), __webpack_require__(25), __webpack_require__(4), __webpack_require__(5), __webpack_require__(26)) :
+	     true ? factory(exports, __webpack_require__(/*! @angular/core */ 3), __webpack_require__(/*! rxjs/operator/toPromise */ 25), __webpack_require__(/*! rxjs/Subject */ 4), __webpack_require__(/*! rxjs/Observable */ 5), __webpack_require__(/*! rxjs/observable/fromPromise */ 26)) :
 	    typeof define === 'function' && define.amd ? define(['exports', '@angular/core', 'rxjs/operator/toPromise', 'rxjs/Subject', 'rxjs/Observable', 'rxjs/observable/fromPromise'], factory) :
 	    (factory((global.ng = global.ng || {}, global.ng.forms = global.ng.forms || {}),global.ng.core,global.Rx.Observable.prototype,global.Rx,global.Rx,global.Rx.Observable));
 	}(this, function (exports,_angular_core,rxjs_operator_toPromise,rxjs_Subject,rxjs_Observable,rxjs_observable_fromPromise) { 'use strict';
-
+	
 	    /**
 	     * @license
 	     * Copyright Google Inc. All Rights Reserved.
@@ -50019,7 +50094,7 @@
 	        };
 	        return AbstractControlDirective;
 	    }());
-
+	
 	    /**
 	     * @license
 	     * Copyright Google Inc. All Rights Reserved.
@@ -50063,7 +50138,7 @@
 	        });
 	        return ControlContainer;
 	    }(AbstractControlDirective));
-
+	
 	    /**
 	     * @param {?} obj
 	     * @return {?}
@@ -50100,7 +50175,7 @@
 	    function isPrimitive(obj) {
 	        return !isJsObject(obj);
 	    }
-
+	
 	    /**
 	     *  Wraps Javascript Objects
 	     */
@@ -50213,9 +50288,9 @@
 	        };
 	        return ListWrapper;
 	    }());
-
+	
 	    var /** @type {?} */ isPromise = _angular_core.__core_private__.isPromise;
-
+	
 	    /**
 	     * @param {?} value
 	     * @return {?}
@@ -50397,7 +50472,7 @@
 	        }, {});
 	        return Object.keys(res).length === 0 ? null : res;
 	    }
-
+	
 	    /**
 	     * Used to provide a {@link ControlValueAccessor} for form controls.
 	     *
@@ -50405,7 +50480,7 @@
 	     * @stable
 	     */
 	    var /** @type {?} */ NG_VALUE_ACCESSOR = new _angular_core.OpaqueToken('NgValueAccessor');
-
+	
 	    var /** @type {?} */ CHECKBOX_VALUE_ACCESSOR = {
 	        provide: NG_VALUE_ACCESSOR,
 	        useExisting: _angular_core.forwardRef(function () { return CheckboxControlValueAccessor; }),
@@ -50470,7 +50545,7 @@
 	        ]; };
 	        return CheckboxControlValueAccessor;
 	    }());
-
+	
 	    var /** @type {?} */ DEFAULT_VALUE_ACCESSOR = {
 	        provide: NG_VALUE_ACCESSOR,
 	        useExisting: _angular_core.forwardRef(function () { return DefaultValueAccessor; }),
@@ -50540,7 +50615,7 @@
 	        ]; };
 	        return DefaultValueAccessor;
 	    }());
-
+	
 	    /**
 	     * @license
 	     * Copyright Google Inc. All Rights Reserved.
@@ -50572,7 +50647,7 @@
 	            return (validator);
 	        }
 	    }
-
+	
 	    var /** @type {?} */ NUMBER_VALUE_ACCESSOR = {
 	        provide: NG_VALUE_ACCESSOR,
 	        useExisting: _angular_core.forwardRef(function () { return NumberValueAccessor; }),
@@ -50644,7 +50719,7 @@
 	        ]; };
 	        return NumberValueAccessor;
 	    }());
-
+	
 	    /**
 	     * @license
 	     * Copyright Google Inc. All Rights Reserved.
@@ -50708,7 +50783,7 @@
 	        NgControl.prototype.viewToModelUpdate = function (newValue) { };
 	        return NgControl;
 	    }(AbstractControlDirective));
-
+	
 	    var /** @type {?} */ RADIO_VALUE_ACCESSOR = {
 	        provide: NG_VALUE_ACCESSOR,
 	        useExisting: _angular_core.forwardRef(function () { return RadioControlValueAccessor; }),
@@ -50899,7 +50974,7 @@
 	        };
 	        return RadioControlValueAccessor;
 	    }());
-
+	
 	    var /** @type {?} */ RANGE_VALUE_ACCESSOR = {
 	        provide: NG_VALUE_ACCESSOR,
 	        useExisting: _angular_core.forwardRef(function () { return RangeValueAccessor; }),
@@ -50969,7 +51044,7 @@
 	        ]; };
 	        return RangeValueAccessor;
 	    }());
-
+	
 	    var /** @type {?} */ SELECT_VALUE_ACCESSOR = {
 	        provide: NG_VALUE_ACCESSOR,
 	        useExisting: _angular_core.forwardRef(function () { return SelectControlValueAccessor; }),
@@ -51192,7 +51267,7 @@
 	        };
 	        return NgSelectOption;
 	    }());
-
+	
 	    var /** @type {?} */ SELECT_MULTIPLE_VALUE_ACCESSOR = {
 	        provide: NG_VALUE_ACCESSOR,
 	        useExisting: _angular_core.forwardRef(function () { return SelectMultipleControlValueAccessor; }),
@@ -51432,7 +51507,7 @@
 	        };
 	        return NgSelectMultipleOption;
 	    }());
-
+	
 	    /**
 	     * @param {?} name
 	     * @param {?} parent
@@ -51617,7 +51692,7 @@
 	        _throwError(dir, 'No valid value accessor for form control with');
 	        return null;
 	    }
-
+	
 	    /**
 	     * @license
 	     * Copyright Google Inc. All Rights Reserved.
@@ -51703,7 +51778,7 @@
 	        AbstractFormGroupDirective.prototype._checkParentType = function () { };
 	        return AbstractFormGroupDirective;
 	    }(ControlContainer));
-
+	
 	    /**
 	     * @license
 	     * Copyright Google Inc. All Rights Reserved.
@@ -51837,7 +51912,7 @@
 	        ]; };
 	        return NgControlStatusGroup;
 	    }(AbstractControlStatus));
-
+	
 	    /**
 	     * @license
 	     * Copyright Google Inc. All Rights Reserved.
@@ -51951,7 +52026,7 @@
 	        };
 	        return EventEmitter;
 	    }(rxjs_Subject.Subject));
-
+	
 	    /**
 	     * @license
 	     * Copyright Google Inc. All Rights Reserved.
@@ -53538,7 +53613,7 @@
 	        };
 	        return FormArray;
 	    }(AbstractControl));
-
+	
 	    /**
 	     * @license
 	     * Copyright Google Inc. All Rights Reserved.
@@ -53764,7 +53839,7 @@
 	        ]; };
 	        return NgForm;
 	    }(ControlContainer));
-
+	
 	    /**
 	     * @license
 	     * Copyright Google Inc. All Rights Reserved.
@@ -53779,7 +53854,7 @@
 	        ngModelGroup: "\n    <form>\n       <div ngModelGroup=\"person\">\n          <input [(ngModel)]=\"person.name\" name=\"firstName\">\n       </div>\n    </form>",
 	        ngModelWithFormGroup: "\n    <div [formGroup]=\"myGroup\">\n       <input formControlName=\"firstName\">\n       <input [(ngModel)]=\"showMoreControls\" [ngModelOptions]=\"{standalone: true}\">\n    </div>\n  "
 	    };
-
+	
 	    var TemplateDrivenErrors = (function () {
 	        function TemplateDrivenErrors() {
 	        }
@@ -53809,7 +53884,7 @@
 	        };
 	        return TemplateDrivenErrors;
 	    }());
-
+	
 	    /**
 	     * @license
 	     * Copyright Google Inc. All Rights Reserved.
@@ -53883,7 +53958,7 @@
 	        };
 	        return NgModelGroup;
 	    }(AbstractFormGroupDirective));
-
+	
 	    /**
 	     * @license
 	     * Copyright Google Inc. All Rights Reserved.
@@ -54166,7 +54241,7 @@
 	        };
 	        return NgModel;
 	    }(NgControl));
-
+	
 	    var ReactiveErrors = (function () {
 	        function ReactiveErrors() {
 	        }
@@ -54208,7 +54283,7 @@
 	        };
 	        return ReactiveErrors;
 	    }());
-
+	
 	    /**
 	     * @license
 	     * Copyright Google Inc. All Rights Reserved.
@@ -54371,7 +54446,7 @@
 	        };
 	        return FormControlDirective;
 	    }(NgControl));
-
+	
 	    /**
 	     * @license
 	     * Copyright Google Inc. All Rights Reserved.
@@ -54632,7 +54707,7 @@
 	        };
 	        return FormGroupDirective;
 	    }(ControlContainer));
-
+	
 	    /**
 	     * @license
 	     * Copyright Google Inc. All Rights Reserved.
@@ -54873,7 +54948,7 @@
 	        return !(parent instanceof FormGroupName) && !(parent instanceof FormGroupDirective) &&
 	            !(parent instanceof FormArrayName);
 	    }
-
+	
 	    /**
 	     * @license
 	     * Copyright Google Inc. All Rights Reserved.
@@ -55077,7 +55152,7 @@
 	        };
 	        return FormControlName;
 	    }(NgControl));
-
+	
 	    var /** @type {?} */ REQUIRED_VALIDATOR = {
 	        provide: NG_VALIDATORS,
 	        useExisting: _angular_core.forwardRef(function () { return RequiredValidator; }),
@@ -55326,7 +55401,7 @@
 	        };
 	        return PatternValidator;
 	    }());
-
+	
 	    /**
 	     *  *
 	      * It is essentially syntactic sugar that shortens the `new FormGroup()`,
@@ -55433,12 +55508,12 @@
 	        FormBuilder.ctorParameters = function () { return []; };
 	        return FormBuilder;
 	    }());
-
+	
 	    /**
 	     * @stable
 	     */
 	    var /** @type {?} */ VERSION = new _angular_core.Version('2.3.0');
-
+	
 	    var /** @type {?} */ SHARED_FORM_DIRECTIVES = [
 	        NgSelectOption, NgSelectMultipleOption, DefaultValueAccessor, NumberValueAccessor,
 	        RangeValueAccessor, CheckboxControlValueAccessor, SelectControlValueAccessor,
@@ -55463,7 +55538,7 @@
 	        InternalFormsSharedModule.ctorParameters = function () { return []; };
 	        return InternalFormsSharedModule;
 	    }());
-
+	
 	    /**
 	     *  The ng module for forms.
 	     */
@@ -55498,7 +55573,7 @@
 	        ReactiveFormsModule.ctorParameters = function () { return []; };
 	        return ReactiveFormsModule;
 	    }());
-
+	
 	    exports.AbstractControlDirective = AbstractControlDirective;
 	    exports.AbstractFormGroupDirective = AbstractFormGroupDirective;
 	    exports.CheckboxControlValueAccessor = CheckboxControlValueAccessor;
@@ -55535,15 +55610,18 @@
 	    exports.VERSION = VERSION;
 	    exports.FormsModule = FormsModule;
 	    exports.ReactiveFormsModule = ReactiveFormsModule;
-
+	
 	}));
 
 /***/ },
 /* 25 */
+/*!**************************************!*\
+  !*** ./~/rxjs/operator/toPromise.js ***!
+  \**************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var root_1 = __webpack_require__(6);
+	var root_1 = __webpack_require__(/*! ../util/root */ 6);
 	/* tslint:disable:max-line-length */
 	/**
 	 * @param PromiseCtor
@@ -55574,15 +55652,21 @@
 
 /***/ },
 /* 26 */
+/*!******************************************!*\
+  !*** ./~/rxjs/observable/fromPromise.js ***!
+  \******************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var PromiseObservable_1 = __webpack_require__(27);
+	var PromiseObservable_1 = __webpack_require__(/*! ./PromiseObservable */ 27);
 	exports.fromPromise = PromiseObservable_1.PromiseObservable.create;
 	//# sourceMappingURL=fromPromise.js.map
 
 /***/ },
 /* 27 */
+/*!************************************************!*\
+  !*** ./~/rxjs/observable/PromiseObservable.js ***!
+  \************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -55591,8 +55675,8 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var root_1 = __webpack_require__(6);
-	var Observable_1 = __webpack_require__(5);
+	var root_1 = __webpack_require__(/*! ../util/root */ 6);
+	var Observable_1 = __webpack_require__(/*! ../Observable */ 5);
 	/**
 	 * We need this JSDoc comment for affecting ESDoc.
 	 * @extends {Ignored}
@@ -55709,6 +55793,9 @@
 
 /***/ },
 /* 28 */
+/*!*********************************************!*\
+  !*** ./~/@angular/http/bundles/http.umd.js ***!
+  \*********************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -55717,11 +55804,11 @@
 	 * License: MIT
 	 */
 	(function (global, factory) {
-	     true ? factory(exports, __webpack_require__(3), __webpack_require__(5), __webpack_require__(21)) :
+	     true ? factory(exports, __webpack_require__(/*! @angular/core */ 3), __webpack_require__(/*! rxjs/Observable */ 5), __webpack_require__(/*! @angular/platform-browser */ 21)) :
 	    typeof define === 'function' && define.amd ? define(['exports', '@angular/core', 'rxjs/Observable', '@angular/platform-browser'], factory) :
 	    (factory((global.ng = global.ng || {}, global.ng.http = global.ng.http || {}),global.ng.core,global.Rx,global.ng.platformBrowser));
 	}(this, function (exports,_angular_core,rxjs_Observable,_angular_platformBrowser) { 'use strict';
-
+	
 	    /**
 	     *  A backend for http that uses the `XMLHttpRequest` browser API.
 	      * *
@@ -55742,7 +55829,7 @@
 	        BrowserXhr.ctorParameters = function () { return []; };
 	        return BrowserXhr;
 	    }());
-
+	
 	    var RequestMethod = {};
 	    RequestMethod.Get = 0;
 	    RequestMethod.Post = 1;
@@ -55806,7 +55893,7 @@
 	    ResponseContentType[ResponseContentType.Json] = "Json";
 	    ResponseContentType[ResponseContentType.ArrayBuffer] = "ArrayBuffer";
 	    ResponseContentType[ResponseContentType.Blob] = "Blob";
-
+	
 	    /**
 	     *  Polyfill for [Headers](https://developer.mozilla.org/en-US/docs/Web/API/Headers/Headers), as
 	      * specified in the [Fetch Spec](https://fetch.spec.whatwg.org/#headers-class).
@@ -55992,7 +56079,7 @@
 	        };
 	        return Headers;
 	    }());
-
+	
 	    /**
 	     * @license
 	     * Copyright Google Inc. All Rights Reserved.
@@ -56141,7 +56228,7 @@
 	        BaseResponseOptions.ctorParameters = function () { return []; };
 	        return BaseResponseOptions;
 	    }(ResponseOptions));
-
+	
 	    /**
 	     * @license
 	     * Copyright Google Inc. All Rights Reserved.
@@ -56194,7 +56281,7 @@
 	        XSRFStrategy.prototype.configureRequest = function (req) { };
 	        return XSRFStrategy;
 	    }());
-
+	
 	    /**
 	     * @param {?} method
 	     * @return {?}
@@ -56245,7 +56332,7 @@
 	        }
 	        return view.buffer;
 	    }
-
+	
 	    /**
 	     * @license undefined
 	      * Copyright Google Inc. All Rights Reserved.
@@ -56463,7 +56550,7 @@
 	        URLSearchParams.prototype.delete = function (param) { this.paramsMap.delete(param); };
 	        return URLSearchParams;
 	    }());
-
+	
 	    /**
 	     *  HTTP request body used by both {@link Request} and {@link Response}
 	      * https://fetch.spec.whatwg.org/#body
@@ -56529,7 +56616,7 @@
 	        };
 	        return Body;
 	    }());
-
+	
 	    /**
 	     * @license
 	     * Copyright Google Inc. All Rights Reserved.
@@ -56584,7 +56671,7 @@
 	        };
 	        return Response;
 	    }(Body));
-
+	
 	    var /** @type {?} */ _nextRequestId = 0;
 	    var /** @type {?} */ JSONP_HOME = '__ng_jsonp__';
 	    var /** @type {?} */ _jsonpConnections = null;
@@ -56658,7 +56745,7 @@
 	        BrowserJsonp.ctorParameters = function () { return []; };
 	        return BrowserJsonp;
 	    }());
-
+	
 	    /**
 	     * @license
 	     * Copyright Google Inc. All Rights Reserved.
@@ -56819,7 +56906,7 @@
 	        ]; };
 	        return JSONPBackend_;
 	    }(JSONPBackend));
-
+	
 	    var /** @type {?} */ XSSI_PREFIX = /^\)\]\}',?\n/;
 	    /**
 	     *  Creates connections using `XMLHttpRequest`. Given a fully-qualified
@@ -57055,7 +57142,7 @@
 	        ]; };
 	        return XHRBackend;
 	    }());
-
+	
 	    /**
 	     * @license
 	     * Copyright Google Inc. All Rights Reserved.
@@ -57210,7 +57297,7 @@
 	        BaseRequestOptions.ctorParameters = function () { return []; };
 	        return BaseRequestOptions;
 	    }(RequestOptions));
-
+	
 	    /**
 	     * @license
 	     * Copyright Google Inc. All Rights Reserved.
@@ -57368,7 +57455,7 @@
 	    var /** @type {?} */ FormData = ((w) /** TODO #9100 */)['FormData'] || noop;
 	    var /** @type {?} */ Blob$1 = ((w) /** TODO #9100 */)['Blob'] || noop;
 	    var /** @type {?} */ ArrayBuffer$1 = ((w) /** TODO #9100 */)['ArrayBuffer'] || noop;
-
+	
 	    /**
 	     * @license
 	     * Copyright Google Inc. All Rights Reserved.
@@ -57632,7 +57719,7 @@
 	        ]; };
 	        return Jsonp;
 	    }(Http));
-
+	
 	    /**
 	     * @return {?}
 	     */
@@ -57704,12 +57791,12 @@
 	        JsonpModule.ctorParameters = function () { return []; };
 	        return JsonpModule;
 	    }());
-
+	
 	    /**
 	     * @stable
 	     */
 	    var /** @type {?} */ VERSION = new _angular_core.Version('2.3.0');
-
+	
 	    exports.BrowserXhr = BrowserXhr;
 	    exports.JSONPBackend = JSONPBackend;
 	    exports.JSONPConnection = JSONPConnection;
@@ -57737,17 +57824,20 @@
 	    exports.QueryEncoder = QueryEncoder;
 	    exports.URLSearchParams = URLSearchParams;
 	    exports.VERSION = VERSION;
-
+	
 	}));
 
 /***/ },
 /* 29 */
+/*!*******************************!*\
+  !*** ./src/app/app.routes.ts ***!
+  \*******************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var router_1 = __webpack_require__(30);
-	var login_1 = __webpack_require__(60);
-	var signup_1 = __webpack_require__(66);
+	var router_1 = __webpack_require__(/*! @angular/router */ 30);
+	var login_1 = __webpack_require__(/*! ./login */ 60);
+	var signup_1 = __webpack_require__(/*! ./signup */ 66);
 	// https://angular.io/docs/ts/latest/guide/router.html
 	var appRouting = [
 	    {
@@ -57766,10 +57856,13 @@
 	];
 	var appRoutes = appRouting.slice();
 	exports.routing = router_1.RouterModule.forRoot(appRoutes);
-	
+
 
 /***/ },
 /* 30 */
+/*!*************************************************!*\
+  !*** ./~/@angular/router/bundles/router.umd.js ***!
+  \*************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -57777,11 +57870,11 @@
 	 * (c) 2010-2016 Google, Inc. https://angular.io/
 	 * License: MIT
 	 */(function (global, factory) {
-	   true ? factory(exports, __webpack_require__(22), __webpack_require__(3), __webpack_require__(31), __webpack_require__(4), __webpack_require__(32), __webpack_require__(44), __webpack_require__(45), __webpack_require__(50), __webpack_require__(51), __webpack_require__(53), __webpack_require__(46), __webpack_require__(54), __webpack_require__(5), __webpack_require__(55), __webpack_require__(56), __webpack_require__(52), __webpack_require__(26), __webpack_require__(58), __webpack_require__(57), __webpack_require__(21), __webpack_require__(59)) :
+	   true ? factory(exports, __webpack_require__(/*! @angular/common */ 22), __webpack_require__(/*! @angular/core */ 3), __webpack_require__(/*! rxjs/BehaviorSubject */ 31), __webpack_require__(/*! rxjs/Subject */ 4), __webpack_require__(/*! rxjs/observable/from */ 32), __webpack_require__(/*! rxjs/observable/of */ 44), __webpack_require__(/*! rxjs/operator/concatMap */ 45), __webpack_require__(/*! rxjs/operator/every */ 50), __webpack_require__(/*! rxjs/operator/first */ 51), __webpack_require__(/*! rxjs/operator/map */ 53), __webpack_require__(/*! rxjs/operator/mergeMap */ 46), __webpack_require__(/*! rxjs/operator/reduce */ 54), __webpack_require__(/*! rxjs/Observable */ 5), __webpack_require__(/*! rxjs/operator/catch */ 55), __webpack_require__(/*! rxjs/operator/concatAll */ 56), __webpack_require__(/*! rxjs/util/EmptyError */ 52), __webpack_require__(/*! rxjs/observable/fromPromise */ 26), __webpack_require__(/*! rxjs/operator/last */ 58), __webpack_require__(/*! rxjs/operator/mergeAll */ 57), __webpack_require__(/*! @angular/platform-browser */ 21), __webpack_require__(/*! rxjs/operator/filter */ 59)) :
 	  typeof define === 'function' && define.amd ? define(['exports', '@angular/common', '@angular/core', 'rxjs/BehaviorSubject', 'rxjs/Subject', 'rxjs/observable/from', 'rxjs/observable/of', 'rxjs/operator/concatMap', 'rxjs/operator/every', 'rxjs/operator/first', 'rxjs/operator/map', 'rxjs/operator/mergeMap', 'rxjs/operator/reduce', 'rxjs/Observable', 'rxjs/operator/catch', 'rxjs/operator/concatAll', 'rxjs/util/EmptyError', 'rxjs/observable/fromPromise', 'rxjs/operator/last', 'rxjs/operator/mergeAll', '@angular/platform-browser', 'rxjs/operator/filter'], factory) :
 	  (factory((global.ng = global.ng || {}, global.ng.router = global.ng.router || {}),global.ng.common,global.ng.core,global.Rx,global.Rx,global.Rx.Observable,global.Rx.Observable,global.Rx.Observable.prototype,global.Rx.Observable.prototype,global.Rx.Observable.prototype,global.Rx.Observable.prototype,global.Rx.Observable.prototype,global.Rx.Observable.prototype,global.Rx,global.Rx.Observable.prototype,global.Rx.Observable.prototype,global.Rx,global.Rx.Observable,global.Rx.Observable.prototype,global.Rx.Observable.prototype,global.ng.platformBrowser,global.Rx.Observable.prototype));
 	}(this, function (exports,_angular_common,_angular_core,rxjs_BehaviorSubject,rxjs_Subject,rxjs_observable_from,rxjs_observable_of,rxjs_operator_concatMap,rxjs_operator_every,rxjs_operator_first,rxjs_operator_map,rxjs_operator_mergeMap,rxjs_operator_reduce,rxjs_Observable,rxjs_operator_catch,rxjs_operator_concatAll,rxjs_util_EmptyError,rxjs_observable_fromPromise,l,rxjs_operator_mergeAll,_angular_platformBrowser,rxjs_operator_filter) { 'use strict';
-
+	
 	  /**
 	   * @license
 	   * Copyright Google Inc. All Rights Reserved.
@@ -57850,7 +57943,7 @@
 	          return { consumed: consumed, posParams: posParams };
 	      }
 	  }
-
+	
 	  /**
 	   * @param {?} a
 	   * @param {?} b
@@ -57992,7 +58085,7 @@
 	          return rxjs_observable_of.of(value);
 	      }
 	  }
-
+	
 	  /**
 	   * @experimental
 	   */
@@ -58049,7 +58142,7 @@
 	      };
 	      return RouterConfigLoader;
 	  }());
-
+	
 	  /**
 	   * @return {?}
 	   */
@@ -58714,7 +58807,7 @@
 	      };
 	      return UrlParser;
 	  }());
-
+	
 	  var NoMatch = (function () {
 	      /**
 	       * @param {?=} segmentGroup
@@ -59352,7 +59445,7 @@
 	  function getOutlet$1(route) {
 	      return route.outlet ? route.outlet : PRIMARY_OUTLET;
 	  }
-
+	
 	  /**
 	   * @param {?} config
 	   * @param {?=} parentPath
@@ -59439,7 +59532,7 @@
 	          return parentPath + "/" + currentRoute.path;
 	      }
 	  }
-
+	
 	  /**
 	   * @license undefined
 	    * Copyright Google Inc. All Rights Reserved.
@@ -59554,7 +59647,7 @@
 	      TreeNode.prototype.toString = function () { return "TreeNode(" + this.value + ")"; };
 	      return TreeNode;
 	  }());
-
+	
 	  /**
 	   * @license
 	   * Copyright Google Inc. All Rights Reserved.
@@ -59965,7 +60058,7 @@
 	  function equalParamsAndUrlSegments(a, b) {
 	      return shallowEqual(a.params, b.params) && equalSegments(a.url, b.url);
 	  }
-
+	
 	  /**
 	   * @param {?} routeReuseStrategy
 	   * @param {?} curr
@@ -60042,7 +60135,7 @@
 	  function createActivatedRoute(c) {
 	      return new ActivatedRoute(new rxjs_BehaviorSubject.BehaviorSubject(c.url), new rxjs_BehaviorSubject.BehaviorSubject(c.params), new rxjs_BehaviorSubject.BehaviorSubject(c.queryParams), new rxjs_BehaviorSubject.BehaviorSubject(c.fragment), new rxjs_BehaviorSubject.BehaviorSubject(c.data), c.outlet, c.component, c);
 	  }
-
+	
 	  /**
 	   * @param {?} route
 	   * @param {?} urlTree
@@ -60432,7 +60525,7 @@
 	  function compare(path, params, segment) {
 	      return path == segment.path && shallowEqual(params, segment.parameters);
 	  }
-
+	
 	  var NoMatch$1 = (function () {
 	      function NoMatch() {
 	      }
@@ -60803,7 +60896,7 @@
 	  function getResolve(route) {
 	      return route.resolve ? route.resolve : {};
 	  }
-
+	
 	  /**
 	   * @license
 	   * Copyright Google Inc. All Rights Reserved.
@@ -60834,7 +60927,7 @@
 	      RouterOutletMap.prototype.removeOutlet = function (name) { this._outlets[name] = undefined; };
 	      return RouterOutletMap;
 	  }());
-
+	
 	  /**
 	   * @license
 	   * Copyright Google Inc. All Rights Reserved.
@@ -60903,7 +60996,7 @@
 	      DefaultUrlHandlingStrategy.prototype.merge = function (newUrlPart, wholeUrl) { return newUrlPart; };
 	      return DefaultUrlHandlingStrategy;
 	  }());
-
+	
 	  /**
 	   *  *
 	   */
@@ -62135,7 +62228,7 @@
 	      }
 	      return outlet;
 	  }
-
+	
 	  /**
 	   *  *
 	    * *
@@ -62389,7 +62482,7 @@
 	  function attrBoolValue(s) {
 	      return s === '' || !!s;
 	  }
-
+	
 	  /**
 	   *  *
 	    * *
@@ -62559,7 +62652,7 @@
 	      };
 	      return RouterLinkActive;
 	  }());
-
+	
 	  /**
 	   *  state.
 	    * *
@@ -62720,7 +62813,7 @@
 	      };
 	      return RouterOutlet;
 	  }());
-
+	
 	  /**
 	   * @license
 	   * Copyright Google Inc. All Rights Reserved.
@@ -62774,9 +62867,9 @@
 	      RouteReuseStrategy.prototype.shouldReuseRoute = function (future, curr) { };
 	      return RouteReuseStrategy;
 	  }());
-
+	
 	  var /** @type {?} */ getDOM = _angular_platformBrowser.__platform_browser_private__.getDOM;
-
+	
 	  /**
 	   *  *
 	   * @abstract
@@ -62925,7 +63018,7 @@
 	      ]; };
 	      return RouterPreloader;
 	  }());
-
+	
 	  /**
 	   * @whatItDoes Contains a list of directives
 	   * @stable
@@ -63202,18 +63295,18 @@
 	          { provide: _angular_core.APP_BOOTSTRAP_LISTENER, multi: true, useExisting: ROUTER_INITIALIZER },
 	      ];
 	  }
-
+	
 	  /**
 	   * @stable
 	   */
 	  var /** @type {?} */ VERSION = new _angular_core.Version('3.3.0');
-
+	
 	  var /** @type {?} */ __router_private__ = {
 	      ROUTER_PROVIDERS: ROUTER_PROVIDERS,
 	      ROUTES: ROUTES,
 	      flatten: flatten
 	  };
-
+	
 	  exports.RouterLink = RouterLink;
 	  exports.RouterLinkWithHref = RouterLinkWithHref;
 	  exports.RouterLinkActive = RouterLinkActive;
@@ -63247,11 +63340,14 @@
 	  exports.UrlTree = UrlTree;
 	  exports.VERSION = VERSION;
 	  exports.__router_private__ = __router_private__;
-
+	
 	}));
 
 /***/ },
 /* 31 */
+/*!***********************************!*\
+  !*** ./~/rxjs/BehaviorSubject.js ***!
+  \***********************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -63260,8 +63356,8 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var Subject_1 = __webpack_require__(4);
-	var ObjectUnsubscribedError_1 = __webpack_require__(19);
+	var Subject_1 = __webpack_require__(/*! ./Subject */ 4);
+	var ObjectUnsubscribedError_1 = __webpack_require__(/*! ./util/ObjectUnsubscribedError */ 19);
 	/**
 	 * @class BehaviorSubject<T>
 	 */
@@ -63306,15 +63402,21 @@
 
 /***/ },
 /* 32 */
+/*!***********************************!*\
+  !*** ./~/rxjs/observable/from.js ***!
+  \***********************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var FromObservable_1 = __webpack_require__(33);
+	var FromObservable_1 = __webpack_require__(/*! ./FromObservable */ 33);
 	exports.from = FromObservable_1.FromObservable.create;
 	//# sourceMappingURL=from.js.map
 
 /***/ },
 /* 33 */
+/*!*********************************************!*\
+  !*** ./~/rxjs/observable/FromObservable.js ***!
+  \*********************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -63323,16 +63425,16 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var isArray_1 = __webpack_require__(11);
-	var isPromise_1 = __webpack_require__(34);
-	var PromiseObservable_1 = __webpack_require__(27);
-	var IteratorObservable_1 = __webpack_require__(35);
-	var ArrayObservable_1 = __webpack_require__(37);
-	var ArrayLikeObservable_1 = __webpack_require__(41);
-	var iterator_1 = __webpack_require__(36);
-	var Observable_1 = __webpack_require__(5);
-	var observeOn_1 = __webpack_require__(42);
-	var observable_1 = __webpack_require__(18);
+	var isArray_1 = __webpack_require__(/*! ../util/isArray */ 11);
+	var isPromise_1 = __webpack_require__(/*! ../util/isPromise */ 34);
+	var PromiseObservable_1 = __webpack_require__(/*! ./PromiseObservable */ 27);
+	var IteratorObservable_1 = __webpack_require__(/*! ./IteratorObservable */ 35);
+	var ArrayObservable_1 = __webpack_require__(/*! ./ArrayObservable */ 37);
+	var ArrayLikeObservable_1 = __webpack_require__(/*! ./ArrayLikeObservable */ 41);
+	var iterator_1 = __webpack_require__(/*! ../symbol/iterator */ 36);
+	var Observable_1 = __webpack_require__(/*! ../Observable */ 5);
+	var observeOn_1 = __webpack_require__(/*! ../operator/observeOn */ 42);
+	var observable_1 = __webpack_require__(/*! ../symbol/observable */ 18);
 	var isArrayLike = (function (x) { return x && typeof x.length === 'number'; });
 	/**
 	 * We need this JSDoc comment for affecting ESDoc.
@@ -63367,6 +63469,9 @@
 	     * var result = Rx.Observable.from(array);
 	     * result.subscribe(x => console.log(x));
 	     *
+	     * // Results in the following:
+	     * // 10 20 30
+	     *
 	     * @example <caption>Convert an infinite iterable (from a generator) to an Observable</caption>
 	     * function* generateDoubles(seed) {
 	     *   var i = seed;
@@ -63379,6 +63484,9 @@
 	     * var iterator = generateDoubles(3);
 	     * var result = Rx.Observable.from(iterator).take(10);
 	     * result.subscribe(x => console.log(x));
+	     *
+	     * // Results in the following:
+	     * // 3 6 12 24 48 96 192 384 768 1536
 	     *
 	     * @see {@link create}
 	     * @see {@link fromEvent}
@@ -63436,6 +63544,9 @@
 
 /***/ },
 /* 34 */
+/*!**********************************!*\
+  !*** ./~/rxjs/util/isPromise.js ***!
+  \**********************************/
 /***/ function(module, exports) {
 
 	"use strict";
@@ -63447,6 +63558,9 @@
 
 /***/ },
 /* 35 */
+/*!*************************************************!*\
+  !*** ./~/rxjs/observable/IteratorObservable.js ***!
+  \*************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -63455,9 +63569,9 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var root_1 = __webpack_require__(6);
-	var Observable_1 = __webpack_require__(5);
-	var iterator_1 = __webpack_require__(36);
+	var root_1 = __webpack_require__(/*! ../util/root */ 6);
+	var Observable_1 = __webpack_require__(/*! ../Observable */ 5);
+	var iterator_1 = __webpack_require__(/*! ../symbol/iterator */ 36);
 	/**
 	 * We need this JSDoc comment for affecting ESDoc.
 	 * @extends {Ignored}
@@ -63615,10 +63729,13 @@
 
 /***/ },
 /* 36 */
+/*!***********************************!*\
+  !*** ./~/rxjs/symbol/iterator.js ***!
+  \***********************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var root_1 = __webpack_require__(6);
+	var root_1 = __webpack_require__(/*! ../util/root */ 6);
 	function symbolIteratorPonyfill(root) {
 	    var Symbol = root.Symbol;
 	    if (typeof Symbol === 'function') {
@@ -63654,6 +63771,9 @@
 
 /***/ },
 /* 37 */
+/*!**********************************************!*\
+  !*** ./~/rxjs/observable/ArrayObservable.js ***!
+  \**********************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -63662,10 +63782,10 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var Observable_1 = __webpack_require__(5);
-	var ScalarObservable_1 = __webpack_require__(38);
-	var EmptyObservable_1 = __webpack_require__(39);
-	var isScheduler_1 = __webpack_require__(40);
+	var Observable_1 = __webpack_require__(/*! ../Observable */ 5);
+	var ScalarObservable_1 = __webpack_require__(/*! ./ScalarObservable */ 38);
+	var EmptyObservable_1 = __webpack_require__(/*! ./EmptyObservable */ 39);
+	var isScheduler_1 = __webpack_require__(/*! ../util/isScheduler */ 40);
 	/**
 	 * We need this JSDoc comment for affecting ESDoc.
 	 * @extends {Ignored}
@@ -63781,6 +63901,9 @@
 
 /***/ },
 /* 38 */
+/*!***********************************************!*\
+  !*** ./~/rxjs/observable/ScalarObservable.js ***!
+  \***********************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -63789,7 +63912,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var Observable_1 = __webpack_require__(5);
+	var Observable_1 = __webpack_require__(/*! ../Observable */ 5);
 	/**
 	 * We need this JSDoc comment for affecting ESDoc.
 	 * @extends {Ignored}
@@ -63844,6 +63967,9 @@
 
 /***/ },
 /* 39 */
+/*!**********************************************!*\
+  !*** ./~/rxjs/observable/EmptyObservable.js ***!
+  \**********************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -63852,7 +63978,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var Observable_1 = __webpack_require__(5);
+	var Observable_1 = __webpack_require__(/*! ../Observable */ 5);
 	/**
 	 * We need this JSDoc comment for affecting ESDoc.
 	 * @extends {Ignored}
@@ -63887,6 +64013,12 @@
 	     *   x % 2 === 1 ? Rx.Observable.of('a', 'b', 'c') : Rx.Observable.empty()
 	     * );
 	     * result.subscribe(x => console.log(x));
+	     *
+	     * // Results in the following to the console:
+	     * // x is equal to the count on the interval eg(0,1,2,3,...)
+	     * // x will occur every 1000ms
+	     * // if x % 2 is equal to 1 print abc
+	     * // if x % 2 is not equal to 1 nothing will be output
 	     *
 	     * @see {@link create}
 	     * @see {@link never}
@@ -63924,6 +64056,9 @@
 
 /***/ },
 /* 40 */
+/*!************************************!*\
+  !*** ./~/rxjs/util/isScheduler.js ***!
+  \************************************/
 /***/ function(module, exports) {
 
 	"use strict";
@@ -63935,6 +64070,9 @@
 
 /***/ },
 /* 41 */
+/*!**************************************************!*\
+  !*** ./~/rxjs/observable/ArrayLikeObservable.js ***!
+  \**************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -63943,9 +64081,9 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var Observable_1 = __webpack_require__(5);
-	var ScalarObservable_1 = __webpack_require__(38);
-	var EmptyObservable_1 = __webpack_require__(39);
+	var Observable_1 = __webpack_require__(/*! ../Observable */ 5);
+	var ScalarObservable_1 = __webpack_require__(/*! ./ScalarObservable */ 38);
+	var EmptyObservable_1 = __webpack_require__(/*! ./EmptyObservable */ 39);
 	/**
 	 * We need this JSDoc comment for affecting ESDoc.
 	 * @extends {Ignored}
@@ -64010,6 +64148,9 @@
 
 /***/ },
 /* 42 */
+/*!**************************************!*\
+  !*** ./~/rxjs/operator/observeOn.js ***!
+  \**************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -64018,8 +64159,8 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var Subscriber_1 = __webpack_require__(8);
-	var Notification_1 = __webpack_require__(43);
+	var Subscriber_1 = __webpack_require__(/*! ../Subscriber */ 8);
+	var Notification_1 = __webpack_require__(/*! ../Notification */ 43);
 	/**
 	 * @see {@link Notification}
 	 *
@@ -64041,7 +64182,7 @@
 	        this.delay = delay;
 	    }
 	    ObserveOnOperator.prototype.call = function (subscriber, source) {
-	        return source._subscribe(new ObserveOnSubscriber(subscriber, this.scheduler, this.delay));
+	        return source.subscribe(new ObserveOnSubscriber(subscriber, this.scheduler, this.delay));
 	    };
 	    return ObserveOnOperator;
 	}());
@@ -64090,10 +64231,13 @@
 
 /***/ },
 /* 43 */
+/*!********************************!*\
+  !*** ./~/rxjs/Notification.js ***!
+  \********************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var Observable_1 = __webpack_require__(5);
+	var Observable_1 = __webpack_require__(/*! ./Observable */ 5);
 	/**
 	 * Represents a push-based event or value that an {@link Observable} can emit.
 	 * This class is particularly useful for operators that manage notifications,
@@ -64222,19 +64366,25 @@
 
 /***/ },
 /* 44 */
+/*!*********************************!*\
+  !*** ./~/rxjs/observable/of.js ***!
+  \*********************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var ArrayObservable_1 = __webpack_require__(37);
+	var ArrayObservable_1 = __webpack_require__(/*! ./ArrayObservable */ 37);
 	exports.of = ArrayObservable_1.ArrayObservable.of;
 	//# sourceMappingURL=of.js.map
 
 /***/ },
 /* 45 */
+/*!**************************************!*\
+  !*** ./~/rxjs/operator/concatMap.js ***!
+  \**************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var mergeMap_1 = __webpack_require__(46);
+	var mergeMap_1 = __webpack_require__(/*! ./mergeMap */ 46);
 	/* tslint:disable:max-line-length */
 	/**
 	 * Projects each source value to an Observable which is merged in the output
@@ -64263,6 +64413,12 @@
 	 * var clicks = Rx.Observable.fromEvent(document, 'click');
 	 * var result = clicks.concatMap(ev => Rx.Observable.interval(1000).take(4));
 	 * result.subscribe(x => console.log(x));
+	 *
+	 * // Results in the following:
+	 * // (results are not concurrent)
+	 * // For every click on the "document" it will emit values 0 to 3 spaced
+	 * // on a 1000ms interval
+	 * // one click = 1000ms-> 0 -1000ms-> 1 -1000ms-> 2 -1000ms-> 3
 	 *
 	 * @see {@link concat}
 	 * @see {@link concatAll}
@@ -64300,6 +64456,9 @@
 
 /***/ },
 /* 46 */
+/*!*************************************!*\
+  !*** ./~/rxjs/operator/mergeMap.js ***!
+  \*************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -64308,8 +64467,8 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var subscribeToResult_1 = __webpack_require__(47);
-	var OuterSubscriber_1 = __webpack_require__(49);
+	var subscribeToResult_1 = __webpack_require__(/*! ../util/subscribeToResult */ 47);
+	var OuterSubscriber_1 = __webpack_require__(/*! ../OuterSubscriber */ 49);
 	/* tslint:disable:max-line-length */
 	/**
 	 * Projects each source value to an Observable which is merged in the output
@@ -64331,6 +64490,15 @@
 	 *   Rx.Observable.interval(1000).map(i => x+i)
 	 * );
 	 * result.subscribe(x => console.log(x));
+	 *
+	 * // Results in the following:
+	 * // a0
+	 * // b0
+	 * // c0
+	 * // a1
+	 * // b1
+	 * // c1
+	 * // continues to list a,b,c with respective ascending integers
 	 *
 	 * @see {@link concatMap}
 	 * @see {@link exhaustMap}
@@ -64377,7 +64545,7 @@
 	        this.concurrent = concurrent;
 	    }
 	    MergeMapOperator.prototype.call = function (observer, source) {
-	        return source._subscribe(new MergeMapSubscriber(observer, this.project, this.resultSelector, this.concurrent));
+	        return source.subscribe(new MergeMapSubscriber(observer, this.project, this.resultSelector, this.concurrent));
 	    };
 	    return MergeMapOperator;
 	}());
@@ -64467,16 +64635,20 @@
 
 /***/ },
 /* 47 */
+/*!******************************************!*\
+  !*** ./~/rxjs/util/subscribeToResult.js ***!
+  \******************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var root_1 = __webpack_require__(6);
-	var isArray_1 = __webpack_require__(11);
-	var isPromise_1 = __webpack_require__(34);
-	var Observable_1 = __webpack_require__(5);
-	var iterator_1 = __webpack_require__(36);
-	var InnerSubscriber_1 = __webpack_require__(48);
-	var observable_1 = __webpack_require__(18);
+	var root_1 = __webpack_require__(/*! ./root */ 6);
+	var isArray_1 = __webpack_require__(/*! ./isArray */ 11);
+	var isPromise_1 = __webpack_require__(/*! ./isPromise */ 34);
+	var isObject_1 = __webpack_require__(/*! ./isObject */ 12);
+	var Observable_1 = __webpack_require__(/*! ../Observable */ 5);
+	var iterator_1 = __webpack_require__(/*! ../symbol/iterator */ 36);
+	var InnerSubscriber_1 = __webpack_require__(/*! ../InnerSubscriber */ 48);
+	var observable_1 = __webpack_require__(/*! ../symbol/observable */ 18);
 	function subscribeToResult(outerSubscriber, result, outerValue, outerIndex) {
 	    var destination = new InnerSubscriber_1.InnerSubscriber(outerSubscriber, outerValue, outerIndex);
 	    if (destination.closed) {
@@ -64492,7 +64664,7 @@
 	            return result.subscribe(destination);
 	        }
 	    }
-	    if (isArray_1.isArray(result)) {
+	    else if (isArray_1.isArray(result)) {
 	        for (var i = 0, len = result.length; i < len && !destination.closed; i++) {
 	            destination.next(result[i]);
 	        }
@@ -64513,7 +64685,7 @@
 	        });
 	        return destination;
 	    }
-	    else if (typeof result[iterator_1.$$iterator] === 'function') {
+	    else if (result && typeof result[iterator_1.$$iterator] === 'function') {
 	        var iterator = result[iterator_1.$$iterator]();
 	        do {
 	            var item = iterator.next();
@@ -64527,17 +64699,20 @@
 	            }
 	        } while (true);
 	    }
-	    else if (typeof result[observable_1.$$observable] === 'function') {
+	    else if (result && typeof result[observable_1.$$observable] === 'function') {
 	        var obs = result[observable_1.$$observable]();
 	        if (typeof obs.subscribe !== 'function') {
-	            destination.error(new Error('invalid observable'));
+	            destination.error(new TypeError('Provided object does not correctly implement Symbol.observable'));
 	        }
 	        else {
 	            return obs.subscribe(new InnerSubscriber_1.InnerSubscriber(outerSubscriber, outerValue, outerIndex));
 	        }
 	    }
 	    else {
-	        destination.error(new TypeError('unknown type returned'));
+	        var value = isObject_1.isObject(result) ? 'an invalid object' : "'" + result + "'";
+	        var msg = ("You provided " + value + " where a stream was expected.")
+	            + ' You can provide an Observable, Promise, Array, or Iterable.';
+	        destination.error(new TypeError(msg));
 	    }
 	    return null;
 	}
@@ -64546,6 +64721,9 @@
 
 /***/ },
 /* 48 */
+/*!***********************************!*\
+  !*** ./~/rxjs/InnerSubscriber.js ***!
+  \***********************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -64554,7 +64732,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var Subscriber_1 = __webpack_require__(8);
+	var Subscriber_1 = __webpack_require__(/*! ./Subscriber */ 8);
 	/**
 	 * We need this JSDoc comment for affecting ESDoc.
 	 * @ignore
@@ -64587,6 +64765,9 @@
 
 /***/ },
 /* 49 */
+/*!***********************************!*\
+  !*** ./~/rxjs/OuterSubscriber.js ***!
+  \***********************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -64595,7 +64776,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var Subscriber_1 = __webpack_require__(8);
+	var Subscriber_1 = __webpack_require__(/*! ./Subscriber */ 8);
 	/**
 	 * We need this JSDoc comment for affecting ESDoc.
 	 * @ignore
@@ -64622,6 +64803,9 @@
 
 /***/ },
 /* 50 */
+/*!**********************************!*\
+  !*** ./~/rxjs/operator/every.js ***!
+  \**********************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -64630,7 +64814,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var Subscriber_1 = __webpack_require__(8);
+	var Subscriber_1 = __webpack_require__(/*! ../Subscriber */ 8);
 	/**
 	 * Returns an Observable that emits whether or not every item of the source satisfies the condition specified.
 	 * @param {function} predicate a function for determining if an item meets a specified condition.
@@ -64650,7 +64834,7 @@
 	        this.source = source;
 	    }
 	    EveryOperator.prototype.call = function (observer, source) {
-	        return source._subscribe(new EverySubscriber(observer, this.predicate, this.thisArg, this.source));
+	        return source.subscribe(new EverySubscriber(observer, this.predicate, this.thisArg, this.source));
 	    };
 	    return EveryOperator;
 	}());
@@ -64695,6 +64879,9 @@
 
 /***/ },
 /* 51 */
+/*!**********************************!*\
+  !*** ./~/rxjs/operator/first.js ***!
+  \**********************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -64703,9 +64890,8 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var Subscriber_1 = __webpack_require__(8);
-	var EmptyError_1 = __webpack_require__(52);
-	/* tslint:disable:max-line-length */
+	var Subscriber_1 = __webpack_require__(/*! ../Subscriber */ 8);
+	var EmptyError_1 = __webpack_require__(/*! ../util/EmptyError */ 52);
 	/**
 	 * Emits only the first value (or the first value that meets some condition)
 	 * emitted by the source Observable.
@@ -64767,7 +64953,7 @@
 	        this.source = source;
 	    }
 	    FirstOperator.prototype.call = function (observer, source) {
-	        return source._subscribe(new FirstSubscriber(observer, this.predicate, this.resultSelector, this.defaultValue, this.source));
+	        return source.subscribe(new FirstSubscriber(observer, this.predicate, this.resultSelector, this.defaultValue, this.source));
 	    };
 	    return FirstOperator;
 	}());
@@ -64853,6 +65039,9 @@
 
 /***/ },
 /* 52 */
+/*!***********************************!*\
+  !*** ./~/rxjs/util/EmptyError.js ***!
+  \***********************************/
 /***/ function(module, exports) {
 
 	"use strict";
@@ -64886,6 +65075,9 @@
 
 /***/ },
 /* 53 */
+/*!********************************!*\
+  !*** ./~/rxjs/operator/map.js ***!
+  \********************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -64894,7 +65086,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var Subscriber_1 = __webpack_require__(8);
+	var Subscriber_1 = __webpack_require__(/*! ../Subscriber */ 8);
 	/**
 	 * Applies a given `project` function to each value emitted by the source
 	 * Observable, and emits the resulting values as an Observable.
@@ -64941,7 +65133,7 @@
 	        this.thisArg = thisArg;
 	    }
 	    MapOperator.prototype.call = function (subscriber, source) {
-	        return source._subscribe(new MapSubscriber(subscriber, this.project, this.thisArg));
+	        return source.subscribe(new MapSubscriber(subscriber, this.project, this.thisArg));
 	    };
 	    return MapOperator;
 	}());
@@ -64978,6 +65170,9 @@
 
 /***/ },
 /* 54 */
+/*!***********************************!*\
+  !*** ./~/rxjs/operator/reduce.js ***!
+  \***********************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -64986,7 +65181,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var Subscriber_1 = __webpack_require__(8);
+	var Subscriber_1 = __webpack_require__(/*! ../Subscriber */ 8);
 	/* tslint:disable:max-line-length */
 	/**
 	 * Applies an accumulator function over the source Observable, and returns the
@@ -65054,7 +65249,7 @@
 	        this.hasSeed = hasSeed;
 	    }
 	    ReduceOperator.prototype.call = function (subscriber, source) {
-	        return source._subscribe(new ReduceSubscriber(subscriber, this.accumulator, this.seed, this.hasSeed));
+	        return source.subscribe(new ReduceSubscriber(subscriber, this.accumulator, this.seed, this.hasSeed));
 	    };
 	    return ReduceOperator;
 	}());
@@ -65106,6 +65301,9 @@
 
 /***/ },
 /* 55 */
+/*!**********************************!*\
+  !*** ./~/rxjs/operator/catch.js ***!
+  \**********************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -65114,8 +65312,8 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var OuterSubscriber_1 = __webpack_require__(49);
-	var subscribeToResult_1 = __webpack_require__(47);
+	var OuterSubscriber_1 = __webpack_require__(/*! ../OuterSubscriber */ 49);
+	var subscribeToResult_1 = __webpack_require__(/*! ../util/subscribeToResult */ 47);
 	/**
 	 * Catches errors on the observable to be handled by returning a new observable or throwing an error.
 	 * @param {function} selector a function that takes as arguments `err`, which is the error, and `caught`, which
@@ -65138,7 +65336,7 @@
 	        this.selector = selector;
 	    }
 	    CatchOperator.prototype.call = function (subscriber, source) {
-	        return source._subscribe(new CatchSubscriber(subscriber, this.selector, this.caught));
+	        return source.subscribe(new CatchSubscriber(subscriber, this.selector, this.caught));
 	    };
 	    return CatchOperator;
 	}());
@@ -65177,10 +65375,13 @@
 
 /***/ },
 /* 56 */
+/*!**************************************!*\
+  !*** ./~/rxjs/operator/concatAll.js ***!
+  \**************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var mergeAll_1 = __webpack_require__(57);
+	var mergeAll_1 = __webpack_require__(/*! ./mergeAll */ 57);
 	/* tslint:disable:max-line-length */
 	/**
 	 * Converts a higher-order Observable into a first-order Observable by
@@ -65210,6 +65411,12 @@
 	 * var firstOrder = higherOrder.concatAll();
 	 * firstOrder.subscribe(x => console.log(x));
 	 *
+	 * // Results in the following:
+	 * // (results are not concurrent)
+	 * // For every click on the "document" it will emit values 0 to 3 spaced
+	 * // on a 1000ms interval
+	 * // one click = 1000ms-> 0 -1000ms-> 1 -1000ms-> 2 -1000ms-> 3
+	 *
 	 * @see {@link combineAll}
 	 * @see {@link concat}
 	 * @see {@link concatMap}
@@ -65232,6 +65439,9 @@
 
 /***/ },
 /* 57 */
+/*!*************************************!*\
+  !*** ./~/rxjs/operator/mergeAll.js ***!
+  \*************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -65240,8 +65450,8 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var OuterSubscriber_1 = __webpack_require__(49);
-	var subscribeToResult_1 = __webpack_require__(47);
+	var OuterSubscriber_1 = __webpack_require__(/*! ../OuterSubscriber */ 49);
+	var subscribeToResult_1 = __webpack_require__(/*! ../util/subscribeToResult */ 47);
 	/**
 	 * Converts a higher-order Observable into a first-order Observable which
 	 * concurrently delivers all values that are emitted on the inner Observables.
@@ -65296,7 +65506,7 @@
 	        this.concurrent = concurrent;
 	    }
 	    MergeAllOperator.prototype.call = function (observer, source) {
-	        return source._subscribe(new MergeAllSubscriber(observer, this.concurrent));
+	        return source.subscribe(new MergeAllSubscriber(observer, this.concurrent));
 	    };
 	    return MergeAllOperator;
 	}());
@@ -65348,6 +65558,9 @@
 
 /***/ },
 /* 58 */
+/*!*********************************!*\
+  !*** ./~/rxjs/operator/last.js ***!
+  \*********************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -65356,8 +65569,8 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var Subscriber_1 = __webpack_require__(8);
-	var EmptyError_1 = __webpack_require__(52);
+	var Subscriber_1 = __webpack_require__(/*! ../Subscriber */ 8);
+	var EmptyError_1 = __webpack_require__(/*! ../util/EmptyError */ 52);
 	/* tslint:disable:max-line-length */
 	/**
 	 * Returns an Observable that emits only the last item emitted by the source Observable.
@@ -65388,7 +65601,7 @@
 	        this.source = source;
 	    }
 	    LastOperator.prototype.call = function (observer, source) {
-	        return source._subscribe(new LastSubscriber(observer, this.predicate, this.resultSelector, this.defaultValue, this.source));
+	        return source.subscribe(new LastSubscriber(observer, this.predicate, this.resultSelector, this.defaultValue, this.source));
 	    };
 	    return LastOperator;
 	}());
@@ -65472,6 +65685,9 @@
 
 /***/ },
 /* 59 */
+/*!***********************************!*\
+  !*** ./~/rxjs/operator/filter.js ***!
+  \***********************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -65480,7 +65696,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var Subscriber_1 = __webpack_require__(8);
+	var Subscriber_1 = __webpack_require__(/*! ../Subscriber */ 8);
 	/* tslint:disable:max-line-length */
 	/**
 	 * Filter items emitted by the source Observable by only emitting those that
@@ -65502,7 +65718,6 @@
 	 * clicksOnDivs.subscribe(x => console.log(x));
 	 *
 	 * @see {@link distinct}
-	 * @see {@link distinctKey}
 	 * @see {@link distinctUntilChanged}
 	 * @see {@link distinctUntilKeyChanged}
 	 * @see {@link ignoreElements}
@@ -65532,7 +65747,7 @@
 	        this.thisArg = thisArg;
 	    }
 	    FilterOperator.prototype.call = function (subscriber, source) {
-	        return source._subscribe(new FilterSubscriber(subscriber, this.predicate, this.thisArg));
+	        return source.subscribe(new FilterSubscriber(subscriber, this.predicate, this.thisArg));
 	    };
 	    return FilterOperator;
 	}());
@@ -65571,17 +65786,23 @@
 
 /***/ },
 /* 60 */
+/*!********************************!*\
+  !*** ./src/app/login/index.ts ***!
+  \********************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	function __export(m) {
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
-	__export(__webpack_require__(61));
-	
+	__export(__webpack_require__(/*! ./login.component */ 61));
+
 
 /***/ },
 /* 61 */
+/*!******************************************!*\
+  !*** ./src/app/login/login.component.ts ***!
+  \******************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -65594,10 +65815,10 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var core_1 = __webpack_require__(3);
-	var router_1 = __webpack_require__(30);
-	var login_service_1 = __webpack_require__(62);
-	var template = __webpack_require__(64);
+	var core_1 = __webpack_require__(/*! @angular/core */ 3);
+	var router_1 = __webpack_require__(/*! @angular/router */ 30);
+	var login_service_1 = __webpack_require__(/*! ../shared/login/login.service */ 62);
+	var template = __webpack_require__(/*! ./login.html */ 64);
 	var Login = (function () {
 	    function Login(router, loginService) {
 	        this.router = router;
@@ -65623,7 +65844,7 @@
 	        selector: 'login',
 	        providers: [login_service_1.LoginService],
 	        template: template,
-	        styles: [__webpack_require__(65)],
+	        styles: [__webpack_require__(/*! ./login.scss */ 65)],
 	        animations: [
 	            core_1.trigger('flyInOut', [
 	                core_1.state('in', core_1.style({ opacity: 1 })),
@@ -65637,10 +65858,13 @@
 	    __metadata("design:paramtypes", [router_1.Router, login_service_1.LoginService])
 	], Login);
 	exports.Login = Login;
-	
+
 
 /***/ },
 /* 62 */
+/*!***********************************************!*\
+  !*** ./src/app/shared/login/login.service.ts ***!
+  \***********************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -65653,9 +65877,9 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var core_1 = __webpack_require__(3);
-	var http_1 = __webpack_require__(28);
-	var headers_1 = __webpack_require__(63);
+	var core_1 = __webpack_require__(/*! @angular/core */ 3);
+	var http_1 = __webpack_require__(/*! @angular/http */ 28);
+	var headers_1 = __webpack_require__(/*! ../common/headers */ 63);
 	var LoginService = (function () {
 	    function LoginService(_http) {
 	        var _this = this;
@@ -65672,44 +65896,59 @@
 	    __metadata("design:paramtypes", [http_1.Http])
 	], LoginService);
 	exports.LoginService = LoginService;
-	
+
 
 /***/ },
 /* 63 */
+/*!******************************************!*\
+  !*** ./src/app/shared/common/headers.ts ***!
+  \******************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var http_1 = __webpack_require__(28);
+	var http_1 = __webpack_require__(/*! @angular/http */ 28);
 	exports.contentHeaders = new http_1.Headers();
 	exports.contentHeaders.append('Accept', 'application/json');
 	exports.contentHeaders.append('Content-Type', 'application/json');
-	
+
 
 /***/ },
 /* 64 */
+/*!**********************************!*\
+  !*** ./src/app/login/login.html ***!
+  \**********************************/
 /***/ function(module, exports) {
 
 	module.exports = "<mdl-layout mdl-layout-fixed-header mdl-layout-header-seamed>\n    <mdl-layout-content>\n        <div class=\"sd-align-center\">\n            <main class=\"mdl-layout__content\">\n                <div class=\"mdl-layout__tab-panel is-active\" id=\"overview\">\n                    <section [@flyInOut]=\"'in'\" class=\"section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp\">\n                        <div>\n                            <form role=\"form\" (submit)=\"login($event, email.value, password.value)\">\n                                <div class=\"group\">\n                                    <input type=\"text\" #email class=\"form-control\" id=\"email\"\n                                           required value=\"test@gmail.com\">\n                                    <span class=\"highlight\"></span>\n                                    <span class=\"bar\"></span>\n                                    <label>E-mail</label>\n                                </div>\n\n                                <div class=\"group\">\n                                    <input type=\"password\" #password class=\"form-control\" id=\"password\"\n                                           required value=\"123456a\">\n                                    <span class=\"highlight\"></span>\n                                    <span class=\"bar\"></span>\n                                    <label>Password</label>\n                                </div>\n                                <div class=\"mdl-layout-spacer\"></div>\n                                <button class=\"mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-button--align-right\"\n                                        type=\"submit\">Submit\n                                </button>\n                            </form>\n                            <div style=\"text-align: right\">You don't have an account? <a routerLink=\"/signup\" href=\"#\">Sign up</a></div>\n                        </div>\n\n                    </section>\n                </div>\n            </main>\n        </div>\n    </mdl-layout-content>\n</mdl-layout>\n\n"
 
 /***/ },
 /* 65 */
+/*!**********************************!*\
+  !*** ./src/app/login/login.scss ***!
+  \**********************************/
 /***/ function(module, exports) {
 
 	module.exports = "/* form starting stylings ------------------------------- */\n.group {\n  position: relative;\n  margin-bottom: 45px; }\n\ninput {\n  font-size: 18px;\n  padding: 10px 10px 10px 5px;\n  display: block;\n  width: 250px;\n  border: none;\n  border-bottom: 1px solid #757575; }\n\ninput:focus {\n  outline: none; }\n\n/* LABEL ======================================= */\nlabel {\n  color: #999;\n  font-size: 18px;\n  font-weight: normal;\n  position: absolute;\n  pointer-events: none;\n  left: 5px;\n  top: 10px;\n  transition: 0.2s ease all;\n  -moz-transition: 0.2s ease all;\n  -webkit-transition: 0.2s ease all; }\n\n/* active state */\ninput:focus ~ label, input:valid ~ label {\n  top: -20px;\n  font-size: 14px;\n  color: #5264AE; }\n\n/* BOTTOM BARS ================================= */\n.bar {\n  position: relative;\n  display: block;\n  width: 250px; }\n\n.bar:before, .bar:after {\n  content: '';\n  height: 2px;\n  width: 0;\n  bottom: 1px;\n  position: absolute;\n  background: #5264AE;\n  transition: 0.2s ease all;\n  -moz-transition: 0.2s ease all;\n  -webkit-transition: 0.2s ease all; }\n\n.bar:before {\n  left: 50%; }\n\n.bar:after {\n  right: 50%; }\n\n/* active state */\ninput:focus ~ .bar:before, input:focus ~ .bar:after {\n  width: 50%; }\n\n/* HIGHLIGHTER ================================== */\n.highlight {\n  position: absolute;\n  height: 60%;\n  width: 100px;\n  top: 25%;\n  left: 0;\n  pointer-events: none;\n  opacity: 0.5; }\n\n/* active state */\ninput:focus ~ .highlight {\n  -webkit-animation: inputHighlighter 0.3s ease;\n  -moz-animation: inputHighlighter 0.3s ease;\n  animation: inputHighlighter 0.3s ease; }\n\n/* ANIMATIONS ================ */\n@-webkit-keyframes inputHighlighter {\n  from {\n    background: #5264AE; }\n  to {\n    width: 0;\n    background: transparent; } }\n\n@-moz-keyframes inputHighlighter {\n  from {\n    background: #5264AE; }\n  to {\n    width: 0;\n    background: transparent; } }\n\n@keyframes inputHighlighter {\n  from {\n    background: #5264AE; }\n  to {\n    width: 0;\n    background: transparent; } }\n\n/* custom */\nform {\n  margin: 4em auto;\n  padding: 3em 2em 2em 2em;\n  background: #fafafa;\n  border: 1px solid #ebebeb;\n  box-shadow: rgba(0, 0, 0, 0.14902) 0px 1px 1px 0px, rgba(0, 0, 0, 0.09804) 0px 1px 2px 0px; }\n\n.sd-align-center {\n  align-items: center;\n  justify-content: center;\n  width: 100%;\n  height: 100%;\n  display: flex;\n  flex-direction: column; }\n"
 
 /***/ },
 /* 66 */
+/*!*********************************!*\
+  !*** ./src/app/signup/index.ts ***!
+  \*********************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	function __export(m) {
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
-	__export(__webpack_require__(67));
-	
+	__export(__webpack_require__(/*! ./signup.component */ 67));
+
 
 /***/ },
 /* 67 */
+/*!********************************************!*\
+  !*** ./src/app/signup/signup.component.ts ***!
+  \********************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -65722,11 +65961,11 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var core_1 = __webpack_require__(3);
-	var router_1 = __webpack_require__(30);
-	var signup_service_1 = __webpack_require__(68);
-	var styles = __webpack_require__(69);
-	var template = __webpack_require__(72);
+	var core_1 = __webpack_require__(/*! @angular/core */ 3);
+	var router_1 = __webpack_require__(/*! @angular/router */ 30);
+	var signup_service_1 = __webpack_require__(/*! ../shared/signup/signup.service */ 68);
+	var styles = __webpack_require__(/*! ./signup.css */ 69);
+	var template = __webpack_require__(/*! ./signup.html */ 72);
 	var SignUp = (function () {
 	    function SignUp(router, signUpService) {
 	        this.router = router;
@@ -65767,10 +66006,13 @@
 	    __metadata("design:paramtypes", [router_1.Router, signup_service_1.SignupService])
 	], SignUp);
 	exports.SignUp = SignUp;
-	
+
 
 /***/ },
 /* 68 */
+/*!*************************************************!*\
+  !*** ./src/app/shared/signup/signup.service.ts ***!
+  \*************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -65783,9 +66025,9 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var core_1 = __webpack_require__(3);
-	var http_1 = __webpack_require__(28);
-	var headers_1 = __webpack_require__(63);
+	var core_1 = __webpack_require__(/*! @angular/core */ 3);
+	var http_1 = __webpack_require__(/*! @angular/http */ 28);
+	var headers_1 = __webpack_require__(/*! ../common/headers */ 63);
 	var SignupService = (function () {
 	    function SignupService(_http) {
 	        var _this = this;
@@ -65802,15 +66044,18 @@
 	    __metadata("design:paramtypes", [http_1.Http])
 	], SignupService);
 	exports.SignupService = SignupService;
-	
+
 
 /***/ },
 /* 69 */
+/*!***********************************!*\
+  !*** ./src/app/signup/signup.css ***!
+  \***********************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	
-	        var result = __webpack_require__(70);
-
+	        var result = __webpack_require__(/*! !./../../../~/css-loader!./../../../~/postcss-loader!./signup.css */ 70);
+	
 	        if (typeof result === "string") {
 	            module.exports = result;
 	        } else {
@@ -65820,20 +66065,26 @@
 
 /***/ },
 /* 70 */
+/*!*********************************************************************!*\
+  !*** ./~/css-loader!./~/postcss-loader!./src/app/signup/signup.css ***!
+  \*********************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(71)();
+	exports = module.exports = __webpack_require__(/*! ./../../../~/css-loader/lib/css-base.js */ 71)();
 	// imports
-
-
+	
+	
 	// module
 	exports.push([module.id, "/* form starting stylings ------------------------------- */\n.group \t\t\t  {\n    position:relative;\n    margin-bottom:45px;\n}\ninput \t\t\t\t{\n    font-size:18px;\n    padding:10px 10px 10px 5px;\n    display:block;\n    width:250px;\n    border:none;\n    border-bottom:1px solid #757575;\n}\ninput:focus \t\t{ outline:none; }\n\n/* LABEL ======================================= */\nlabel \t\t\t\t {\n    color:#999;\n    font-size:18px;\n    font-weight:normal;\n    position:absolute;\n    pointer-events:none;\n    left:5px;\n    top:10px;\n    transition:0.2s ease all;\n    -moz-transition:0.2s ease all;\n    -webkit-transition:0.2s ease all;\n}\n\n/* active state */\ninput:focus ~ label, input:valid ~ label \t\t{\n    top:-20px;\n    font-size:14px;\n    color:#5264AE;\n}\n\n/* BOTTOM BARS ================================= */\n.bar \t{ position:relative; display:block; width:250px; }\n.bar:before, .bar:after \t{\n    content:'';\n    height:2px;\n    width:0;\n    bottom:1px;\n    position:absolute;\n    background:#5264AE;\n    transition:0.2s ease all;\n    -moz-transition:0.2s ease all;\n    -webkit-transition:0.2s ease all;\n}\n.bar:before {\n    left:50%;\n}\n.bar:after {\n    right:50%;\n}\n\n/* active state */\ninput:focus ~ .bar:before, input:focus ~ .bar:after {\n    width:50%;\n}\n\n/* HIGHLIGHTER ================================== */\n.highlight {\n    position:absolute;\n    height:60%;\n    width:100px;\n    top:25%;\n    left:0;\n    pointer-events:none;\n    opacity:0.5;\n}\n\n/* active state */\ninput:focus ~ .highlight {\n    -webkit-animation:inputHighlighter 0.3s ease;\n    animation:inputHighlighter 0.3s ease;\n}\n\n/* ANIMATIONS ================ */\n@-webkit-keyframes inputHighlighter {\n    from { background:#5264AE; }\n    to \t{ width:0; background:transparent; }\n}\n@keyframes inputHighlighter {\n    from { background:#5264AE; }\n    to \t{ width:0; background:transparent; }\n}\n\n\n/* custom */\n\nform {\n    margin: 4em auto;\n    padding: 3em 2em 2em 2em;\n    background: #fafafa;\n    border: 1px solid #ebebeb;\n    box-shadow: rgba(0,0,0,0.14902) 0px 1px 1px 0px,rgba(0,0,0,0.09804) 0px 1px 2px 0px;\n}\n\n\n.sd-align-center {\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    width: 100%;\n    height: 100%;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n        -ms-flex-direction: column;\n            flex-direction: column;\n\n}\n\n", ""]);
-
+	
 	// exports
 
 
 /***/ },
 /* 71 */
+/*!**************************************!*\
+  !*** ./~/css-loader/lib/css-base.js ***!
+  \**************************************/
 /***/ function(module, exports) {
 
 	/*
@@ -65843,7 +66094,7 @@
 	// css base code, injected by the css-loader
 	module.exports = function() {
 		var list = [];
-
+	
 		// return the list of modules as css string
 		list.toString = function toString() {
 			var result = [];
@@ -65857,7 +66108,7 @@
 			}
 			return result.join("");
 		};
-
+	
 		// import a list of modules into the list
 		list.i = function(modules, mediaQuery) {
 			if(typeof modules === "string")
@@ -65890,12 +66141,18 @@
 
 /***/ },
 /* 72 */
+/*!************************************!*\
+  !*** ./src/app/signup/signup.html ***!
+  \************************************/
 /***/ function(module, exports) {
 
 	module.exports = "<mdl-layout mdl-layout-fixed-header mdl-layout-header-seamed>\n    <mdl-layout-content>\n        <div class=\"sd-align-center\">\n            <main class=\"mdl-layout__content\">\n                <div class=\"mdl-layout__tab-panel is-active\" id=\"overview\">\n                    <section [@flyInOut]=\"'in'\" class=\"section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp\">\n                        <div>\n                            <form role=\"form\" (submit)=\"signUp($event, name.value, email.value, password.value)\">\n                                <div class=\"group\">\n                                    <input type=\"text\" #name class=\"form-control\" id=\"name\"\n                                           required>\n                                    <span class=\"highlight\"></span>\n                                    <span class=\"bar\"></span>\n                                    <label>Name</label>\n                                </div>\n                                <div class=\"group\">\n                                    <input type=\"text\" #email class=\"form-control\" id=\"email\"\n                                           required>\n                                    <span class=\"highlight\"></span>\n                                    <span class=\"bar\"></span>\n                                    <label>Email</label>\n                                </div>\n                                <div class=\"group\">\n                                    <input type=\"password\" #password class=\"form-control\" id=\"password\"\n                                           required>\n                                    <span class=\"highlight\"></span>\n                                    <span class=\"bar\"></span>\n                                    <label>Password</label>\n                                </div>\n                                <div class=\"mdl-layout-spacer\"></div>\n                                <button class=\"mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-button--align-right\"\n                                        type=\"submit\">Sign up\n                                </button>\n                            </form>\n                            <div style=\"text-align: right\">You have already an account? <a routerLink=\"/login\" href=\"#\">Sign in</a></div>\n\n                        </div>\n                    </section>\n                </div>\n            </main>\n        </div>\n    </mdl-layout-content>\n</mdl-layout>\n\n\n"
 
 /***/ },
 /* 73 */
+/*!**********************************!*\
+  !*** ./src/app/app.component.ts ***!
+  \**********************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -65908,8 +66165,8 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var core_1 = __webpack_require__(3);
-	var template = __webpack_require__(74);
+	var core_1 = __webpack_require__(/*! @angular/core */ 3);
+	var template = __webpack_require__(/*! ./app.html */ 74);
 	var AppComponent = (function () {
 	    function AppComponent() {
 	    }
@@ -65919,27 +66176,36 @@
 	    core_1.Component({
 	        selector: 'sleep-diary',
 	        template: template,
-	        styles: [__webpack_require__(75)]
+	        styles: [__webpack_require__(/*! ./app.component.scss */ 75)]
 	    }),
 	    __metadata("design:paramtypes", [])
 	], AppComponent);
 	exports.AppComponent = AppComponent;
-	
+
 
 /***/ },
 /* 74 */
+/*!**************************!*\
+  !*** ./src/app/app.html ***!
+  \**************************/
 /***/ function(module, exports) {
 
 	module.exports = "<div class=\"demo-container\" mdl-shadow=\"2\">\n    <router-outlet></router-outlet>\n</div>\n"
 
 /***/ },
 /* 75 */
+/*!************************************!*\
+  !*** ./src/app/app.component.scss ***!
+  \************************************/
 /***/ function(module, exports) {
 
 	module.exports = ".app-icon-button {\n  box-shadow: none;\n  user-select: none;\n  background: none;\n  border: none;\n  cursor: pointer;\n  filter: none;\n  font-weight: normal;\n  height: auto;\n  line-height: inherit;\n  margin: 0;\n  min-width: 0;\n  padding: 0;\n  text-align: left;\n  text-decoration: none; }\n\n.app-toolbar-menu {\n  padding: 0 14px 0 14px;\n  color: white; }\n"
 
 /***/ },
 /* 76 */
+/*!****************************************!*\
+  !*** ./~/angular2-jwt/angular2-jwt.js ***!
+  \****************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -65957,19 +66223,19 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var core_1 = __webpack_require__(3);
-	var http_1 = __webpack_require__(28);
-	var Observable_1 = __webpack_require__(5);
-	__webpack_require__(77);
-	__webpack_require__(78);
+	var core_1 = __webpack_require__(/*! @angular/core */ 3);
+	var http_1 = __webpack_require__(/*! @angular/http */ 28);
+	var Observable_1 = __webpack_require__(/*! rxjs/Observable */ 5);
+	__webpack_require__(/*! rxjs/add/observable/fromPromise */ 77);
+	__webpack_require__(/*! rxjs/add/operator/mergeMap */ 78);
 	var AuthConfigConsts = (function () {
 	    function AuthConfigConsts() {
 	    }
-	    AuthConfigConsts.DEFAULT_TOKEN_NAME = 'id_token';
-	    AuthConfigConsts.DEFAULT_HEADER_NAME = 'Authorization';
-	    AuthConfigConsts.HEADER_PREFIX_BEARER = 'Bearer ';
 	    return AuthConfigConsts;
 	}());
+	AuthConfigConsts.DEFAULT_TOKEN_NAME = 'id_token';
+	AuthConfigConsts.DEFAULT_HEADER_NAME = 'Authorization';
+	AuthConfigConsts.HEADER_PREFIX_BEARER = 'Bearer ';
 	exports.AuthConfigConsts = AuthConfigConsts;
 	var AuthConfigDefaults = {
 	    headerName: AuthConfigConsts.DEFAULT_HEADER_NAME,
@@ -65977,6 +66243,7 @@
 	    tokenName: AuthConfigConsts.DEFAULT_TOKEN_NAME,
 	    tokenGetter: function () { return localStorage.getItem(AuthConfigDefaults.tokenName); },
 	    noJwtError: false,
+	    noClientCheck: false,
 	    globalHeaders: [],
 	    noTokenScheme: false
 	};
@@ -65996,6 +66263,9 @@
 	        else {
 	            this._config.headerPrefix = AuthConfigConsts.HEADER_PREFIX_BEARER;
 	        }
+	        if (config.tokenName && !config.tokenGetter) {
+	            this._config.tokenGetter = function () { return localStorage.getItem(config.tokenName); };
+	        }
 	    }
 	    AuthConfig.prototype.getConfig = function () {
 	        return this._config;
@@ -66006,7 +66276,7 @@
 	var AuthHttpError = (function (_super) {
 	    __extends(AuthHttpError, _super);
 	    function AuthHttpError() {
-	        _super.apply(this, arguments);
+	        return _super.apply(this, arguments) || this;
 	    }
 	    return AuthHttpError;
 	}(Error));
@@ -66040,7 +66310,7 @@
 	        return this.request(new http_1.Request(this.mergeOptions(options, this.defOpts)));
 	    };
 	    AuthHttp.prototype.requestWithToken = function (req, token) {
-	        if (!tokenNotExpired(undefined, token)) {
+	        if (!this.config.noClientCheck && !tokenNotExpired(undefined, token)) {
 	            if (!this.config.noJwtError) {
 	                return new Observable_1.Observable(function (obs) {
 	                    obs.error(new AuthHttpError('No JWT present or has expired'));
@@ -66101,12 +66371,12 @@
 	    AuthHttp.prototype.options = function (url, options) {
 	        return this.requestHelper({ body: '', method: http_1.RequestMethod.Options, url: url }, options);
 	    };
-	    AuthHttp = __decorate([
-	        core_1.Injectable(), 
-	        __metadata('design:paramtypes', [AuthConfig, http_1.Http, http_1.RequestOptions])
-	    ], AuthHttp);
 	    return AuthHttp;
 	}());
+	AuthHttp = __decorate([
+	    core_1.Injectable(),
+	    __metadata("design:paramtypes", [AuthConfig, http_1.Http, http_1.RequestOptions])
+	], AuthHttp);
 	exports.AuthHttp = AuthHttp;
 	/**
 	 * Helper class to decode and find JWT expiration.
@@ -66142,7 +66412,9 @@
 	        if (str.length % 4 == 1) {
 	            throw new Error("'atob' failed: The string to be decoded is not correctly encoded.");
 	        }
-	        for (var bc = 0, bs = void 0, buffer = void 0, idx = 0; 
+	        for (
+	        // initialize result and counters
+	        var bc = 0, bs = void 0, buffer = void 0, idx = 0; 
 	        // get next character
 	        buffer = str.charAt(idx++); 
 	        // character found in table? initialize bit storage and add its ascii value;
@@ -66264,27 +66536,36 @@
 
 /***/ },
 /* 77 */
+/*!**********************************************!*\
+  !*** ./~/rxjs/add/observable/fromPromise.js ***!
+  \**********************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var Observable_1 = __webpack_require__(5);
-	var fromPromise_1 = __webpack_require__(26);
+	var Observable_1 = __webpack_require__(/*! ../../Observable */ 5);
+	var fromPromise_1 = __webpack_require__(/*! ../../observable/fromPromise */ 26);
 	Observable_1.Observable.fromPromise = fromPromise_1.fromPromise;
 	//# sourceMappingURL=fromPromise.js.map
 
 /***/ },
 /* 78 */
+/*!*****************************************!*\
+  !*** ./~/rxjs/add/operator/mergeMap.js ***!
+  \*****************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var Observable_1 = __webpack_require__(5);
-	var mergeMap_1 = __webpack_require__(46);
+	var Observable_1 = __webpack_require__(/*! ../../Observable */ 5);
+	var mergeMap_1 = __webpack_require__(/*! ../../operator/mergeMap */ 46);
 	Observable_1.Observable.prototype.mergeMap = mergeMap_1.mergeMap;
 	Observable_1.Observable.prototype.flatMap = mergeMap_1.mergeMap;
 	//# sourceMappingURL=mergeMap.js.map
 
 /***/ },
 /* 79 */
+/*!*************************************!*\
+  !*** ./src/app/home/home.module.ts ***!
+  \*************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -66297,23 +66578,23 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var home_routes_1 = __webpack_require__(80);
-	var core_1 = __webpack_require__(3);
-	var calendar_component_1 = __webpack_require__(94);
-	var monthly_component_1 = __webpack_require__(85);
-	var entry_form_component_1 = __webpack_require__(88);
-	var yearly_component_1 = __webpack_require__(83);
-	var common_1 = __webpack_require__(22);
-	var forms_1 = __webpack_require__(24);
-	var home_1 = __webpack_require__(81);
-	var header_1 = __webpack_require__(213);
-	var footer_1 = __webpack_require__(215);
-	var auth_guard_1 = __webpack_require__(93);
-	var angular2_mdl_1 = __webpack_require__(210);
-	var drawer_1 = __webpack_require__(218);
-	var close_menu_directive_1 = __webpack_require__(220);
-	var select_1 = __webpack_require__(221);
-	var popover_1 = __webpack_require__(222);
+	var home_routes_1 = __webpack_require__(/*! ./home.routes */ 80);
+	var core_1 = __webpack_require__(/*! @angular/core */ 3);
+	var calendar_component_1 = __webpack_require__(/*! ./calendar/calendar.component */ 94);
+	var monthly_component_1 = __webpack_require__(/*! ./monthly/monthly.component */ 85);
+	var entry_form_component_1 = __webpack_require__(/*! ./entryForm/entry-form.component */ 88);
+	var yearly_component_1 = __webpack_require__(/*! ./yearly/yearly.component */ 83);
+	var common_1 = __webpack_require__(/*! @angular/common */ 22);
+	var forms_1 = __webpack_require__(/*! @angular/forms */ 24);
+	var home_1 = __webpack_require__(/*! ./home */ 81);
+	var header_1 = __webpack_require__(/*! ../header/header */ 213);
+	var footer_1 = __webpack_require__(/*! ../footer/footer */ 215);
+	var auth_guard_1 = __webpack_require__(/*! ../shared/common/auth-guard */ 93);
+	var angular2_mdl_1 = __webpack_require__(/*! angular2-mdl */ 210);
+	var drawer_1 = __webpack_require__(/*! ../drawer/drawer */ 218);
+	var close_menu_directive_1 = __webpack_require__(/*! ../shared/common/close-menu.directive */ 220);
+	var select_1 = __webpack_require__(/*! @angular2-mdl-ext/select */ 221);
+	var popover_1 = __webpack_require__(/*! @angular2-mdl-ext/popover */ 222);
 	var HomeModule = (function () {
 	    function HomeModule() {
 	    }
@@ -66347,19 +66628,22 @@
 	    __metadata("design:paramtypes", [])
 	], HomeModule);
 	exports.HomeModule = HomeModule;
-	
+
 
 /***/ },
 /* 80 */
+/*!*************************************!*\
+  !*** ./src/app/home/home.routes.ts ***!
+  \*************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var router_1 = __webpack_require__(30);
-	var home_1 = __webpack_require__(81);
-	var yearly_component_1 = __webpack_require__(83);
-	var monthly_component_1 = __webpack_require__(85);
-	var entry_form_component_1 = __webpack_require__(88);
-	var auth_guard_1 = __webpack_require__(93);
+	var router_1 = __webpack_require__(/*! @angular/router */ 30);
+	var home_1 = __webpack_require__(/*! ./home */ 81);
+	var yearly_component_1 = __webpack_require__(/*! ./yearly/yearly.component */ 83);
+	var monthly_component_1 = __webpack_require__(/*! ./monthly/monthly.component */ 85);
+	var entry_form_component_1 = __webpack_require__(/*! ./entryForm/entry-form.component */ 88);
+	var auth_guard_1 = __webpack_require__(/*! ../shared/common/auth-guard */ 93);
 	var homeRoutes = [
 	    {
 	        path: 'home',
@@ -66386,10 +66670,13 @@
 	    }
 	];
 	exports.homeRouting = router_1.RouterModule.forChild(homeRoutes);
-	
+
 
 /***/ },
 /* 81 */
+/*!******************************!*\
+  !*** ./src/app/home/home.ts ***!
+  \******************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -66402,8 +66689,8 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var core_1 = __webpack_require__(3);
-	var template = __webpack_require__(82);
+	var core_1 = __webpack_require__(/*! @angular/core */ 3);
+	var template = __webpack_require__(/*! ./home.html */ 82);
 	var HomeComponent = (function () {
 	    function HomeComponent() {
 	    }
@@ -66416,16 +66703,22 @@
 	    __metadata("design:paramtypes", [])
 	], HomeComponent);
 	exports.HomeComponent = HomeComponent;
-	
+
 
 /***/ },
 /* 82 */
+/*!********************************!*\
+  !*** ./src/app/home/home.html ***!
+  \********************************/
 /***/ function(module, exports) {
 
 	module.exports = "<mdl-layout mdl-layout-fixed-header mdl-layout-header-seamed>\n    <mdl-layout-header>\n        <header-comp></header-comp>\n    </mdl-layout-header>\n    <mdl-layout-drawer closeDrawerOnClick>\n        <mdl-layout-title>Menu</mdl-layout-title>\n        <drawer-comp></drawer-comp>\n    </mdl-layout-drawer>\n    <mdl-layout-content>\n        <router-outlet ></router-outlet>\n       <!-- <footer-comp></footer-comp>-->\n    </mdl-layout-content>\n</mdl-layout>\n<dialog-outlet></dialog-outlet>"
 
 /***/ },
 /* 83 */
+/*!*************************************************!*\
+  !*** ./src/app/home/yearly/yearly.component.ts ***!
+  \*************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -66438,8 +66731,8 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var core_1 = __webpack_require__(3);
-	var template = __webpack_require__(84);
+	var core_1 = __webpack_require__(/*! @angular/core */ 3);
+	var template = __webpack_require__(/*! ./yearly.html */ 84);
 	var YearlyViewComponent = (function () {
 	    function YearlyViewComponent() {
 	    }
@@ -66454,16 +66747,22 @@
 	    __metadata("design:paramtypes", [])
 	], YearlyViewComponent);
 	exports.YearlyViewComponent = YearlyViewComponent;
-	
+
 
 /***/ },
 /* 84 */
+/*!*****************************************!*\
+  !*** ./src/app/home/yearly/yearly.html ***!
+  \*****************************************/
 /***/ function(module, exports) {
 
 	module.exports = "Yearly View."
 
 /***/ },
 /* 85 */
+/*!***************************************************!*\
+  !*** ./src/app/home/monthly/monthly.component.ts ***!
+  \***************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -66476,9 +66775,9 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var core_1 = __webpack_require__(3);
-	var calendar_service_1 = __webpack_require__(86);
-	var template = __webpack_require__(87);
+	var core_1 = __webpack_require__(/*! @angular/core */ 3);
+	var calendar_service_1 = __webpack_require__(/*! ../../shared/calendar/calendar.service */ 86);
+	var template = __webpack_require__(/*! ./monthly.html */ 87);
 	var MonthlyViewComponent = (function () {
 	    function MonthlyViewComponent() {
 	    }
@@ -66495,10 +66794,13 @@
 	    __metadata("design:paramtypes", [])
 	], MonthlyViewComponent);
 	exports.MonthlyViewComponent = MonthlyViewComponent;
-	
+
 
 /***/ },
 /* 86 */
+/*!*****************************************************!*\
+  !*** ./src/app/shared/calendar/calendar.service.ts ***!
+  \*****************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -66511,10 +66813,10 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var core_1 = __webpack_require__(3);
-	var http_1 = __webpack_require__(28);
-	var headers_1 = __webpack_require__(63);
-	var angular2_jwt_1 = __webpack_require__(76);
+	var core_1 = __webpack_require__(/*! @angular/core */ 3);
+	var http_1 = __webpack_require__(/*! @angular/http */ 28);
+	var headers_1 = __webpack_require__(/*! ../common/headers */ 63);
+	var angular2_jwt_1 = __webpack_require__(/*! angular2-jwt */ 76);
 	var CalendarService = (function () {
 	    function CalendarService(_http, _authHttp) {
 	        this._http = _http;
@@ -66535,16 +66837,22 @@
 	    __metadata("design:paramtypes", [http_1.Http, angular2_jwt_1.AuthHttp])
 	], CalendarService);
 	exports.CalendarService = CalendarService;
-	
+
 
 /***/ },
 /* 87 */
+/*!*******************************************!*\
+  !*** ./src/app/home/monthly/monthly.html ***!
+  \*******************************************/
 /***/ function(module, exports) {
 
 	module.exports = "<calendar></calendar>"
 
 /***/ },
 /* 88 */
+/*!********************************************************!*\
+  !*** ./src/app/home/entryForm/entry-form.component.ts ***!
+  \********************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -66557,11 +66865,11 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var core_1 = __webpack_require__(3);
-	var entry_1 = __webpack_require__(89);
-	var router_1 = __webpack_require__(30);
-	var entry_form_service_1 = __webpack_require__(90);
-	var template = __webpack_require__(91);
+	var core_1 = __webpack_require__(/*! @angular/core */ 3);
+	var entry_1 = __webpack_require__(/*! ../../shared/common/entry */ 89);
+	var router_1 = __webpack_require__(/*! @angular/router */ 30);
+	var entry_form_service_1 = __webpack_require__(/*! ../../shared/entry-form/entry-form.service */ 90);
+	var template = __webpack_require__(/*! ./entry-form.html */ 91);
 	var EntryForm = (function () {
 	    // https://scotch.io/tutorials/how-to-deal-with-different-form-controls-in-angular-2
 	    // http://blog.angular-university.io/introduction-to-angular-2-forms-template-driven-vs-model-driven/
@@ -66649,7 +66957,7 @@
 	    core_1.Component({
 	        selector: 'form-view',
 	        template: template,
-	        styles: [__webpack_require__(92)],
+	        styles: [__webpack_require__(/*! ./entry-form.scss */ 92)],
 	        providers: [entry_form_service_1.EntryFormService],
 	        animations: [
 	            core_1.trigger('flyInOut', [
@@ -66665,10 +66973,13 @@
 	        entry_form_service_1.EntryFormService])
 	], EntryForm);
 	exports.EntryForm = EntryForm;
-	
+
 
 /***/ },
 /* 89 */
+/*!****************************************!*\
+  !*** ./src/app/shared/common/entry.ts ***!
+  \****************************************/
 /***/ function(module, exports) {
 
 	"use strict";
@@ -66685,10 +66996,13 @@
 	    return Entry;
 	}());
 	exports.Entry = Entry;
-	
+
 
 /***/ },
 /* 90 */
+/*!*********************************************************!*\
+  !*** ./src/app/shared/entry-form/entry-form.service.ts ***!
+  \*********************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -66701,10 +67015,10 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var core_1 = __webpack_require__(3);
-	var http_1 = __webpack_require__(28);
-	var headers_1 = __webpack_require__(63);
-	var angular2_jwt_1 = __webpack_require__(76);
+	var core_1 = __webpack_require__(/*! @angular/core */ 3);
+	var http_1 = __webpack_require__(/*! @angular/http */ 28);
+	var headers_1 = __webpack_require__(/*! ../common/headers */ 63);
+	var angular2_jwt_1 = __webpack_require__(/*! angular2-jwt */ 76);
 	var EntryFormService = (function () {
 	    function EntryFormService(_http, _authHttp) {
 	        this._http = _http;
@@ -66742,22 +67056,31 @@
 	    __metadata("design:paramtypes", [http_1.Http, angular2_jwt_1.AuthHttp])
 	], EntryFormService);
 	exports.EntryFormService = EntryFormService;
-	
+
 
 /***/ },
 /* 91 */
+/*!************************************************!*\
+  !*** ./src/app/home/entryForm/entry-form.html ***!
+  \************************************************/
 /***/ function(module, exports) {
 
 	module.exports = "<form [@flyInOut]=\"'in'\" mdl #f=\"ngForm\" novalidate (ngSubmit)=\"onSubmit()\">\n    <input [ngModel]=\"entry.uuid\" type=\"hidden\" class=\"form-control\" name=\"uuid\" id=\"uuid\">\n    <input [ngModel]=\"entry.date\" type=\"hidden\" class=\"form-control\" name=\"date\" id=\"date\">\n    <div class=\"mdl-grid\">\n        <div class=\"mdl-layout-spacer\"></div>\n        <div class=\"mdl-cell mdl-cell--12-col sd-text-align\">\n            <a style=\"text-decoration: none\" (click)=\"back()\">\n                <mdl-icon style=\"vertical-align: middle;\">chevron_left</mdl-icon>\n            </a>\n            <span>{{ entry.date | date: 'fullDate'}}</span>\n        </div>\n        <div style=\"text-align: left;\" class=\"mdl-cell mdl-cell--12-col\">\n            <div class=\"form-group\">\n                <h5>How did you sleep last night?</h5>\n                <div *ngFor=\"let sleepingQuality of sleepingQualityValues\" style=\"display: block;\">\n                    <mdl-radio name=\"sleepingQuality\" [value]=\"sleepingQuality.value\"\n                               [(ngModel)]=\"entry.sleepingQuality\" mdl-ripple>\n                        {{sleepingQuality.display}}\n                    </mdl-radio>\n                </div>\n            </div>\n        </div>\n        <div style=\"text-align: left;\" class=\"mdl-cell mdl-cell--12-col\">\n            <div class=\"form-group\">\n                <h5>How do you feel of tiredness?</h5>\n                <div *ngFor=\"let tirednessFeeling of tirednessFeelingValues\" style=\"display: block;\">\n                    <mdl-radio name=\"tirednessFeeling\" [value]=\"tirednessFeeling.value\"\n                               [(ngModel)]=\"entry.tirednessFeeling\" mdl-ripple>\n                        {{tirednessFeeling.display}}\n                    </mdl-radio>\n                </div>\n            </div>\n        </div>\n        <div style=\"text-align: left;\" class=\"mdl-cell mdl-cell--12-col\">\n            <button mdl-button mdl-button-type=\"raised\" mdl-colored=\"accent\" type=\"submit\" mdl-ripple>Submit</button>\n            <button mdl-button mdl-button-type=\"raised\" mdl-colored=\"primary\" *ngIf=\"entry.uuid\" type=\"button\"\n                    (click)=\"deleteEntry(entry.uuid)\">Delete register\n            </button>\n        </div>\n        <div class=\"mdl-layout-spacer\"></div>\n    </div>\n</form>\n\n\n"
 
 /***/ },
 /* 92 */
+/*!************************************************!*\
+  !*** ./src/app/home/entryForm/entry-form.scss ***!
+  \************************************************/
 /***/ function(module, exports) {
 
 	module.exports = ".sd-section__wrapper {\n  text-align: center;\n  position: absolute;\n  left: 50%;\n  top: 50%;\n  transform: translate(-50%, -50%); }\n\n.sd-text-align {\n  cursor: pointer; }\n"
 
 /***/ },
 /* 93 */
+/*!*********************************************!*\
+  !*** ./src/app/shared/common/auth-guard.ts ***!
+  \*********************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -66770,9 +67093,9 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var core_1 = __webpack_require__(3);
-	var router_1 = __webpack_require__(30);
-	var angular2_jwt_1 = __webpack_require__(76);
+	var core_1 = __webpack_require__(/*! @angular/core */ 3);
+	var router_1 = __webpack_require__(/*! @angular/router */ 30);
+	var angular2_jwt_1 = __webpack_require__(/*! angular2-jwt */ 76);
 	var AuthGuard = (function () {
 	    function AuthGuard(router) {
 	        this.router = router;
@@ -66791,10 +67114,13 @@
 	    __metadata("design:paramtypes", [router_1.Router])
 	], AuthGuard);
 	exports.AuthGuard = AuthGuard;
-	
+
 
 /***/ },
 /* 94 */
+/*!*****************************************************!*\
+  !*** ./src/app/home/calendar/calendar.component.ts ***!
+  \*****************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -66807,16 +67133,16 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var core_1 = __webpack_require__(3);
-	var moment = __webpack_require__(95);
-	var month_1 = __webpack_require__(206);
-	var calendar_service_1 = __webpack_require__(86);
-	var router_1 = __webpack_require__(30);
-	var week_1 = __webpack_require__(207);
-	var day_1 = __webpack_require__(208);
-	var metrics_indicators_1 = __webpack_require__(209);
-	var angular2_mdl_1 = __webpack_require__(210);
-	var template = __webpack_require__(211);
+	var core_1 = __webpack_require__(/*! @angular/core */ 3);
+	var moment = __webpack_require__(/*! moment */ 95);
+	var month_1 = __webpack_require__(/*! ../../shared/calendar/month */ 206);
+	var calendar_service_1 = __webpack_require__(/*! ../../shared/calendar/calendar.service */ 86);
+	var router_1 = __webpack_require__(/*! @angular/router */ 30);
+	var week_1 = __webpack_require__(/*! ../../shared/calendar/week */ 207);
+	var day_1 = __webpack_require__(/*! ../../shared/calendar/day */ 208);
+	var metrics_indicators_1 = __webpack_require__(/*! ../../shared/common/metrics-indicators */ 209);
+	var angular2_mdl_1 = __webpack_require__(/*! angular2-mdl */ 210);
+	var template = __webpack_require__(/*! ./calendar.html */ 211);
 	//todo:
 	var Calendar = (function () {
 	    function Calendar(mdlSnackbarService, router, route, calendarService) {
@@ -67042,7 +67368,7 @@
 	    core_1.Component({
 	        selector: 'calendar',
 	        template: template,
-	        styles: [__webpack_require__(212)],
+	        styles: [__webpack_require__(/*! ./calendar.scss */ 212)],
 	        providers: [calendar_service_1.CalendarService],
 	        animations: [
 	            core_1.trigger('flyInOut', [
@@ -67060,10 +67386,13 @@
 	        calendar_service_1.CalendarService])
 	], Calendar);
 	exports.Calendar = Calendar;
-	
+
 
 /***/ },
 /* 95 */
+/*!****************************!*\
+  !*** ./~/moment/moment.js ***!
+  \****************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(module) {//! moment.js
@@ -67071,35 +67400,35 @@
 	//! authors : Tim Wood, Iskren Chernev, Moment.js contributors
 	//! license : MIT
 	//! momentjs.com
-
+	
 	;(function (global, factory) {
 	     true ? module.exports = factory() :
 	    typeof define === 'function' && define.amd ? define(factory) :
 	    global.moment = factory()
 	}(this, (function () { 'use strict';
-
+	
 	var hookCallback;
-
+	
 	function hooks () {
 	    return hookCallback.apply(null, arguments);
 	}
-
+	
 	// This is done to register the method called with moment()
 	// without creating circular dependencies.
 	function setHookCallback (callback) {
 	    hookCallback = callback;
 	}
-
+	
 	function isArray(input) {
 	    return input instanceof Array || Object.prototype.toString.call(input) === '[object Array]';
 	}
-
+	
 	function isObject(input) {
 	    // IE8 will treat undefined and null as object if it wasn't for
 	    // input != null
 	    return input != null && Object.prototype.toString.call(input) === '[object Object]';
 	}
-
+	
 	function isObjectEmpty(obj) {
 	    var k;
 	    for (k in obj) {
@@ -67108,15 +67437,15 @@
 	    }
 	    return true;
 	}
-
+	
 	function isNumber(input) {
 	    return typeof input === 'number' || Object.prototype.toString.call(input) === '[object Number]';
 	}
-
+	
 	function isDate(input) {
 	    return input instanceof Date || Object.prototype.toString.call(input) === '[object Date]';
 	}
-
+	
 	function map(arr, fn) {
 	    var res = [], i;
 	    for (i = 0; i < arr.length; ++i) {
@@ -67124,33 +67453,33 @@
 	    }
 	    return res;
 	}
-
+	
 	function hasOwnProp(a, b) {
 	    return Object.prototype.hasOwnProperty.call(a, b);
 	}
-
+	
 	function extend(a, b) {
 	    for (var i in b) {
 	        if (hasOwnProp(b, i)) {
 	            a[i] = b[i];
 	        }
 	    }
-
+	
 	    if (hasOwnProp(b, 'toString')) {
 	        a.toString = b.toString;
 	    }
-
+	
 	    if (hasOwnProp(b, 'valueOf')) {
 	        a.valueOf = b.valueOf;
 	    }
-
+	
 	    return a;
 	}
-
+	
 	function createUTC (input, format, locale, strict) {
 	    return createLocalOrUTC(input, format, locale, strict, true).utc();
 	}
-
+	
 	function defaultParsingFlags() {
 	    // We need to deep clone this object.
 	    return {
@@ -67168,14 +67497,14 @@
 	        meridiem        : null
 	    };
 	}
-
+	
 	function getParsingFlags(m) {
 	    if (m._pf == null) {
 	        m._pf = defaultParsingFlags();
 	    }
 	    return m._pf;
 	}
-
+	
 	var some;
 	if (Array.prototype.some) {
 	    some = Array.prototype.some;
@@ -67183,19 +67512,19 @@
 	    some = function (fun) {
 	        var t = Object(this);
 	        var len = t.length >>> 0;
-
+	
 	        for (var i = 0; i < len; i++) {
 	            if (i in t && fun.call(this, t[i], i, t)) {
 	                return true;
 	            }
 	        }
-
+	
 	        return false;
 	    };
 	}
-
+	
 	var some$1 = some;
-
+	
 	function isValid(m) {
 	    if (m._isValid == null) {
 	        var flags = getParsingFlags(m);
@@ -67211,14 +67540,14 @@
 	            !flags.invalidFormat &&
 	            !flags.userInvalidated &&
 	            (!flags.meridiem || (flags.meridiem && parsedParts));
-
+	
 	        if (m._strict) {
 	            isNowValid = isNowValid &&
 	                flags.charsLeftOver === 0 &&
 	                flags.unusedTokens.length === 0 &&
 	                flags.bigHour === undefined;
 	        }
-
+	
 	        if (Object.isFrozen == null || !Object.isFrozen(m)) {
 	            m._isValid = isNowValid;
 	        }
@@ -67228,7 +67557,7 @@
 	    }
 	    return m._isValid;
 	}
-
+	
 	function createInvalid (flags) {
 	    var m = createUTC(NaN);
 	    if (flags != null) {
@@ -67237,21 +67566,21 @@
 	    else {
 	        getParsingFlags(m).userInvalidated = true;
 	    }
-
+	
 	    return m;
 	}
-
+	
 	function isUndefined(input) {
 	    return input === void 0;
 	}
-
+	
 	// Plugins that add properties should also add the key here (null value),
 	// so we can properly clone ourselves.
 	var momentProperties = hooks.momentProperties = [];
-
+	
 	function copyConfig(to, from) {
 	    var i, prop, val;
-
+	
 	    if (!isUndefined(from._isAMomentObject)) {
 	        to._isAMomentObject = from._isAMomentObject;
 	    }
@@ -67282,7 +67611,7 @@
 	    if (!isUndefined(from._locale)) {
 	        to._locale = from._locale;
 	    }
-
+	
 	    if (momentProperties.length > 0) {
 	        for (i in momentProperties) {
 	            prop = momentProperties[i];
@@ -67292,12 +67621,12 @@
 	            }
 	        }
 	    }
-
+	
 	    return to;
 	}
-
+	
 	var updateInProgress = false;
-
+	
 	// Moment prototype object
 	function Moment(config) {
 	    copyConfig(this, config);
@@ -67313,11 +67642,11 @@
 	        updateInProgress = false;
 	    }
 	}
-
+	
 	function isMoment (obj) {
 	    return obj instanceof Moment || (obj != null && obj._isAMomentObject != null);
 	}
-
+	
 	function absFloor (number) {
 	    if (number < 0) {
 	        // -0 -> 0
@@ -67326,18 +67655,18 @@
 	        return Math.floor(number);
 	    }
 	}
-
+	
 	function toInt(argumentForCoercion) {
 	    var coercedNumber = +argumentForCoercion,
 	        value = 0;
-
+	
 	    if (coercedNumber !== 0 && isFinite(coercedNumber)) {
 	        value = absFloor(coercedNumber);
 	    }
-
+	
 	    return value;
 	}
-
+	
 	// compare two arrays, return the number of differences
 	function compareArrays(array1, array2, dontConvert) {
 	    var len = Math.min(array1.length, array2.length),
@@ -67352,17 +67681,17 @@
 	    }
 	    return diffs + lengthDiff;
 	}
-
+	
 	function warn(msg) {
 	    if (hooks.suppressDeprecationWarnings === false &&
 	            (typeof console !==  'undefined') && console.warn) {
 	        console.warn('Deprecation warning: ' + msg);
 	    }
 	}
-
+	
 	function deprecate(msg, fn) {
 	    var firstTime = true;
-
+	
 	    return extend(function () {
 	        if (hooks.deprecationHandler != null) {
 	            hooks.deprecationHandler(null, msg);
@@ -67389,9 +67718,9 @@
 	        return fn.apply(this, arguments);
 	    }, fn);
 	}
-
+	
 	var deprecations = {};
-
+	
 	function deprecateSimple(name, msg) {
 	    if (hooks.deprecationHandler != null) {
 	        hooks.deprecationHandler(name, msg);
@@ -67401,14 +67730,14 @@
 	        deprecations[name] = true;
 	    }
 	}
-
+	
 	hooks.suppressDeprecationWarnings = false;
 	hooks.deprecationHandler = null;
-
+	
 	function isFunction(input) {
 	    return input instanceof Function || Object.prototype.toString.call(input) === '[object Function]';
 	}
-
+	
 	function set (config) {
 	    var prop, i;
 	    for (i in config) {
@@ -67424,7 +67753,7 @@
 	    // number + (possibly) stuff coming from _ordinalParseLenient.
 	    this._ordinalParseLenient = new RegExp(this._ordinalParse.source + '|' + (/\d{1,2}/).source);
 	}
-
+	
 	function mergeConfigs(parentConfig, childConfig) {
 	    var res = extend({}, parentConfig), prop;
 	    for (prop in childConfig) {
@@ -67450,15 +67779,15 @@
 	    }
 	    return res;
 	}
-
+	
 	function Locale(config) {
 	    if (config != null) {
 	        this.set(config);
 	    }
 	}
-
+	
 	var keys;
-
+	
 	if (Object.keys) {
 	    keys = Object.keys;
 	} else {
@@ -67472,9 +67801,9 @@
 	        return res;
 	    };
 	}
-
+	
 	var keys$1 = keys;
-
+	
 	var defaultCalendar = {
 	    sameDay : '[Today at] LT',
 	    nextDay : '[Tomorrow at] LT',
@@ -67483,12 +67812,12 @@
 	    lastWeek : '[Last] dddd [at] LT',
 	    sameElse : 'L'
 	};
-
+	
 	function calendar (key, mom, now) {
 	    var output = this._calendar[key] || this._calendar['sameElse'];
 	    return isFunction(output) ? output.call(mom, now) : output;
 	}
-
+	
 	var defaultLongDateFormat = {
 	    LTS  : 'h:mm:ss A',
 	    LT   : 'h:mm A',
@@ -67497,35 +67826,35 @@
 	    LLL  : 'MMMM D, YYYY h:mm A',
 	    LLLL : 'dddd, MMMM D, YYYY h:mm A'
 	};
-
+	
 	function longDateFormat (key) {
 	    var format = this._longDateFormat[key],
 	        formatUpper = this._longDateFormat[key.toUpperCase()];
-
+	
 	    if (format || !formatUpper) {
 	        return format;
 	    }
-
+	
 	    this._longDateFormat[key] = formatUpper.replace(/MMMM|MM|DD|dddd/g, function (val) {
 	        return val.slice(1);
 	    });
-
+	
 	    return this._longDateFormat[key];
 	}
-
+	
 	var defaultInvalidDate = 'Invalid date';
-
+	
 	function invalidDate () {
 	    return this._invalidDate;
 	}
-
+	
 	var defaultOrdinal = '%d';
 	var defaultOrdinalParse = /\d{1,2}/;
-
+	
 	function ordinal (number) {
 	    return this._ordinal.replace('%d', number);
 	}
-
+	
 	var defaultRelativeTime = {
 	    future : 'in %s',
 	    past   : '%s ago',
@@ -67541,35 +67870,35 @@
 	    y  : 'a year',
 	    yy : '%d years'
 	};
-
+	
 	function relativeTime (number, withoutSuffix, string, isFuture) {
 	    var output = this._relativeTime[string];
 	    return (isFunction(output)) ?
 	        output(number, withoutSuffix, string, isFuture) :
 	        output.replace(/%d/i, number);
 	}
-
+	
 	function pastFuture (diff, output) {
 	    var format = this._relativeTime[diff > 0 ? 'future' : 'past'];
 	    return isFunction(format) ? format(output) : format.replace(/%s/i, output);
 	}
-
+	
 	var aliases = {};
-
+	
 	function addUnitAlias (unit, shorthand) {
 	    var lowerCase = unit.toLowerCase();
 	    aliases[lowerCase] = aliases[lowerCase + 's'] = aliases[shorthand] = unit;
 	}
-
+	
 	function normalizeUnits(units) {
 	    return typeof units === 'string' ? aliases[units] || aliases[units.toLowerCase()] : undefined;
 	}
-
+	
 	function normalizeObjectUnits(inputObject) {
 	    var normalizedInput = {},
 	        normalizedProp,
 	        prop;
-
+	
 	    for (prop in inputObject) {
 	        if (hasOwnProp(inputObject, prop)) {
 	            normalizedProp = normalizeUnits(prop);
@@ -67578,16 +67907,16 @@
 	            }
 	        }
 	    }
-
+	
 	    return normalizedInput;
 	}
-
+	
 	var priorities = {};
-
+	
 	function addUnitPriority(unit, priority) {
 	    priorities[unit] = priority;
 	}
-
+	
 	function getPrioritizedUnits(unitsObj) {
 	    var units = [];
 	    for (var u in unitsObj) {
@@ -67598,7 +67927,7 @@
 	    });
 	    return units;
 	}
-
+	
 	function makeGetSet (unit, keepTime) {
 	    return function (value) {
 	        if (value != null) {
@@ -67610,20 +67939,20 @@
 	        }
 	    };
 	}
-
+	
 	function get (mom, unit) {
 	    return mom.isValid() ?
 	        mom._d['get' + (mom._isUTC ? 'UTC' : '') + unit]() : NaN;
 	}
-
+	
 	function set$1 (mom, unit, value) {
 	    if (mom.isValid()) {
 	        mom._d['set' + (mom._isUTC ? 'UTC' : '') + unit](value);
 	    }
 	}
-
+	
 	// MOMENTS
-
+	
 	function stringGet (units) {
 	    units = normalizeUnits(units);
 	    if (isFunction(this[units])) {
@@ -67631,8 +67960,8 @@
 	    }
 	    return this;
 	}
-
-
+	
+	
 	function stringSet (units, value) {
 	    if (typeof units === 'object') {
 	        units = normalizeObjectUnits(units);
@@ -67648,7 +67977,7 @@
 	    }
 	    return this;
 	}
-
+	
 	function zeroFill(number, targetLength, forceSign) {
 	    var absNumber = '' + Math.abs(number),
 	        zerosToFill = targetLength - absNumber.length,
@@ -67656,15 +67985,15 @@
 	    return (sign ? (forceSign ? '+' : '') : '-') +
 	        Math.pow(10, Math.max(0, zerosToFill)).toString().substr(1) + absNumber;
 	}
-
+	
 	var formattingTokens = /(\[[^\[]*\])|(\\)?([Hh]mm(ss)?|Mo|MM?M?M?|Do|DDDo|DD?D?D?|ddd?d?|do?|w[o|w]?|W[o|W]?|Qo?|YYYYYY|YYYYY|YYYY|YY|gg(ggg?)?|GG(GGG?)?|e|E|a|A|hh?|HH?|kk?|mm?|ss?|S{1,9}|x|X|zz?|ZZ?|.)/g;
-
+	
 	var localFormattingTokens = /(\[[^\[]*\])|(\\)?(LTS|LT|LL?L?L?|l{1,4})/g;
-
+	
 	var formatFunctions = {};
-
+	
 	var formatTokenFunctions = {};
-
+	
 	// token:    'M'
 	// padded:   ['MM', 2]
 	// ordinal:  'Mo'
@@ -67690,17 +68019,17 @@
 	        };
 	    }
 	}
-
+	
 	function removeFormattingTokens(input) {
 	    if (input.match(/\[[\s\S]/)) {
 	        return input.replace(/^\[|\]$/g, '');
 	    }
 	    return input.replace(/\\/g, '');
 	}
-
+	
 	function makeFormatFunction(format) {
 	    var array = format.match(formattingTokens), i, length;
-
+	
 	    for (i = 0, length = array.length; i < length; i++) {
 	        if (formatTokenFunctions[array[i]]) {
 	            array[i] = formatTokenFunctions[array[i]];
@@ -67708,7 +68037,7 @@
 	            array[i] = removeFormattingTokens(array[i]);
 	        }
 	    }
-
+	
 	    return function (mom) {
 	        var output = '', i;
 	        for (i = 0; i < length; i++) {
@@ -67717,36 +68046,36 @@
 	        return output;
 	    };
 	}
-
+	
 	// format date using native date object
 	function formatMoment(m, format) {
 	    if (!m.isValid()) {
 	        return m.localeData().invalidDate();
 	    }
-
+	
 	    format = expandFormat(format, m.localeData());
 	    formatFunctions[format] = formatFunctions[format] || makeFormatFunction(format);
-
+	
 	    return formatFunctions[format](m);
 	}
-
+	
 	function expandFormat(format, locale) {
 	    var i = 5;
-
+	
 	    function replaceLongDateFormatTokens(input) {
 	        return locale.longDateFormat(input) || input;
 	    }
-
+	
 	    localFormattingTokens.lastIndex = 0;
 	    while (i >= 0 && localFormattingTokens.test(format)) {
 	        format = format.replace(localFormattingTokens, replaceLongDateFormatTokens);
 	        localFormattingTokens.lastIndex = 0;
 	        i -= 1;
 	    }
-
+	
 	    return format;
 	}
-
+	
 	var match1         = /\d/;            //       0 - 9
 	var match2         = /\d\d/;          //      00 - 99
 	var match3         = /\d{3}/;         //     000 - 999
@@ -67758,49 +68087,49 @@
 	var match1to3      = /\d{1,3}/;       //       0 - 999
 	var match1to4      = /\d{1,4}/;       //       0 - 9999
 	var match1to6      = /[+-]?\d{1,6}/;  // -999999 - 999999
-
+	
 	var matchUnsigned  = /\d+/;           //       0 - inf
 	var matchSigned    = /[+-]?\d+/;      //    -inf - inf
-
+	
 	var matchOffset    = /Z|[+-]\d\d:?\d\d/gi; // +00:00 -00:00 +0000 -0000 or Z
 	var matchShortOffset = /Z|[+-]\d\d(?::?\d\d)?/gi; // +00 -00 +00:00 -00:00 +0000 -0000 or Z
-
+	
 	var matchTimestamp = /[+-]?\d+(\.\d{1,3})?/; // 123456789 123456789.123
-
+	
 	// any word (or two) characters or numbers including two/three word month in arabic.
 	// includes scottish gaelic two word and hyphenated months
 	var matchWord = /[0-9]*['a-z\u00A0-\u05FF\u0700-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+|[\u0600-\u06FF\/]+(\s*?[\u0600-\u06FF]+){1,2}/i;
-
-
+	
+	
 	var regexes = {};
-
+	
 	function addRegexToken (token, regex, strictRegex) {
 	    regexes[token] = isFunction(regex) ? regex : function (isStrict, localeData) {
 	        return (isStrict && strictRegex) ? strictRegex : regex;
 	    };
 	}
-
+	
 	function getParseRegexForToken (token, config) {
 	    if (!hasOwnProp(regexes, token)) {
 	        return new RegExp(unescapeFormat(token));
 	    }
-
+	
 	    return regexes[token](config._strict, config._locale);
 	}
-
+	
 	// Code from http://stackoverflow.com/questions/3561493/is-there-a-regexp-escape-function-in-javascript
 	function unescapeFormat(s) {
 	    return regexEscape(s.replace('\\', '').replace(/\\(\[)|\\(\])|\[([^\]\[]*)\]|\\(.)/g, function (matched, p1, p2, p3, p4) {
 	        return p1 || p2 || p3 || p4;
 	    }));
 	}
-
+	
 	function regexEscape(s) {
 	    return s.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
 	}
-
+	
 	var tokens = {};
-
+	
 	function addParseToken (token, callback) {
 	    var i, func = callback;
 	    if (typeof token === 'string') {
@@ -67815,20 +68144,20 @@
 	        tokens[token[i]] = func;
 	    }
 	}
-
+	
 	function addWeekParseToken (token, callback) {
 	    addParseToken(token, function (input, array, config, token) {
 	        config._w = config._w || {};
 	        callback(input, config._w, config, token);
 	    });
 	}
-
+	
 	function addTimeToArrayFromToken(token, input, config) {
 	    if (input != null && hasOwnProp(tokens, token)) {
 	        tokens[token](input, config._a, config, token);
 	    }
 	}
-
+	
 	var YEAR = 0;
 	var MONTH = 1;
 	var DATE = 2;
@@ -67838,9 +68167,9 @@
 	var MILLISECOND = 6;
 	var WEEK = 7;
 	var WEEKDAY = 8;
-
+	
 	var indexOf;
-
+	
 	if (Array.prototype.indexOf) {
 	    indexOf = Array.prototype.indexOf;
 	} else {
@@ -67855,37 +68184,37 @@
 	        return -1;
 	    };
 	}
-
+	
 	var indexOf$1 = indexOf;
-
+	
 	function daysInMonth(year, month) {
 	    return new Date(Date.UTC(year, month + 1, 0)).getUTCDate();
 	}
-
+	
 	// FORMATTING
-
+	
 	addFormatToken('M', ['MM', 2], 'Mo', function () {
 	    return this.month() + 1;
 	});
-
+	
 	addFormatToken('MMM', 0, 0, function (format) {
 	    return this.localeData().monthsShort(this, format);
 	});
-
+	
 	addFormatToken('MMMM', 0, 0, function (format) {
 	    return this.localeData().months(this, format);
 	});
-
+	
 	// ALIASES
-
+	
 	addUnitAlias('month', 'M');
-
+	
 	// PRIORITY
-
+	
 	addUnitPriority('month', 8);
-
+	
 	// PARSING
-
+	
 	addRegexToken('M',    match1to2);
 	addRegexToken('MM',   match1to2, match2);
 	addRegexToken('MMM',  function (isStrict, locale) {
@@ -67894,11 +68223,11 @@
 	addRegexToken('MMMM', function (isStrict, locale) {
 	    return locale.monthsRegex(isStrict);
 	});
-
+	
 	addParseToken(['M', 'MM'], function (input, array) {
 	    array[MONTH] = toInt(input) - 1;
 	});
-
+	
 	addParseToken(['MMM', 'MMMM'], function (input, array, config, token) {
 	    var month = config._locale.monthsParse(input, token, config._strict);
 	    // if we didn't find a month name, mark the date as invalid.
@@ -67908,9 +68237,9 @@
 	        getParsingFlags(config).invalidMonth = input;
 	    }
 	});
-
+	
 	// LOCALES
-
+	
 	var MONTHS_IN_FORMAT = /D[oD]?(\[[^\[\]]*\]|\s)+MMMM?/;
 	var defaultLocaleMonths = 'January_February_March_April_May_June_July_August_September_October_November_December'.split('_');
 	function localeMonths (m, format) {
@@ -67920,7 +68249,7 @@
 	    return isArray(this._months) ? this._months[m.month()] :
 	        this._months[(this._months.isFormat || MONTHS_IN_FORMAT).test(format) ? 'format' : 'standalone'][m.month()];
 	}
-
+	
 	var defaultLocaleMonthsShort = 'Jan_Feb_Mar_Apr_May_Jun_Jul_Aug_Sep_Oct_Nov_Dec'.split('_');
 	function localeMonthsShort (m, format) {
 	    if (!m) {
@@ -67929,7 +68258,7 @@
 	    return isArray(this._monthsShort) ? this._monthsShort[m.month()] :
 	        this._monthsShort[MONTHS_IN_FORMAT.test(format) ? 'format' : 'standalone'][m.month()];
 	}
-
+	
 	function handleStrictParse(monthName, format, strict) {
 	    var i, ii, mom, llc = monthName.toLocaleLowerCase();
 	    if (!this._monthsParse) {
@@ -67943,7 +68272,7 @@
 	            this._longMonthsParse[i] = this.months(mom, '').toLocaleLowerCase();
 	        }
 	    }
-
+	
 	    if (strict) {
 	        if (format === 'MMM') {
 	            ii = indexOf$1.call(this._shortMonthsParse, llc);
@@ -67970,20 +68299,20 @@
 	        }
 	    }
 	}
-
+	
 	function localeMonthsParse (monthName, format, strict) {
 	    var i, mom, regex;
-
+	
 	    if (this._monthsParseExact) {
 	        return handleStrictParse.call(this, monthName, format, strict);
 	    }
-
+	
 	    if (!this._monthsParse) {
 	        this._monthsParse = [];
 	        this._longMonthsParse = [];
 	        this._shortMonthsParse = [];
 	    }
-
+	
 	    // TODO: add sorting
 	    // Sorting makes sure if one month (or abbr) is a prefix of another
 	    // see sorting in computeMonthsParse
@@ -68008,17 +68337,17 @@
 	        }
 	    }
 	}
-
+	
 	// MOMENTS
-
+	
 	function setMonth (mom, value) {
 	    var dayOfMonth;
-
+	
 	    if (!mom.isValid()) {
 	        // No op
 	        return mom;
 	    }
-
+	
 	    if (typeof value === 'string') {
 	        if (/^\d+$/.test(value)) {
 	            value = toInt(value);
@@ -68030,12 +68359,12 @@
 	            }
 	        }
 	    }
-
+	
 	    dayOfMonth = Math.min(mom.date(), daysInMonth(mom.year(), value));
 	    mom._d['set' + (mom._isUTC ? 'UTC' : '') + 'Month'](value, dayOfMonth);
 	    return mom;
 	}
-
+	
 	function getSetMonth (value) {
 	    if (value != null) {
 	        setMonth(this, value);
@@ -68045,11 +68374,11 @@
 	        return get(this, 'Month');
 	    }
 	}
-
+	
 	function getDaysInMonth () {
 	    return daysInMonth(this.year(), this.month());
 	}
-
+	
 	var defaultMonthsShortRegex = matchWord;
 	function monthsShortRegex (isStrict) {
 	    if (this._monthsParseExact) {
@@ -68069,7 +68398,7 @@
 	            this._monthsShortStrictRegex : this._monthsShortRegex;
 	    }
 	}
-
+	
 	var defaultMonthsRegex = matchWord;
 	function monthsRegex (isStrict) {
 	    if (this._monthsParseExact) {
@@ -68089,12 +68418,12 @@
 	            this._monthsStrictRegex : this._monthsRegex;
 	    }
 	}
-
+	
 	function computeMonthsParse () {
 	    function cmpLenRev(a, b) {
 	        return b.length - a.length;
 	    }
-
+	
 	    var shortPieces = [], longPieces = [], mixedPieces = [],
 	        i, mom;
 	    for (i = 0; i < 12; i++) {
@@ -68117,44 +68446,44 @@
 	    for (i = 0; i < 24; i++) {
 	        mixedPieces[i] = regexEscape(mixedPieces[i]);
 	    }
-
+	
 	    this._monthsRegex = new RegExp('^(' + mixedPieces.join('|') + ')', 'i');
 	    this._monthsShortRegex = this._monthsRegex;
 	    this._monthsStrictRegex = new RegExp('^(' + longPieces.join('|') + ')', 'i');
 	    this._monthsShortStrictRegex = new RegExp('^(' + shortPieces.join('|') + ')', 'i');
 	}
-
+	
 	// FORMATTING
-
+	
 	addFormatToken('Y', 0, 0, function () {
 	    var y = this.year();
 	    return y <= 9999 ? '' + y : '+' + y;
 	});
-
+	
 	addFormatToken(0, ['YY', 2], 0, function () {
 	    return this.year() % 100;
 	});
-
+	
 	addFormatToken(0, ['YYYY',   4],       0, 'year');
 	addFormatToken(0, ['YYYYY',  5],       0, 'year');
 	addFormatToken(0, ['YYYYYY', 6, true], 0, 'year');
-
+	
 	// ALIASES
-
+	
 	addUnitAlias('year', 'y');
-
+	
 	// PRIORITIES
-
+	
 	addUnitPriority('year', 1);
-
+	
 	// PARSING
-
+	
 	addRegexToken('Y',      matchSigned);
 	addRegexToken('YY',     match1to2, match2);
 	addRegexToken('YYYY',   match1to4, match4);
 	addRegexToken('YYYYY',  match1to6, match6);
 	addRegexToken('YYYYYY', match1to6, match6);
-
+	
 	addParseToken(['YYYYY', 'YYYYYY'], YEAR);
 	addParseToken('YYYY', function (input, array) {
 	    array[YEAR] = input.length === 2 ? hooks.parseTwoDigitYear(input) : toInt(input);
@@ -68165,70 +68494,70 @@
 	addParseToken('Y', function (input, array) {
 	    array[YEAR] = parseInt(input, 10);
 	});
-
+	
 	// HELPERS
-
+	
 	function daysInYear(year) {
 	    return isLeapYear(year) ? 366 : 365;
 	}
-
+	
 	function isLeapYear(year) {
 	    return (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
 	}
-
+	
 	// HOOKS
-
+	
 	hooks.parseTwoDigitYear = function (input) {
 	    return toInt(input) + (toInt(input) > 68 ? 1900 : 2000);
 	};
-
+	
 	// MOMENTS
-
+	
 	var getSetYear = makeGetSet('FullYear', true);
-
+	
 	function getIsLeapYear () {
 	    return isLeapYear(this.year());
 	}
-
+	
 	function createDate (y, m, d, h, M, s, ms) {
 	    //can't just apply() to create a date:
 	    //http://stackoverflow.com/questions/181348/instantiating-a-javascript-object-by-calling-prototype-constructor-apply
 	    var date = new Date(y, m, d, h, M, s, ms);
-
+	
 	    //the date constructor remaps years 0-99 to 1900-1999
 	    if (y < 100 && y >= 0 && isFinite(date.getFullYear())) {
 	        date.setFullYear(y);
 	    }
 	    return date;
 	}
-
+	
 	function createUTCDate (y) {
 	    var date = new Date(Date.UTC.apply(null, arguments));
-
+	
 	    //the Date.UTC function remaps years 0-99 to 1900-1999
 	    if (y < 100 && y >= 0 && isFinite(date.getUTCFullYear())) {
 	        date.setUTCFullYear(y);
 	    }
 	    return date;
 	}
-
+	
 	// start-of-first-week - start-of-year
 	function firstWeekOffset(year, dow, doy) {
 	    var // first-week day -- which january is always in the first week (4 for iso, 1 for other)
 	        fwd = 7 + dow - doy,
 	        // first-week day local weekday -- which local weekday is fwd
 	        fwdlw = (7 + createUTCDate(year, 0, fwd).getUTCDay() - dow) % 7;
-
+	
 	    return -fwdlw + fwd - 1;
 	}
-
+	
 	//http://en.wikipedia.org/wiki/ISO_week_date#Calculating_a_date_given_the_year.2C_week_number_and_weekday
 	function dayOfYearFromWeeks(year, week, weekday, dow, doy) {
 	    var localWeekday = (7 + weekday - dow) % 7,
 	        weekOffset = firstWeekOffset(year, dow, doy),
 	        dayOfYear = 1 + 7 * (week - 1) + localWeekday + weekOffset,
 	        resYear, resDayOfYear;
-
+	
 	    if (dayOfYear <= 0) {
 	        resYear = year - 1;
 	        resDayOfYear = daysInYear(resYear) + dayOfYear;
@@ -68239,18 +68568,18 @@
 	        resYear = year;
 	        resDayOfYear = dayOfYear;
 	    }
-
+	
 	    return {
 	        year: resYear,
 	        dayOfYear: resDayOfYear
 	    };
 	}
-
+	
 	function weekOfYear(mom, dow, doy) {
 	    var weekOffset = firstWeekOffset(mom.year(), dow, doy),
 	        week = Math.floor((mom.dayOfYear() - weekOffset - 1) / 7) + 1,
 	        resWeek, resYear;
-
+	
 	    if (week < 1) {
 	        resYear = mom.year() - 1;
 	        resWeek = week + weeksInYear(resYear, dow, doy);
@@ -68261,110 +68590,110 @@
 	        resYear = mom.year();
 	        resWeek = week;
 	    }
-
+	
 	    return {
 	        week: resWeek,
 	        year: resYear
 	    };
 	}
-
+	
 	function weeksInYear(year, dow, doy) {
 	    var weekOffset = firstWeekOffset(year, dow, doy),
 	        weekOffsetNext = firstWeekOffset(year + 1, dow, doy);
 	    return (daysInYear(year) - weekOffset + weekOffsetNext) / 7;
 	}
-
+	
 	// FORMATTING
-
+	
 	addFormatToken('w', ['ww', 2], 'wo', 'week');
 	addFormatToken('W', ['WW', 2], 'Wo', 'isoWeek');
-
+	
 	// ALIASES
-
+	
 	addUnitAlias('week', 'w');
 	addUnitAlias('isoWeek', 'W');
-
+	
 	// PRIORITIES
-
+	
 	addUnitPriority('week', 5);
 	addUnitPriority('isoWeek', 5);
-
+	
 	// PARSING
-
+	
 	addRegexToken('w',  match1to2);
 	addRegexToken('ww', match1to2, match2);
 	addRegexToken('W',  match1to2);
 	addRegexToken('WW', match1to2, match2);
-
+	
 	addWeekParseToken(['w', 'ww', 'W', 'WW'], function (input, week, config, token) {
 	    week[token.substr(0, 1)] = toInt(input);
 	});
-
+	
 	// HELPERS
-
+	
 	// LOCALES
-
+	
 	function localeWeek (mom) {
 	    return weekOfYear(mom, this._week.dow, this._week.doy).week;
 	}
-
+	
 	var defaultLocaleWeek = {
 	    dow : 0, // Sunday is the first day of the week.
 	    doy : 6  // The week that contains Jan 1st is the first week of the year.
 	};
-
+	
 	function localeFirstDayOfWeek () {
 	    return this._week.dow;
 	}
-
+	
 	function localeFirstDayOfYear () {
 	    return this._week.doy;
 	}
-
+	
 	// MOMENTS
-
+	
 	function getSetWeek (input) {
 	    var week = this.localeData().week(this);
 	    return input == null ? week : this.add((input - week) * 7, 'd');
 	}
-
+	
 	function getSetISOWeek (input) {
 	    var week = weekOfYear(this, 1, 4).week;
 	    return input == null ? week : this.add((input - week) * 7, 'd');
 	}
-
+	
 	// FORMATTING
-
+	
 	addFormatToken('d', 0, 'do', 'day');
-
+	
 	addFormatToken('dd', 0, 0, function (format) {
 	    return this.localeData().weekdaysMin(this, format);
 	});
-
+	
 	addFormatToken('ddd', 0, 0, function (format) {
 	    return this.localeData().weekdaysShort(this, format);
 	});
-
+	
 	addFormatToken('dddd', 0, 0, function (format) {
 	    return this.localeData().weekdays(this, format);
 	});
-
+	
 	addFormatToken('e', 0, 0, 'weekday');
 	addFormatToken('E', 0, 0, 'isoWeekday');
-
+	
 	// ALIASES
-
+	
 	addUnitAlias('day', 'd');
 	addUnitAlias('weekday', 'e');
 	addUnitAlias('isoWeekday', 'E');
-
+	
 	// PRIORITY
 	addUnitPriority('day', 11);
 	addUnitPriority('weekday', 11);
 	addUnitPriority('isoWeekday', 11);
-
+	
 	// PARSING
-
+	
 	addRegexToken('d',    match1to2);
 	addRegexToken('e',    match1to2);
 	addRegexToken('E',    match1to2);
@@ -68377,7 +68706,7 @@
 	addRegexToken('dddd',   function (isStrict, locale) {
 	    return locale.weekdaysRegex(isStrict);
 	});
-
+	
 	addWeekParseToken(['dd', 'ddd', 'dddd'], function (input, week, config, token) {
 	    var weekday = config._locale.weekdaysParse(input, token, config._strict);
 	    // if we didn't get a weekday name, mark the date as invalid
@@ -68387,39 +68716,39 @@
 	        getParsingFlags(config).invalidWeekday = input;
 	    }
 	});
-
+	
 	addWeekParseToken(['d', 'e', 'E'], function (input, week, config, token) {
 	    week[token] = toInt(input);
 	});
-
+	
 	// HELPERS
-
+	
 	function parseWeekday(input, locale) {
 	    if (typeof input !== 'string') {
 	        return input;
 	    }
-
+	
 	    if (!isNaN(input)) {
 	        return parseInt(input, 10);
 	    }
-
+	
 	    input = locale.weekdaysParse(input);
 	    if (typeof input === 'number') {
 	        return input;
 	    }
-
+	
 	    return null;
 	}
-
+	
 	function parseIsoWeekday(input, locale) {
 	    if (typeof input === 'string') {
 	        return locale.weekdaysParse(input) % 7 || 7;
 	    }
 	    return isNaN(input) ? null : input;
 	}
-
+	
 	// LOCALES
-
+	
 	var defaultLocaleWeekdays = 'Sunday_Monday_Tuesday_Wednesday_Thursday_Friday_Saturday'.split('_');
 	function localeWeekdays (m, format) {
 	    if (!m) {
@@ -68428,24 +68757,24 @@
 	    return isArray(this._weekdays) ? this._weekdays[m.day()] :
 	        this._weekdays[this._weekdays.isFormat.test(format) ? 'format' : 'standalone'][m.day()];
 	}
-
+	
 	var defaultLocaleWeekdaysShort = 'Sun_Mon_Tue_Wed_Thu_Fri_Sat'.split('_');
 	function localeWeekdaysShort (m) {
 	    return (m) ? this._weekdaysShort[m.day()] : this._weekdaysShort;
 	}
-
+	
 	var defaultLocaleWeekdaysMin = 'Su_Mo_Tu_We_Th_Fr_Sa'.split('_');
 	function localeWeekdaysMin (m) {
 	    return (m) ? this._weekdaysMin[m.day()] : this._weekdaysMin;
 	}
-
+	
 	function handleStrictParse$1(weekdayName, format, strict) {
 	    var i, ii, mom, llc = weekdayName.toLocaleLowerCase();
 	    if (!this._weekdaysParse) {
 	        this._weekdaysParse = [];
 	        this._shortWeekdaysParse = [];
 	        this._minWeekdaysParse = [];
-
+	
 	        for (i = 0; i < 7; ++i) {
 	            mom = createUTC([2000, 1]).day(i);
 	            this._minWeekdaysParse[i] = this.weekdaysMin(mom, '').toLocaleLowerCase();
@@ -68453,7 +68782,7 @@
 	            this._weekdaysParse[i] = this.weekdays(mom, '').toLocaleLowerCase();
 	        }
 	    }
-
+	
 	    if (strict) {
 	        if (format === 'dddd') {
 	            ii = indexOf$1.call(this._weekdaysParse, llc);
@@ -68502,24 +68831,24 @@
 	        }
 	    }
 	}
-
+	
 	function localeWeekdaysParse (weekdayName, format, strict) {
 	    var i, mom, regex;
-
+	
 	    if (this._weekdaysParseExact) {
 	        return handleStrictParse$1.call(this, weekdayName, format, strict);
 	    }
-
+	
 	    if (!this._weekdaysParse) {
 	        this._weekdaysParse = [];
 	        this._minWeekdaysParse = [];
 	        this._shortWeekdaysParse = [];
 	        this._fullWeekdaysParse = [];
 	    }
-
+	
 	    for (i = 0; i < 7; i++) {
 	        // make the regex if we don't have it already
-
+	
 	        mom = createUTC([2000, 1]).day(i);
 	        if (strict && !this._fullWeekdaysParse[i]) {
 	            this._fullWeekdaysParse[i] = new RegExp('^' + this.weekdays(mom, '').replace('.', '\.?') + '$', 'i');
@@ -68542,9 +68871,9 @@
 	        }
 	    }
 	}
-
+	
 	// MOMENTS
-
+	
 	function getSetDayOfWeek (input) {
 	    if (!this.isValid()) {
 	        return input != null ? this : NaN;
@@ -68557,7 +68886,7 @@
 	        return day;
 	    }
 	}
-
+	
 	function getSetLocaleDayOfWeek (input) {
 	    if (!this.isValid()) {
 	        return input != null ? this : NaN;
@@ -68565,16 +68894,16 @@
 	    var weekday = (this.day() + 7 - this.localeData()._week.dow) % 7;
 	    return input == null ? weekday : this.add(input - weekday, 'd');
 	}
-
+	
 	function getSetISODayOfWeek (input) {
 	    if (!this.isValid()) {
 	        return input != null ? this : NaN;
 	    }
-
+	
 	    // behaves the same as moment#day except
 	    // as a getter, returns 7 instead of 0 (1-7 range instead of 0-6)
 	    // as a setter, sunday should belong to the previous week.
-
+	
 	    if (input != null) {
 	        var weekday = parseIsoWeekday(input, this.localeData());
 	        return this.day(this.day() % 7 ? weekday : weekday - 7);
@@ -68582,7 +68911,7 @@
 	        return this.day() || 7;
 	    }
 	}
-
+	
 	var defaultWeekdaysRegex = matchWord;
 	function weekdaysRegex (isStrict) {
 	    if (this._weekdaysParseExact) {
@@ -68602,7 +68931,7 @@
 	            this._weekdaysStrictRegex : this._weekdaysRegex;
 	    }
 	}
-
+	
 	var defaultWeekdaysShortRegex = matchWord;
 	function weekdaysShortRegex (isStrict) {
 	    if (this._weekdaysParseExact) {
@@ -68622,7 +68951,7 @@
 	            this._weekdaysShortStrictRegex : this._weekdaysShortRegex;
 	    }
 	}
-
+	
 	var defaultWeekdaysMinRegex = matchWord;
 	function weekdaysMinRegex (isStrict) {
 	    if (this._weekdaysParseExact) {
@@ -68642,13 +68971,13 @@
 	            this._weekdaysMinStrictRegex : this._weekdaysMinRegex;
 	    }
 	}
-
-
+	
+	
 	function computeWeekdaysParse () {
 	    function cmpLenRev(a, b) {
 	        return b.length - a.length;
 	    }
-
+	
 	    var minPieces = [], shortPieces = [], longPieces = [], mixedPieces = [],
 	        i, mom, minp, shortp, longp;
 	    for (i = 0; i < 7; i++) {
@@ -68675,82 +69004,82 @@
 	        longPieces[i] = regexEscape(longPieces[i]);
 	        mixedPieces[i] = regexEscape(mixedPieces[i]);
 	    }
-
+	
 	    this._weekdaysRegex = new RegExp('^(' + mixedPieces.join('|') + ')', 'i');
 	    this._weekdaysShortRegex = this._weekdaysRegex;
 	    this._weekdaysMinRegex = this._weekdaysRegex;
-
+	
 	    this._weekdaysStrictRegex = new RegExp('^(' + longPieces.join('|') + ')', 'i');
 	    this._weekdaysShortStrictRegex = new RegExp('^(' + shortPieces.join('|') + ')', 'i');
 	    this._weekdaysMinStrictRegex = new RegExp('^(' + minPieces.join('|') + ')', 'i');
 	}
-
+	
 	// FORMATTING
-
+	
 	function hFormat() {
 	    return this.hours() % 12 || 12;
 	}
-
+	
 	function kFormat() {
 	    return this.hours() || 24;
 	}
-
+	
 	addFormatToken('H', ['HH', 2], 0, 'hour');
 	addFormatToken('h', ['hh', 2], 0, hFormat);
 	addFormatToken('k', ['kk', 2], 0, kFormat);
-
+	
 	addFormatToken('hmm', 0, 0, function () {
 	    return '' + hFormat.apply(this) + zeroFill(this.minutes(), 2);
 	});
-
+	
 	addFormatToken('hmmss', 0, 0, function () {
 	    return '' + hFormat.apply(this) + zeroFill(this.minutes(), 2) +
 	        zeroFill(this.seconds(), 2);
 	});
-
+	
 	addFormatToken('Hmm', 0, 0, function () {
 	    return '' + this.hours() + zeroFill(this.minutes(), 2);
 	});
-
+	
 	addFormatToken('Hmmss', 0, 0, function () {
 	    return '' + this.hours() + zeroFill(this.minutes(), 2) +
 	        zeroFill(this.seconds(), 2);
 	});
-
+	
 	function meridiem (token, lowercase) {
 	    addFormatToken(token, 0, 0, function () {
 	        return this.localeData().meridiem(this.hours(), this.minutes(), lowercase);
 	    });
 	}
-
+	
 	meridiem('a', true);
 	meridiem('A', false);
-
+	
 	// ALIASES
-
+	
 	addUnitAlias('hour', 'h');
-
+	
 	// PRIORITY
 	addUnitPriority('hour', 13);
-
+	
 	// PARSING
-
+	
 	function matchMeridiem (isStrict, locale) {
 	    return locale._meridiemParse;
 	}
-
+	
 	addRegexToken('a',  matchMeridiem);
 	addRegexToken('A',  matchMeridiem);
 	addRegexToken('H',  match1to2);
 	addRegexToken('h',  match1to2);
 	addRegexToken('HH', match1to2, match2);
 	addRegexToken('hh', match1to2, match2);
-
+	
 	addRegexToken('hmm', match3to4);
 	addRegexToken('hmmss', match5to6);
 	addRegexToken('Hmm', match3to4);
 	addRegexToken('Hmmss', match5to6);
-
+	
 	addParseToken(['H', 'HH'], HOUR);
 	addParseToken(['a', 'A'], function (input, array, config) {
 	    config._isPm = config._locale.isPM(input);
@@ -68786,15 +69115,15 @@
 	    array[MINUTE] = toInt(input.substr(pos1, 2));
 	    array[SECOND] = toInt(input.substr(pos2));
 	});
-
+	
 	// LOCALES
-
+	
 	function localeIsPM (input) {
 	    // IE8 Quirks Mode & IE7 Standards Mode do not allow accessing strings like arrays
 	    // Using charAt should be more compatible.
 	    return ((input + '').toLowerCase().charAt(0) === 'p');
 	}
-
+	
 	var defaultLocaleMeridiemParse = /[ap]\.?m?\.?/i;
 	function localeMeridiem (hours, minutes, isLower) {
 	    if (hours > 11) {
@@ -68803,16 +69132,16 @@
 	        return isLower ? 'am' : 'AM';
 	    }
 	}
-
-
+	
+	
 	// MOMENTS
-
+	
 	// Setting the hour should keep the time, because the user explicitly
 	// specified which hour he wants. So trying to maintain the same hour (in
 	// a new timezone) makes sense. Adding/subtracting hours does not follow
 	// this rule.
 	var getSetHour = makeGetSet('Hours', true);
-
+	
 	// months
 	// week
 	// weekdays
@@ -68824,34 +69153,34 @@
 	    ordinal: defaultOrdinal,
 	    ordinalParse: defaultOrdinalParse,
 	    relativeTime: defaultRelativeTime,
-
+	
 	    months: defaultLocaleMonths,
 	    monthsShort: defaultLocaleMonthsShort,
-
+	
 	    week: defaultLocaleWeek,
-
+	
 	    weekdays: defaultLocaleWeekdays,
 	    weekdaysMin: defaultLocaleWeekdaysMin,
 	    weekdaysShort: defaultLocaleWeekdaysShort,
-
+	
 	    meridiemParse: defaultLocaleMeridiemParse
 	};
-
+	
 	// internal storage for locale config files
 	var locales = {};
 	var localeFamilies = {};
 	var globalLocale;
-
+	
 	function normalizeLocale(key) {
 	    return key ? key.toLowerCase().replace('_', '-') : key;
 	}
-
+	
 	// pick the locale from the array
 	// try ['en-au', 'en-gb'] as 'en-au', 'en-gb', 'en', as in move through the list trying each
 	// substring from most specific to least, but move to the next array item if it's a more specific variant than the current root
 	function chooseLocale(names) {
 	    var i = 0, j, next, locale, split;
-
+	
 	    while (i < names.length) {
 	        split = normalizeLocale(names[i]).split('-');
 	        j = split.length;
@@ -68872,7 +69201,7 @@
 	    }
 	    return null;
 	}
-
+	
 	function loadLocale(name) {
 	    var oldLocale = null;
 	    // TODO: Find a better way to register and load all the locales in Node
@@ -68880,7 +69209,7 @@
 	            module && module.exports) {
 	        try {
 	            oldLocale = globalLocale._abbr;
-	            __webpack_require__(97)("./" + name);
+	            __webpack_require__(/*! ./locale */ 97)("./" + name);
 	            // because defineLocale currently also sets the global locale, we
 	            // want to undo that for lazy loaded locales
 	            getSetGlobalLocale(oldLocale);
@@ -68888,7 +69217,7 @@
 	    }
 	    return locales[name];
 	}
-
+	
 	// This function will load locale and then set the global locale.  If
 	// no arguments are passed in, it will simply return the current global
 	// locale key.
@@ -68901,16 +69230,16 @@
 	        else {
 	            data = defineLocale(key, values);
 	        }
-
+	
 	        if (data) {
 	            // moment.duration._locale = moment._locale = data;
 	            globalLocale = data;
 	        }
 	    }
-
+	
 	    return globalLocale._abbr;
 	}
-
+	
 	function defineLocale (name, config) {
 	    if (config !== null) {
 	        var parentConfig = baseConfig;
@@ -68937,19 +69266,19 @@
 	            }
 	        }
 	        locales[name] = new Locale(mergeConfigs(parentConfig, config));
-
+	
 	        if (localeFamilies[name]) {
 	            localeFamilies[name].forEach(function (x) {
 	                defineLocale(x.name, x.config);
 	            });
 	        }
-
+	
 	        // backwards compat for now: also set the locale
 	        // make sure we set the locale AFTER all child locales have been
 	        // created, so we won't end up with the child locale set.
 	        getSetGlobalLocale(name);
-
-
+	
+	
 	        return locales[name];
 	    } else {
 	        // useful for testing
@@ -68957,7 +69286,7 @@
 	        return null;
 	    }
 	}
-
+	
 	function updateLocale(name, config) {
 	    if (config != null) {
 	        var locale, parentConfig = baseConfig;
@@ -68969,7 +69298,7 @@
 	        locale = new Locale(config);
 	        locale.parentLocale = locales[name];
 	        locales[name] = locale;
-
+	
 	        // backwards compat for now: also set the locale
 	        getSetGlobalLocale(name);
 	    } else {
@@ -68984,19 +69313,19 @@
 	    }
 	    return locales[name];
 	}
-
+	
 	// returns locale data
 	function getLocale (key) {
 	    var locale;
-
+	
 	    if (key && key._locale && key._locale._abbr) {
 	        key = key._locale._abbr;
 	    }
-
+	
 	    if (!key) {
 	        return globalLocale;
 	    }
-
+	
 	    if (!isArray(key)) {
 	        //short-circuit everything else
 	        locale = loadLocale(key);
@@ -69005,18 +69334,18 @@
 	        }
 	        key = [key];
 	    }
-
+	
 	    return chooseLocale(key);
 	}
-
+	
 	function listLocales() {
 	    return keys$1(locales);
 	}
-
+	
 	function checkOverflow (m) {
 	    var overflow;
 	    var a = m._a;
-
+	
 	    if (a && getParsingFlags(m).overflow === -2) {
 	        overflow =
 	            a[MONTH]       < 0 || a[MONTH]       > 11  ? MONTH :
@@ -69026,7 +69355,7 @@
 	            a[SECOND]      < 0 || a[SECOND]      > 59  ? SECOND :
 	            a[MILLISECOND] < 0 || a[MILLISECOND] > 999 ? MILLISECOND :
 	            -1;
-
+	
 	        if (getParsingFlags(m)._overflowDayOfYear && (overflow < YEAR || overflow > DATE)) {
 	            overflow = DATE;
 	        }
@@ -69036,20 +69365,20 @@
 	        if (getParsingFlags(m)._overflowWeekday && overflow === -1) {
 	            overflow = WEEKDAY;
 	        }
-
+	
 	        getParsingFlags(m).overflow = overflow;
 	    }
-
+	
 	    return m;
 	}
-
+	
 	// iso 8601 regex
 	// 0000-00-00 0000-W00 or 0000-W00-0 + T + 00 or 00:00 or 00:00:00 or 00:00:00.000 + +00:00 or +0000 or +00)
 	var extendedIsoRegex = /^\s*((?:[+-]\d{6}|\d{4})-(?:\d\d-\d\d|W\d\d-\d|W\d\d|\d\d\d|\d\d))(?:(T| )(\d\d(?::\d\d(?::\d\d(?:[.,]\d+)?)?)?)([\+\-]\d\d(?::?\d\d)?|\s*Z)?)?$/;
 	var basicIsoRegex = /^\s*((?:[+-]\d{6}|\d{4})(?:\d\d\d\d|W\d\d\d|W\d\d|\d\d\d|\d\d))(?:(T| )(\d\d(?:\d\d(?:\d\d(?:[.,]\d+)?)?)?)([\+\-]\d\d(?::?\d\d)?|\s*Z)?)?$/;
-
+	
 	var tzRegex = /Z|[+-]\d\d(?::?\d\d)?/;
-
+	
 	var isoDates = [
 	    ['YYYYYY-MM-DD', /[+-]\d{6}-\d\d-\d\d/],
 	    ['YYYY-MM-DD', /\d{4}-\d\d-\d\d/],
@@ -69064,7 +69393,7 @@
 	    ['GGGG[W]WW', /\d{4}W\d{2}/, false],
 	    ['YYYYDDD', /\d{7}/]
 	];
-
+	
 	// iso time formats and regexes
 	var isoTimes = [
 	    ['HH:mm:ss.SSSS', /\d\d:\d\d:\d\d\.\d+/],
@@ -69077,19 +69406,19 @@
 	    ['HHmm', /\d\d\d\d/],
 	    ['HH', /\d\d/]
 	];
-
+	
 	var aspNetJsonRegex = /^\/?Date\((\-?\d+)/i;
-
+	
 	// date from iso format
 	function configFromISO(config) {
 	    var i, l,
 	        string = config._i,
 	        match = extendedIsoRegex.exec(string) || basicIsoRegex.exec(string),
 	        allowTime, dateFormat, timeFormat, tzFormat;
-
+	
 	    if (match) {
 	        getParsingFlags(config).iso = true;
-
+	
 	        for (i = 0, l = isoDates.length; i < l; i++) {
 	            if (isoDates[i][1].exec(match[1])) {
 	                dateFormat = isoDates[i][0];
@@ -69132,23 +69461,23 @@
 	        config._isValid = false;
 	    }
 	}
-
+	
 	// date from iso format or fallback
 	function configFromString(config) {
 	    var matched = aspNetJsonRegex.exec(config._i);
-
+	
 	    if (matched !== null) {
 	        config._d = new Date(+matched[1]);
 	        return;
 	    }
-
+	
 	    configFromISO(config);
 	    if (config._isValid === false) {
 	        delete config._isValid;
 	        hooks.createFromInputFallback(config);
 	    }
 	}
-
+	
 	hooks.createFromInputFallback = deprecate(
 	    'value provided is not in a recognized ISO format. moment construction falls back to js Date(), ' +
 	    'which is not reliable across all browsers and versions. Non ISO date formats are ' +
@@ -69158,7 +69487,7 @@
 	        config._d = new Date(config._i + (config._useUTC ? ' UTC' : ''));
 	    }
 	);
-
+	
 	// Pick the first defined of two or three arguments.
 	function defaults(a, b, c) {
 	    if (a != null) {
@@ -69169,7 +69498,7 @@
 	    }
 	    return c;
 	}
-
+	
 	function currentDateArray(config) {
 	    // hooks is actually the exported moment object
 	    var nowValue = new Date(hooks.now());
@@ -69178,38 +69507,38 @@
 	    }
 	    return [nowValue.getFullYear(), nowValue.getMonth(), nowValue.getDate()];
 	}
-
+	
 	// convert an array to a date.
 	// the array should mirror the parameters below
 	// note: all values past the year are optional and will default to the lowest possible value.
 	// [year, month, day , hour, minute, second, millisecond]
 	function configFromArray (config) {
 	    var i, date, input = [], currentDate, yearToUse;
-
+	
 	    if (config._d) {
 	        return;
 	    }
-
+	
 	    currentDate = currentDateArray(config);
-
+	
 	    //compute day of the year from weeks and weekdays
 	    if (config._w && config._a[DATE] == null && config._a[MONTH] == null) {
 	        dayOfYearFromWeekInfo(config);
 	    }
-
+	
 	    //if the day of the year is set, figure out what it is
 	    if (config._dayOfYear) {
 	        yearToUse = defaults(config._a[YEAR], currentDate[YEAR]);
-
+	
 	        if (config._dayOfYear > daysInYear(yearToUse)) {
 	            getParsingFlags(config)._overflowDayOfYear = true;
 	        }
-
+	
 	        date = createUTCDate(yearToUse, 0, config._dayOfYear);
 	        config._a[MONTH] = date.getUTCMonth();
 	        config._a[DATE] = date.getUTCDate();
 	    }
-
+	
 	    // Default to current date.
 	    // * if no year, month, day of month are given, default to today
 	    // * if day of month is given, default month and year
@@ -69218,12 +69547,12 @@
 	    for (i = 0; i < 3 && config._a[i] == null; ++i) {
 	        config._a[i] = input[i] = currentDate[i];
 	    }
-
+	
 	    // Zero out whatever was not defaulted, including time
 	    for (; i < 7; i++) {
 	        config._a[i] = input[i] = (config._a[i] == null) ? (i === 2 ? 1 : 0) : config._a[i];
 	    }
-
+	
 	    // Check for 24:00:00.000
 	    if (config._a[HOUR] === 24 &&
 	            config._a[MINUTE] === 0 &&
@@ -69232,27 +69561,27 @@
 	        config._nextDay = true;
 	        config._a[HOUR] = 0;
 	    }
-
+	
 	    config._d = (config._useUTC ? createUTCDate : createDate).apply(null, input);
 	    // Apply timezone offset from input. The actual utcOffset can be changed
 	    // with parseZone.
 	    if (config._tzm != null) {
 	        config._d.setUTCMinutes(config._d.getUTCMinutes() - config._tzm);
 	    }
-
+	
 	    if (config._nextDay) {
 	        config._a[HOUR] = 24;
 	    }
 	}
-
+	
 	function dayOfYearFromWeekInfo(config) {
 	    var w, weekYear, week, weekday, dow, doy, temp, weekdayOverflow;
-
+	
 	    w = config._w;
 	    if (w.GG != null || w.W != null || w.E != null) {
 	        dow = 1;
 	        doy = 4;
-
+	
 	        // TODO: We need to take the current isoWeekYear, but that depends on
 	        // how we interpret now (local, utc, fixed offset). So create
 	        // a now version of current config (take local/utc/offset flags, and
@@ -69266,14 +69595,14 @@
 	    } else {
 	        dow = config._locale._week.dow;
 	        doy = config._locale._week.doy;
-
+	
 	        var curWeek = weekOfYear(createLocal(), dow, doy);
-
+	
 	        weekYear = defaults(w.gg, config._a[YEAR], curWeek.year);
-
+	
 	        // Default to current week.
 	        week = defaults(w.w, curWeek.week);
-
+	
 	        if (w.d != null) {
 	            // weekday -- low day numbers are considered next week
 	            weekday = w.d;
@@ -69301,10 +69630,10 @@
 	        config._dayOfYear = temp.dayOfYear;
 	    }
 	}
-
+	
 	// constant that refers to the ISO standard
 	hooks.ISO_8601 = function () {};
-
+	
 	// date from string and format string
 	function configFromStringAndFormat(config) {
 	    // TODO: Move this to another part of the creation flow to prevent circular deps
@@ -69312,18 +69641,18 @@
 	        configFromISO(config);
 	        return;
 	    }
-
+	
 	    config._a = [];
 	    getParsingFlags(config).empty = true;
-
+	
 	    // This array is used to make a Date, either with `new Date` or `Date.UTC`
 	    var string = '' + config._i,
 	        i, parsedInput, tokens, token, skipped,
 	        stringLength = string.length,
 	        totalParsedInputLength = 0;
-
+	
 	    tokens = expandFormat(config._f, config._locale).match(formattingTokens) || [];
-
+	
 	    for (i = 0; i < tokens.length; i++) {
 	        token = tokens[i];
 	        parsedInput = (string.match(getParseRegexForToken(token, config)) || [])[0];
@@ -69351,33 +69680,33 @@
 	            getParsingFlags(config).unusedTokens.push(token);
 	        }
 	    }
-
+	
 	    // add remaining unparsed input length to the string
 	    getParsingFlags(config).charsLeftOver = stringLength - totalParsedInputLength;
 	    if (string.length > 0) {
 	        getParsingFlags(config).unusedInput.push(string);
 	    }
-
+	
 	    // clear _12h flag if hour is <= 12
 	    if (config._a[HOUR] <= 12 &&
 	        getParsingFlags(config).bigHour === true &&
 	        config._a[HOUR] > 0) {
 	        getParsingFlags(config).bigHour = undefined;
 	    }
-
+	
 	    getParsingFlags(config).parsedDateParts = config._a.slice(0);
 	    getParsingFlags(config).meridiem = config._meridiem;
 	    // handle meridiem
 	    config._a[HOUR] = meridiemFixWrap(config._locale, config._a[HOUR], config._meridiem);
-
+	
 	    configFromArray(config);
 	    checkOverflow(config);
 	}
-
-
+	
+	
 	function meridiemFixWrap (locale, hour, meridiem) {
 	    var isPm;
-
+	
 	    if (meridiem == null) {
 	        // nothing to do
 	        return hour;
@@ -69399,22 +69728,22 @@
 	        return hour;
 	    }
 	}
-
+	
 	// date from string and array of format strings
 	function configFromStringAndArray(config) {
 	    var tempConfig,
 	        bestMoment,
-
+	
 	        scoreToBeat,
 	        i,
 	        currentScore;
-
+	
 	    if (config._f.length === 0) {
 	        getParsingFlags(config).invalidFormat = true;
 	        config._d = new Date(NaN);
 	        return;
 	    }
-
+	
 	    for (i = 0; i < config._f.length; i++) {
 	        currentScore = 0;
 	        tempConfig = copyConfig({}, config);
@@ -69423,41 +69752,41 @@
 	        }
 	        tempConfig._f = config._f[i];
 	        configFromStringAndFormat(tempConfig);
-
+	
 	        if (!isValid(tempConfig)) {
 	            continue;
 	        }
-
+	
 	        // if there is any input that was not parsed add a penalty for that format
 	        currentScore += getParsingFlags(tempConfig).charsLeftOver;
-
+	
 	        //or tokens
 	        currentScore += getParsingFlags(tempConfig).unusedTokens.length * 10;
-
+	
 	        getParsingFlags(tempConfig).score = currentScore;
-
+	
 	        if (scoreToBeat == null || currentScore < scoreToBeat) {
 	            scoreToBeat = currentScore;
 	            bestMoment = tempConfig;
 	        }
 	    }
-
+	
 	    extend(config, bestMoment || tempConfig);
 	}
-
+	
 	function configFromObject(config) {
 	    if (config._d) {
 	        return;
 	    }
-
+	
 	    var i = normalizeObjectUnits(config._i);
 	    config._a = map([i.year, i.month, i.day || i.date, i.hour, i.minute, i.second, i.millisecond], function (obj) {
 	        return obj && parseInt(obj, 10);
 	    });
-
+	
 	    configFromArray(config);
 	}
-
+	
 	function createFromConfig (config) {
 	    var res = new Moment(checkOverflow(prepareConfig(config)));
 	    if (res._nextDay) {
@@ -69465,24 +69794,24 @@
 	        res.add(1, 'd');
 	        res._nextDay = undefined;
 	    }
-
+	
 	    return res;
 	}
-
+	
 	function prepareConfig (config) {
 	    var input = config._i,
 	        format = config._f;
-
+	
 	    config._locale = config._locale || getLocale(config._l);
-
+	
 	    if (input === null || (format === undefined && input === '')) {
 	        return createInvalid({nullInput: true});
 	    }
-
+	
 	    if (typeof input === 'string') {
 	        config._i = input = config._locale.preparse(input);
 	    }
-
+	
 	    if (isMoment(input)) {
 	        return new Moment(checkOverflow(input));
 	    } else if (isDate(input)) {
@@ -69494,14 +69823,14 @@
 	    }  else {
 	        configFromInput(config);
 	    }
-
+	
 	    if (!isValid(config)) {
 	        config._d = null;
 	    }
-
+	
 	    return config;
 	}
-
+	
 	function configFromInput(config) {
 	    var input = config._i;
 	    if (input === undefined) {
@@ -69524,15 +69853,15 @@
 	        hooks.createFromInputFallback(config);
 	    }
 	}
-
+	
 	function createLocalOrUTC (input, format, locale, strict, isUTC) {
 	    var c = {};
-
+	
 	    if (locale === true || locale === false) {
 	        strict = locale;
 	        locale = undefined;
 	    }
-
+	
 	    if ((isObject(input) && isObjectEmpty(input)) ||
 	            (isArray(input) && input.length === 0)) {
 	        input = undefined;
@@ -69545,14 +69874,14 @@
 	    c._i = input;
 	    c._f = format;
 	    c._strict = strict;
-
+	
 	    return createFromConfig(c);
 	}
-
+	
 	function createLocal (input, format, locale, strict) {
 	    return createLocalOrUTC(input, format, locale, strict, false);
 	}
-
+	
 	var prototypeMin = deprecate(
 	    'moment().min is deprecated, use moment.max instead. http://momentjs.com/guides/#/warnings/min-max/',
 	    function () {
@@ -69564,7 +69893,7 @@
 	        }
 	    }
 	);
-
+	
 	var prototypeMax = deprecate(
 	    'moment().max is deprecated, use moment.min instead. http://momentjs.com/guides/#/warnings/min-max/',
 	    function () {
@@ -69576,7 +69905,7 @@
 	        }
 	    }
 	);
-
+	
 	// Pick a moment m from moments so that m[fn](other) is true for all
 	// other. This relies on the function fn to be transitive.
 	//
@@ -69598,24 +69927,24 @@
 	    }
 	    return res;
 	}
-
+	
 	// TODO: Use [].sort instead?
 	function min () {
 	    var args = [].slice.call(arguments, 0);
-
+	
 	    return pickBy('isBefore', args);
 	}
-
+	
 	function max () {
 	    var args = [].slice.call(arguments, 0);
-
+	
 	    return pickBy('isAfter', args);
 	}
-
+	
 	var now = function () {
 	    return Date.now ? Date.now() : +(new Date());
 	};
-
+	
 	function Duration (duration) {
 	    var normalizedInput = normalizeObjectUnits(duration),
 	        years = normalizedInput.year || 0,
@@ -69627,7 +69956,7 @@
 	        minutes = normalizedInput.minute || 0,
 	        seconds = normalizedInput.second || 0,
 	        milliseconds = normalizedInput.millisecond || 0;
-
+	
 	    // representation for dateAddRemove
 	    this._milliseconds = +milliseconds +
 	        seconds * 1e3 + // 1000
@@ -69643,18 +69972,18 @@
 	    this._months = +months +
 	        quarters * 3 +
 	        years * 12;
-
+	
 	    this._data = {};
-
+	
 	    this._locale = getLocale();
-
+	
 	    this._bubble();
 	}
-
+	
 	function isDuration (obj) {
 	    return obj instanceof Duration;
 	}
-
+	
 	function absRound (number) {
 	    if (number < 0) {
 	        return Math.round(-1 * number) * -1;
@@ -69662,9 +69991,9 @@
 	        return Math.round(number);
 	    }
 	}
-
+	
 	// FORMATTING
-
+	
 	function offset (token, separator) {
 	    addFormatToken(token, 0, 0, function () {
 	        var offset = this.utcOffset();
@@ -69676,42 +70005,42 @@
 	        return sign + zeroFill(~~(offset / 60), 2) + separator + zeroFill(~~(offset) % 60, 2);
 	    });
 	}
-
+	
 	offset('Z', ':');
 	offset('ZZ', '');
-
+	
 	// PARSING
-
+	
 	addRegexToken('Z',  matchShortOffset);
 	addRegexToken('ZZ', matchShortOffset);
 	addParseToken(['Z', 'ZZ'], function (input, array, config) {
 	    config._useUTC = true;
 	    config._tzm = offsetFromString(matchShortOffset, input);
 	});
-
+	
 	// HELPERS
-
+	
 	// timezone chunker
 	// '+10:00' > ['10',  '00']
 	// '-1530'  > ['-15', '30']
 	var chunkOffset = /([\+\-]|\d\d)/gi;
-
+	
 	function offsetFromString(matcher, string) {
 	    var matches = (string || '').match(matcher);
-
+	
 	    if (matches === null) {
 	        return null;
 	    }
-
+	
 	    var chunk   = matches[matches.length - 1] || [];
 	    var parts   = (chunk + '').match(chunkOffset) || ['-', 0, 0];
 	    var minutes = +(parts[1] * 60) + toInt(parts[2]);
-
+	
 	    return minutes === 0 ?
 	      0 :
 	      parts[0] === '+' ? minutes : -minutes;
 	}
-
+	
 	// Return a moment from input, that is local/utc/zone equivalent to model.
 	function cloneWithOffset(input, model) {
 	    var res, diff;
@@ -69726,21 +70055,21 @@
 	        return createLocal(input).local();
 	    }
 	}
-
+	
 	function getDateOffset (m) {
 	    // On Firefox.24 Date#getTimezoneOffset returns a floating point.
 	    // https://github.com/moment/moment/pull/1871
 	    return -Math.round(m._d.getTimezoneOffset() / 15) * 15;
 	}
-
+	
 	// HOOKS
-
+	
 	// This function will be called whenever a moment is mutated.
 	// It is intended to keep the offset in sync with the timezone.
 	hooks.updateOffset = function () {};
-
+	
 	// MOMENTS
-
+	
 	// keepLocalTime = true means only change the timezone, without
 	// affecting the local hour. So 5:31:26 +0300 --[utcOffset(2, true)]-->
 	// 5:31:26 +0200 It is possible that 5:31:26 doesn't exist with offset
@@ -69788,37 +70117,37 @@
 	        return this._isUTC ? offset : getDateOffset(this);
 	    }
 	}
-
+	
 	function getSetZone (input, keepLocalTime) {
 	    if (input != null) {
 	        if (typeof input !== 'string') {
 	            input = -input;
 	        }
-
+	
 	        this.utcOffset(input, keepLocalTime);
-
+	
 	        return this;
 	    } else {
 	        return -this.utcOffset();
 	    }
 	}
-
+	
 	function setOffsetToUTC (keepLocalTime) {
 	    return this.utcOffset(0, keepLocalTime);
 	}
-
+	
 	function setOffsetToLocal (keepLocalTime) {
 	    if (this._isUTC) {
 	        this.utcOffset(0, keepLocalTime);
 	        this._isUTC = false;
-
+	
 	        if (keepLocalTime) {
 	            this.subtract(getDateOffset(this), 'm');
 	        }
 	    }
 	    return this;
 	}
-
+	
 	function setOffsetToParsedOffset () {
 	    if (this._tzm != null) {
 	        this.utcOffset(this._tzm);
@@ -69833,33 +70162,33 @@
 	    }
 	    return this;
 	}
-
+	
 	function hasAlignedHourOffset (input) {
 	    if (!this.isValid()) {
 	        return false;
 	    }
 	    input = input ? createLocal(input).utcOffset() : 0;
-
+	
 	    return (this.utcOffset() - input) % 60 === 0;
 	}
-
+	
 	function isDaylightSavingTime () {
 	    return (
 	        this.utcOffset() > this.clone().month(0).utcOffset() ||
 	        this.utcOffset() > this.clone().month(5).utcOffset()
 	    );
 	}
-
+	
 	function isDaylightSavingTimeShifted () {
 	    if (!isUndefined(this._isDSTShifted)) {
 	        return this._isDSTShifted;
 	    }
-
+	
 	    var c = {};
-
+	
 	    copyConfig(c, this);
 	    c = prepareConfig(c);
-
+	
 	    if (c._a) {
 	        var other = c._isUTC ? createUTC(c._a) : createLocal(c._a);
 	        this._isDSTShifted = this.isValid() &&
@@ -69867,30 +70196,30 @@
 	    } else {
 	        this._isDSTShifted = false;
 	    }
-
+	
 	    return this._isDSTShifted;
 	}
-
+	
 	function isLocal () {
 	    return this.isValid() ? !this._isUTC : false;
 	}
-
+	
 	function isUtcOffset () {
 	    return this.isValid() ? this._isUTC : false;
 	}
-
+	
 	function isUtc () {
 	    return this.isValid() ? this._isUTC && this._offset === 0 : false;
 	}
-
+	
 	// ASP.NET json date format regex
 	var aspNetRegex = /^(\-)?(?:(\d*)[. ])?(\d+)\:(\d+)(?:\:(\d+)(\.\d*)?)?$/;
-
+	
 	// from http://docs.closure-library.googlecode.com/git/closure_goog_date_date.js.source.html
 	// somewhat more in line with 4.4.3.2 2004 spec, but allows decimal anywhere
 	// and further modified to allow for strings containing both week and day
 	var isoRegex = /^(-)?P(?:(-?[0-9,.]*)Y)?(?:(-?[0-9,.]*)M)?(?:(-?[0-9,.]*)W)?(?:(-?[0-9,.]*)D)?(?:T(?:(-?[0-9,.]*)H)?(?:(-?[0-9,.]*)M)?(?:(-?[0-9,.]*)S)?)?$/;
-
+	
 	function createDuration (input, key) {
 	    var duration = input,
 	        // matching against regexp is expensive, do it on demand
@@ -69898,7 +70227,7 @@
 	        sign,
 	        ret,
 	        diffRes;
-
+	
 	    if (isDuration(input)) {
 	        duration = {
 	            ms : input._milliseconds,
@@ -69937,23 +70266,23 @@
 	        duration = {};
 	    } else if (typeof duration === 'object' && ('from' in duration || 'to' in duration)) {
 	        diffRes = momentsDifference(createLocal(duration.from), createLocal(duration.to));
-
+	
 	        duration = {};
 	        duration.ms = diffRes.milliseconds;
 	        duration.M = diffRes.months;
 	    }
-
+	
 	    ret = new Duration(duration);
-
+	
 	    if (isDuration(input) && hasOwnProp(input, '_locale')) {
 	        ret._locale = input._locale;
 	    }
-
+	
 	    return ret;
 	}
-
+	
 	createDuration.fn = Duration.prototype;
-
+	
 	function parseIso (inp, sign) {
 	    // We'd normally use ~~inp for this, but unfortunately it also
 	    // converts floats to ints.
@@ -69962,27 +70291,27 @@
 	    // apply sign while we're at it
 	    return (isNaN(res) ? 0 : res) * sign;
 	}
-
+	
 	function positiveMomentsDifference(base, other) {
 	    var res = {milliseconds: 0, months: 0};
-
+	
 	    res.months = other.month() - base.month() +
 	        (other.year() - base.year()) * 12;
 	    if (base.clone().add(res.months, 'M').isAfter(other)) {
 	        --res.months;
 	    }
-
+	
 	    res.milliseconds = +other - +(base.clone().add(res.months, 'M'));
-
+	
 	    return res;
 	}
-
+	
 	function momentsDifference(base, other) {
 	    var res;
 	    if (!(base.isValid() && other.isValid())) {
 	        return {milliseconds: 0, months: 0};
 	    }
-
+	
 	    other = cloneWithOffset(other, base);
 	    if (base.isBefore(other)) {
 	        res = positiveMomentsDifference(base, other);
@@ -69991,10 +70320,10 @@
 	        res.milliseconds = -res.milliseconds;
 	        res.months = -res.months;
 	    }
-
+	
 	    return res;
 	}
-
+	
 	// TODO: remove 'name' arg after deprecation is removed
 	function createAdder(direction, name) {
 	    return function (val, period) {
@@ -70005,26 +70334,26 @@
 	            'See http://momentjs.com/guides/#/warnings/add-inverted-param/ for more info.');
 	            tmp = val; val = period; period = tmp;
 	        }
-
+	
 	        val = typeof val === 'string' ? +val : val;
 	        dur = createDuration(val, period);
 	        addSubtract(this, dur, direction);
 	        return this;
 	    };
 	}
-
+	
 	function addSubtract (mom, duration, isAdding, updateOffset) {
 	    var milliseconds = duration._milliseconds,
 	        days = absRound(duration._days),
 	        months = absRound(duration._months);
-
+	
 	    if (!mom.isValid()) {
 	        // No op
 	        return;
 	    }
-
+	
 	    updateOffset = updateOffset == null ? true : updateOffset;
-
+	
 	    if (milliseconds) {
 	        mom._d.setTime(mom._d.valueOf() + milliseconds * isAdding);
 	    }
@@ -70038,10 +70367,10 @@
 	        hooks.updateOffset(mom, days || months);
 	    }
 	}
-
+	
 	var add      = createAdder(1, 'add');
 	var subtract = createAdder(-1, 'subtract');
-
+	
 	function getCalendarFormat(myMoment, now) {
 	    var diff = myMoment.diff(now, 'days', true);
 	    return diff < -6 ? 'sameElse' :
@@ -70051,23 +70380,23 @@
 	            diff < 2 ? 'nextDay' :
 	            diff < 7 ? 'nextWeek' : 'sameElse';
 	}
-
+	
 	function calendar$1 (time, formats) {
 	    // We want to compare the start of today, vs this.
 	    // Getting start-of-today depends on whether we're local/utc/offset or not.
 	    var now = time || createLocal(),
 	        sod = cloneWithOffset(now, this).startOf('day'),
 	        format = hooks.calendarFormat(this, sod) || 'sameElse';
-
+	
 	    var output = formats && (isFunction(formats[format]) ? formats[format].call(this, now) : formats[format]);
-
+	
 	    return this.format(output || this.localeData().calendar(format, this, createLocal(now)));
 	}
-
+	
 	function clone () {
 	    return new Moment(this);
 	}
-
+	
 	function isAfter (input, units) {
 	    var localInput = isMoment(input) ? input : createLocal(input);
 	    if (!(this.isValid() && localInput.isValid())) {
@@ -70080,7 +70409,7 @@
 	        return localInput.valueOf() < this.clone().startOf(units).valueOf();
 	    }
 	}
-
+	
 	function isBefore (input, units) {
 	    var localInput = isMoment(input) ? input : createLocal(input);
 	    if (!(this.isValid() && localInput.isValid())) {
@@ -70093,13 +70422,13 @@
 	        return this.clone().endOf(units).valueOf() < localInput.valueOf();
 	    }
 	}
-
+	
 	function isBetween (from, to, units, inclusivity) {
 	    inclusivity = inclusivity || '()';
 	    return (inclusivity[0] === '(' ? this.isAfter(from, units) : !this.isBefore(from, units)) &&
 	        (inclusivity[1] === ')' ? this.isBefore(to, units) : !this.isAfter(to, units));
 	}
-
+	
 	function isSame (input, units) {
 	    var localInput = isMoment(input) ? input : createLocal(input),
 	        inputMs;
@@ -70114,34 +70443,34 @@
 	        return this.clone().startOf(units).valueOf() <= inputMs && inputMs <= this.clone().endOf(units).valueOf();
 	    }
 	}
-
+	
 	function isSameOrAfter (input, units) {
 	    return this.isSame(input, units) || this.isAfter(input,units);
 	}
-
+	
 	function isSameOrBefore (input, units) {
 	    return this.isSame(input, units) || this.isBefore(input,units);
 	}
-
+	
 	function diff (input, units, asFloat) {
 	    var that,
 	        zoneDelta,
 	        delta, output;
-
+	
 	    if (!this.isValid()) {
 	        return NaN;
 	    }
-
+	
 	    that = cloneWithOffset(input, this);
-
+	
 	    if (!that.isValid()) {
 	        return NaN;
 	    }
-
+	
 	    zoneDelta = (that.utcOffset() - this.utcOffset()) * 6e4;
-
+	
 	    units = normalizeUnits(units);
-
+	
 	    if (units === 'year' || units === 'month' || units === 'quarter') {
 	        output = monthDiff(this, that);
 	        if (units === 'quarter') {
@@ -70160,14 +70489,14 @@
 	    }
 	    return asFloat ? output : absFloor(output);
 	}
-
+	
 	function monthDiff (a, b) {
 	    // difference in months
 	    var wholeMonthDiff = ((b.year() - a.year()) * 12) + (b.month() - a.month()),
 	        // b is in (anchor - 1 month, anchor + 1 month)
 	        anchor = a.clone().add(wholeMonthDiff, 'months'),
 	        anchor2, adjust;
-
+	
 	    if (b - anchor < 0) {
 	        anchor2 = a.clone().add(wholeMonthDiff - 1, 'months');
 	        // linear across the month
@@ -70177,18 +70506,18 @@
 	        // linear across the month
 	        adjust = (b - anchor) / (anchor2 - anchor);
 	    }
-
+	
 	    //check for negative zero, return zero if negative zero
 	    return -(wholeMonthDiff + adjust) || 0;
 	}
-
+	
 	hooks.defaultFormat = 'YYYY-MM-DDTHH:mm:ssZ';
 	hooks.defaultFormatUtc = 'YYYY-MM-DDTHH:mm:ss[Z]';
-
+	
 	function toString () {
 	    return this.clone().locale('en').format('ddd MMM DD YYYY HH:mm:ss [GMT]ZZ');
 	}
-
+	
 	function toISOString () {
 	    var m = this.clone().utc();
 	    if (0 < m.year() && m.year() <= 9999) {
@@ -70202,7 +70531,7 @@
 	        return formatMoment(m, 'YYYYYY-MM-DD[T]HH:mm:ss.SSS[Z]');
 	    }
 	}
-
+	
 	/**
 	 * Return a human readable representation of a moment that can
 	 * also be evaluated to get a new moment which is the same
@@ -70223,10 +70552,10 @@
 	    var year = (0 < this.year() && this.year() <= 9999) ? 'YYYY' : 'YYYYYY';
 	    var datetime = '-MM-DD[T]HH:mm:ss.SSS';
 	    var suffix = zone + '[")]';
-
+	
 	    return this.format(prefix + year + datetime + suffix);
 	}
-
+	
 	function format (inputString) {
 	    if (!inputString) {
 	        inputString = this.isUtc() ? hooks.defaultFormatUtc : hooks.defaultFormat;
@@ -70234,7 +70563,7 @@
 	    var output = formatMoment(this, inputString);
 	    return this.localeData().postformat(output);
 	}
-
+	
 	function from (time, withoutSuffix) {
 	    if (this.isValid() &&
 	            ((isMoment(time) && time.isValid()) ||
@@ -70244,11 +70573,11 @@
 	        return this.localeData().invalidDate();
 	    }
 	}
-
+	
 	function fromNow (withoutSuffix) {
 	    return this.from(createLocal(), withoutSuffix);
 	}
-
+	
 	function to (time, withoutSuffix) {
 	    if (this.isValid() &&
 	            ((isMoment(time) && time.isValid()) ||
@@ -70258,17 +70587,17 @@
 	        return this.localeData().invalidDate();
 	    }
 	}
-
+	
 	function toNow (withoutSuffix) {
 	    return this.to(createLocal(), withoutSuffix);
 	}
-
+	
 	// If passed a locale key, it will set the locale for this
 	// instance.  Otherwise, it will return the locale configuration
 	// variables for this instance.
 	function locale (key) {
 	    var newLocaleData;
-
+	
 	    if (key === undefined) {
 	        return this._locale._abbr;
 	    } else {
@@ -70279,7 +70608,7 @@
 	        return this;
 	    }
 	}
-
+	
 	var lang = deprecate(
 	    'moment().lang() is deprecated. Instead, use moment().localeData() to get the language configuration. Use moment().locale() to change languages.',
 	    function (key) {
@@ -70290,11 +70619,11 @@
 	        }
 	    }
 	);
-
+	
 	function localeData () {
 	    return this._locale;
 	}
-
+	
 	function startOf (units) {
 	    units = normalizeUnits(units);
 	    // the following switch intentionally omits break keywords
@@ -70322,7 +70651,7 @@
 	        case 'second':
 	            this.milliseconds(0);
 	    }
-
+	
 	    // weeks are a special case
 	    if (units === 'week') {
 	        this.weekday(0);
@@ -70330,46 +70659,46 @@
 	    if (units === 'isoWeek') {
 	        this.isoWeekday(1);
 	    }
-
+	
 	    // quarters are also special
 	    if (units === 'quarter') {
 	        this.month(Math.floor(this.month() / 3) * 3);
 	    }
-
+	
 	    return this;
 	}
-
+	
 	function endOf (units) {
 	    units = normalizeUnits(units);
 	    if (units === undefined || units === 'millisecond') {
 	        return this;
 	    }
-
+	
 	    // 'date' is an alias for 'day', so it should be considered as such.
 	    if (units === 'date') {
 	        units = 'day';
 	    }
-
+	
 	    return this.startOf(units).add(1, (units === 'isoWeek' ? 'week' : units)).subtract(1, 'ms');
 	}
-
+	
 	function valueOf () {
 	    return this._d.valueOf() - ((this._offset || 0) * 60000);
 	}
-
+	
 	function unix () {
 	    return Math.floor(this.valueOf() / 1000);
 	}
-
+	
 	function toDate () {
 	    return new Date(this.valueOf());
 	}
-
+	
 	function toArray () {
 	    var m = this;
 	    return [m.year(), m.month(), m.date(), m.hour(), m.minute(), m.second(), m.millisecond()];
 	}
-
+	
 	function toObject () {
 	    var m = this;
 	    return {
@@ -70382,24 +70711,24 @@
 	        milliseconds: m.milliseconds()
 	    };
 	}
-
+	
 	function toJSON () {
 	    // new Date(NaN).toJSON() === null
 	    return this.isValid() ? this.toISOString() : null;
 	}
-
+	
 	function isValid$1 () {
 	    return isValid(this);
 	}
-
+	
 	function parsingFlags () {
 	    return extend({}, getParsingFlags(this));
 	}
-
+	
 	function invalidAt () {
 	    return getParsingFlags(this).overflow;
 	}
-
+	
 	function creationData() {
 	    return {
 	        input: this._i,
@@ -70409,39 +70738,39 @@
 	        strict: this._strict
 	    };
 	}
-
+	
 	// FORMATTING
-
+	
 	addFormatToken(0, ['gg', 2], 0, function () {
 	    return this.weekYear() % 100;
 	});
-
+	
 	addFormatToken(0, ['GG', 2], 0, function () {
 	    return this.isoWeekYear() % 100;
 	});
-
+	
 	function addWeekYearFormatToken (token, getter) {
 	    addFormatToken(0, [token, token.length], 0, getter);
 	}
-
+	
 	addWeekYearFormatToken('gggg',     'weekYear');
 	addWeekYearFormatToken('ggggg',    'weekYear');
 	addWeekYearFormatToken('GGGG',  'isoWeekYear');
 	addWeekYearFormatToken('GGGGG', 'isoWeekYear');
-
+	
 	// ALIASES
-
+	
 	addUnitAlias('weekYear', 'gg');
 	addUnitAlias('isoWeekYear', 'GG');
-
+	
 	// PRIORITY
-
+	
 	addUnitPriority('weekYear', 1);
 	addUnitPriority('isoWeekYear', 1);
-
-
+	
+	
 	// PARSING
-
+	
 	addRegexToken('G',      matchSigned);
 	addRegexToken('g',      matchSigned);
 	addRegexToken('GG',     match1to2, match2);
@@ -70450,17 +70779,17 @@
 	addRegexToken('gggg',   match1to4, match4);
 	addRegexToken('GGGGG',  match1to6, match6);
 	addRegexToken('ggggg',  match1to6, match6);
-
+	
 	addWeekParseToken(['gggg', 'ggggg', 'GGGG', 'GGGGG'], function (input, week, config, token) {
 	    week[token.substr(0, 2)] = toInt(input);
 	});
-
+	
 	addWeekParseToken(['gg', 'GG'], function (input, week, config, token) {
 	    week[token] = hooks.parseTwoDigitYear(input);
 	});
-
+	
 	// MOMENTS
-
+	
 	function getSetWeekYear (input) {
 	    return getSetWeekYearHelper.call(this,
 	            input,
@@ -70469,21 +70798,21 @@
 	            this.localeData()._week.dow,
 	            this.localeData()._week.doy);
 	}
-
+	
 	function getSetISOWeekYear (input) {
 	    return getSetWeekYearHelper.call(this,
 	            input, this.isoWeek(), this.isoWeekday(), 1, 4);
 	}
-
+	
 	function getISOWeeksInYear () {
 	    return weeksInYear(this.year(), 1, 4);
 	}
-
+	
 	function getWeeksInYear () {
 	    var weekInfo = this.localeData()._week;
 	    return weeksInYear(this.year(), weekInfo.dow, weekInfo.doy);
 	}
-
+	
 	function getSetWeekYearHelper(input, week, weekday, dow, doy) {
 	    var weeksTarget;
 	    if (input == null) {
@@ -70496,152 +70825,152 @@
 	        return setWeekAll.call(this, input, week, weekday, dow, doy);
 	    }
 	}
-
+	
 	function setWeekAll(weekYear, week, weekday, dow, doy) {
 	    var dayOfYearData = dayOfYearFromWeeks(weekYear, week, weekday, dow, doy),
 	        date = createUTCDate(dayOfYearData.year, 0, dayOfYearData.dayOfYear);
-
+	
 	    this.year(date.getUTCFullYear());
 	    this.month(date.getUTCMonth());
 	    this.date(date.getUTCDate());
 	    return this;
 	}
-
+	
 	// FORMATTING
-
+	
 	addFormatToken('Q', 0, 'Qo', 'quarter');
-
+	
 	// ALIASES
-
+	
 	addUnitAlias('quarter', 'Q');
-
+	
 	// PRIORITY
-
+	
 	addUnitPriority('quarter', 7);
-
+	
 	// PARSING
-
+	
 	addRegexToken('Q', match1);
 	addParseToken('Q', function (input, array) {
 	    array[MONTH] = (toInt(input) - 1) * 3;
 	});
-
+	
 	// MOMENTS
-
+	
 	function getSetQuarter (input) {
 	    return input == null ? Math.ceil((this.month() + 1) / 3) : this.month((input - 1) * 3 + this.month() % 3);
 	}
-
+	
 	// FORMATTING
-
+	
 	addFormatToken('D', ['DD', 2], 'Do', 'date');
-
+	
 	// ALIASES
-
+	
 	addUnitAlias('date', 'D');
-
+	
 	// PRIOROITY
 	addUnitPriority('date', 9);
-
+	
 	// PARSING
-
+	
 	addRegexToken('D',  match1to2);
 	addRegexToken('DD', match1to2, match2);
 	addRegexToken('Do', function (isStrict, locale) {
 	    return isStrict ? locale._ordinalParse : locale._ordinalParseLenient;
 	});
-
+	
 	addParseToken(['D', 'DD'], DATE);
 	addParseToken('Do', function (input, array) {
 	    array[DATE] = toInt(input.match(match1to2)[0], 10);
 	});
-
+	
 	// MOMENTS
-
+	
 	var getSetDayOfMonth = makeGetSet('Date', true);
-
+	
 	// FORMATTING
-
+	
 	addFormatToken('DDD', ['DDDD', 3], 'DDDo', 'dayOfYear');
-
+	
 	// ALIASES
-
+	
 	addUnitAlias('dayOfYear', 'DDD');
-
+	
 	// PRIORITY
 	addUnitPriority('dayOfYear', 4);
-
+	
 	// PARSING
-
+	
 	addRegexToken('DDD',  match1to3);
 	addRegexToken('DDDD', match3);
 	addParseToken(['DDD', 'DDDD'], function (input, array, config) {
 	    config._dayOfYear = toInt(input);
 	});
-
+	
 	// HELPERS
-
+	
 	// MOMENTS
-
+	
 	function getSetDayOfYear (input) {
 	    var dayOfYear = Math.round((this.clone().startOf('day') - this.clone().startOf('year')) / 864e5) + 1;
 	    return input == null ? dayOfYear : this.add((input - dayOfYear), 'd');
 	}
-
+	
 	// FORMATTING
-
+	
 	addFormatToken('m', ['mm', 2], 0, 'minute');
-
+	
 	// ALIASES
-
+	
 	addUnitAlias('minute', 'm');
-
+	
 	// PRIORITY
-
+	
 	addUnitPriority('minute', 14);
-
+	
 	// PARSING
-
+	
 	addRegexToken('m',  match1to2);
 	addRegexToken('mm', match1to2, match2);
 	addParseToken(['m', 'mm'], MINUTE);
-
+	
 	// MOMENTS
-
+	
 	var getSetMinute = makeGetSet('Minutes', false);
-
+	
 	// FORMATTING
-
+	
 	addFormatToken('s', ['ss', 2], 0, 'second');
-
+	
 	// ALIASES
-
+	
 	addUnitAlias('second', 's');
-
+	
 	// PRIORITY
-
+	
 	addUnitPriority('second', 15);
-
+	
 	// PARSING
-
+	
 	addRegexToken('s',  match1to2);
 	addRegexToken('ss', match1to2, match2);
 	addParseToken(['s', 'ss'], SECOND);
-
+	
 	// MOMENTS
-
+	
 	var getSetSecond = makeGetSet('Seconds', false);
-
+	
 	// FORMATTING
-
+	
 	addFormatToken('S', 0, 0, function () {
 	    return ~~(this.millisecond() / 100);
 	});
-
+	
 	addFormatToken(0, ['SS', 2], 0, function () {
 	    return ~~(this.millisecond() / 10);
 	});
-
+	
 	addFormatToken(0, ['SSS', 3], 0, 'millisecond');
 	addFormatToken(0, ['SSSS', 4], 0, function () {
 	    return this.millisecond() * 10;
@@ -70661,55 +70990,55 @@
 	addFormatToken(0, ['SSSSSSSSS', 9], 0, function () {
 	    return this.millisecond() * 1000000;
 	});
-
-
+	
+	
 	// ALIASES
-
+	
 	addUnitAlias('millisecond', 'ms');
-
+	
 	// PRIORITY
-
+	
 	addUnitPriority('millisecond', 16);
-
+	
 	// PARSING
-
+	
 	addRegexToken('S',    match1to3, match1);
 	addRegexToken('SS',   match1to3, match2);
 	addRegexToken('SSS',  match1to3, match3);
-
+	
 	var token;
 	for (token = 'SSSS'; token.length <= 9; token += 'S') {
 	    addRegexToken(token, matchUnsigned);
 	}
-
+	
 	function parseMs(input, array) {
 	    array[MILLISECOND] = toInt(('0.' + input) * 1000);
 	}
-
+	
 	for (token = 'S'; token.length <= 9; token += 'S') {
 	    addParseToken(token, parseMs);
 	}
 	// MOMENTS
-
+	
 	var getSetMillisecond = makeGetSet('Milliseconds', false);
-
+	
 	// FORMATTING
-
+	
 	addFormatToken('z',  0, 0, 'zoneAbbr');
 	addFormatToken('zz', 0, 0, 'zoneName');
-
+	
 	// MOMENTS
-
+	
 	function getZoneAbbr () {
 	    return this._isUTC ? 'UTC' : '';
 	}
-
+	
 	function getZoneName () {
 	    return this._isUTC ? 'Coordinated Universal Time' : '';
 	}
-
+	
 	var proto = Moment.prototype;
-
+	
 	proto.add               = add;
 	proto.calendar          = calendar$1;
 	proto.clone             = clone;
@@ -70748,47 +71077,47 @@
 	proto.unix              = unix;
 	proto.valueOf           = valueOf;
 	proto.creationData      = creationData;
-
+	
 	// Year
 	proto.year       = getSetYear;
 	proto.isLeapYear = getIsLeapYear;
-
+	
 	// Week Year
 	proto.weekYear    = getSetWeekYear;
 	proto.isoWeekYear = getSetISOWeekYear;
-
+	
 	// Quarter
 	proto.quarter = proto.quarters = getSetQuarter;
-
+	
 	// Month
 	proto.month       = getSetMonth;
 	proto.daysInMonth = getDaysInMonth;
-
+	
 	// Week
 	proto.week           = proto.weeks        = getSetWeek;
 	proto.isoWeek        = proto.isoWeeks     = getSetISOWeek;
 	proto.weeksInYear    = getWeeksInYear;
 	proto.isoWeeksInYear = getISOWeeksInYear;
-
+	
 	// Day
 	proto.date       = getSetDayOfMonth;
 	proto.day        = proto.days             = getSetDayOfWeek;
 	proto.weekday    = getSetLocaleDayOfWeek;
 	proto.isoWeekday = getSetISODayOfWeek;
 	proto.dayOfYear  = getSetDayOfYear;
-
+	
 	// Hour
 	proto.hour = proto.hours = getSetHour;
-
+	
 	// Minute
 	proto.minute = proto.minutes = getSetMinute;
-
+	
 	// Second
 	proto.second = proto.seconds = getSetSecond;
-
+	
 	// Millisecond
 	proto.millisecond = proto.milliseconds = getSetMillisecond;
-
+	
 	// Offset
 	proto.utcOffset            = getSetOffset;
 	proto.utc                  = setOffsetToUTC;
@@ -70800,32 +71129,32 @@
 	proto.isUtcOffset          = isUtcOffset;
 	proto.isUtc                = isUtc;
 	proto.isUTC                = isUtc;
-
+	
 	// Timezone
 	proto.zoneAbbr = getZoneAbbr;
 	proto.zoneName = getZoneName;
-
+	
 	// Deprecations
 	proto.dates  = deprecate('dates accessor is deprecated. Use date instead.', getSetDayOfMonth);
 	proto.months = deprecate('months accessor is deprecated. Use month instead', getSetMonth);
 	proto.years  = deprecate('years accessor is deprecated. Use year instead', getSetYear);
 	proto.zone   = deprecate('moment().zone is deprecated, use moment().utcOffset instead. http://momentjs.com/guides/#/warnings/zone/', getSetZone);
 	proto.isDSTShifted = deprecate('isDSTShifted is deprecated. See http://momentjs.com/guides/#/warnings/dst-shifted/ for more information', isDaylightSavingTimeShifted);
-
+	
 	function createUnix (input) {
 	    return createLocal(input * 1000);
 	}
-
+	
 	function createInZone () {
 	    return createLocal.apply(null, arguments).parseZone();
 	}
-
+	
 	function preParsePostFormat (string) {
 	    return string;
 	}
-
+	
 	var proto$1 = Locale.prototype;
-
+	
 	proto$1.calendar        = calendar;
 	proto$1.longDateFormat  = longDateFormat;
 	proto$1.invalidDate     = invalidDate;
@@ -70835,51 +71164,51 @@
 	proto$1.relativeTime    = relativeTime;
 	proto$1.pastFuture      = pastFuture;
 	proto$1.set             = set;
-
+	
 	// Month
 	proto$1.months            =        localeMonths;
 	proto$1.monthsShort       =        localeMonthsShort;
 	proto$1.monthsParse       =        localeMonthsParse;
 	proto$1.monthsRegex       = monthsRegex;
 	proto$1.monthsShortRegex  = monthsShortRegex;
-
+	
 	// Week
 	proto$1.week = localeWeek;
 	proto$1.firstDayOfYear = localeFirstDayOfYear;
 	proto$1.firstDayOfWeek = localeFirstDayOfWeek;
-
+	
 	// Day of Week
 	proto$1.weekdays       =        localeWeekdays;
 	proto$1.weekdaysMin    =        localeWeekdaysMin;
 	proto$1.weekdaysShort  =        localeWeekdaysShort;
 	proto$1.weekdaysParse  =        localeWeekdaysParse;
-
+	
 	proto$1.weekdaysRegex       =        weekdaysRegex;
 	proto$1.weekdaysShortRegex  =        weekdaysShortRegex;
 	proto$1.weekdaysMinRegex    =        weekdaysMinRegex;
-
+	
 	// Hours
 	proto$1.isPM = localeIsPM;
 	proto$1.meridiem = localeMeridiem;
-
+	
 	function get$1 (format, index, field, setter) {
 	    var locale = getLocale();
 	    var utc = createUTC().set(setter, index);
 	    return locale[field](utc, format);
 	}
-
+	
 	function listMonthsImpl (format, index, field) {
 	    if (isNumber(format)) {
 	        index = format;
 	        format = undefined;
 	    }
-
+	
 	    format = format || '';
-
+	
 	    if (index != null) {
 	        return get$1(format, index, field, 'month');
 	    }
-
+	
 	    var i;
 	    var out = [];
 	    for (i = 0; i < 12; i++) {
@@ -70887,7 +71216,7 @@
 	    }
 	    return out;
 	}
-
+	
 	// ()
 	// (5)
 	// (fmt, 5)
@@ -70902,28 +71231,28 @@
 	            index = format;
 	            format = undefined;
 	        }
-
+	
 	        format = format || '';
 	    } else {
 	        format = localeSorted;
 	        index = format;
 	        localeSorted = false;
-
+	
 	        if (isNumber(format)) {
 	            index = format;
 	            format = undefined;
 	        }
-
+	
 	        format = format || '';
 	    }
-
+	
 	    var locale = getLocale(),
 	        shift = localeSorted ? locale._week.dow : 0;
-
+	
 	    if (index != null) {
 	        return get$1(format, (index + shift) % 7, field, 'day');
 	    }
-
+	
 	    var i;
 	    var out = [];
 	    for (i = 0; i < 7; i++) {
@@ -70931,27 +71260,27 @@
 	    }
 	    return out;
 	}
-
+	
 	function listMonths (format, index) {
 	    return listMonthsImpl(format, index, 'months');
 	}
-
+	
 	function listMonthsShort (format, index) {
 	    return listMonthsImpl(format, index, 'monthsShort');
 	}
-
+	
 	function listWeekdays (localeSorted, format, index) {
 	    return listWeekdaysImpl(localeSorted, format, index, 'weekdays');
 	}
-
+	
 	function listWeekdaysShort (localeSorted, format, index) {
 	    return listWeekdaysImpl(localeSorted, format, index, 'weekdaysShort');
 	}
-
+	
 	function listWeekdaysMin (localeSorted, format, index) {
 	    return listWeekdaysImpl(localeSorted, format, index, 'weekdaysMin');
 	}
-
+	
 	getSetGlobalLocale('en', {
 	    ordinalParse: /\d{1,2}(th|st|nd|rd)/,
 	    ordinal : function (number) {
@@ -70963,50 +71292,50 @@
 	        return number + output;
 	    }
 	});
-
+	
 	// Side effect imports
 	hooks.lang = deprecate('moment.lang is deprecated. Use moment.locale instead.', getSetGlobalLocale);
 	hooks.langData = deprecate('moment.langData is deprecated. Use moment.localeData instead.', getLocale);
-
+	
 	var mathAbs = Math.abs;
-
+	
 	function abs () {
 	    var data           = this._data;
-
+	
 	    this._milliseconds = mathAbs(this._milliseconds);
 	    this._days         = mathAbs(this._days);
 	    this._months       = mathAbs(this._months);
-
+	
 	    data.milliseconds  = mathAbs(data.milliseconds);
 	    data.seconds       = mathAbs(data.seconds);
 	    data.minutes       = mathAbs(data.minutes);
 	    data.hours         = mathAbs(data.hours);
 	    data.months        = mathAbs(data.months);
 	    data.years         = mathAbs(data.years);
-
+	
 	    return this;
 	}
-
+	
 	function addSubtract$1 (duration, input, value, direction) {
 	    var other = createDuration(input, value);
-
+	
 	    duration._milliseconds += direction * other._milliseconds;
 	    duration._days         += direction * other._days;
 	    duration._months       += direction * other._months;
-
+	
 	    return duration._bubble();
 	}
-
+	
 	// supports only 2.0-style add(1, 's') or add(duration)
 	function add$1 (input, value) {
 	    return addSubtract$1(this, input, value, 1);
 	}
-
+	
 	// supports only 2.0-style subtract(1, 's') or subtract(duration)
 	function subtract$1 (input, value) {
 	    return addSubtract$1(this, input, value, -1);
 	}
-
+	
 	function absCeil (number) {
 	    if (number < 0) {
 	        return Math.floor(number);
@@ -71014,14 +71343,14 @@
 	        return Math.ceil(number);
 	    }
 	}
-
+	
 	function bubble () {
 	    var milliseconds = this._milliseconds;
 	    var days         = this._days;
 	    var months       = this._months;
 	    var data         = this._data;
 	    var seconds, minutes, hours, years, monthsFromDays;
-
+	
 	    // if we have a mix of positive and negative values, bubble down first
 	    // check: https://github.com/moment/moment/issues/2166
 	    if (!((milliseconds >= 0 && days >= 0 && months >= 0) ||
@@ -71030,56 +71359,56 @@
 	        days = 0;
 	        months = 0;
 	    }
-
+	
 	    // The following code bubbles up values, see the tests for
 	    // examples of what that means.
 	    data.milliseconds = milliseconds % 1000;
-
+	
 	    seconds           = absFloor(milliseconds / 1000);
 	    data.seconds      = seconds % 60;
-
+	
 	    minutes           = absFloor(seconds / 60);
 	    data.minutes      = minutes % 60;
-
+	
 	    hours             = absFloor(minutes / 60);
 	    data.hours        = hours % 24;
-
+	
 	    days += absFloor(hours / 24);
-
+	
 	    // convert days to months
 	    monthsFromDays = absFloor(daysToMonths(days));
 	    months += monthsFromDays;
 	    days -= absCeil(monthsToDays(monthsFromDays));
-
+	
 	    // 12 months -> 1 year
 	    years = absFloor(months / 12);
 	    months %= 12;
-
+	
 	    data.days   = days;
 	    data.months = months;
 	    data.years  = years;
-
+	
 	    return this;
 	}
-
+	
 	function daysToMonths (days) {
 	    // 400 years have 146097 days (taking into account leap year rules)
 	    // 400 years have 12 months === 4800
 	    return days * 4800 / 146097;
 	}
-
+	
 	function monthsToDays (months) {
 	    // the reverse of daysToMonths
 	    return months * 146097 / 4800;
 	}
-
+	
 	function as (units) {
 	    var days;
 	    var months;
 	    var milliseconds = this._milliseconds;
-
+	
 	    units = normalizeUnits(units);
-
+	
 	    if (units === 'month' || units === 'year') {
 	        days   = this._days   + milliseconds / 864e5;
 	        months = this._months + daysToMonths(days);
@@ -71099,7 +71428,7 @@
 	        }
 	    }
 	}
-
+	
 	// TODO: Use this.as('ms')?
 	function valueOf$1 () {
 	    return (
@@ -71109,13 +71438,13 @@
 	        toInt(this._months / 12) * 31536e6
 	    );
 	}
-
+	
 	function makeAs (alias) {
 	    return function () {
 	        return this.as(alias);
 	    };
 	}
-
+	
 	var asMilliseconds = makeAs('ms');
 	var asSeconds      = makeAs('s');
 	var asMinutes      = makeAs('m');
@@ -71124,18 +71453,18 @@
 	var asWeeks        = makeAs('w');
 	var asMonths       = makeAs('M');
 	var asYears        = makeAs('y');
-
+	
 	function get$2 (units) {
 	    units = normalizeUnits(units);
 	    return this[units + 's']();
 	}
-
+	
 	function makeGetter(name) {
 	    return function () {
 	        return this._data[name];
 	    };
 	}
-
+	
 	var milliseconds = makeGetter('milliseconds');
 	var seconds      = makeGetter('seconds');
 	var minutes      = makeGetter('minutes');
@@ -71143,11 +71472,11 @@
 	var days         = makeGetter('days');
 	var months       = makeGetter('months');
 	var years        = makeGetter('years');
-
+	
 	function weeks () {
 	    return absFloor(this.days() / 7);
 	}
-
+	
 	var round = Math.round;
 	var thresholds = {
 	    s: 45,  // seconds to minute
@@ -71156,12 +71485,12 @@
 	    d: 26,  // days to month
 	    M: 11   // months to year
 	};
-
+	
 	// helper function for moment.fn.from, moment.fn.fromNow, and moment.duration.fn.humanize
 	function substituteTimeAgo(string, number, withoutSuffix, isFuture, locale) {
 	    return locale.relativeTime(number || 1, !!withoutSuffix, string, isFuture);
 	}
-
+	
 	function relativeTime$1 (posNegDuration, withoutSuffix, locale) {
 	    var duration = createDuration(posNegDuration).abs();
 	    var seconds  = round(duration.as('s'));
@@ -71170,7 +71499,7 @@
 	    var days     = round(duration.as('d'));
 	    var months   = round(duration.as('M'));
 	    var years    = round(duration.as('y'));
-
+	
 	    var a = seconds < thresholds.s && ['s', seconds]  ||
 	            minutes <= 1           && ['m']           ||
 	            minutes < thresholds.m && ['mm', minutes] ||
@@ -71181,13 +71510,13 @@
 	            months  <= 1           && ['M']           ||
 	            months  < thresholds.M && ['MM', months]  ||
 	            years   <= 1           && ['y']           || ['yy', years];
-
+	
 	    a[2] = withoutSuffix;
 	    a[3] = +posNegDuration > 0;
 	    a[4] = locale;
 	    return substituteTimeAgo.apply(null, a);
 	}
-
+	
 	// This function allows you to set the rounding function for relative time strings
 	function getSetRelativeTimeRounding (roundingFunction) {
 	    if (roundingFunction === undefined) {
@@ -71199,7 +71528,7 @@
 	    }
 	    return false;
 	}
-
+	
 	// This function allows you to set a threshold for relative time strings
 	function getSetRelativeTimeThreshold (threshold, limit) {
 	    if (thresholds[threshold] === undefined) {
@@ -71211,20 +71540,20 @@
 	    thresholds[threshold] = limit;
 	    return true;
 	}
-
+	
 	function humanize (withSuffix) {
 	    var locale = this.localeData();
 	    var output = relativeTime$1(this, !withSuffix, locale);
-
+	
 	    if (withSuffix) {
 	        output = locale.pastFuture(+this, output);
 	    }
-
+	
 	    return locale.postformat(output);
 	}
-
+	
 	var abs$1 = Math.abs;
-
+	
 	function toISOString$1() {
 	    // for ISO strings we do not use the normal bubbling rules:
 	    //  * milliseconds bubble up until they become hours
@@ -71237,18 +71566,18 @@
 	    var days         = abs$1(this._days);
 	    var months       = abs$1(this._months);
 	    var minutes, hours, years;
-
+	
 	    // 3600 seconds -> 60 minutes -> 1 hour
 	    minutes           = absFloor(seconds / 60);
 	    hours             = absFloor(minutes / 60);
 	    seconds %= 60;
 	    minutes %= 60;
-
+	
 	    // 12 months -> 1 year
 	    years  = absFloor(months / 12);
 	    months %= 12;
-
-
+	
+	
 	    // inspired by https://github.com/dordille/moment-isoduration/blob/master/moment.isoduration.js
 	    var Y = years;
 	    var M = months;
@@ -71257,13 +71586,13 @@
 	    var m = minutes;
 	    var s = seconds;
 	    var total = this.asSeconds();
-
+	
 	    if (!total) {
 	        // this is the same as C#'s (Noda) and python (isodate)...
 	        // but not other JS (goog.date)
 	        return 'P0D';
 	    }
-
+	
 	    return (total < 0 ? '-' : '') +
 	        'P' +
 	        (Y ? Y + 'Y' : '') +
@@ -71274,9 +71603,9 @@
 	        (m ? m + 'M' : '') +
 	        (s ? s + 'S' : '');
 	}
-
+	
 	var proto$2 = Duration.prototype;
-
+	
 	proto$2.abs            = abs;
 	proto$2.add            = add$1;
 	proto$2.subtract       = subtract$1;
@@ -71306,20 +71635,20 @@
 	proto$2.toJSON         = toISOString$1;
 	proto$2.locale         = locale;
 	proto$2.localeData     = localeData;
-
+	
 	// Deprecations
 	proto$2.toIsoString = deprecate('toIsoString() is deprecated. Please use toISOString() instead (notice the capitals)', toISOString$1);
 	proto$2.lang = lang;
-
+	
 	// Side effect imports
-
+	
 	// FORMATTING
-
+	
 	addFormatToken('X', 0, 0, 'unix');
 	addFormatToken('x', 0, 0, 'valueOf');
-
+	
 	// PARSING
-
+	
 	addRegexToken('x', matchSigned);
 	addRegexToken('X', matchTimestamp);
 	addParseToken('X', function (input, array, config) {
@@ -71328,14 +71657,14 @@
 	addParseToken('x', function (input, array, config) {
 	    config._d = new Date(toInt(input));
 	});
-
+	
 	// Side effect imports
-
-
+	
+	
 	hooks.version = '2.17.1';
-
+	
 	setHookCallback(createLocal);
-
+	
 	hooks.fn                    = proto;
 	hooks.min                   = min;
 	hooks.max                   = max;
@@ -71363,15 +71692,18 @@
 	hooks.relativeTimeThreshold = getSetRelativeTimeThreshold;
 	hooks.calendarFormat        = getCalendarFormat;
 	hooks.prototype             = proto;
-
+	
 	return hooks;
-
+	
 	})));
-
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(96)(module)))
+	
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../webpack/buildin/module.js */ 96)(module)))
 
 /***/ },
 /* 96 */
+/*!***********************************!*\
+  !*** (webpack)/buildin/module.js ***!
+  \***********************************/
 /***/ function(module, exports) {
 
 	module.exports = function(module) {
@@ -71388,6 +71720,9 @@
 
 /***/ },
 /* 97 */
+/*!**********************************!*\
+  !*** ./~/moment/locale ^\.\/.*$ ***!
+  \**********************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	var map = {
@@ -71624,19 +71959,22 @@
 
 /***/ },
 /* 98 */
+/*!*******************************!*\
+  !*** ./~/moment/locale/af.js ***!
+  \*******************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : Afrikaans [af]
 	//! author : Werner Mollentze : https://github.com/wernerm
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	var af = moment.defineLocale('af', {
 	    months : 'Januarie_Februarie_Maart_April_Mei_Junie_Julie_Augustus_September_Oktober_November_Desember'.split('_'),
 	    monthsShort : 'Jan_Feb_Mrt_Apr_Mei_Jun_Jul_Aug_Sep_Okt_Nov_Des'.split('_'),
@@ -71694,14 +72032,17 @@
 	        doy : 4  // Die week wat die 4de Januarie bevat is die eerste week van die jaar.
 	    }
 	});
-
+	
 	return af;
-
+	
 	})));
 
 
 /***/ },
 /* 99 */
+/*!*******************************!*\
+  !*** ./~/moment/locale/ar.js ***!
+  \*******************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -71709,14 +72050,14 @@
 	//! author : Abdel Said: https://github.com/abdelsaid
 	//! author : Ahmed Elkhatib
 	//! author : forabi https://github.com/forabi
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	var symbolMap = {
 	    '1': '١',
 	    '2': '٢',
@@ -71776,7 +72117,7 @@
 	    'تشرين الثاني نوفمبر',
 	    'كانون الأول ديسمبر'
 	];
-
+	
 	var ar = moment.defineLocale('ar', {
 	    months : months,
 	    monthsShort : months,
@@ -71841,27 +72182,30 @@
 	        doy : 12  // The week that contains Jan 1st is the first week of the year.
 	    }
 	});
-
+	
 	return ar;
-
+	
 	})));
 
 
 /***/ },
 /* 100 */
+/*!**********************************!*\
+  !*** ./~/moment/locale/ar-dz.js ***!
+  \**********************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : Arabic (Algeria) [ar-dz]
 	//! author : Noureddine LOUAHEDJ : https://github.com/noureddineme
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	var arDz = moment.defineLocale('ar-dz', {
 	    months : 'جانفي_فيفري_مارس_أفريل_ماي_جوان_جويلية_أوت_سبتمبر_أكتوبر_نوفمبر_ديسمبر'.split('_'),
 	    monthsShort : 'جانفي_فيفري_مارس_أفريل_ماي_جوان_جويلية_أوت_سبتمبر_أكتوبر_نوفمبر_ديسمبر'.split('_'),
@@ -71905,27 +72249,30 @@
 	        doy : 4  // The week that contains Jan 1st is the first week of the year.
 	    }
 	});
-
+	
 	return arDz;
-
+	
 	})));
 
 
 /***/ },
 /* 101 */
+/*!**********************************!*\
+  !*** ./~/moment/locale/ar-ly.js ***!
+  \**********************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : Arabic (Lybia) [ar-ly]
 	//! author : Ali Hmer: https://github.com/kikoanis
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	var symbolMap = {
 	    '1': '1',
 	    '2': '2',
@@ -71973,7 +72320,7 @@
 	    'نوفمبر',
 	    'ديسمبر'
 	];
-
+	
 	var arLy = moment.defineLocale('ar-ly', {
 	    months : months,
 	    monthsShort : months,
@@ -72036,28 +72383,31 @@
 	        doy : 12  // The week that contains Jan 1st is the first week of the year.
 	    }
 	});
-
+	
 	return arLy;
-
+	
 	})));
 
 
 /***/ },
 /* 102 */
+/*!**********************************!*\
+  !*** ./~/moment/locale/ar-ma.js ***!
+  \**********************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : Arabic (Morocco) [ar-ma]
 	//! author : ElFadili Yassine : https://github.com/ElFadiliY
 	//! author : Abdel Said : https://github.com/abdelsaid
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	var arMa = moment.defineLocale('ar-ma', {
 	    months : 'يناير_فبراير_مارس_أبريل_ماي_يونيو_يوليوز_غشت_شتنبر_أكتوبر_نونبر_دجنبر'.split('_'),
 	    monthsShort : 'يناير_فبراير_مارس_أبريل_ماي_يونيو_يوليوز_غشت_شتنبر_أكتوبر_نونبر_دجنبر'.split('_'),
@@ -72101,27 +72451,30 @@
 	        doy : 12  // The week that contains Jan 1st is the first week of the year.
 	    }
 	});
-
+	
 	return arMa;
-
+	
 	})));
 
 
 /***/ },
 /* 103 */
+/*!**********************************!*\
+  !*** ./~/moment/locale/ar-sa.js ***!
+  \**********************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : Arabic (Saudi Arabia) [ar-sa]
 	//! author : Suhail Alkowaileet : https://github.com/xsoh
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	var symbolMap = {
 	    '1': '١',
 	    '2': '٢',
@@ -72146,7 +72499,7 @@
 	    '٩': '9',
 	    '٠': '0'
 	};
-
+	
 	var arSa = moment.defineLocale('ar-sa', {
 	    months : 'يناير_فبراير_مارس_أبريل_مايو_يونيو_يوليو_أغسطس_سبتمبر_أكتوبر_نوفمبر_ديسمبر'.split('_'),
 	    monthsShort : 'يناير_فبراير_مارس_أبريل_مايو_يونيو_يوليو_أغسطس_سبتمبر_أكتوبر_نوفمبر_ديسمبر'.split('_'),
@@ -72211,27 +72564,30 @@
 	        doy : 6  // The week that contains Jan 1st is the first week of the year.
 	    }
 	});
-
+	
 	return arSa;
-
+	
 	})));
 
 
 /***/ },
 /* 104 */
+/*!**********************************!*\
+  !*** ./~/moment/locale/ar-tn.js ***!
+  \**********************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale  :  Arabic (Tunisia) [ar-tn]
 	//! author : Nader Toukabri : https://github.com/naderio
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	var arTn = moment.defineLocale('ar-tn', {
 	    months: 'جانفي_فيفري_مارس_أفريل_ماي_جوان_جويلية_أوت_سبتمبر_أكتوبر_نوفمبر_ديسمبر'.split('_'),
 	    monthsShort: 'جانفي_فيفري_مارس_أفريل_ماي_جوان_جويلية_أوت_سبتمبر_أكتوبر_نوفمبر_ديسمبر'.split('_'),
@@ -72275,27 +72631,30 @@
 	        doy: 4 // The week that contains Jan 4th is the first week of the year.
 	    }
 	});
-
+	
 	return arTn;
-
+	
 	})));
 
 
 /***/ },
 /* 105 */
+/*!*******************************!*\
+  !*** ./~/moment/locale/az.js ***!
+  \*******************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : Azerbaijani [az]
 	//! author : topchiyev : https://github.com/topchiyev
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	var suffixes = {
 	    1: '-inci',
 	    5: '-inci',
@@ -72316,7 +72675,7 @@
 	    60: '-ıncı',
 	    90: '-ıncı'
 	};
-
+	
 	var az = moment.defineLocale('az', {
 	    months : 'yanvar_fevral_mart_aprel_may_iyun_iyul_avqust_sentyabr_oktyabr_noyabr_dekabr'.split('_'),
 	    monthsShort : 'yan_fev_mar_apr_may_iyn_iyl_avq_sen_okt_noy_dek'.split('_'),
@@ -72385,14 +72744,17 @@
 	        doy : 7  // The week that contains Jan 1st is the first week of the year.
 	    }
 	});
-
+	
 	return az;
-
+	
 	})));
 
 
 /***/ },
 /* 106 */
+/*!*******************************!*\
+  !*** ./~/moment/locale/be.js ***!
+  \*******************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -72400,14 +72762,14 @@
 	//! author : Dmitry Demidov : https://github.com/demidov91
 	//! author: Praleska: http://praleska.pro/
 	//! Author : Menelion Elensúle : https://github.com/Oire
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	function plural(word, num) {
 	    var forms = word.split('_');
 	    return num % 10 === 1 && num % 100 !== 11 ? forms[0] : (num % 10 >= 2 && num % 10 <= 4 && (num % 100 < 10 || num % 100 >= 20) ? forms[1] : forms[2]);
@@ -72430,7 +72792,7 @@
 	        return number + ' ' + plural(format[key], +number);
 	    }
 	}
-
+	
 	var be = moment.defineLocale('be', {
 	    months : {
 	        format: 'студзеня_лютага_сакавіка_красавіка_траўня_чэрвеня_ліпеня_жніўня_верасня_кастрычніка_лістапада_снежня'.split('_'),
@@ -72524,27 +72886,30 @@
 	        doy : 7  // The week that contains Jan 1st is the first week of the year.
 	    }
 	});
-
+	
 	return be;
-
+	
 	})));
 
 
 /***/ },
 /* 107 */
+/*!*******************************!*\
+  !*** ./~/moment/locale/bg.js ***!
+  \*******************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : Bulgarian [bg]
 	//! author : Krasen Borisov : https://github.com/kraz
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	var bg = moment.defineLocale('bg', {
 	    months : 'януари_февруари_март_април_май_юни_юли_август_септември_октомври_ноември_декември'.split('_'),
 	    monthsShort : 'янр_фев_мар_апр_май_юни_юли_авг_сеп_окт_ное_дек'.split('_'),
@@ -72619,27 +72984,30 @@
 	        doy : 7  // The week that contains Jan 1st is the first week of the year.
 	    }
 	});
-
+	
 	return bg;
-
+	
 	})));
 
 
 /***/ },
 /* 108 */
+/*!*******************************!*\
+  !*** ./~/moment/locale/bn.js ***!
+  \*******************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : Bengali [bn]
 	//! author : Kaushik Gandhi : https://github.com/kaushikgandhi
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	var symbolMap = {
 	    '1': '১',
 	    '2': '২',
@@ -72664,7 +73032,7 @@
 	    '৯': '9',
 	    '০': '0'
 	};
-
+	
 	var bn = moment.defineLocale('bn', {
 	    months : 'জানুয়ারী_ফেব্রুয়ারি_মার্চ_এপ্রিল_মে_জুন_জুলাই_আগস্ট_সেপ্টেম্বর_অক্টোবর_নভেম্বর_ডিসেম্বর'.split('_'),
 	    monthsShort : 'জানু_ফেব_মার্চ_এপ্র_মে_জুন_জুল_আগ_সেপ্ট_অক্টো_নভে_ডিসে'.split('_'),
@@ -72743,27 +73111,30 @@
 	        doy : 6  // The week that contains Jan 1st is the first week of the year.
 	    }
 	});
-
+	
 	return bn;
-
+	
 	})));
 
 
 /***/ },
 /* 109 */
+/*!*******************************!*\
+  !*** ./~/moment/locale/bo.js ***!
+  \*******************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : Tibetan [bo]
 	//! author : Thupten N. Chakrishar : https://github.com/vajradog
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	var symbolMap = {
 	    '1': '༡',
 	    '2': '༢',
@@ -72788,7 +73159,7 @@
 	    '༩': '9',
 	    '༠': '0'
 	};
-
+	
 	var bo = moment.defineLocale('bo', {
 	    months : 'ཟླ་བ་དང་པོ_ཟླ་བ་གཉིས་པ_ཟླ་བ་གསུམ་པ_ཟླ་བ་བཞི་པ_ཟླ་བ་ལྔ་པ_ཟླ་བ་དྲུག་པ_ཟླ་བ་བདུན་པ_ཟླ་བ་བརྒྱད་པ_ཟླ་བ་དགུ་པ_ཟླ་བ་བཅུ་པ_ཟླ་བ་བཅུ་གཅིག་པ_ཟླ་བ་བཅུ་གཉིས་པ'.split('_'),
 	    monthsShort : 'ཟླ་བ་དང་པོ_ཟླ་བ་གཉིས་པ_ཟླ་བ་གསུམ་པ_ཟླ་བ་བཞི་པ_ཟླ་བ་ལྔ་པ_ཟླ་བ་དྲུག་པ_ཟླ་བ་བདུན་པ_ཟླ་བ་བརྒྱད་པ_ཟླ་བ་དགུ་པ_ཟླ་བ་བཅུ་པ_ཟླ་བ་བཅུ་གཅིག་པ_ཟླ་བ་བཅུ་གཉིས་པ'.split('_'),
@@ -72867,27 +73238,30 @@
 	        doy : 6  // The week that contains Jan 1st is the first week of the year.
 	    }
 	});
-
+	
 	return bo;
-
+	
 	})));
 
 
 /***/ },
 /* 110 */
+/*!*******************************!*\
+  !*** ./~/moment/locale/br.js ***!
+  \*******************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : Breton [br]
 	//! author : Jean-Baptiste Le Duigou : https://github.com/jbleduigou
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	function relativeTimeWithMutation(number, withoutSuffix, key) {
 	    var format = {
 	        'mm': 'munutenn',
@@ -72931,7 +73305,7 @@
 	    }
 	    return mutationTable[text.charAt(0)] + text.substring(1);
 	}
-
+	
 	var br = moment.defineLocale('br', {
 	    months : 'Genver_C\'hwevrer_Meurzh_Ebrel_Mae_Mezheven_Gouere_Eost_Gwengolo_Here_Du_Kerzu'.split('_'),
 	    monthsShort : 'Gen_C\'hwe_Meu_Ebr_Mae_Eve_Gou_Eos_Gwe_Her_Du_Ker'.split('_'),
@@ -72980,28 +73354,31 @@
 	        doy : 4  // The week that contains Jan 4th is the first week of the year.
 	    }
 	});
-
+	
 	return br;
-
+	
 	})));
 
 
 /***/ },
 /* 111 */
+/*!*******************************!*\
+  !*** ./~/moment/locale/bs.js ***!
+  \*******************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : Bosnian [bs]
 	//! author : Nedim Cholich : https://github.com/frontyard
 	//! based on (hr) translation by Bojan Marković
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	function translate(number, withoutSuffix, key) {
 	    var result = number + ' ';
 	    switch (key) {
@@ -73054,7 +73431,7 @@
 	            return result;
 	    }
 	}
-
+	
 	var bs = moment.defineLocale('bs', {
 	    months : 'januar_februar_mart_april_maj_juni_juli_august_septembar_oktobar_novembar_decembar'.split('_'),
 	    monthsShort : 'jan._feb._mar._apr._maj._jun._jul._aug._sep._okt._nov._dec.'.split('_'),
@@ -73128,27 +73505,30 @@
 	        doy : 7  // The week that contains Jan 1st is the first week of the year.
 	    }
 	});
-
+	
 	return bs;
-
+	
 	})));
 
 
 /***/ },
 /* 112 */
+/*!*******************************!*\
+  !*** ./~/moment/locale/ca.js ***!
+  \*******************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : Catalan [ca]
 	//! author : Juan G. Hurtado : https://github.com/juanghurtado
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	var ca = moment.defineLocale('ca', {
 	    months : 'gener_febrer_març_abril_maig_juny_juliol_agost_setembre_octubre_novembre_desembre'.split('_'),
 	    monthsShort : 'gen._febr._mar._abr._mai._jun._jul._ag._set._oct._nov._des.'.split('_'),
@@ -73214,27 +73594,30 @@
 	        doy : 4  // The week that contains Jan 4th is the first week of the year.
 	    }
 	});
-
+	
 	return ca;
-
+	
 	})));
 
 
 /***/ },
 /* 113 */
+/*!*******************************!*\
+  !*** ./~/moment/locale/cs.js ***!
+  \*******************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : Czech [cs]
 	//! author : petrbela : https://github.com/petrbela
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	var months = 'leden_únor_březen_duben_květen_červen_červenec_srpen_září_říjen_listopad_prosinec'.split('_');
 	var monthsShort = 'led_úno_bře_dub_kvě_čvn_čvc_srp_zář_říj_lis_pro'.split('_');
 	function plural(n) {
@@ -73292,7 +73675,7 @@
 	            break;
 	    }
 	}
-
+	
 	var cs = moment.defineLocale('cs', {
 	    months : months,
 	    monthsShort : monthsShort,
@@ -73391,27 +73774,30 @@
 	        doy : 4  // The week that contains Jan 4th is the first week of the year.
 	    }
 	});
-
+	
 	return cs;
-
+	
 	})));
 
 
 /***/ },
 /* 114 */
+/*!*******************************!*\
+  !*** ./~/moment/locale/cv.js ***!
+  \*******************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : Chuvash [cv]
 	//! author : Anatoly Mironov : https://github.com/mirontoli
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	var cv = moment.defineLocale('cv', {
 	    months : 'кӑрлач_нарӑс_пуш_ака_май_ҫӗртме_утӑ_ҫурла_авӑн_юпа_чӳк_раштав'.split('_'),
 	    monthsShort : 'кӑр_нар_пуш_ака_май_ҫӗр_утӑ_ҫур_авн_юпа_чӳк_раш'.split('_'),
@@ -73459,28 +73845,31 @@
 	        doy : 7  // The week that contains Jan 1st is the first week of the year.
 	    }
 	});
-
+	
 	return cv;
-
+	
 	})));
 
 
 /***/ },
 /* 115 */
+/*!*******************************!*\
+  !*** ./~/moment/locale/cy.js ***!
+  \*******************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : Welsh [cy]
 	//! author : Robert Allen : https://github.com/robgallen
 	//! author : https://github.com/ryangreaves
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	var cy = moment.defineLocale('cy', {
 	    months: 'Ionawr_Chwefror_Mawrth_Ebrill_Mai_Mehefin_Gorffennaf_Awst_Medi_Hydref_Tachwedd_Rhagfyr'.split('_'),
 	    monthsShort: 'Ion_Chwe_Maw_Ebr_Mai_Meh_Gor_Aws_Med_Hyd_Tach_Rhag'.split('_'),
@@ -73545,27 +73934,30 @@
 	        doy : 4  // The week that contains Jan 4th is the first week of the year.
 	    }
 	});
-
+	
 	return cy;
-
+	
 	})));
 
 
 /***/ },
 /* 116 */
+/*!*******************************!*\
+  !*** ./~/moment/locale/da.js ***!
+  \*******************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : Danish [da]
 	//! author : Ulrik Nielsen : https://github.com/mrbase
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	var da = moment.defineLocale('da', {
 	    months : 'januar_februar_marts_april_maj_juni_juli_august_september_oktober_november_december'.split('_'),
 	    monthsShort : 'jan_feb_mar_apr_maj_jun_jul_aug_sep_okt_nov_dec'.split('_'),
@@ -73610,14 +74002,17 @@
 	        doy : 4  // The week that contains Jan 4th is the first week of the year.
 	    }
 	});
-
+	
 	return da;
-
+	
 	})));
 
 
 /***/ },
 /* 117 */
+/*!*******************************!*\
+  !*** ./~/moment/locale/de.js ***!
+  \*******************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -73625,14 +74020,14 @@
 	//! author : lluchs : https://github.com/lluchs
 	//! author: Menelion Elensúle: https://github.com/Oire
 	//! author : Mikolaj Dadela : https://github.com/mik01aj
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	function processRelativeTime(number, withoutSuffix, key, isFuture) {
 	    var format = {
 	        'm': ['eine Minute', 'einer Minute'],
@@ -73646,7 +74041,7 @@
 	    };
 	    return withoutSuffix ? format[key][0] : format[key][1];
 	}
-
+	
 	var de = moment.defineLocale('de', {
 	    months : 'Januar_Februar_März_April_Mai_Juni_Juli_August_September_Oktober_November_Dezember'.split('_'),
 	    monthsShort : 'Jan._Febr._Mrz._Apr._Mai_Jun._Jul._Aug._Sept._Okt._Nov._Dez.'.split('_'),
@@ -73693,14 +74088,17 @@
 	        doy : 4  // The week that contains Jan 4th is the first week of the year.
 	    }
 	});
-
+	
 	return de;
-
+	
 	})));
 
 
 /***/ },
 /* 118 */
+/*!**********************************!*\
+  !*** ./~/moment/locale/de-at.js ***!
+  \**********************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -73709,14 +74107,14 @@
 	//! author: Menelion Elensúle: https://github.com/Oire
 	//! author : Martin Groller : https://github.com/MadMG
 	//! author : Mikolaj Dadela : https://github.com/mik01aj
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	function processRelativeTime(number, withoutSuffix, key, isFuture) {
 	    var format = {
 	        'm': ['eine Minute', 'einer Minute'],
@@ -73730,7 +74128,7 @@
 	    };
 	    return withoutSuffix ? format[key][0] : format[key][1];
 	}
-
+	
 	var deAt = moment.defineLocale('de-at', {
 	    months : 'Jänner_Februar_März_April_Mai_Juni_Juli_August_September_Oktober_November_Dezember'.split('_'),
 	    monthsShort : 'Jän._Febr._Mrz._Apr._Mai_Jun._Jul._Aug._Sept._Okt._Nov._Dez.'.split('_'),
@@ -73777,27 +74175,30 @@
 	        doy : 4  // The week that contains Jan 4th is the first week of the year.
 	    }
 	});
-
+	
 	return deAt;
-
+	
 	})));
 
 
 /***/ },
 /* 119 */
+/*!*******************************!*\
+  !*** ./~/moment/locale/dv.js ***!
+  \*******************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : Maldivian [dv]
 	//! author : Jawish Hameed : https://github.com/jawish
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	var months = [
 	    'ޖެނުއަރީ',
 	    'ފެބްރުއަރީ',
@@ -73821,7 +74222,7 @@
 	    'ހުކުރު',
 	    'ހޮނިހިރު'
 	];
-
+	
 	var dv = moment.defineLocale('dv', {
 	    months : months,
 	    monthsShort : months,
@@ -73829,7 +74230,7 @@
 	    weekdaysShort : weekdays,
 	    weekdaysMin : 'އާދި_ހޯމަ_އަން_ބުދަ_ބުރާ_ހުކު_ހޮނި'.split('_'),
 	    longDateFormat : {
-
+	
 	        LT : 'HH:mm',
 	        LTS : 'HH:mm:ss',
 	        L : 'D/M/YYYY',
@@ -73882,31 +74283,34 @@
 	        doy : 12  // The week that contains Jan 1st is the first week of the year.
 	    }
 	});
-
+	
 	return dv;
-
+	
 	})));
 
 
 /***/ },
 /* 120 */
+/*!*******************************!*\
+  !*** ./~/moment/locale/el.js ***!
+  \*******************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : Greek [el]
 	//! author : Aggelos Karalias : https://github.com/mehiel
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
+	
 	function isFunction(input) {
 	    return input instanceof Function || Object.prototype.toString.call(input) === '[object Function]';
 	}
-
-
+	
+	
 	var el = moment.defineLocale('el', {
 	    monthsNominativeEl : 'Ιανουάριος_Φεβρουάριος_Μάρτιος_Απρίλιος_Μάιος_Ιούνιος_Ιούλιος_Αύγουστος_Σεπτέμβριος_Οκτώβριος_Νοέμβριος_Δεκέμβριος'.split('_'),
 	    monthsGenitiveEl : 'Ιανουαρίου_Φεβρουαρίου_Μαρτίου_Απριλίου_Μαΐου_Ιουνίου_Ιουλίου_Αυγούστου_Σεπτεμβρίου_Οκτωβρίου_Νοεμβρίου_Δεκεμβρίου'.split('_'),
@@ -73985,27 +74389,30 @@
 	        doy : 4  // The week that contains Jan 4st is the first week of the year.
 	    }
 	});
-
+	
 	return el;
-
+	
 	})));
 
 
 /***/ },
 /* 121 */
+/*!**********************************!*\
+  !*** ./~/moment/locale/en-au.js ***!
+  \**********************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : English (Australia) [en-au]
 	//! author : Jared Morse : https://github.com/jarcoal
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	var enAu = moment.defineLocale('en-au', {
 	    months : 'January_February_March_April_May_June_July_August_September_October_November_December'.split('_'),
 	    monthsShort : 'Jan_Feb_Mar_Apr_May_Jun_Jul_Aug_Sep_Oct_Nov_Dec'.split('_'),
@@ -74057,27 +74464,30 @@
 	        doy : 4  // The week that contains Jan 4th is the first week of the year.
 	    }
 	});
-
+	
 	return enAu;
-
+	
 	})));
 
 
 /***/ },
 /* 122 */
+/*!**********************************!*\
+  !*** ./~/moment/locale/en-ca.js ***!
+  \**********************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : English (Canada) [en-ca]
 	//! author : Jonathan Abourbih : https://github.com/jonbca
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	var enCa = moment.defineLocale('en-ca', {
 	    months : 'January_February_March_April_May_June_July_August_September_October_November_December'.split('_'),
 	    monthsShort : 'Jan_Feb_Mar_Apr_May_Jun_Jul_Aug_Sep_Oct_Nov_Dec'.split('_'),
@@ -74125,27 +74535,30 @@
 	        return number + output;
 	    }
 	});
-
+	
 	return enCa;
-
+	
 	})));
 
 
 /***/ },
 /* 123 */
+/*!**********************************!*\
+  !*** ./~/moment/locale/en-gb.js ***!
+  \**********************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : English (United Kingdom) [en-gb]
 	//! author : Chris Gedrim : https://github.com/chrisgedrim
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	var enGb = moment.defineLocale('en-gb', {
 	    months : 'January_February_March_April_May_June_July_August_September_October_November_December'.split('_'),
 	    monthsShort : 'Jan_Feb_Mar_Apr_May_Jun_Jul_Aug_Sep_Oct_Nov_Dec'.split('_'),
@@ -74197,27 +74610,30 @@
 	        doy : 4  // The week that contains Jan 4th is the first week of the year.
 	    }
 	});
-
+	
 	return enGb;
-
+	
 	})));
 
 
 /***/ },
 /* 124 */
+/*!**********************************!*\
+  !*** ./~/moment/locale/en-ie.js ***!
+  \**********************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : English (Ireland) [en-ie]
 	//! author : Chris Cartlidge : https://github.com/chriscartlidge
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	var enIe = moment.defineLocale('en-ie', {
 	    months : 'January_February_March_April_May_June_July_August_September_October_November_December'.split('_'),
 	    monthsShort : 'Jan_Feb_Mar_Apr_May_Jun_Jul_Aug_Sep_Oct_Nov_Dec'.split('_'),
@@ -74269,27 +74685,30 @@
 	        doy : 4  // The week that contains Jan 4th is the first week of the year.
 	    }
 	});
-
+	
 	return enIe;
-
+	
 	})));
 
 
 /***/ },
 /* 125 */
+/*!**********************************!*\
+  !*** ./~/moment/locale/en-nz.js ***!
+  \**********************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : English (New Zealand) [en-nz]
 	//! author : Luke McGregor : https://github.com/lukemcgregor
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	var enNz = moment.defineLocale('en-nz', {
 	    months : 'January_February_March_April_May_June_July_August_September_October_November_December'.split('_'),
 	    monthsShort : 'Jan_Feb_Mar_Apr_May_Jun_Jul_Aug_Sep_Oct_Nov_Dec'.split('_'),
@@ -74341,14 +74760,17 @@
 	        doy : 4  // The week that contains Jan 4th is the first week of the year.
 	    }
 	});
-
+	
 	return enNz;
-
+	
 	})));
 
 
 /***/ },
 /* 126 */
+/*!*******************************!*\
+  !*** ./~/moment/locale/eo.js ***!
+  \*******************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -74356,14 +74778,14 @@
 	//! author : Colin Dean : https://github.com/colindean
 	//! komento: Mi estas malcerta se mi korekte traktis akuzativojn en tiu traduko.
 	//!          Se ne, bonvolu korekti kaj avizi min por ke mi povas lerni!
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	var eo = moment.defineLocale('eo', {
 	    months : 'januaro_februaro_marto_aprilo_majo_junio_julio_aŭgusto_septembro_oktobro_novembro_decembro'.split('_'),
 	    monthsShort : 'jan_feb_mar_apr_maj_jun_jul_aŭg_sep_okt_nov_dec'.split('_'),
@@ -74419,30 +74841,33 @@
 	        doy : 7  // The week that contains Jan 1st is the first week of the year.
 	    }
 	});
-
+	
 	return eo;
-
+	
 	})));
 
 
 /***/ },
 /* 127 */
+/*!*******************************!*\
+  !*** ./~/moment/locale/es.js ***!
+  \*******************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : Spanish [es]
 	//! author : Julio Napurí : https://github.com/julionc
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	var monthsShortDot = 'ene._feb._mar._abr._may._jun._jul._ago._sep._oct._nov._dic.'.split('_');
 	var monthsShort = 'ene_feb_mar_abr_may_jun_jul_ago_sep_oct_nov_dic'.split('_');
-
+	
 	var es = moment.defineLocale('es', {
 	    months : 'enero_febrero_marzo_abril_mayo_junio_julio_agosto_septiembre_octubre_noviembre_diciembre'.split('_'),
 	    monthsShort : function (m, format) {
@@ -74505,29 +74930,32 @@
 	        doy : 4  // The week that contains Jan 4th is the first week of the year.
 	    }
 	});
-
+	
 	return es;
-
+	
 	})));
 
 
 /***/ },
 /* 128 */
+/*!**********************************!*\
+  !*** ./~/moment/locale/es-do.js ***!
+  \**********************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : Spanish (Dominican Republic) [es-do]
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	var monthsShortDot = 'ene._feb._mar._abr._may._jun._jul._ago._sep._oct._nov._dic.'.split('_');
 	var monthsShort = 'ene_feb_mar_abr_may_jun_jul_ago_sep_oct_nov_dic'.split('_');
-
+	
 	var esDo = moment.defineLocale('es-do', {
 	    months : 'enero_febrero_marzo_abril_mayo_junio_julio_agosto_septiembre_octubre_noviembre_diciembre'.split('_'),
 	    monthsShort : function (m, format) {
@@ -74590,28 +75018,31 @@
 	        doy : 4  // The week that contains Jan 4th is the first week of the year.
 	    }
 	});
-
+	
 	return esDo;
-
+	
 	})));
 
 
 /***/ },
 /* 129 */
+/*!*******************************!*\
+  !*** ./~/moment/locale/et.js ***!
+  \*******************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : Estonian [et]
 	//! author : Henry Kehlmann : https://github.com/madhenry
 	//! improvements : Illimar Tambek : https://github.com/ragulka
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	function processRelativeTime(number, withoutSuffix, key, isFuture) {
 	    var format = {
 	        's' : ['mõne sekundi', 'mõni sekund', 'paar sekundit'],
@@ -74630,7 +75061,7 @@
 	    }
 	    return isFuture ? format[key][0] : format[key][1];
 	}
-
+	
 	var et = moment.defineLocale('et', {
 	    months        : 'jaanuar_veebruar_märts_aprill_mai_juuni_juuli_august_september_oktoober_november_detsember'.split('_'),
 	    monthsShort   : 'jaan_veebr_märts_apr_mai_juuni_juuli_aug_sept_okt_nov_dets'.split('_'),
@@ -74675,27 +75106,30 @@
 	        doy : 4  // The week that contains Jan 4th is the first week of the year.
 	    }
 	});
-
+	
 	return et;
-
+	
 	})));
 
 
 /***/ },
 /* 130 */
+/*!*******************************!*\
+  !*** ./~/moment/locale/eu.js ***!
+  \*******************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : Basque [eu]
 	//! author : Eneko Illarramendi : https://github.com/eillarra
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	var eu = moment.defineLocale('eu', {
 	    months : 'urtarrila_otsaila_martxoa_apirila_maiatza_ekaina_uztaila_abuztua_iraila_urria_azaroa_abendua'.split('_'),
 	    monthsShort : 'urt._ots._mar._api._mai._eka._uzt._abu._ira._urr._aza._abe.'.split('_'),
@@ -74746,27 +75180,30 @@
 	        doy : 7  // The week that contains Jan 1st is the first week of the year.
 	    }
 	});
-
+	
 	return eu;
-
+	
 	})));
 
 
 /***/ },
 /* 131 */
+/*!*******************************!*\
+  !*** ./~/moment/locale/fa.js ***!
+  \*******************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : Persian [fa]
 	//! author : Ebrahim Byagowi : https://github.com/ebraminio
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	var symbolMap = {
 	    '1': '۱',
 	    '2': '۲',
@@ -74791,7 +75228,7 @@
 	    '۹': '9',
 	    '۰': '0'
 	};
-
+	
 	var fa = moment.defineLocale('fa', {
 	    months : 'ژانویه_فوریه_مارس_آوریل_مه_ژوئن_ژوئیه_اوت_سپتامبر_اکتبر_نوامبر_دسامبر'.split('_'),
 	    monthsShort : 'ژانویه_فوریه_مارس_آوریل_مه_ژوئن_ژوئیه_اوت_سپتامبر_اکتبر_نوامبر_دسامبر'.split('_'),
@@ -74858,27 +75295,30 @@
 	        doy : 12 // The week that contains Jan 1st is the first week of the year.
 	    }
 	});
-
+	
 	return fa;
-
+	
 	})));
 
 
 /***/ },
 /* 132 */
+/*!*******************************!*\
+  !*** ./~/moment/locale/fi.js ***!
+  \*******************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : Finnish [fi]
 	//! author : Tarmo Aidantausta : https://github.com/bleadof
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	var numbersPast = 'nolla yksi kaksi kolme neljä viisi kuusi seitsemän kahdeksan yhdeksän'.split(' ');
 	var numbersFuture = [
 	        'nolla', 'yhden', 'kahden', 'kolmen', 'neljän', 'viiden', 'kuuden',
@@ -74921,7 +75361,7 @@
 	function verbalNumber(number, isFuture) {
 	    return number < 10 ? (isFuture ? numbersFuture[number] : numbersPast[number]) : number;
 	}
-
+	
 	var fi = moment.defineLocale('fi', {
 	    months : 'tammikuu_helmikuu_maaliskuu_huhtikuu_toukokuu_kesäkuu_heinäkuu_elokuu_syyskuu_lokakuu_marraskuu_joulukuu'.split('_'),
 	    monthsShort : 'tammi_helmi_maalis_huhti_touko_kesä_heinä_elo_syys_loka_marras_joulu'.split('_'),
@@ -74970,27 +75410,30 @@
 	        doy : 4  // The week that contains Jan 4th is the first week of the year.
 	    }
 	});
-
+	
 	return fi;
-
+	
 	})));
 
 
 /***/ },
 /* 133 */
+/*!*******************************!*\
+  !*** ./~/moment/locale/fo.js ***!
+  \*******************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : Faroese [fo]
 	//! author : Ragnar Johannesen : https://github.com/ragnar123
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	var fo = moment.defineLocale('fo', {
 	    months : 'januar_februar_mars_apríl_mai_juni_juli_august_september_oktober_november_desember'.split('_'),
 	    monthsShort : 'jan_feb_mar_apr_mai_jun_jul_aug_sep_okt_nov_des'.split('_'),
@@ -75035,27 +75478,30 @@
 	        doy : 4  // The week that contains Jan 4th is the first week of the year.
 	    }
 	});
-
+	
 	return fo;
-
+	
 	})));
 
 
 /***/ },
 /* 134 */
+/*!*******************************!*\
+  !*** ./~/moment/locale/fr.js ***!
+  \*******************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : French [fr]
 	//! author : John Fischer : https://github.com/jfroffice
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	var fr = moment.defineLocale('fr', {
 	    months : 'janvier_février_mars_avril_mai_juin_juillet_août_septembre_octobre_novembre_décembre'.split('_'),
 	    monthsShort : 'janv._févr._mars_avr._mai_juin_juil._août_sept._oct._nov._déc.'.split('_'),
@@ -75104,27 +75550,30 @@
 	        doy : 4  // The week that contains Jan 4th is the first week of the year.
 	    }
 	});
-
+	
 	return fr;
-
+	
 	})));
 
 
 /***/ },
 /* 135 */
+/*!**********************************!*\
+  !*** ./~/moment/locale/fr-ca.js ***!
+  \**********************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : French (Canada) [fr-ca]
 	//! author : Jonathan Abourbih : https://github.com/jonbca
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	var frCa = moment.defineLocale('fr-ca', {
 	    months : 'janvier_février_mars_avril_mai_juin_juillet_août_septembre_octobre_novembre_décembre'.split('_'),
 	    monthsShort : 'janv._févr._mars_avr._mai_juin_juil._août_sept._oct._nov._déc.'.split('_'),
@@ -75169,27 +75618,30 @@
 	        return number + (number === 1 ? 'er' : 'e');
 	    }
 	});
-
+	
 	return frCa;
-
+	
 	})));
 
 
 /***/ },
 /* 136 */
+/*!**********************************!*\
+  !*** ./~/moment/locale/fr-ch.js ***!
+  \**********************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : French (Switzerland) [fr-ch]
 	//! author : Gaspard Bucher : https://github.com/gaspard
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	var frCh = moment.defineLocale('fr-ch', {
 	    months : 'janvier_février_mars_avril_mai_juin_juillet_août_septembre_octobre_novembre_décembre'.split('_'),
 	    monthsShort : 'janv._févr._mars_avr._mai_juin_juil._août_sept._oct._nov._déc.'.split('_'),
@@ -75238,30 +75690,33 @@
 	        doy : 4  // The week that contains Jan 4th is the first week of the year.
 	    }
 	});
-
+	
 	return frCh;
-
+	
 	})));
 
 
 /***/ },
 /* 137 */
+/*!*******************************!*\
+  !*** ./~/moment/locale/fy.js ***!
+  \*******************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : Frisian [fy]
 	//! author : Robin van der Vliet : https://github.com/robin0van0der0v
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	var monthsShortWithDots = 'jan._feb._mrt._apr._mai_jun._jul._aug._sep._okt._nov._des.'.split('_');
 	var monthsShortWithoutDots = 'jan_feb_mrt_apr_mai_jun_jul_aug_sep_okt_nov_des'.split('_');
-
+	
 	var fy = moment.defineLocale('fy', {
 	    months : 'jannewaris_febrewaris_maart_april_maaie_juny_july_augustus_septimber_oktober_novimber_desimber'.split('_'),
 	    monthsShort : function (m, format) {
@@ -75316,39 +75771,42 @@
 	        doy : 4  // The week that contains Jan 4th is the first week of the year.
 	    }
 	});
-
+	
 	return fy;
-
+	
 	})));
 
 
 /***/ },
 /* 138 */
+/*!*******************************!*\
+  !*** ./~/moment/locale/gd.js ***!
+  \*******************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : Scottish Gaelic [gd]
 	//! author : Jon Ashdown : https://github.com/jonashdown
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	var months = [
 	    'Am Faoilleach', 'An Gearran', 'Am Màrt', 'An Giblean', 'An Cèitean', 'An t-Ògmhios', 'An t-Iuchar', 'An Lùnastal', 'An t-Sultain', 'An Dàmhair', 'An t-Samhain', 'An Dùbhlachd'
 	];
-
+	
 	var monthsShort = ['Faoi', 'Gear', 'Màrt', 'Gibl', 'Cèit', 'Ògmh', 'Iuch', 'Lùn', 'Sult', 'Dàmh', 'Samh', 'Dùbh'];
-
+	
 	var weekdays = ['Didòmhnaich', 'Diluain', 'Dimàirt', 'Diciadain', 'Diardaoin', 'Dihaoine', 'Disathairne'];
-
+	
 	var weekdaysShort = ['Did', 'Dil', 'Dim', 'Dic', 'Dia', 'Dih', 'Dis'];
-
+	
 	var weekdaysMin = ['Dò', 'Lu', 'Mà', 'Ci', 'Ar', 'Ha', 'Sa'];
-
+	
 	var gd = moment.defineLocale('gd', {
 	    months : months,
 	    monthsShort : monthsShort,
@@ -75397,27 +75855,30 @@
 	        doy : 4  // The week that contains Jan 4th is the first week of the year.
 	    }
 	});
-
+	
 	return gd;
-
+	
 	})));
 
 
 /***/ },
 /* 139 */
+/*!*******************************!*\
+  !*** ./~/moment/locale/gl.js ***!
+  \*******************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : Galician [gl]
 	//! author : Juan G. Hurtado : https://github.com/juanghurtado
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	var gl = moment.defineLocale('gl', {
 	    months : 'xaneiro_febreiro_marzo_abril_maio_xuño_xullo_agosto_setembro_outubro_novembro_decembro'.split('_'),
 	    monthsShort : 'xan._feb._mar._abr._mai._xuñ._xul._ago._set._out._nov._dec.'.split('_'),
@@ -75479,14 +75940,17 @@
 	        doy : 4  // The week that contains Jan 4th is the first week of the year.
 	    }
 	});
-
+	
 	return gl;
-
+	
 	})));
 
 
 /***/ },
 /* 140 */
+/*!*******************************!*\
+  !*** ./~/moment/locale/he.js ***!
+  \*******************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -75494,14 +75958,14 @@
 	//! author : Tomer Cohen : https://github.com/tomer
 	//! author : Moshe Simantov : https://github.com/DevelopmentIL
 	//! author : Tal Ater : https://github.com/TalAter
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	var he = moment.defineLocale('he', {
 	    months : 'ינואר_פברואר_מרץ_אפריל_מאי_יוני_יולי_אוגוסט_ספטמבר_אוקטובר_נובמבר_דצמבר'.split('_'),
 	    monthsShort : 'ינו׳_פבר׳_מרץ_אפר׳_מאי_יוני_יולי_אוג׳_ספט׳_אוק׳_נוב׳_דצמ׳'.split('_'),
@@ -75583,27 +76047,30 @@
 	        }
 	    }
 	});
-
+	
 	return he;
-
+	
 	})));
 
 
 /***/ },
 /* 141 */
+/*!*******************************!*\
+  !*** ./~/moment/locale/hi.js ***!
+  \*******************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : Hindi [hi]
 	//! author : Mayank Singhal : https://github.com/mayanksinghal
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	var symbolMap = {
 	    '1': '१',
 	    '2': '२',
@@ -75628,7 +76095,7 @@
 	    '९': '9',
 	    '०': '0'
 	};
-
+	
 	var hi = moment.defineLocale('hi', {
 	    months : 'जनवरी_फ़रवरी_मार्च_अप्रैल_मई_जून_जुलाई_अगस्त_सितम्बर_अक्टूबर_नवम्बर_दिसम्बर'.split('_'),
 	    monthsShort : 'जन._फ़र._मार्च_अप्रै._मई_जून_जुल._अग._सित._अक्टू._नव._दिस.'.split('_'),
@@ -75712,27 +76179,30 @@
 	        doy : 6  // The week that contains Jan 1st is the first week of the year.
 	    }
 	});
-
+	
 	return hi;
-
+	
 	})));
 
 
 /***/ },
 /* 142 */
+/*!*******************************!*\
+  !*** ./~/moment/locale/hr.js ***!
+  \*******************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : Croatian [hr]
 	//! author : Bojan Marković : https://github.com/bmarkovic
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	function translate(number, withoutSuffix, key) {
 	    var result = number + ' ';
 	    switch (key) {
@@ -75785,7 +76255,7 @@
 	            return result;
 	    }
 	}
-
+	
 	var hr = moment.defineLocale('hr', {
 	    months : {
 	        format: 'siječnja_veljače_ožujka_travnja_svibnja_lipnja_srpnja_kolovoza_rujna_listopada_studenoga_prosinca'.split('_'),
@@ -75862,27 +76332,30 @@
 	        doy : 7  // The week that contains Jan 1st is the first week of the year.
 	    }
 	});
-
+	
 	return hr;
-
+	
 	})));
 
 
 /***/ },
 /* 143 */
+/*!*******************************!*\
+  !*** ./~/moment/locale/hu.js ***!
+  \*******************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : Hungarian [hu]
 	//! author : Adam Brunner : https://github.com/adambrunner
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	var weekEndings = 'vasárnap hétfőn kedden szerdán csütörtökön pénteken szombaton'.split(' ');
 	function translate(number, withoutSuffix, key, isFuture) {
 	    var num = number,
@@ -75916,7 +76389,7 @@
 	function week(isFuture) {
 	    return (isFuture ? '' : '[múlt] ') + '[' + weekEndings[this.day()] + '] LT[-kor]';
 	}
-
+	
 	var hu = moment.defineLocale('hu', {
 	    months : 'január_február_március_április_május_június_július_augusztus_szeptember_október_november_december'.split('_'),
 	    monthsShort : 'jan_feb_márc_ápr_máj_jún_júl_aug_szept_okt_nov_dec'.split('_'),
@@ -75976,27 +76449,30 @@
 	        doy : 4  // The week that contains Jan 4th is the first week of the year.
 	    }
 	});
-
+	
 	return hu;
-
+	
 	})));
 
 
 /***/ },
 /* 144 */
+/*!**********************************!*\
+  !*** ./~/moment/locale/hy-am.js ***!
+  \**********************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : Armenian [hy-am]
 	//! author : Armendarabyan : https://github.com/armendarabyan
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	var hyAm = moment.defineLocale('hy-am', {
 	    months : {
 	        format: 'հունվարի_փետրվարի_մարտի_ապրիլի_մայիսի_հունիսի_հուլիսի_օգոստոսի_սեպտեմբերի_հոկտեմբերի_նոյեմբերի_դեկտեմբերի'.split('_'),
@@ -76076,28 +76552,31 @@
 	        doy : 7  // The week that contains Jan 1st is the first week of the year.
 	    }
 	});
-
+	
 	return hyAm;
-
+	
 	})));
 
 
 /***/ },
 /* 145 */
+/*!*******************************!*\
+  !*** ./~/moment/locale/id.js ***!
+  \*******************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : Indonesian [id]
 	//! author : Mohammad Satrio Utomo : https://github.com/tyok
 	//! reference: http://id.wikisource.org/wiki/Pedoman_Umum_Ejaan_Bahasa_Indonesia_yang_Disempurnakan
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	var id = moment.defineLocale('id', {
 	    months : 'Januari_Februari_Maret_April_Mei_Juni_Juli_Agustus_September_Oktober_November_Desember'.split('_'),
 	    monthsShort : 'Jan_Feb_Mar_Apr_Mei_Jun_Jul_Ags_Sep_Okt_Nov_Des'.split('_'),
@@ -76164,27 +76643,30 @@
 	        doy : 7  // The week that contains Jan 1st is the first week of the year.
 	    }
 	});
-
+	
 	return id;
-
+	
 	})));
 
 
 /***/ },
 /* 146 */
+/*!*******************************!*\
+  !*** ./~/moment/locale/is.js ***!
+  \*******************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : Icelandic [is]
 	//! author : Hinrik Örn Sigurðsson : https://github.com/hinrik
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	function plural(n) {
 	    if (n % 100 === 11) {
 	        return true;
@@ -76251,7 +76733,7 @@
 	            return result + (withoutSuffix || isFuture ? 'ár' : 'ári');
 	    }
 	}
-
+	
 	var is = moment.defineLocale('is', {
 	    months : 'janúar_febrúar_mars_apríl_maí_júní_júlí_ágúst_september_október_nóvember_desember'.split('_'),
 	    monthsShort : 'jan_feb_mar_apr_maí_jún_júl_ágú_sep_okt_nóv_des'.split('_'),
@@ -76296,28 +76778,31 @@
 	        doy : 4  // The week that contains Jan 4th is the first week of the year.
 	    }
 	});
-
+	
 	return is;
-
+	
 	})));
 
 
 /***/ },
 /* 147 */
+/*!*******************************!*\
+  !*** ./~/moment/locale/it.js ***!
+  \*******************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : Italian [it]
 	//! author : Lorenzo : https://github.com/aliem
 	//! author: Mattia Larentis: https://github.com/nostalgiaz
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	var it = moment.defineLocale('it', {
 	    months : 'gennaio_febbraio_marzo_aprile_maggio_giugno_luglio_agosto_settembre_ottobre_novembre_dicembre'.split('_'),
 	    monthsShort : 'gen_feb_mar_apr_mag_giu_lug_ago_set_ott_nov_dic'.split('_'),
@@ -76371,27 +76856,30 @@
 	        doy : 4  // The week that contains Jan 4th is the first week of the year.
 	    }
 	});
-
+	
 	return it;
-
+	
 	})));
 
 
 /***/ },
 /* 148 */
+/*!*******************************!*\
+  !*** ./~/moment/locale/ja.js ***!
+  \*******************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : Japanese [ja]
 	//! author : LI Long : https://github.com/baryon
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	var ja = moment.defineLocale('ja', {
 	    months : '1月_2月_3月_4月_5月_6月_7月_8月_9月_10月_11月_12月'.split('_'),
 	    monthsShort : '1月_2月_3月_4月_5月_6月_7月_8月_9月_10月_11月_12月'.split('_'),
@@ -76452,28 +76940,31 @@
 	        yy : '%d年'
 	    }
 	});
-
+	
 	return ja;
-
+	
 	})));
 
 
 /***/ },
 /* 149 */
+/*!*******************************!*\
+  !*** ./~/moment/locale/jv.js ***!
+  \*******************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : Javanese [jv]
 	//! author : Rony Lantip : https://github.com/lantip
 	//! reference: http://jv.wikipedia.org/wiki/Basa_Jawa
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	var jv = moment.defineLocale('jv', {
 	    months : 'Januari_Februari_Maret_April_Mei_Juni_Juli_Agustus_September_Oktober_Nopember_Desember'.split('_'),
 	    monthsShort : 'Jan_Feb_Mar_Apr_Mei_Jun_Jul_Ags_Sep_Okt_Nop_Des'.split('_'),
@@ -76540,27 +77031,30 @@
 	        doy : 7  // The week that contains Jan 1st is the first week of the year.
 	    }
 	});
-
+	
 	return jv;
-
+	
 	})));
 
 
 /***/ },
 /* 150 */
+/*!*******************************!*\
+  !*** ./~/moment/locale/ka.js ***!
+  \*******************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : Georgian [ka]
 	//! author : Irakli Janiashvili : https://github.com/irakli-janiashvili
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	var ka = moment.defineLocale('ka', {
 	    months : {
 	        standalone: 'იანვარი_თებერვალი_მარტი_აპრილი_მაისი_ივნისი_ივლისი_აგვისტო_სექტემბერი_ოქტომბერი_ნოემბერი_დეკემბერი'.split('_'),
@@ -76634,27 +77128,30 @@
 	        doy : 7
 	    }
 	});
-
+	
 	return ka;
-
+	
 	})));
 
 
 /***/ },
 /* 151 */
+/*!*******************************!*\
+  !*** ./~/moment/locale/kk.js ***!
+  \*******************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : Kazakh [kk]
 	//! authors : Nurlan Rakhimzhanov : https://github.com/nurlan
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	var suffixes = {
 	    0: '-ші',
 	    1: '-ші',
@@ -76677,7 +77174,7 @@
 	    90: '-шы',
 	    100: '-ші'
 	};
-
+	
 	var kk = moment.defineLocale('kk', {
 	    months : 'қаңтар_ақпан_наурыз_сәуір_мамыр_маусым_шілде_тамыз_қыркүйек_қазан_қараша_желтоқсан'.split('_'),
 	    monthsShort : 'қаң_ақп_нау_сәу_мам_мау_шіл_там_қыр_қаз_қар_жел'.split('_'),
@@ -76726,27 +77223,30 @@
 	        doy : 7  // The week that contains Jan 1st is the first week of the year.
 	    }
 	});
-
+	
 	return kk;
-
+	
 	})));
 
 
 /***/ },
 /* 152 */
+/*!*******************************!*\
+  !*** ./~/moment/locale/km.js ***!
+  \*******************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : Cambodian [km]
 	//! author : Kruy Vanna : https://github.com/kruyvanna
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	var km = moment.defineLocale('km', {
 	    months: 'មករា_កុម្ភៈ_មីនា_មេសា_ឧសភា_មិថុនា_កក្កដា_សីហា_កញ្ញា_តុលា_វិច្ឆិកា_ធ្នូ'.split('_'),
 	    monthsShort: 'មករា_កុម្ភៈ_មីនា_មេសា_ឧសភា_មិថុនា_កក្កដា_សីហា_កញ្ញា_តុលា_វិច្ឆិកា_ធ្នូ'.split('_'),
@@ -76789,28 +77289,31 @@
 	        doy: 4 // The week that contains Jan 4th is the first week of the year.
 	    }
 	});
-
+	
 	return km;
-
+	
 	})));
 
 
 /***/ },
 /* 153 */
+/*!*******************************!*\
+  !*** ./~/moment/locale/ko.js ***!
+  \*******************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : Korean [ko]
 	//! author : Kyungwook, Park : https://github.com/kyungw00k
 	//! author : Jeeeyul Lee <jeeeyul@gmail.com>
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	var ko = moment.defineLocale('ko', {
 	    months : '1월_2월_3월_4월_5월_6월_7월_8월_9월_10월_11월_12월'.split('_'),
 	    monthsShort : '1월_2월_3월_4월_5월_6월_7월_8월_9월_10월_11월_12월'.split('_'),
@@ -76859,28 +77362,31 @@
 	        return hour < 12 ? '오전' : '오후';
 	    }
 	});
-
+	
 	return ko;
-
+	
 	})));
 
 
 /***/ },
 /* 154 */
+/*!*******************************!*\
+  !*** ./~/moment/locale/ky.js ***!
+  \*******************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : Kyrgyz [ky]
 	//! author : Chyngyz Arystan uulu : https://github.com/chyngyz
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
-
+	
+	
+	
 	var suffixes = {
 	    0: '-чү',
 	    1: '-чи',
@@ -76903,7 +77409,7 @@
 	    90: '-чу',
 	    100: '-чү'
 	};
-
+	
 	var ky = moment.defineLocale('ky', {
 	    months : 'январь_февраль_март_апрель_май_июнь_июль_август_сентябрь_октябрь_ноябрь_декабрь'.split('_'),
 	    monthsShort : 'янв_фев_март_апр_май_июнь_июль_авг_сен_окт_ноя_дек'.split('_'),
@@ -76952,28 +77458,31 @@
 	        doy : 7  // The week that contains Jan 1st is the first week of the year.
 	    }
 	});
-
+	
 	return ky;
-
+	
 	})));
 
 
 /***/ },
 /* 155 */
+/*!*******************************!*\
+  !*** ./~/moment/locale/lb.js ***!
+  \*******************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : Luxembourgish [lb]
 	//! author : mweimerskirch : https://github.com/mweimerskirch
 	//! author : David Raison : https://github.com/kwisatz
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	function processRelativeTime(number, withoutSuffix, key, isFuture) {
 	    var format = {
 	        'm': ['eng Minutt', 'enger Minutt'],
@@ -77038,7 +77547,7 @@
 	        return eifelerRegelAppliesToNumber(number);
 	    }
 	}
-
+	
 	var lb = moment.defineLocale('lb', {
 	    months: 'Januar_Februar_Mäerz_Abrëll_Mee_Juni_Juli_August_September_Oktober_November_Dezember'.split('_'),
 	    monthsShort: 'Jan._Febr._Mrz._Abr._Mee_Jun._Jul._Aug._Sept._Okt._Nov._Dez.'.split('_'),
@@ -77094,27 +77603,30 @@
 	        doy: 4  // The week that contains Jan 4th is the first week of the year.
 	    }
 	});
-
+	
 	return lb;
-
+	
 	})));
 
 
 /***/ },
 /* 156 */
+/*!*******************************!*\
+  !*** ./~/moment/locale/lo.js ***!
+  \*******************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : Lao [lo]
 	//! author : Ryan Hart : https://github.com/ryanhart2
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	var lo = moment.defineLocale('lo', {
 	    months : 'ມັງກອນ_ກຸມພາ_ມີນາ_ເມສາ_ພຶດສະພາ_ມິຖຸນາ_ກໍລະກົດ_ສິງຫາ_ກັນຍາ_ຕຸລາ_ພະຈິກ_ທັນວາ'.split('_'),
 	    monthsShort : 'ມັງກອນ_ກຸມພາ_ມີນາ_ເມສາ_ພຶດສະພາ_ມິຖຸນາ_ກໍລະກົດ_ສິງຫາ_ກັນຍາ_ຕຸລາ_ພະຈິກ_ທັນວາ'.split('_'),
@@ -77169,27 +77681,30 @@
 	        return 'ທີ່' + number;
 	    }
 	});
-
+	
 	return lo;
-
+	
 	})));
 
 
 /***/ },
 /* 157 */
+/*!*******************************!*\
+  !*** ./~/moment/locale/lt.js ***!
+  \*******************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : Lithuanian [lt]
 	//! author : Mindaugas Mozūras : https://github.com/mmozuras
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	var units = {
 	    'm' : 'minutė_minutės_minutę',
 	    'mm': 'minutės_minučių_minutes',
@@ -77291,28 +77806,31 @@
 	        doy : 4  // The week that contains Jan 4th is the first week of the year.
 	    }
 	});
-
+	
 	return lt;
-
+	
 	})));
 
 
 /***/ },
 /* 158 */
+/*!*******************************!*\
+  !*** ./~/moment/locale/lv.js ***!
+  \*******************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : Latvian [lv]
 	//! author : Kristaps Karlsons : https://github.com/skakri
 	//! author : Jānis Elmeris : https://github.com/JanisE
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	var units = {
 	    'm': 'minūtes_minūtēm_minūte_minūtes'.split('_'),
 	    'mm': 'minūtes_minūtēm_minūte_minūtes'.split('_'),
@@ -77347,7 +77865,7 @@
 	function relativeSeconds(number, withoutSuffix) {
 	    return withoutSuffix ? 'dažas sekundes' : 'dažām sekundēm';
 	}
-
+	
 	var lv = moment.defineLocale('lv', {
 	    months : 'janvāris_februāris_marts_aprīlis_maijs_jūnijs_jūlijs_augusts_septembris_oktobris_novembris_decembris'.split('_'),
 	    monthsShort : 'jan_feb_mar_apr_mai_jūn_jūl_aug_sep_okt_nov_dec'.split('_'),
@@ -77393,27 +77911,30 @@
 	        doy : 4  // The week that contains Jan 4th is the first week of the year.
 	    }
 	});
-
+	
 	return lv;
-
+	
 	})));
 
 
 /***/ },
 /* 159 */
+/*!*******************************!*\
+  !*** ./~/moment/locale/me.js ***!
+  \*******************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : Montenegrin [me]
 	//! author : Miodrag Nikač <miodrag@restartit.me> : https://github.com/miodragnikac
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	var translator = {
 	    words: { //Different grammatical cases
 	        m: ['jedan minut', 'jednog minuta'],
@@ -77436,7 +77957,7 @@
 	        }
 	    }
 	};
-
+	
 	var me = moment.defineLocale('me', {
 	    months: 'januar_februar_mart_april_maj_jun_jul_avgust_septembar_oktobar_novembar_decembar'.split('_'),
 	    monthsShort: 'jan._feb._mar._apr._maj_jun_jul_avg._sep._okt._nov._dec.'.split('_'),
@@ -77456,7 +77977,7 @@
 	    calendar: {
 	        sameDay: '[danas u] LT',
 	        nextDay: '[sjutra u] LT',
-
+	
 	        nextWeek: function () {
 	            switch (this.day()) {
 	                case 0:
@@ -77509,27 +78030,30 @@
 	        doy : 7  // The week that contains Jan 1st is the first week of the year.
 	    }
 	});
-
+	
 	return me;
-
+	
 	})));
 
 
 /***/ },
 /* 160 */
+/*!*******************************!*\
+  !*** ./~/moment/locale/mi.js ***!
+  \*******************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : Maori [mi]
 	//! author : John Corrigan <robbiecloset@gmail.com> : https://github.com/johnideal
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	var mi = moment.defineLocale('mi', {
 	    months: 'Kohi-tāte_Hui-tanguru_Poutū-te-rangi_Paenga-whāwhā_Haratua_Pipiri_Hōngoingoi_Here-turi-kōkā_Mahuru_Whiringa-ā-nuku_Whiringa-ā-rangi_Hakihea'.split('_'),
 	    monthsShort: 'Kohi_Hui_Pou_Pae_Hara_Pipi_Hōngoi_Here_Mahu_Whi-nu_Whi-ra_Haki'.split('_'),
@@ -77578,27 +78102,30 @@
 	        doy : 4  // The week that contains Jan 4th is the first week of the year.
 	    }
 	});
-
+	
 	return mi;
-
+	
 	})));
 
 
 /***/ },
 /* 161 */
+/*!*******************************!*\
+  !*** ./~/moment/locale/mk.js ***!
+  \*******************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : Macedonian [mk]
 	//! author : Borislav Mickov : https://github.com/B0k0
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	var mk = moment.defineLocale('mk', {
 	    months : 'јануари_февруари_март_април_мај_јуни_јули_август_септември_октомври_ноември_декември'.split('_'),
 	    monthsShort : 'јан_фев_мар_апр_мај_јун_јул_авг_сеп_окт_ное_дек'.split('_'),
@@ -77673,27 +78200,30 @@
 	        doy : 7  // The week that contains Jan 1st is the first week of the year.
 	    }
 	});
-
+	
 	return mk;
-
+	
 	})));
 
 
 /***/ },
 /* 162 */
+/*!*******************************!*\
+  !*** ./~/moment/locale/ml.js ***!
+  \*******************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : Malayalam [ml]
 	//! author : Floyd Pink : https://github.com/floydpink
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	var ml = moment.defineLocale('ml', {
 	    months : 'ജനുവരി_ഫെബ്രുവരി_മാർച്ച്_ഏപ്രിൽ_മേയ്_ജൂൺ_ജൂലൈ_ഓഗസ്റ്റ്_സെപ്റ്റംബർ_ഒക്ടോബർ_നവംബർ_ഡിസംബർ'.split('_'),
 	    monthsShort : 'ജനു._ഫെബ്രു._മാർ._ഏപ്രി._മേയ്_ജൂൺ_ജൂലൈ._ഓഗ._സെപ്റ്റ._ഒക്ടോ._നവം._ഡിസം.'.split('_'),
@@ -77759,28 +78289,31 @@
 	        }
 	    }
 	});
-
+	
 	return ml;
-
+	
 	})));
 
 
 /***/ },
 /* 163 */
+/*!*******************************!*\
+  !*** ./~/moment/locale/mr.js ***!
+  \*******************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : Marathi [mr]
 	//! author : Harshad Kale : https://github.com/kalehv
 	//! author : Vivek Athalye : https://github.com/vnathalye
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	var symbolMap = {
 	    '1': '१',
 	    '2': '२',
@@ -77805,7 +78338,7 @@
 	    '९': '9',
 	    '०': '0'
 	};
-
+	
 	function relativeTimeMr(number, withoutSuffix, string, isFuture)
 	{
 	    var output = '';
@@ -77841,7 +78374,7 @@
 	    }
 	    return output.replace(/%d/i, number);
 	}
-
+	
 	var mr = moment.defineLocale('mr', {
 	    months : 'जानेवारी_फेब्रुवारी_मार्च_एप्रिल_मे_जून_जुलै_ऑगस्ट_सप्टेंबर_ऑक्टोबर_नोव्हेंबर_डिसेंबर'.split('_'),
 	    monthsShort: 'जाने._फेब्रु._मार्च._एप्रि._मे._जून._जुलै._ऑग._सप्टें._ऑक्टो._नोव्हें._डिसें.'.split('_'),
@@ -77923,27 +78456,30 @@
 	        doy : 6  // The week that contains Jan 1st is the first week of the year.
 	    }
 	});
-
+	
 	return mr;
-
+	
 	})));
 
 
 /***/ },
 /* 164 */
+/*!*******************************!*\
+  !*** ./~/moment/locale/ms.js ***!
+  \*******************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : Malay [ms]
 	//! author : Weldan Jamili : https://github.com/weldan
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	var ms = moment.defineLocale('ms', {
 	    months : 'Januari_Februari_Mac_April_Mei_Jun_Julai_Ogos_September_Oktober_November_Disember'.split('_'),
 	    monthsShort : 'Jan_Feb_Mac_Apr_Mei_Jun_Jul_Ogs_Sep_Okt_Nov_Dis'.split('_'),
@@ -78010,28 +78546,31 @@
 	        doy : 7  // The week that contains Jan 1st is the first week of the year.
 	    }
 	});
-
+	
 	return ms;
-
+	
 	})));
 
 
 /***/ },
 /* 165 */
+/*!**********************************!*\
+  !*** ./~/moment/locale/ms-my.js ***!
+  \**********************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : Malay [ms-my]
 	//! note : DEPRECATED, the correct one is [ms]
 	//! author : Weldan Jamili : https://github.com/weldan
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	var msMy = moment.defineLocale('ms-my', {
 	    months : 'Januari_Februari_Mac_April_Mei_Jun_Julai_Ogos_September_Oktober_November_Disember'.split('_'),
 	    monthsShort : 'Jan_Feb_Mac_Apr_Mei_Jun_Jul_Ogs_Sep_Okt_Nov_Dis'.split('_'),
@@ -78098,14 +78637,17 @@
 	        doy : 7  // The week that contains Jan 1st is the first week of the year.
 	    }
 	});
-
+	
 	return msMy;
-
+	
 	})));
 
 
 /***/ },
 /* 166 */
+/*!*******************************!*\
+  !*** ./~/moment/locale/my.js ***!
+  \*******************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -78113,14 +78655,14 @@
 	//! author : Squar team, mysquar.com
 	//! author : David Rossellat : https://github.com/gholadr
 	//! author : Tin Aung Lin : https://github.com/thanyawzinmin
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	var symbolMap = {
 	    '1': '၁',
 	    '2': '၂',
@@ -78145,14 +78687,14 @@
 	    '၉': '9',
 	    '၀': '0'
 	};
-
+	
 	var my = moment.defineLocale('my', {
 	    months: 'ဇန်နဝါရီ_ဖေဖော်ဝါရီ_မတ်_ဧပြီ_မေ_ဇွန်_ဇူလိုင်_သြဂုတ်_စက်တင်ဘာ_အောက်တိုဘာ_နိုဝင်ဘာ_ဒီဇင်ဘာ'.split('_'),
 	    monthsShort: 'ဇန်_ဖေ_မတ်_ပြီ_မေ_ဇွန်_လိုင်_သြ_စက်_အောက်_နို_ဒီ'.split('_'),
 	    weekdays: 'တနင်္ဂနွေ_တနင်္လာ_အင်္ဂါ_ဗုဒ္ဓဟူး_ကြာသပတေး_သောကြာ_စနေ'.split('_'),
 	    weekdaysShort: 'နွေ_လာ_ဂါ_ဟူး_ကြာ_သော_နေ'.split('_'),
 	    weekdaysMin: 'နွေ_လာ_ဂါ_ဟူး_ကြာ_သော_နေ'.split('_'),
-
+	
 	    longDateFormat: {
 	        LT: 'HH:mm',
 	        LTS: 'HH:mm:ss',
@@ -78199,28 +78741,31 @@
 	        doy: 4 // The week that contains Jan 1st is the first week of the year.
 	    }
 	});
-
+	
 	return my;
-
+	
 	})));
 
 
 /***/ },
 /* 167 */
+/*!*******************************!*\
+  !*** ./~/moment/locale/nb.js ***!
+  \*******************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : Norwegian Bokmål [nb]
 	//! authors : Espen Hovlandsdal : https://github.com/rexxars
 	//!           Sigurd Gartmann : https://github.com/sigurdga
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	var nb = moment.defineLocale('nb', {
 	    months : 'januar_februar_mars_april_mai_juni_juli_august_september_oktober_november_desember'.split('_'),
 	    monthsShort : 'jan._feb._mars_april_mai_juni_juli_aug._sep._okt._nov._des.'.split('_'),
@@ -78267,27 +78812,30 @@
 	        doy : 4  // The week that contains Jan 4th is the first week of the year.
 	    }
 	});
-
+	
 	return nb;
-
+	
 	})));
 
 
 /***/ },
 /* 168 */
+/*!*******************************!*\
+  !*** ./~/moment/locale/ne.js ***!
+  \*******************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : Nepalese [ne]
 	//! author : suvash : https://github.com/suvash
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	var symbolMap = {
 	    '1': '१',
 	    '2': '२',
@@ -78312,7 +78860,7 @@
 	    '९': '9',
 	    '०': '0'
 	};
-
+	
 	var ne = moment.defineLocale('ne', {
 	    months : 'जनवरी_फेब्रुवरी_मार्च_अप्रिल_मई_जुन_जुलाई_अगष्ट_सेप्टेम्बर_अक्टोबर_नोभेम्बर_डिसेम्बर'.split('_'),
 	    monthsShort : 'जन._फेब्रु._मार्च_अप्रि._मई_जुन_जुलाई._अग._सेप्ट._अक्टो._नोभे._डिसे.'.split('_'),
@@ -78395,34 +78943,37 @@
 	        doy : 6  // The week that contains Jan 1st is the first week of the year.
 	    }
 	});
-
+	
 	return ne;
-
+	
 	})));
 
 
 /***/ },
 /* 169 */
+/*!*******************************!*\
+  !*** ./~/moment/locale/nl.js ***!
+  \*******************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : Dutch [nl]
 	//! author : Joris Röling : https://github.com/jorisroling
 	//! author : Jacob Middag : https://github.com/middagj
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	var monthsShortWithDots = 'jan._feb._mrt._apr._mei_jun._jul._aug._sep._okt._nov._dec.'.split('_');
 	var monthsShortWithoutDots = 'jan_feb_mrt_apr_mei_jun_jul_aug_sep_okt_nov_dec'.split('_');
-
+	
 	var monthsParse = [/^jan/i, /^feb/i, /^maart|mrt.?$/i, /^apr/i, /^mei$/i, /^jun[i.]?$/i, /^jul[i.]?$/i, /^aug/i, /^sep/i, /^okt/i, /^nov/i, /^dec/i];
 	var monthsRegex = /^(januari|februari|maart|april|mei|april|ju[nl]i|augustus|september|oktober|november|december|jan\.?|feb\.?|mrt\.?|apr\.?|ju[nl]\.?|aug\.?|sep\.?|okt\.?|nov\.?|dec\.?)/i;
-
+	
 	var nl = moment.defineLocale('nl', {
 	    months : 'januari_februari_maart_april_mei_juni_juli_augustus_september_oktober_november_december'.split('_'),
 	    monthsShort : function (m, format) {
@@ -78432,16 +78983,16 @@
 	            return monthsShortWithDots[m.month()];
 	        }
 	    },
-
+	
 	    monthsRegex: monthsRegex,
 	    monthsShortRegex: monthsRegex,
 	    monthsStrictRegex: /^(januari|februari|maart|mei|ju[nl]i|april|augustus|september|oktober|november|december)/i,
 	    monthsShortStrictRegex: /^(jan\.?|feb\.?|mrt\.?|apr\.?|mei|ju[nl]\.?|aug\.?|sep\.?|okt\.?|nov\.?|dec\.?)/i,
-
+	
 	    monthsParse : monthsParse,
 	    longMonthsParse : monthsParse,
 	    shortMonthsParse : monthsParse,
-
+	
 	    weekdays : 'zondag_maandag_dinsdag_woensdag_donderdag_vrijdag_zaterdag'.split('_'),
 	    weekdaysShort : 'zo._ma._di._wo._do._vr._za.'.split('_'),
 	    weekdaysMin : 'Zo_Ma_Di_Wo_Do_Vr_Za'.split('_'),
@@ -78486,34 +79037,37 @@
 	        doy : 4  // The week that contains Jan 4th is the first week of the year.
 	    }
 	});
-
+	
 	return nl;
-
+	
 	})));
 
 
 /***/ },
 /* 170 */
+/*!**********************************!*\
+  !*** ./~/moment/locale/nl-be.js ***!
+  \**********************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : Dutch (Belgium) [nl-be]
 	//! author : Joris Röling : https://github.com/jorisroling
 	//! author : Jacob Middag : https://github.com/middagj
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	var monthsShortWithDots = 'jan._feb._mrt._apr._mei_jun._jul._aug._sep._okt._nov._dec.'.split('_');
 	var monthsShortWithoutDots = 'jan_feb_mrt_apr_mei_jun_jul_aug_sep_okt_nov_dec'.split('_');
-
+	
 	var monthsParse = [/^jan/i, /^feb/i, /^maart|mrt.?$/i, /^apr/i, /^mei$/i, /^jun[i.]?$/i, /^jul[i.]?$/i, /^aug/i, /^sep/i, /^okt/i, /^nov/i, /^dec/i];
 	var monthsRegex = /^(januari|februari|maart|april|mei|april|ju[nl]i|augustus|september|oktober|november|december|jan\.?|feb\.?|mrt\.?|apr\.?|ju[nl]\.?|aug\.?|sep\.?|okt\.?|nov\.?|dec\.?)/i;
-
+	
 	var nlBe = moment.defineLocale('nl-be', {
 	    months : 'januari_februari_maart_april_mei_juni_juli_augustus_september_oktober_november_december'.split('_'),
 	    monthsShort : function (m, format) {
@@ -78523,16 +79077,16 @@
 	            return monthsShortWithDots[m.month()];
 	        }
 	    },
-
+	
 	    monthsRegex: monthsRegex,
 	    monthsShortRegex: monthsRegex,
 	    monthsStrictRegex: /^(januari|februari|maart|mei|ju[nl]i|april|augustus|september|oktober|november|december)/i,
 	    monthsShortStrictRegex: /^(jan\.?|feb\.?|mrt\.?|apr\.?|mei|ju[nl]\.?|aug\.?|sep\.?|okt\.?|nov\.?|dec\.?)/i,
-
+	
 	    monthsParse : monthsParse,
 	    longMonthsParse : monthsParse,
 	    shortMonthsParse : monthsParse,
-
+	
 	    weekdays : 'zondag_maandag_dinsdag_woensdag_donderdag_vrijdag_zaterdag'.split('_'),
 	    weekdaysShort : 'zo._ma._di._wo._do._vr._za.'.split('_'),
 	    weekdaysMin : 'Zo_Ma_Di_Wo_Do_Vr_Za'.split('_'),
@@ -78577,27 +79131,30 @@
 	        doy : 4  // The week that contains Jan 4th is the first week of the year.
 	    }
 	});
-
+	
 	return nlBe;
-
+	
 	})));
 
 
 /***/ },
 /* 171 */
+/*!*******************************!*\
+  !*** ./~/moment/locale/nn.js ***!
+  \*******************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : Nynorsk [nn]
 	//! author : https://github.com/mechuwind
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	var nn = moment.defineLocale('nn', {
 	    months : 'januar_februar_mars_april_mai_juni_juli_august_september_oktober_november_desember'.split('_'),
 	    monthsShort : 'jan_feb_mar_apr_mai_jun_jul_aug_sep_okt_nov_des'.split('_'),
@@ -78642,27 +79199,30 @@
 	        doy : 4  // The week that contains Jan 4th is the first week of the year.
 	    }
 	});
-
+	
 	return nn;
-
+	
 	})));
 
 
 /***/ },
 /* 172 */
+/*!**********************************!*\
+  !*** ./~/moment/locale/pa-in.js ***!
+  \**********************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : Punjabi (India) [pa-in]
 	//! author : Harpreet Singh : https://github.com/harpreetkhalsagtbit
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	var symbolMap = {
 	    '1': '੧',
 	    '2': '੨',
@@ -78687,7 +79247,7 @@
 	    '੯': '9',
 	    '੦': '0'
 	};
-
+	
 	var paIn = moment.defineLocale('pa-in', {
 	    // There are months name as per Nanakshahi Calender but they are not used as rigidly in modern Punjabi.
 	    months : 'ਜਨਵਰੀ_ਫ਼ਰਵਰੀ_ਮਾਰਚ_ਅਪ੍ਰੈਲ_ਮਈ_ਜੂਨ_ਜੁਲਾਈ_ਅਗਸਤ_ਸਤੰਬਰ_ਅਕਤੂਬਰ_ਨਵੰਬਰ_ਦਸੰਬਰ'.split('_'),
@@ -78771,27 +79331,30 @@
 	        doy : 6  // The week that contains Jan 1st is the first week of the year.
 	    }
 	});
-
+	
 	return paIn;
-
+	
 	})));
 
 
 /***/ },
 /* 173 */
+/*!*******************************!*\
+  !*** ./~/moment/locale/pl.js ***!
+  \*******************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : Polish [pl]
 	//! author : Rafal Hirsz : https://github.com/evoL
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	var monthsNominative = 'styczeń_luty_marzec_kwiecień_maj_czerwiec_lipiec_sierpień_wrzesień_październik_listopad_grudzień'.split('_');
 	var monthsSubjective = 'stycznia_lutego_marca_kwietnia_maja_czerwca_lipca_sierpnia_września_października_listopada_grudnia'.split('_');
 	function plural(n) {
@@ -78814,7 +79377,7 @@
 	            return result + (plural(number) ? 'lata' : 'lat');
 	    }
 	}
-
+	
 	var pl = moment.defineLocale('pl', {
 	    months : function (momentToFormat, format) {
 	        if (format === '') {
@@ -78881,27 +79444,30 @@
 	        doy : 4  // The week that contains Jan 4th is the first week of the year.
 	    }
 	});
-
+	
 	return pl;
-
+	
 	})));
 
 
 /***/ },
 /* 174 */
+/*!*******************************!*\
+  !*** ./~/moment/locale/pt.js ***!
+  \*******************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : Portuguese [pt]
 	//! author : Jefferson : https://github.com/jalex79
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	var pt = moment.defineLocale('pt', {
 	    months : 'Janeiro_Fevereiro_Março_Abril_Maio_Junho_Julho_Agosto_Setembro_Outubro_Novembro_Dezembro'.split('_'),
 	    monthsShort : 'Jan_Fev_Mar_Abr_Mai_Jun_Jul_Ago_Set_Out_Nov_Dez'.split('_'),
@@ -78951,27 +79517,30 @@
 	        doy : 4  // The week that contains Jan 4th is the first week of the year.
 	    }
 	});
-
+	
 	return pt;
-
+	
 	})));
 
 
 /***/ },
 /* 175 */
+/*!**********************************!*\
+  !*** ./~/moment/locale/pt-br.js ***!
+  \**********************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : Portuguese (Brazil) [pt-br]
 	//! author : Caio Ribeiro Pereira : https://github.com/caio-ribeiro-pereira
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	var ptBr = moment.defineLocale('pt-br', {
 	    months : 'Janeiro_Fevereiro_Março_Abril_Maio_Junho_Julho_Agosto_Setembro_Outubro_Novembro_Dezembro'.split('_'),
 	    monthsShort : 'Jan_Fev_Mar_Abr_Mai_Jun_Jul_Ago_Set_Out_Nov_Dez'.split('_'),
@@ -79017,28 +79586,31 @@
 	    ordinalParse: /\d{1,2}º/,
 	    ordinal : '%dº'
 	});
-
+	
 	return ptBr;
-
+	
 	})));
 
 
 /***/ },
 /* 176 */
+/*!*******************************!*\
+  !*** ./~/moment/locale/ro.js ***!
+  \*******************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : Romanian [ro]
 	//! author : Vlad Gurdiga : https://github.com/gurdiga
 	//! author : Valentin Agachi : https://github.com/avaly
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	function relativeTimeWithPlural(number, withoutSuffix, key) {
 	    var format = {
 	            'mm': 'minute',
@@ -79053,7 +79625,7 @@
 	    }
 	    return number + separator + format[key];
 	}
-
+	
 	var ro = moment.defineLocale('ro', {
 	    months : 'ianuarie_februarie_martie_aprilie_mai_iunie_iulie_august_septembrie_octombrie_noiembrie_decembrie'.split('_'),
 	    monthsShort : 'ian._febr._mart._apr._mai_iun._iul._aug._sept._oct._nov._dec.'.split('_'),
@@ -79097,14 +79669,17 @@
 	        doy : 7  // The week that contains Jan 1st is the first week of the year.
 	    }
 	});
-
+	
 	return ro;
-
+	
 	})));
 
 
 /***/ },
 /* 177 */
+/*!*******************************!*\
+  !*** ./~/moment/locale/ru.js ***!
+  \*******************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -79112,14 +79687,14 @@
 	//! author : Viktorminator : https://github.com/Viktorminator
 	//! Author : Menelion Elensúle : https://github.com/Oire
 	//! author : Коренберг Марк : https://github.com/socketpair
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	function plural(word, num) {
 	    var forms = word.split('_');
 	    return num % 10 === 1 && num % 100 !== 11 ? forms[0] : (num % 10 >= 2 && num % 10 <= 4 && (num % 100 < 10 || num % 100 >= 20) ? forms[1] : forms[2]);
@@ -79140,7 +79715,7 @@
 	    }
 	}
 	var monthsParse = [/^янв/i, /^фев/i, /^мар/i, /^апр/i, /^ма[йя]/i, /^июн/i, /^июл/i, /^авг/i, /^сен/i, /^окт/i, /^ноя/i, /^дек/i];
-
+	
 	// http://new.gramota.ru/spravka/rules/139-prop : § 103
 	// Сокращения месяцев: http://new.gramota.ru/spravka/buro/search-answer?s=242637
 	// CLDR data:          http://www.unicode.org/cldr/charts/28/summary/ru.html#1753
@@ -79164,16 +79739,16 @@
 	    monthsParse : monthsParse,
 	    longMonthsParse : monthsParse,
 	    shortMonthsParse : monthsParse,
-
+	
 	    // полные названия с падежами, по три буквы, для некоторых, по 4 буквы, сокращения с точкой и без точки
 	    monthsRegex: /^(январ[ья]|янв\.?|феврал[ья]|февр?\.?|марта?|мар\.?|апрел[ья]|апр\.?|ма[йя]|июн[ья]|июн\.?|июл[ья]|июл\.?|августа?|авг\.?|сентябр[ья]|сент?\.?|октябр[ья]|окт\.?|ноябр[ья]|нояб?\.?|декабр[ья]|дек\.?)/i,
-
+	
 	    // копия предыдущего
 	    monthsShortRegex: /^(январ[ья]|янв\.?|феврал[ья]|февр?\.?|марта?|мар\.?|апрел[ья]|апр\.?|ма[йя]|июн[ья]|июн\.?|июл[ья]|июл\.?|августа?|авг\.?|сентябр[ья]|сент?\.?|октябр[ья]|окт\.?|ноябр[ья]|нояб?\.?|декабр[ья]|дек\.?)/i,
-
+	
 	    // полные названия с падежами
 	    monthsStrictRegex: /^(январ[яь]|феврал[яь]|марта?|апрел[яь]|ма[яй]|июн[яь]|июл[яь]|августа?|сентябр[яь]|октябр[яь]|ноябр[яь]|декабр[яь])/i,
-
+	
 	    // Выражение, которое соотвествует только сокращённым формам
 	    monthsShortStrictRegex: /^(янв\.|февр?\.|мар[т.]|апр\.|ма[яй]|июн[ья.]|июл[ья.]|авг\.|сент?\.|окт\.|нояб?\.|дек\.)/i,
 	    longDateFormat : {
@@ -79285,28 +79860,31 @@
 	        doy : 7  // The week that contains Jan 1st is the first week of the year.
 	    }
 	});
-
+	
 	return ru;
-
+	
 	})));
 
 
 /***/ },
 /* 178 */
+/*!*******************************!*\
+  !*** ./~/moment/locale/se.js ***!
+  \*******************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : Northern Sami [se]
 	//! authors : Bård Rolstad Henriksen : https://github.com/karamell
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
-
+	
+	
+	
 	var se = moment.defineLocale('se', {
 	    months : 'ođđajagemánnu_guovvamánnu_njukčamánnu_cuoŋománnu_miessemánnu_geassemánnu_suoidnemánnu_borgemánnu_čakčamánnu_golggotmánnu_skábmamánnu_juovlamánnu'.split('_'),
 	    monthsShort : 'ođđj_guov_njuk_cuo_mies_geas_suoi_borg_čakč_golg_skáb_juov'.split('_'),
@@ -79351,27 +79929,30 @@
 	        doy : 4  // The week that contains Jan 4th is the first week of the year.
 	    }
 	});
-
+	
 	return se;
-
+	
 	})));
 
 
 /***/ },
 /* 179 */
+/*!*******************************!*\
+  !*** ./~/moment/locale/si.js ***!
+  \*******************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : Sinhalese [si]
 	//! author : Sampath Sitinamaluwa : https://github.com/sampathsris
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	/*jshint -W100*/
 	var si = moment.defineLocale('si', {
 	    months : 'ජනවාරි_පෙබරවාරි_මාර්තු_අප්‍රේල්_මැයි_ජූනි_ජූලි_අගෝස්තු_සැප්තැම්බර්_ඔක්තෝබර්_නොවැම්බර්_දෙසැම්බර්'.split('_'),
@@ -79427,28 +80008,31 @@
 	        }
 	    }
 	});
-
+	
 	return si;
-
+	
 	})));
 
 
 /***/ },
 /* 180 */
+/*!*******************************!*\
+  !*** ./~/moment/locale/sk.js ***!
+  \*******************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : Slovak [sk]
 	//! author : Martin Minka : https://github.com/k2s
 	//! based on work of petrbela : https://github.com/petrbela
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	var months = 'január_február_marec_apríl_máj_jún_júl_august_september_október_november_december'.split('_');
 	var monthsShort = 'jan_feb_mar_apr_máj_jún_júl_aug_sep_okt_nov_dec'.split('_');
 	function plural(n) {
@@ -79506,7 +80090,7 @@
 	            break;
 	    }
 	}
-
+	
 	var sk = moment.defineLocale('sk', {
 	    months : months,
 	    monthsShort : monthsShort,
@@ -79582,27 +80166,30 @@
 	        doy : 4  // The week that contains Jan 4th is the first week of the year.
 	    }
 	});
-
+	
 	return sk;
-
+	
 	})));
 
 
 /***/ },
 /* 181 */
+/*!*******************************!*\
+  !*** ./~/moment/locale/sl.js ***!
+  \*******************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : Slovenian [sl]
 	//! author : Robert Sedovšek : https://github.com/sedovsek
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	function processRelativeTime(number, withoutSuffix, key, isFuture) {
 	    var result = number + ' ';
 	    switch (key) {
@@ -79673,7 +80260,7 @@
 	            return result;
 	    }
 	}
-
+	
 	var sl = moment.defineLocale('sl', {
 	    months : 'januar_februar_marec_april_maj_junij_julij_avgust_september_oktober_november_december'.split('_'),
 	    monthsShort : 'jan._feb._mar._apr._maj._jun._jul._avg._sep._okt._nov._dec.'.split('_'),
@@ -79693,7 +80280,7 @@
 	    calendar : {
 	        sameDay  : '[danes ob] LT',
 	        nextDay  : '[jutri ob] LT',
-
+	
 	        nextWeek : function () {
 	            switch (this.day()) {
 	                case 0:
@@ -79749,14 +80336,17 @@
 	        doy : 7  // The week that contains Jan 1st is the first week of the year.
 	    }
 	});
-
+	
 	return sl;
-
+	
 	})));
 
 
 /***/ },
 /* 182 */
+/*!*******************************!*\
+  !*** ./~/moment/locale/sq.js ***!
+  \*******************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -79764,14 +80354,14 @@
 	//! author : Flakërim Ismani : https://github.com/flakerimi
 	//! author : Menelion Elensúle : https://github.com/Oire
 	//! author : Oerd Cukalla : https://github.com/oerd
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	var sq = moment.defineLocale('sq', {
 	    months : 'Janar_Shkurt_Mars_Prill_Maj_Qershor_Korrik_Gusht_Shtator_Tetor_Nëntor_Dhjetor'.split('_'),
 	    monthsShort : 'Jan_Shk_Mar_Pri_Maj_Qer_Kor_Gus_Sht_Tet_Nën_Dhj'.split('_'),
@@ -79824,27 +80414,30 @@
 	        doy : 4  // The week that contains Jan 4th is the first week of the year.
 	    }
 	});
-
+	
 	return sq;
-
+	
 	})));
 
 
 /***/ },
 /* 183 */
+/*!*******************************!*\
+  !*** ./~/moment/locale/sr.js ***!
+  \*******************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : Serbian [sr]
 	//! author : Milan Janačković<milanjanackovic@gmail.com> : https://github.com/milan-j
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	var translator = {
 	    words: { //Different grammatical cases
 	        m: ['jedan minut', 'jedne minute'],
@@ -79867,7 +80460,7 @@
 	        }
 	    }
 	};
-
+	
 	var sr = moment.defineLocale('sr', {
 	    months: 'januar_februar_mart_april_maj_jun_jul_avgust_septembar_oktobar_novembar_decembar'.split('_'),
 	    monthsShort: 'jan._feb._mar._apr._maj_jun_jul_avg._sep._okt._nov._dec.'.split('_'),
@@ -79939,27 +80532,30 @@
 	        doy : 7  // The week that contains Jan 1st is the first week of the year.
 	    }
 	});
-
+	
 	return sr;
-
+	
 	})));
 
 
 /***/ },
 /* 184 */
+/*!************************************!*\
+  !*** ./~/moment/locale/sr-cyrl.js ***!
+  \************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : Serbian Cyrillic [sr-cyrl]
 	//! author : Milan Janačković<milanjanackovic@gmail.com> : https://github.com/milan-j
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	var translator = {
 	    words: { //Different grammatical cases
 	        m: ['један минут', 'једне минуте'],
@@ -79982,7 +80578,7 @@
 	        }
 	    }
 	};
-
+	
 	var srCyrl = moment.defineLocale('sr-cyrl', {
 	    months: 'јануар_фебруар_март_април_мај_јун_јул_август_септембар_октобар_новембар_децембар'.split('_'),
 	    monthsShort: 'јан._феб._мар._апр._мај_јун_јул_авг._сеп._окт._нов._дец.'.split('_'),
@@ -80054,28 +80650,31 @@
 	        doy : 7  // The week that contains Jan 1st is the first week of the year.
 	    }
 	});
-
+	
 	return srCyrl;
-
+	
 	})));
 
 
 /***/ },
 /* 185 */
+/*!*******************************!*\
+  !*** ./~/moment/locale/ss.js ***!
+  \*******************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : siSwati [ss]
 	//! author : Nicolai Davies<mail@nicolai.io> : https://github.com/nicolaidavies
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
-
+	
+	
+	
 	var ss = moment.defineLocale('ss', {
 	    months : "Bhimbidvwane_Indlovana_Indlov'lenkhulu_Mabasa_Inkhwekhweti_Inhlaba_Kholwane_Ingci_Inyoni_Imphala_Lweti_Ingongoni".split('_'),
 	    monthsShort : 'Bhi_Ina_Inu_Mab_Ink_Inh_Kho_Igc_Iny_Imp_Lwe_Igo'.split('_'),
@@ -80148,27 +80747,30 @@
 	        doy : 4  // The week that contains Jan 4th is the first week of the year.
 	    }
 	});
-
+	
 	return ss;
-
+	
 	})));
 
 
 /***/ },
 /* 186 */
+/*!*******************************!*\
+  !*** ./~/moment/locale/sv.js ***!
+  \*******************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : Swedish [sv]
 	//! author : Jens Alm : https://github.com/ulmus
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	var sv = moment.defineLocale('sv', {
 	    months : 'januari_februari_mars_april_maj_juni_juli_augusti_september_oktober_november_december'.split('_'),
 	    monthsShort : 'jan_feb_mar_apr_maj_jun_jul_aug_sep_okt_nov_dec'.split('_'),
@@ -80222,27 +80824,30 @@
 	        doy : 4  // The week that contains Jan 4th is the first week of the year.
 	    }
 	});
-
+	
 	return sv;
-
+	
 	})));
 
 
 /***/ },
 /* 187 */
+/*!*******************************!*\
+  !*** ./~/moment/locale/sw.js ***!
+  \*******************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : Swahili [sw]
 	//! author : Fahad Kassim : https://github.com/fadsel
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	var sw = moment.defineLocale('sw', {
 	    months : 'Januari_Februari_Machi_Aprili_Mei_Juni_Julai_Agosti_Septemba_Oktoba_Novemba_Desemba'.split('_'),
 	    monthsShort : 'Jan_Feb_Mac_Apr_Mei_Jun_Jul_Ago_Sep_Okt_Nov_Des'.split('_'),
@@ -80286,27 +80891,30 @@
 	        doy : 7  // The week that contains Jan 1st is the first week of the year.
 	    }
 	});
-
+	
 	return sw;
-
+	
 	})));
 
 
 /***/ },
 /* 188 */
+/*!*******************************!*\
+  !*** ./~/moment/locale/ta.js ***!
+  \*******************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : Tamil [ta]
 	//! author : Arjunkumar Krishnamoorthy : https://github.com/tk120404
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	var symbolMap = {
 	    '1': '௧',
 	    '2': '௨',
@@ -80331,7 +80939,7 @@
 	    '௯': '9',
 	    '௦': '0'
 	};
-
+	
 	var ta = moment.defineLocale('ta', {
 	    months : 'ஜனவரி_பிப்ரவரி_மார்ச்_ஏப்ரல்_மே_ஜூன்_ஜூலை_ஆகஸ்ட்_செப்டெம்பர்_அக்டோபர்_நவம்பர்_டிசம்பர்'.split('_'),
 	    monthsShort : 'ஜனவரி_பிப்ரவரி_மார்ச்_ஏப்ரல்_மே_ஜூன்_ஜூலை_ஆகஸ்ட்_செப்டெம்பர்_அக்டோபர்_நவம்பர்_டிசம்பர்'.split('_'),
@@ -80421,27 +81029,30 @@
 	        doy : 6  // The week that contains Jan 1st is the first week of the year.
 	    }
 	});
-
+	
 	return ta;
-
+	
 	})));
 
 
 /***/ },
 /* 189 */
+/*!*******************************!*\
+  !*** ./~/moment/locale/te.js ***!
+  \*******************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : Telugu [te]
 	//! author : Krishna Chaitanya Thota : https://github.com/kcthota
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	var te = moment.defineLocale('te', {
 	    months : 'జనవరి_ఫిబ్రవరి_మార్చి_ఏప్రిల్_మే_జూన్_జూలై_ఆగస్టు_సెప్టెంబర్_అక్టోబర్_నవంబర్_డిసెంబర్'.split('_'),
 	    monthsShort : 'జన._ఫిబ్ర._మార్చి_ఏప్రి._మే_జూన్_జూలై_ఆగ._సెప్._అక్టో._నవ._డిసె.'.split('_'),
@@ -80515,28 +81126,31 @@
 	        doy : 6  // The week that contains Jan 1st is the first week of the year.
 	    }
 	});
-
+	
 	return te;
-
+	
 	})));
 
 
 /***/ },
 /* 190 */
+/*!********************************!*\
+  !*** ./~/moment/locale/tet.js ***!
+  \********************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : Tetun Dili (East Timor) [tet]
 	//! author : Joshua Brooks : https://github.com/joshbrooks
 	//! author : Onorio De J. Afonso : https://github.com/marobo
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	var tet = moment.defineLocale('tet', {
 	    months : 'Janeiru_Fevereiru_Marsu_Abril_Maiu_Juniu_Juliu_Augustu_Setembru_Outubru_Novembru_Dezembru'.split('_'),
 	    monthsShort : 'Jan_Fev_Mar_Abr_Mai_Jun_Jul_Aug_Set_Out_Nov_Dez'.split('_'),
@@ -80588,27 +81202,30 @@
 	        doy : 4  // The week that contains Jan 4th is the first week of the year.
 	    }
 	});
-
+	
 	return tet;
-
+	
 	})));
 
 
 /***/ },
 /* 191 */
+/*!*******************************!*\
+  !*** ./~/moment/locale/th.js ***!
+  \*******************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : Thai [th]
 	//! author : Kridsada Thanabulpong : https://github.com/sirn
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	var th = moment.defineLocale('th', {
 	    months : 'มกราคม_กุมภาพันธ์_มีนาคม_เมษายน_พฤษภาคม_มิถุนายน_กรกฎาคม_สิงหาคม_กันยายน_ตุลาคม_พฤศจิกายน_ธันวาคม'.split('_'),
 	    monthsShort : 'ม.ค._ก.พ._มี.ค._เม.ย._พ.ค._มิ.ย._ก.ค._ส.ค._ก.ย._ต.ค._พ.ย._ธ.ค.'.split('_'),
@@ -80660,27 +81277,30 @@
 	        yy : '%d ปี'
 	    }
 	});
-
+	
 	return th;
-
+	
 	})));
 
 
 /***/ },
 /* 192 */
+/*!**********************************!*\
+  !*** ./~/moment/locale/tl-ph.js ***!
+  \**********************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : Tagalog (Philippines) [tl-ph]
 	//! author : Dan Hagman : https://github.com/hagmandan
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	var tlPh = moment.defineLocale('tl-ph', {
 	    months : 'Enero_Pebrero_Marso_Abril_Mayo_Hunyo_Hulyo_Agosto_Setyembre_Oktubre_Nobyembre_Disyembre'.split('_'),
 	    monthsShort : 'Ene_Peb_Mar_Abr_May_Hun_Hul_Ago_Set_Okt_Nob_Dis'.split('_'),
@@ -80727,29 +81347,32 @@
 	        doy : 4  // The week that contains Jan 4th is the first week of the year.
 	    }
 	});
-
+	
 	return tlPh;
-
+	
 	})));
 
 
 /***/ },
 /* 193 */
+/*!********************************!*\
+  !*** ./~/moment/locale/tlh.js ***!
+  \********************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : Klingon [tlh]
 	//! author : Dominika Kruk : https://github.com/amaranthrose
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	var numbersNouns = 'pagh_wa’_cha’_wej_loS_vagh_jav_Soch_chorgh_Hut'.split('_');
-
+	
 	function translateFuture(output) {
 	    var time = output;
 	    time = (output.indexOf('jaj') !== -1) ?
@@ -80761,7 +81384,7 @@
 	    time + ' pIq';
 	    return time;
 	}
-
+	
 	function translatePast(output) {
 	    var time = output;
 	    time = (output.indexOf('jaj') !== -1) ?
@@ -80773,7 +81396,7 @@
 	    time + ' ret';
 	    return time;
 	}
-
+	
 	function translate(number, withoutSuffix, string, isFuture) {
 	    var numberNoun = numberAsNoun(number);
 	    switch (string) {
@@ -80789,7 +81412,7 @@
 	            return numberNoun + ' DIS';
 	    }
 	}
-
+	
 	function numberAsNoun(number) {
 	    var hundred = Math.floor((number % 1000) / 100),
 	    ten = Math.floor((number % 100) / 10),
@@ -80806,7 +81429,7 @@
 	    }
 	    return (word === '') ? 'pagh' : word;
 	}
-
+	
 	var tlh = moment.defineLocale('tlh', {
 	    months : 'tera’ jar wa’_tera’ jar cha’_tera’ jar wej_tera’ jar loS_tera’ jar vagh_tera’ jar jav_tera’ jar Soch_tera’ jar chorgh_tera’ jar Hut_tera’ jar wa’maH_tera’ jar wa’maH wa’_tera’ jar wa’maH cha’'.split('_'),
 	    monthsShort : 'jar wa’_jar cha’_jar wej_jar loS_jar vagh_jar jav_jar Soch_jar chorgh_jar Hut_jar wa’maH_jar wa’maH wa’_jar wa’maH cha’'.split('_'),
@@ -80852,28 +81475,31 @@
 	        doy : 4  // The week that contains Jan 4th is the first week of the year.
 	    }
 	});
-
+	
 	return tlh;
-
+	
 	})));
 
 
 /***/ },
 /* 194 */
+/*!*******************************!*\
+  !*** ./~/moment/locale/tr.js ***!
+  \*******************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : Turkish [tr]
 	//! authors : Erhan Gundogan : https://github.com/erhangundogan,
 	//!           Burak Yiğit Kaya: https://github.com/BYK
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	var suffixes = {
 	    1: '\'inci',
 	    5: '\'inci',
@@ -80894,7 +81520,7 @@
 	    60: '\'ıncı',
 	    90: '\'ıncı'
 	};
-
+	
 	var tr = moment.defineLocale('tr', {
 	    months : 'Ocak_Şubat_Mart_Nisan_Mayıs_Haziran_Temmuz_Ağustos_Eylül_Ekim_Kasım_Aralık'.split('_'),
 	    monthsShort : 'Oca_Şub_Mar_Nis_May_Haz_Tem_Ağu_Eyl_Eki_Kas_Ara'.split('_'),
@@ -80947,28 +81573,31 @@
 	        doy : 7  // The week that contains Jan 1st is the first week of the year.
 	    }
 	});
-
+	
 	return tr;
-
+	
 	})));
 
 
 /***/ },
 /* 195 */
+/*!********************************!*\
+  !*** ./~/moment/locale/tzl.js ***!
+  \********************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : Talossan [tzl]
 	//! author : Robin van der Vliet : https://github.com/robin0van0der0v
 	//! author : Iustì Canun
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	// After the year there should be a slash and the amount of years since December 26, 1979 in Roman numerals.
 	// This is currently too difficult (maybe even impossible) to add.
 	var tzl = moment.defineLocale('tzl', {
@@ -81026,7 +81655,7 @@
 	        doy : 4  // The week that contains Jan 4th is the first week of the year.
 	    }
 	});
-
+	
 	function processRelativeTime(number, withoutSuffix, key, isFuture) {
 	    var format = {
 	        's': ['viensas secunds', '\'iensas secunds'],
@@ -81043,27 +81672,30 @@
 	    };
 	    return isFuture ? format[key][0] : (withoutSuffix ? format[key][0] : format[key][1]);
 	}
-
+	
 	return tzl;
-
+	
 	})));
 
 
 /***/ },
 /* 196 */
+/*!********************************!*\
+  !*** ./~/moment/locale/tzm.js ***!
+  \********************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : Central Atlas Tamazight [tzm]
 	//! author : Abdel Said : https://github.com/abdelsaid
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	var tzm = moment.defineLocale('tzm', {
 	    months : 'ⵉⵏⵏⴰⵢⵔ_ⴱⵕⴰⵢⵕ_ⵎⴰⵕⵚ_ⵉⴱⵔⵉⵔ_ⵎⴰⵢⵢⵓ_ⵢⵓⵏⵢⵓ_ⵢⵓⵍⵢⵓⵣ_ⵖⵓⵛⵜ_ⵛⵓⵜⴰⵏⴱⵉⵔ_ⴽⵟⵓⴱⵕ_ⵏⵓⵡⴰⵏⴱⵉⵔ_ⴷⵓⵊⵏⴱⵉⵔ'.split('_'),
 	    monthsShort : 'ⵉⵏⵏⴰⵢⵔ_ⴱⵕⴰⵢⵕ_ⵎⴰⵕⵚ_ⵉⴱⵔⵉⵔ_ⵎⴰⵢⵢⵓ_ⵢⵓⵏⵢⵓ_ⵢⵓⵍⵢⵓⵣ_ⵖⵓⵛⵜ_ⵛⵓⵜⴰⵏⴱⵉⵔ_ⴽⵟⵓⴱⵕ_ⵏⵓⵡⴰⵏⴱⵉⵔ_ⴷⵓⵊⵏⴱⵉⵔ'.split('_'),
@@ -81106,27 +81738,30 @@
 	        doy : 12  // The week that contains Jan 1st is the first week of the year.
 	    }
 	});
-
+	
 	return tzm;
-
+	
 	})));
 
 
 /***/ },
 /* 197 */
+/*!*************************************!*\
+  !*** ./~/moment/locale/tzm-latn.js ***!
+  \*************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : Central Atlas Tamazight Latin [tzm-latn]
 	//! author : Abdel Said : https://github.com/abdelsaid
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	var tzmLatn = moment.defineLocale('tzm-latn', {
 	    months : 'innayr_brˤayrˤ_marˤsˤ_ibrir_mayyw_ywnyw_ywlywz_ɣwšt_šwtanbir_ktˤwbrˤ_nwwanbir_dwjnbir'.split('_'),
 	    monthsShort : 'innayr_brˤayrˤ_marˤsˤ_ibrir_mayyw_ywnyw_ywlywz_ɣwšt_šwtanbir_ktˤwbrˤ_nwwanbir_dwjnbir'.split('_'),
@@ -81169,28 +81804,31 @@
 	        doy : 12  // The week that contains Jan 1st is the first week of the year.
 	    }
 	});
-
+	
 	return tzmLatn;
-
+	
 	})));
 
 
 /***/ },
 /* 198 */
+/*!*******************************!*\
+  !*** ./~/moment/locale/uk.js ***!
+  \*******************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : Ukrainian [uk]
 	//! author : zemlanin : https://github.com/zemlanin
 	//! Author : Menelion Elensúle : https://github.com/Oire
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	function plural(word, num) {
 	    var forms = word.split('_');
 	    return num % 10 === 1 && num % 100 !== 11 ? forms[0] : (num % 10 >= 2 && num % 10 <= 4 && (num % 100 < 10 || num % 100 >= 20) ? forms[1] : forms[2]);
@@ -81231,7 +81869,7 @@
 	        return str + 'о' + (this.hours() === 11 ? 'б' : '') + '] LT';
 	    };
 	}
-
+	
 	var uk = moment.defineLocale('uk', {
 	    months : {
 	        'format': 'січня_лютого_березня_квітня_травня_червня_липня_серпня_вересня_жовтня_листопада_грудня'.split('_'),
@@ -81320,27 +81958,30 @@
 	        doy : 7  // The week that contains Jan 1st is the first week of the year.
 	    }
 	});
-
+	
 	return uk;
-
+	
 	})));
 
 
 /***/ },
 /* 199 */
+/*!*******************************!*\
+  !*** ./~/moment/locale/uz.js ***!
+  \*******************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : Uzbek [uz]
 	//! author : Sardor Muminov : https://github.com/muminoff
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	var uz = moment.defineLocale('uz', {
 	    months : 'январ_феврал_март_апрел_май_июн_июл_август_сентябр_октябр_ноябр_декабр'.split('_'),
 	    monthsShort : 'янв_фев_мар_апр_май_июн_июл_авг_сен_окт_ноя_дек'.split('_'),
@@ -81383,27 +82024,30 @@
 	        doy : 7  // The week that contains Jan 4th is the first week of the year.
 	    }
 	});
-
+	
 	return uz;
-
+	
 	})));
 
 
 /***/ },
 /* 200 */
+/*!*******************************!*\
+  !*** ./~/moment/locale/vi.js ***!
+  \*******************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : Vietnamese [vi]
 	//! author : Bang Nguyen : https://github.com/bangnk
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	var vi = moment.defineLocale('vi', {
 	    months : 'tháng 1_tháng 2_tháng 3_tháng 4_tháng 5_tháng 6_tháng 7_tháng 8_tháng 9_tháng 10_tháng 11_tháng 12'.split('_'),
 	    monthsShort : 'Th01_Th02_Th03_Th04_Th05_Th06_Th07_Th08_Th09_Th10_Th11_Th12'.split('_'),
@@ -81467,27 +82111,30 @@
 	        doy : 4  // The week that contains Jan 4th is the first week of the year.
 	    }
 	});
-
+	
 	return vi;
-
+	
 	})));
 
 
 /***/ },
 /* 201 */
+/*!*************************************!*\
+  !*** ./~/moment/locale/x-pseudo.js ***!
+  \*************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : Pseudo [x-pseudo]
 	//! author : Andrew Hood : https://github.com/andrewhood125
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	var xPseudo = moment.defineLocale('x-pseudo', {
 	    months : 'J~áñúá~rý_F~ébrú~árý_~Márc~h_Áp~ríl_~Máý_~Júñé~_Júl~ý_Áú~gúst~_Sép~témb~ér_Ó~ctób~ér_Ñ~óvém~bér_~Décé~mbér'.split('_'),
 	    monthsShort : 'J~áñ_~Féb_~Már_~Ápr_~Máý_~Júñ_~Júl_~Áúg_~Sép_~Óct_~Ñóv_~Déc'.split('_'),
@@ -81540,27 +82187,30 @@
 	        doy : 4  // The week that contains Jan 4th is the first week of the year.
 	    }
 	});
-
+	
 	return xPseudo;
-
+	
 	})));
 
 
 /***/ },
 /* 202 */
+/*!*******************************!*\
+  !*** ./~/moment/locale/yo.js ***!
+  \*******************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : Yoruba Nigeria [yo]
 	//! author : Atolagbe Abisoye : https://github.com/andela-batolagbe
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	var yo = moment.defineLocale('yo', {
 	    months : 'Sẹ́rẹ́_Èrèlè_Ẹrẹ̀nà_Ìgbé_Èbibi_Òkùdu_Agẹmo_Ògún_Owewe_Ọ̀wàrà_Bélú_Ọ̀pẹ̀̀'.split('_'),
 	    monthsShort : 'Sẹ́r_Èrl_Ẹrn_Ìgb_Èbi_Òkù_Agẹ_Ògú_Owe_Ọ̀wà_Bél_Ọ̀pẹ̀̀'.split('_'),
@@ -81605,28 +82255,31 @@
 	        doy : 4 // The week that contains Jan 4th is the first week of the year.
 	    }
 	});
-
+	
 	return yo;
-
+	
 	})));
 
 
 /***/ },
 /* 203 */
+/*!**********************************!*\
+  !*** ./~/moment/locale/zh-cn.js ***!
+  \**********************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : Chinese (China) [zh-cn]
 	//! author : suupic : https://github.com/suupic
 	//! author : Zeno Zeng : https://github.com/zenozeng
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	var zhCn = moment.defineLocale('zh-cn', {
 	    months : '一月_二月_三月_四月_五月_六月_七月_八月_九月_十月_十一月_十二月'.split('_'),
 	    monthsShort : '1月_2月_3月_4月_5月_6月_7月_8月_9月_10月_11月_12月'.split('_'),
@@ -81737,14 +82390,17 @@
 	        doy : 4  // The week that contains Jan 4th is the first week of the year.
 	    }
 	});
-
+	
 	return zhCn;
-
+	
 	})));
 
 
 /***/ },
 /* 204 */
+/*!**********************************!*\
+  !*** ./~/moment/locale/zh-hk.js ***!
+  \**********************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -81752,14 +82408,14 @@
 	//! author : Ben : https://github.com/ben-lin
 	//! author : Chris Lam : https://github.com/hehachris
 	//! author : Konstantin : https://github.com/skfd
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	var zhHk = moment.defineLocale('zh-hk', {
 	    months : '一月_二月_三月_四月_五月_六月_七月_八月_九月_十月_十一月_十二月'.split('_'),
 	    monthsShort : '1月_2月_3月_4月_5月_6月_7月_8月_9月_10月_11月_12月'.split('_'),
@@ -81847,28 +82503,31 @@
 	        yy : '%d 年'
 	    }
 	});
-
+	
 	return zhHk;
-
+	
 	})));
 
 
 /***/ },
 /* 205 */
+/*!**********************************!*\
+  !*** ./~/moment/locale/zh-tw.js ***!
+  \**********************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : Chinese (Taiwan) [zh-tw]
 	//! author : Ben : https://github.com/ben-lin
 	//! author : Chris Lam : https://github.com/hehachris
-
+	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(95)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 95)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
-
-
+	
+	
 	var zhTw = moment.defineLocale('zh-tw', {
 	    months : '一月_二月_三月_四月_五月_六月_七月_八月_九月_十月_十一月_十二月'.split('_'),
 	    monthsShort : '1月_2月_3月_4月_5月_6月_7月_8月_9月_10月_11月_12月'.split('_'),
@@ -81956,14 +82615,17 @@
 	        yy : '%d 年'
 	    }
 	});
-
+	
 	return zhTw;
-
+	
 	})));
 
 
 /***/ },
 /* 206 */
+/*!******************************************!*\
+  !*** ./src/app/shared/calendar/month.ts ***!
+  \******************************************/
 /***/ function(module, exports) {
 
 	"use strict";
@@ -81978,10 +82640,13 @@
 	    return Month;
 	}());
 	exports.Month = Month;
-	
+
 
 /***/ },
 /* 207 */
+/*!*****************************************!*\
+  !*** ./src/app/shared/calendar/week.ts ***!
+  \*****************************************/
 /***/ function(module, exports) {
 
 	"use strict";
@@ -81992,10 +82657,13 @@
 	    return Week;
 	}());
 	exports.Week = Week;
-	
+
 
 /***/ },
 /* 208 */
+/*!****************************************!*\
+  !*** ./src/app/shared/calendar/day.ts ***!
+  \****************************************/
 /***/ function(module, exports) {
 
 	"use strict";
@@ -82012,10 +82680,13 @@
 	    return Day;
 	}());
 	exports.Day = Day;
-	
+
 
 /***/ },
 /* 209 */
+/*!*****************************************************!*\
+  !*** ./src/app/shared/common/metrics-indicators.ts ***!
+  \*****************************************************/
 /***/ function(module, exports) {
 
 	"use strict";
@@ -82041,22 +82712,25 @@
 	    return MetricsIndicators;
 	}());
 	exports.MetricsIndicators = MetricsIndicators;
-	
+
 
 /***/ },
 /* 210 */
+/*!***********************************************!*\
+  !*** ./~/angular2-mdl/bundle/angular2-mdl.js ***!
+  \***********************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	(function webpackUniversalModuleDefinition(root, factory) {
 		if(true)
-			module.exports = factory(__webpack_require__(22), __webpack_require__(3), __webpack_require__(24), __webpack_require__(21), __webpack_require__(4));
+			module.exports = factory(__webpack_require__(/*! @angular/common */ 22), __webpack_require__(/*! @angular/core */ 3), __webpack_require__(/*! @angular/forms */ 24), __webpack_require__(/*! @angular/platform-browser */ 21), __webpack_require__(/*! rxjs/Subject */ 4));
 		else if(typeof define === 'function' && define.amd)
 			define(["@angular/common", "@angular/core", "@angular/forms", "@angular/platform-browser", "rxjs/Subject"], factory);
 		else if(typeof exports === 'object')
 			exports["angular2Mdl"] = factory(require("@angular/common"), require("@angular/core"), require("@angular/forms"), require("@angular/platform-browser"), require("rxjs/Subject"));
 		else
 			root["angular2Mdl"] = factory(root["ng"]["common"], root["ng"]["core"], root["ng"]["forms"], root["ng"]["platformBrowser"], root["rx"]["Subject"]);
-	})(this, function(__WEBPACK_EXTERNAL_MODULE_1__, __WEBPACK_EXTERNAL_MODULE_0__, __WEBPACK_EXTERNAL_MODULE_3__, __WEBPACK_EXTERNAL_MODULE_63__, __WEBPACK_EXTERNAL_MODULE_17__) {
+	})(this, function(__WEBPACK_EXTERNAL_MODULE_1__, __WEBPACK_EXTERNAL_MODULE_0__, __WEBPACK_EXTERNAL_MODULE_3__, __WEBPACK_EXTERNAL_MODULE_63__, __WEBPACK_EXTERNAL_MODULE_14__) {
 	return /******/ (function(modules) { // webpackBootstrap
 	/******/ 	// The module cache
 	/******/ 	var installedModules = {};
@@ -82126,47 +82800,36 @@
 	/******/ ([
 	/* 0 */
 	/***/ function(module, exports) {
-
+	
 	module.exports = __WEBPACK_EXTERNAL_MODULE_0__;
-
+	
 	/***/ },
 	/* 1 */
 	/***/ function(module, exports) {
-
+	
 	module.exports = __WEBPACK_EXTERNAL_MODULE_1__;
-
+	
 	/***/ },
 	/* 2 */
 	/***/ function(module, exports, __webpack_require__) {
-
+	
 	"use strict";
-	/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return booleanProperty; });
-	function booleanProperty() {
-	    return function booleanFieldValueMetadata(target, key) {
-	        var defaultValue = target[key];
-	        var localKey = "__mdl_private_symbol_" + key;
-	        target[localKey] = defaultValue;
-	        Object.defineProperty(target, key, {
-	            get: function () { return this[localKey]; },
-	            set: function (value) {
-	                this[localKey] = value != null && "" + value !== 'false';
-	            }
-	        });
-	    };
+	/* harmony export (immutable) */ exports["a"] = toBoolean;
+	function toBoolean(value) {
+	    return value != null && "" + value !== 'false';
 	}
-
-
-
+	
+	
 	/***/ },
 	/* 3 */
 	/***/ function(module, exports) {
-
+	
 	module.exports = __WEBPACK_EXTERNAL_MODULE_3__;
-
+	
 	/***/ },
 	/* 4 */
 	/***/ function(module, exports, __webpack_require__) {
-
+	
 	"use strict";
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__angular_core__);
@@ -82190,9 +82853,9 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-
-
-
+	
+	
+	
 	var MdlUnsupportedButtonTypeError = (function (_super) {
 	    __extends(MdlUnsupportedButtonTypeError, _super);
 	    function MdlUnsupportedButtonTypeError(type) {
@@ -82223,9 +82886,15 @@
 	    function MdlButtonComponent(elementRef, renderer) {
 	        this.elementRef = elementRef;
 	        this.renderer = renderer;
-	        this.disabled = false;
+	        this._disabled = false;
 	        this.element = elementRef.nativeElement;
 	    }
+	    Object.defineProperty(MdlButtonComponent.prototype, "disabled", {
+	        get: function () { return this._disabled; },
+	        set: function (value) { this._disabled = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__common_boolean_property__["a" /* toBoolean */])(value); },
+	        enumerable: true,
+	        configurable: true
+	    });
 	    MdlButtonComponent.prototype.ngOnChanges = function () {
 	        if (this.mdlButtonType && MDL_BUTTON_TYPES.indexOf(this.mdlButtonType) === -1) {
 	            throw new MdlUnsupportedButtonTypeError(this.mdlButtonType);
@@ -82252,10 +82921,9 @@
 	        __metadata('design:type', Object)
 	    ], MdlButtonComponent.prototype, "mdlColoredType", void 0);
 	    __decorate([
-	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
-	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__common_boolean_property__["a" /* BooleanProperty */])(), 
-	        __metadata('design:type', Object)
-	    ], MdlButtonComponent.prototype, "disabled", void 0);
+	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(), 
+	        __metadata('design:type', Boolean)
+	    ], MdlButtonComponent.prototype, "disabled", null);
 	    MdlButtonComponent = __decorate([
 	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
 	            selector: 'mdl-button, button[mdl-button], a[mdl-button]',
@@ -82300,12 +82968,12 @@
 	    ], MdlButtonModule);
 	    return MdlButtonModule;
 	}());
-
-
+	
+	
 	/***/ },
 	/* 5 */
 	/***/ function(module, exports, __webpack_require__) {
-
+	
 	"use strict";
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__angular_core__);
@@ -82320,7 +82988,7 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-
+	
 	var MdlIconComponent = (function () {
 	    function MdlIconComponent() {
 	    }
@@ -82357,12 +83025,12 @@
 	    ], MdlIconModule);
 	    return MdlIconModule;
 	}());
-
-
+	
+	
 	/***/ },
 	/* 6 */
 	/***/ function(module, exports, __webpack_require__) {
-
+	
 	"use strict";
 	/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return MdlError; });
 	/* harmony export (binding) */ __webpack_require__.d(exports, "b", function() { return MdlStructureError; });
@@ -82389,46 +83057,18 @@
 	    }
 	    return MdlStructureError;
 	}(MdlError));
-
-
+	
+	
 	/***/ },
 	/* 7 */
 	/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return numberProperty; });
-	function numberProperty() {
-	    return function numberFieldValueMetadata(target, key) {
-	        var defaultValue = target[key];
-	        var localKey = "__mdl_private_symbol_" + key;
-	        target[localKey] = defaultValue;
-	        Object.defineProperty(target, key, {
-	            get: function () { return this[localKey]; },
-	            set: function (value) {
-	                if (typeof value === 'undefined') {
-	                    value = null;
-	                }
-	                else if (typeof value === 'string') {
-	                    value = parseInt(value);
-	                }
-	                this[localKey] = value;
-	            }
-	        });
-	    };
-	}
-
-
-
-	/***/ },
-	/* 8 */
-	/***/ function(module, exports, __webpack_require__) {
-
+	
 	"use strict";
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__angular_core__);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__(63);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Subject__ = __webpack_require__(17);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Subject__ = __webpack_require__(14);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Subject___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_Subject__);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__mdl_simple_dialog_component__ = __webpack_require__(20);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__mdl_dialog_host_component__ = __webpack_require__(19);
@@ -82450,13 +83090,13 @@
 	var __param = (this && this.__param) || function (paramIndex, decorator) {
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
-
-
-
-
-
-
-
+	
+	
+	
+	
+	
+	
+	
 	var MDL_CONFIGUARTION = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["OpaqueToken"]('MDL_CONFIGUARTION');
 	var MIN_DIALOG_Z_INDEX = 100000;
 	/**
@@ -82686,12 +83326,12 @@
 	    return MdlDialogService;
 	    var _a, _b, _c;
 	}());
-
-
+	
+	
 	/***/ },
-	/* 9 */
+	/* 8 */
 	/***/ function(module, exports, __webpack_require__) {
-
+	
 	"use strict";
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__angular_core__);
@@ -82700,7 +83340,6 @@
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common__ = __webpack_require__(1);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__angular_common__);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__common_boolean_property__ = __webpack_require__(2);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__common_number_property__ = __webpack_require__(7);
 	/* harmony export (binding) */ __webpack_require__.d(exports, "c", function() { return CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR; });
 	/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return MdlCheckboxComponent; });
 	/* harmony export (binding) */ __webpack_require__.d(exports, "b", function() { return MdlCheckboxModule; });
@@ -82713,11 +83352,10 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-
-
-
-
-
+	
+	
+	
+	
 	var noop = function (_) { };
 	var IS_FOCUSED = 'is-focused';
 	var CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR = {
@@ -82729,14 +83367,20 @@
 	    function MdlCheckboxComponent(elementRef, renderer) {
 	        this.elementRef = elementRef;
 	        this.renderer = renderer;
-	        this.disabled = false;
-	        this.tabindex = 1;
+	        this._disabled = false;
+	        this.tabindex = null;
 	        this.change = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
 	        this.value_ = false;
 	        this.onTouchedCallback = noop;
 	        this.onChangeCallback = noop;
 	        this.el = elementRef.nativeElement;
 	    }
+	    Object.defineProperty(MdlCheckboxComponent.prototype, "disabled", {
+	        get: function () { return this._disabled; },
+	        set: function (value) { this._disabled = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__common_boolean_property__["a" /* toBoolean */])(value); },
+	        enumerable: true,
+	        configurable: true
+	    });
 	    Object.defineProperty(MdlCheckboxComponent.prototype, "value", {
 	        get: function () { return this.value_; },
 	        set: function (v) {
@@ -82774,13 +83418,11 @@
 	        this.value = !this.value;
 	    };
 	    __decorate([
-	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
-	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__common_boolean_property__["a" /* BooleanProperty */])(), 
-	        __metadata('design:type', Object)
-	    ], MdlCheckboxComponent.prototype, "disabled", void 0);
+	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(), 
+	        __metadata('design:type', Boolean)
+	    ], MdlCheckboxComponent.prototype, "disabled", null);
 	    __decorate([
-	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
-	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_4__common_number_property__["a" /* NumberProperty */])(), 
+	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(), 
 	        __metadata('design:type', Number)
 	    ], MdlCheckboxComponent.prototype, "tabindex", void 0);
 	    MdlCheckboxComponent = __decorate([
@@ -82794,7 +83436,7 @@
 	                '[class.is-checked]': 'value',
 	                '[class.is-disabled]': 'disabled'
 	            },
-	            template: "\n  <input type=\"checkbox\" class=\"mdl-checkbox__input\" \n    (focus)=\"onFocus()\" \n    (blur)=\"onBlur()\"\n    [disabled]=\"disabled\"\n    [tabindex]=\"tabindex\"\n    [ngModel]=\"value\">\n  <span class=\"mdl-checkbox__label\"><ng-content></ng-content></span>\n  <span class=\"mdl-checkbox__focus-helper\"></span>\n  <span class=\"mdl-checkbox__box-outline\">\n    <span class=\"mdl-checkbox__tick-outline\"></span>\n  </span>\n  ",
+	            template: "\n  <input type=\"checkbox\" class=\"mdl-checkbox__input\" \n    (focus)=\"onFocus()\" \n    (blur)=\"onBlur()\"\n    [disabled]=\"disabled\"\n    [attr.tabindex]=\"tabindex\"\n    [ngModel]=\"value\">\n  <span class=\"mdl-checkbox__label\"><ng-content></ng-content></span>\n  <span class=\"mdl-checkbox__focus-helper\"></span>\n  <span class=\"mdl-checkbox__box-outline\">\n    <span class=\"mdl-checkbox__tick-outline\"></span>\n  </span>\n  ",
 	            inputs: ['value'],
 	            outputs: ['change'],
 	            encapsulation: __WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewEncapsulation"].None,
@@ -82825,12 +83467,12 @@
 	    ], MdlCheckboxModule);
 	    return MdlCheckboxModule;
 	}());
-
-
+	
+	
 	/***/ },
-	/* 10 */
+	/* 9 */
 	/***/ function(module, exports, __webpack_require__) {
-
+	
 	"use strict";
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__angular_core__);
@@ -82859,8 +83501,8 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-
-
+	
+	
 	// known bugs: https://github.com/google/material-design-lite/issues/4215
 	var MdlRippleDirective = (function () {
 	    function MdlRippleDirective(elementRef, renderer, cssContainerClasses) {
@@ -83097,12 +83739,12 @@
 	    ], MdlRippleModule);
 	    return MdlRippleModule;
 	}());
-
-
+	
+	
 	/***/ },
-	/* 11 */
+	/* 10 */
 	/***/ function(module, exports, __webpack_require__) {
-
+	
 	"use strict";
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__angular_core__);
@@ -83122,12 +83764,12 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-
-
-
-
-
-
+	
+	
+	
+	
+	
+	
 	var PUBLIC_COMPONENTS = [
 	    __WEBPACK_IMPORTED_MODULE_1__mdl_dialog_outlet_component__["b" /* MdlDialogInnerOutletComponent */]
 	];
@@ -83158,19 +83800,19 @@
 	    ], MdlDialogOutletModule);
 	    return MdlDialogOutletModule;
 	}());
-
-
+	
+	
 	/***/ },
-	/* 12 */
+	/* 11 */
 	/***/ function(module, exports, __webpack_require__) {
-
+	
 	"use strict";
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__mdl_tabs_component__ = __webpack_require__(61);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mdl_tab_panel_component__ = __webpack_require__(49);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mdl_tab_panel_title_component__ = __webpack_require__(48);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_core__ = __webpack_require__(0);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__angular_core__);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__common_mdl_ripple_directive__ = __webpack_require__(10);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__common_mdl_ripple_directive__ = __webpack_require__(9);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__common_index__ = __webpack_require__(41);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_common__ = __webpack_require__(1);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_common___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__angular_common__);
@@ -83188,16 +83830,16 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-
-
-
-
-
-
-
-
-
-
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	var MDL_TABS_DIRECTIVES = [
 	    __WEBPACK_IMPORTED_MODULE_0__mdl_tabs_component__["a" /* MdlTabsComponent */],
 	    __WEBPACK_IMPORTED_MODULE_1__mdl_tab_panel_component__["a" /* MdlTabPanelComponent */],
@@ -83223,12 +83865,29 @@
 	    ], MdlTabsModule);
 	    return MdlTabsModule;
 	}());
-
-
+	
+	
+	/***/ },
+	/* 12 */
+	/***/ function(module, exports, __webpack_require__) {
+	
+	"use strict";
+	/* harmony export (immutable) */ exports["a"] = toNumber;
+	function toNumber(value) {
+	    if (typeof value === 'undefined') {
+	        return null;
+	    }
+	    else if (typeof value === 'string') {
+	        return parseInt(value);
+	    }
+	    return value;
+	}
+	
+	
 	/***/ },
 	/* 13 */
 	/***/ function(module, exports, __webpack_require__) {
-
+	
 	"use strict";
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__angular_core__);
@@ -83244,9 +83903,9 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-
-
-
+	
+	
+	
 	var MdlDialogOutletService = (function () {
 	    function MdlDialogOutletService(appRef, componentFactoryResolver) {
 	        this.appRef = appRef;
@@ -83296,18 +83955,24 @@
 	    return MdlDialogOutletService;
 	    var _a, _b;
 	}());
-
-
+	
+	
 	/***/ },
 	/* 14 */
 	/***/ function(module, exports) {
-
-
-
+	
+	module.exports = __WEBPACK_EXTERNAL_MODULE_14__;
+	
 	/***/ },
 	/* 15 */
+	/***/ function(module, exports) {
+	
+	
+	
+	/***/ },
+	/* 16 */
 	/***/ function(module, exports, __webpack_require__) {
-
+	
 	"use strict";
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__angular_core__);
@@ -83315,11 +83980,15 @@
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__common_mdl_error__ = __webpack_require__(6);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__common_boolean_property__ = __webpack_require__(2);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__common_number_property__ = __webpack_require__(7);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__common_number_property__ = __webpack_require__(12);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__mdl_layout_header_component__ = __webpack_require__(45);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__mdl_layout_drawer_component__ = __webpack_require__(44);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__mdl_layout_content_component__ = __webpack_require__(43);
-	/* harmony export (binding) */ __webpack_require__.d(exports, "b", function() { return MdLUnsupportedLayoutTypeError; });
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_rxjs_Subject__ = __webpack_require__(14);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_rxjs_Subject___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_rxjs_Subject__);
+	/* harmony export (binding) */ __webpack_require__.d(exports, "c", function() { return LAYOUT_SCREEN_SIZE_THRESHOLD; });
+	/* harmony export (binding) */ __webpack_require__.d(exports, "d", function() { return MdLUnsupportedLayoutTypeError; });
+	/* harmony export (binding) */ __webpack_require__.d(exports, "b", function() { return MdlScreenSizeService; });
 	/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return MdlLayoutComponent; });
 	var __extends = (this && this.__extends) || function (d, b) {
 	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
@@ -83335,18 +84004,36 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-
-
-
-
-
-
-
-
+	var __param = (this && this.__param) || function (paramIndex, decorator) {
+	    return function (target, key) { decorator(target, key, paramIndex); }
+	};
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	var ESCAPE = 27;
 	var STANDARD = 'standard';
 	var WATERFALL = 'waterfall';
 	var SCROLL = 'scroll';
+	/**
+	 * The LAYOUT_SCREEN_SIZE_THRESHOLD can be changed at the root module. Just provide a value for this OpaqueToken:
+	 *
+	 * providers: [
+	 *  {provide:LAYOUT_SCREEN_SIZE_THRESHOLD, useValue: 768 }
+	 * ]
+	 *
+	 * you also need to change the scss variable to the same value: $layout-screen-size-threshold: 768px.
+	 *
+	 * It should be clear that this can only be used if you are using the scss and not the pre compiled css from getmdl.io.
+	 *
+	 * @type {OpaqueToken}
+	 */
+	var LAYOUT_SCREEN_SIZE_THRESHOLD = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["OpaqueToken"]('layoutScreenSizeThreshold');
 	var MdLUnsupportedLayoutTypeError = (function (_super) {
 	    __extends(MdLUnsupportedLayoutTypeError, _super);
 	    function MdLUnsupportedLayoutTypeError(type) {
@@ -83354,19 +84041,67 @@
 	    }
 	    return MdLUnsupportedLayoutTypeError;
 	}(__WEBPACK_IMPORTED_MODULE_2__common_mdl_error__["a" /* MdlError */]));
+	var MdlScreenSizeService = (function () {
+	    function MdlScreenSizeService(ngZone, layoutScreenSizeThreshold) {
+	        var _this = this;
+	        this.ngZone = ngZone;
+	        this.layoutScreenSizeThreshold = layoutScreenSizeThreshold;
+	        this.sizesSubject = new __WEBPACK_IMPORTED_MODULE_8_rxjs_Subject__["Subject"]();
+	        // if no value is injected the default size wil be used. same as $layout-screen-size-threshold in scss
+	        if (!this.layoutScreenSizeThreshold) {
+	            this.layoutScreenSizeThreshold = 1024;
+	        }
+	        // do not try to access the window object if rendered on the server
+	        if (typeof window === 'object' && 'matchMedia' in window) {
+	            var query_1 = window.matchMedia("(max-width: " + this.layoutScreenSizeThreshold + "px)");
+	            var queryListener_1 = function () {
+	                _this.ngZone.run(function () {
+	                    // looks like the query addListener runs not in NGZone - inform manually about changes
+	                    _this.sizesSubject.next(query_1.matches);
+	                });
+	            };
+	            query_1.addListener(queryListener_1);
+	            this.windowMediaQueryListener = function () {
+	                query_1.removeListener(queryListener_1);
+	            };
+	            // set the initial state
+	            setTimeout(function () {
+	                _this.sizesSubject.next(query_1.matches);
+	            });
+	        }
+	    }
+	    MdlScreenSizeService.prototype.sizes = function () {
+	        return this.sizesSubject.asObservable();
+	    };
+	    MdlScreenSizeService.prototype.destroy = function () {
+	        if (this.windowMediaQueryListener) {
+	            this.windowMediaQueryListener();
+	            this.windowMediaQueryListener = null;
+	        }
+	    };
+	    MdlScreenSizeService = __decorate([
+	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
+	        __param(1, __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Optional"])()),
+	        __param(1, __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Inject"])(LAYOUT_SCREEN_SIZE_THRESHOLD)), 
+	        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["NgZone"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_0__angular_core__["NgZone"]) === 'function' && _a) || Object, Number])
+	    ], MdlScreenSizeService);
+	    return MdlScreenSizeService;
+	    var _a;
+	}());
 	var MdlLayoutComponent = (function () {
-	    function MdlLayoutComponent(renderer, evm, el, ngZone) {
+	    function MdlLayoutComponent(renderer, evm, el, ngZone, screenSizeService) {
 	        this.renderer = renderer;
 	        this.evm = evm;
 	        this.el = el;
 	        this.ngZone = ngZone;
+	        this.screenSizeService = screenSizeService;
 	        this.mode = STANDARD;
-	        this.isFixedDrawer = false;
-	        this.isFixedHeader = false;
-	        this.isSeamed = false;
-	        this.selectedIndex = 0;
-	        this.isRipple = false;
-	        this.isNoDrawer = false;
+	        this._isFixedDrawer = false;
+	        this._isFixedHeader = false;
+	        this._isSeamed = false;
+	        this._selectedIndex = 0;
+	        this._isRipple = false;
+	        this._isNoDrawer = false;
 	        this.selectedTabEmitter = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
 	        this.mouseoverTabEmitter = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
 	        this.mouseoutTabEmitter = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
@@ -83375,6 +84110,42 @@
 	        this.isDrawerVisible = false;
 	        this.isSmallScreen = false;
 	    }
+	    Object.defineProperty(MdlLayoutComponent.prototype, "isFixedDrawer", {
+	        get: function () { return this._isFixedDrawer; },
+	        set: function (value) { this._isFixedDrawer = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__common_boolean_property__["a" /* toBoolean */])(value); },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Object.defineProperty(MdlLayoutComponent.prototype, "isFixedHeader", {
+	        get: function () { return this._isFixedHeader; },
+	        set: function (value) { this._isFixedHeader = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__common_boolean_property__["a" /* toBoolean */])(value); },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Object.defineProperty(MdlLayoutComponent.prototype, "isSeamed", {
+	        get: function () { return this._isSeamed; },
+	        set: function (value) { this._isSeamed = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__common_boolean_property__["a" /* toBoolean */])(value); },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Object.defineProperty(MdlLayoutComponent.prototype, "selectedIndex", {
+	        get: function () { return this._selectedIndex; },
+	        set: function (value) { this._selectedIndex = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_4__common_number_property__["a" /* toNumber */])(value); },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Object.defineProperty(MdlLayoutComponent.prototype, "isRipple", {
+	        get: function () { return this._isRipple; },
+	        set: function (value) { this._isRipple = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__common_boolean_property__["a" /* toBoolean */])(value); },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Object.defineProperty(MdlLayoutComponent.prototype, "isNoDrawer", {
+	        get: function () { return this._isNoDrawer; },
+	        set: function (value) { this._isNoDrawer = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__common_boolean_property__["a" /* toBoolean */])(value); },
+	        enumerable: true,
+	        configurable: true
+	    });
 	    MdlLayoutComponent.prototype.ngAfterContentInit = function () {
 	        this.validateMode();
 	        if (this.header && this.content && this.content.tabs) {
@@ -83416,24 +84187,9 @@
 	            this.scrollListener = this.renderer.listen(this.content.el, 'scroll', function (e) {
 	                _this.onScroll(_this.content.el.scrollTop);
 	            });
-	            // do not try to access the window object if rendered on the server
-	            if (typeof window === 'object' && 'matchMedia' in window) {
-	                var query_1 = window.matchMedia('(max-width: 1024px)');
-	                var queryListener_1 = function () {
-	                    _this.ngZone.run(function () {
-	                        // looks like the query addListener runs not in NGZone - inform manually about changes
-	                        _this.onQueryChange(query_1.matches);
-	                    });
-	                };
-	                query_1.addListener(queryListener_1);
-	                this.windowMediaQueryListener = function () {
-	                    query_1.removeListener(queryListener_1);
-	                };
-	                // set the initial state
-	                setTimeout(function () {
-	                    _this.onQueryChange(query_1.matches);
-	                });
-	            }
+	            this.screenSizeService.sizes().subscribe(function (isSmall) {
+	                _this.onQueryChange(isSmall);
+	            });
 	        }
 	    };
 	    MdlLayoutComponent.prototype.onScroll = function (scrollTop) {
@@ -83492,10 +84248,7 @@
 	            this.scrollListener();
 	            this.scrollListener = null;
 	        }
-	        if (this.windowMediaQueryListener) {
-	            this.windowMediaQueryListener();
-	            this.windowMediaQueryListener = null;
-	        }
+	        this.screenSizeService.destroy();
 	    };
 	    // triggered from mdl-layout-header.component
 	    MdlLayoutComponent.prototype.tabSelected = function (tab) {
@@ -83541,35 +84294,29 @@
 	        __metadata('design:type', String)
 	    ], MdlLayoutComponent.prototype, "mode", void 0);
 	    __decorate([
-	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])('mdl-layout-fixed-drawer'),
-	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__common_boolean_property__["a" /* BooleanProperty */])(), 
+	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])('mdl-layout-fixed-drawer'), 
 	        __metadata('design:type', Object)
-	    ], MdlLayoutComponent.prototype, "isFixedDrawer", void 0);
+	    ], MdlLayoutComponent.prototype, "isFixedDrawer", null);
 	    __decorate([
-	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])('mdl-layout-fixed-header'),
-	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__common_boolean_property__["a" /* BooleanProperty */])(), 
+	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])('mdl-layout-fixed-header'), 
 	        __metadata('design:type', Object)
-	    ], MdlLayoutComponent.prototype, "isFixedHeader", void 0);
+	    ], MdlLayoutComponent.prototype, "isFixedHeader", null);
 	    __decorate([
-	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])('mdl-layout-header-seamed'),
-	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__common_boolean_property__["a" /* BooleanProperty */])(), 
+	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])('mdl-layout-header-seamed'), 
 	        __metadata('design:type', Object)
-	    ], MdlLayoutComponent.prototype, "isSeamed", void 0);
+	    ], MdlLayoutComponent.prototype, "isSeamed", null);
 	    __decorate([
-	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])('mdl-layout-tab-active-index'),
-	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_4__common_number_property__["a" /* NumberProperty */])(), 
-	        __metadata('design:type', Number)
-	    ], MdlLayoutComponent.prototype, "selectedIndex", void 0);
-	    __decorate([
-	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])('mdl-ripple'),
-	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__common_boolean_property__["a" /* BooleanProperty */])(), 
+	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])('mdl-layout-tab-active-index'), 
 	        __metadata('design:type', Object)
-	    ], MdlLayoutComponent.prototype, "isRipple", void 0);
+	    ], MdlLayoutComponent.prototype, "selectedIndex", null);
 	    __decorate([
-	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])('mdl-layout-no-drawer-button'),
-	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__common_boolean_property__["a" /* BooleanProperty */])(), 
+	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])('mdl-ripple'), 
 	        __metadata('design:type', Object)
-	    ], MdlLayoutComponent.prototype, "isNoDrawer", void 0);
+	    ], MdlLayoutComponent.prototype, "isRipple", null);
+	    __decorate([
+	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])('mdl-layout-no-drawer-button'), 
+	        __metadata('design:type', Object)
+	    ], MdlLayoutComponent.prototype, "isNoDrawer", null);
 	    __decorate([
 	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])('mdl-layout-tab-active-changed'), 
 	        __metadata('design:type', Object)
@@ -83597,17 +84344,17 @@
 	            exportAs: 'mdlLayout',
 	            encapsulation: __WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewEncapsulation"].None
 	        }), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["Renderer"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_0__angular_core__["Renderer"]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["EventManager"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["EventManager"]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"]) === 'function' && _c) || Object, (typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["NgZone"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_0__angular_core__["NgZone"]) === 'function' && _d) || Object])
+	        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["Renderer"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_0__angular_core__["Renderer"]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["EventManager"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["EventManager"]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"]) === 'function' && _c) || Object, (typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["NgZone"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_0__angular_core__["NgZone"]) === 'function' && _d) || Object, MdlScreenSizeService])
 	    ], MdlLayoutComponent);
 	    return MdlLayoutComponent;
 	    var _a, _b, _c, _d;
 	}());
-
-
+	
+	
 	/***/ },
-	/* 16 */
+	/* 17 */
 	/***/ function(module, exports, __webpack_require__) {
-
+	
 	"use strict";
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__angular_core__);
@@ -83630,9 +84377,9 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-
-
-
+	
+	
+	
 	var BOTTOM_LEFT = 'bottom-left';
 	var BOTTOM_RIGHT = 'bottom-right';
 	var TOP_LEFT = 'top-left';
@@ -83861,18 +84608,12 @@
 	    return MdlMenuComponent;
 	    var _a, _b, _c, _d, _e;
 	}());
-
-
-	/***/ },
-	/* 17 */
-	/***/ function(module, exports) {
-
-	module.exports = __WEBPACK_EXTERNAL_MODULE_17__;
-
+	
+	
 	/***/ },
 	/* 18 */
 	/***/ function(module, exports, __webpack_require__) {
-
+	
 	"use strict";
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__angular_core__);
@@ -83886,7 +84627,7 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-
+	
 	var MdlBackdropOverlayComponent = (function () {
 	    function MdlBackdropOverlayComponent() {
 	        this.clickEmitter = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
@@ -83941,17 +84682,17 @@
 	    ], MdlBackdropOverlayComponent);
 	    return MdlBackdropOverlayComponent;
 	}());
-
-
+	
+	
 	/***/ },
 	/* 19 */
 	/***/ function(module, exports, __webpack_require__) {
-
+	
 	"use strict";
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__angular_core__);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mdl_dialog_service__ = __webpack_require__(8);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mdl_dialog_configuration__ = __webpack_require__(14);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mdl_dialog_service__ = __webpack_require__(7);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mdl_dialog_configuration__ = __webpack_require__(15);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mdl_dialog_configuration___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__mdl_dialog_configuration__);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__button_mdl_button_component__ = __webpack_require__(4);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__internal_dialog_reference__ = __webpack_require__(52);
@@ -83968,11 +84709,11 @@
 	var __param = (this && this.__param) || function (paramIndex, decorator) {
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
-
-
-
-
-
+	
+	
+	
+	
+	
 	var enterTransitionDuration = 300;
 	var leaveTransitionDuration = 250;
 	var enterTransitionEasingCurve = 'cubic-bezier(0.0, 0.0, 0.2, 1)';
@@ -84156,17 +84897,17 @@
 	    return MdlDialogHostComponent;
 	    var _a, _b, _c, _d, _e;
 	}());
-
-
+	
+	
 	/***/ },
 	/* 20 */
 	/***/ function(module, exports, __webpack_require__) {
-
+	
 	"use strict";
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__angular_core__);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mdl_dialog_service__ = __webpack_require__(8);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mdl_dialog_configuration__ = __webpack_require__(14);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mdl_dialog_service__ = __webpack_require__(7);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mdl_dialog_configuration__ = __webpack_require__(15);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mdl_dialog_configuration___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__mdl_dialog_configuration__);
 	/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return MdlSimpleDialogComponent; });
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -84181,9 +84922,9 @@
 	var __param = (this && this.__param) || function (paramIndex, decorator) {
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
-
-
-
+	
+	
+	
 	var MdlSimpleDialogComponent = (function () {
 	    // why do i need forwardRef at this point, the demo LoginDialog dosn't need this!?!?
 	    function MdlSimpleDialogComponent(dialogConfiguration, dialog) {
@@ -84231,12 +84972,12 @@
 	    return MdlSimpleDialogComponent;
 	    var _a, _b, _c;
 	}());
-
-
+	
+	
 	/***/ },
 	/* 21 */
 	/***/ function(module, exports, __webpack_require__) {
-
+	
 	"use strict";
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__angular_core__);
@@ -84253,7 +84994,7 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-
+	
 	var MdlBadgeDirective = (function () {
 	    function MdlBadgeDirective(elementRef, renderer) {
 	        this.elementRef = elementRef;
@@ -84327,12 +85068,12 @@
 	    ], MdlBadgeModule);
 	    return MdlBadgeModule;
 	}());
-
-
+	
+	
 	/***/ },
 	/* 22 */
 	/***/ function(module, exports, __webpack_require__) {
-
+	
 	"use strict";
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__angular_core__);
@@ -84365,8 +85106,8 @@
 	var __param = (this && this.__param) || function (paramIndex, decorator) {
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
-
-
+	
+	
 	var MdlCardComponent = (function () {
 	    function MdlCardComponent() {
 	    }
@@ -84567,12 +85308,12 @@
 	    ], MdlCardModule);
 	    return MdlCardModule;
 	}());
-
-
+	
+	
 	/***/ },
 	/* 23 */
 	/***/ function(module, exports, __webpack_require__) {
-
+	
 	"use strict";
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__angular_core__);
@@ -84593,13 +85334,13 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-
-
-
-
-
-
-
+	
+	
+	
+	
+	
+	
+	
 	var DIRECTIVES = [__WEBPACK_IMPORTED_MODULE_3__mdl_chip_component__["a" /* MdlChipComponent */], __WEBPACK_IMPORTED_MODULE_4__mdl_chip_contact_directive__["a" /* MdlChipContactDirective */]];
 	var MdlChipModule = (function () {
 	    function MdlChipModule() {
@@ -84620,26 +85361,26 @@
 	    ], MdlChipModule);
 	    return MdlChipModule;
 	}());
-
-
+	
+	
 	/***/ },
 	/* 24 */
 	/***/ function(module, exports, __webpack_require__) {
-
+	
 	"use strict";
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__angular_core__);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__(1);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__angular_common__);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mdl_dialog_service__ = __webpack_require__(8);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mdl_dialog_service__ = __webpack_require__(7);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__mdl_dialog_component__ = __webpack_require__(54);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__mdl_simple_dialog_component__ = __webpack_require__(20);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__common_index__ = __webpack_require__(41);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__mdl_dialog_host_component__ = __webpack_require__(19);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__mdl_alert_component__ = __webpack_require__(53);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__dialog_outlet_index__ = __webpack_require__(11);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__dialog_outlet_index__ = __webpack_require__(10);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__button_mdl_button_component__ = __webpack_require__(4);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__mdl_dialog_configuration__ = __webpack_require__(14);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__mdl_dialog_configuration__ = __webpack_require__(15);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__mdl_dialog_configuration___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__mdl_dialog_configuration__);
 	/* harmony export (binding) */ __webpack_require__.d(exports, "MdlDialogModule", function() { return MdlDialogModule; });
 	/* harmony namespace reexport (by provided) */ __webpack_require__.d(exports, "MdlDialogComponent", function() { return __WEBPACK_IMPORTED_MODULE_3__mdl_dialog_component__["a"]; });
@@ -84658,20 +85399,20 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	var PUBLIC_COMPONENTS = [
 	    __WEBPACK_IMPORTED_MODULE_3__mdl_dialog_component__["a" /* MdlDialogComponent */],
 	    __WEBPACK_IMPORTED_MODULE_7__mdl_alert_component__["a" /* MdlAlertComponent */]
@@ -84705,12 +85446,12 @@
 	    ], MdlDialogModule);
 	    return MdlDialogModule;
 	}());
-
-
+	
+	
 	/***/ },
 	/* 25 */
 	/***/ function(module, exports, __webpack_require__) {
-
+	
 	"use strict";
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__angular_core__);
@@ -84719,7 +85460,7 @@
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(3);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__angular_forms__);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__icon_mdl_icon_component__ = __webpack_require__(5);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__checkbox_mdl_checkbox_component__ = __webpack_require__(9);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__checkbox_mdl_checkbox_component__ = __webpack_require__(8);
 	/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return MdlIconToggleComponent; });
 	/* harmony export (binding) */ __webpack_require__.d(exports, "b", function() { return MdlIconToggleModule; });
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -84736,11 +85477,11 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-
-
-
-
-
+	
+	
+	
+	
+	
 	var MdlIconToggleComponent = (function (_super) {
 	    __extends(MdlIconToggleComponent, _super);
 	    function MdlIconToggleComponent(elementRef, renderer) {
@@ -84789,16 +85530,16 @@
 	    ], MdlIconToggleModule);
 	    return MdlIconToggleModule;
 	}());
-
-
+	
+	
 	/***/ },
 	/* 26 */
 	/***/ function(module, exports, __webpack_require__) {
-
+	
 	"use strict";
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__angular_core__);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mdl_layout_component__ = __webpack_require__(15);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mdl_layout_component__ = __webpack_require__(16);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mdl_layout_header_component__ = __webpack_require__(45);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__mdl_layout_drawer_component__ = __webpack_require__(44);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__mdl_layout_content_component__ = __webpack_require__(43);
@@ -84808,22 +85549,24 @@
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__mdl_layout_spacer_component__ = __webpack_require__(57);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__mdl_layout_tab_panel_component__ = __webpack_require__(46);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__icon_mdl_icon_component__ = __webpack_require__(5);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__common_mdl_ripple_directive__ = __webpack_require__(10);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__common_mdl_ripple_directive__ = __webpack_require__(9);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__common_index__ = __webpack_require__(41);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__angular_common__ = __webpack_require__(1);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__angular_common___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13__angular_common__);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__tabs_index__ = __webpack_require__(12);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__tabs_index__ = __webpack_require__(11);
 	/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return MdlLayoutModule; });
-	/* harmony namespace reexport (by used) */ __webpack_require__.d(exports, "b", function() { return __WEBPACK_IMPORTED_MODULE_1__mdl_layout_component__["b"]; });
-	/* harmony namespace reexport (by used) */ __webpack_require__.d(exports, "c", function() { return __WEBPACK_IMPORTED_MODULE_1__mdl_layout_component__["a"]; });
-	/* harmony namespace reexport (by used) */ __webpack_require__.d(exports, "d", function() { return __WEBPACK_IMPORTED_MODULE_2__mdl_layout_header_component__["a"]; });
-	/* harmony namespace reexport (by used) */ __webpack_require__.d(exports, "e", function() { return __WEBPACK_IMPORTED_MODULE_3__mdl_layout_drawer_component__["a"]; });
-	/* harmony namespace reexport (by used) */ __webpack_require__.d(exports, "f", function() { return __WEBPACK_IMPORTED_MODULE_4__mdl_layout_content_component__["a"]; });
-	/* harmony namespace reexport (by used) */ __webpack_require__.d(exports, "g", function() { return __WEBPACK_IMPORTED_MODULE_5__mdl_layout_header_transparent_directive__["a"]; });
-	/* harmony namespace reexport (by used) */ __webpack_require__.d(exports, "h", function() { return __WEBPACK_IMPORTED_MODULE_6__mdl_layout_header_row_component__["a"]; });
-	/* harmony namespace reexport (by used) */ __webpack_require__.d(exports, "i", function() { return __WEBPACK_IMPORTED_MODULE_7__mdl_layout_title_component__["a"]; });
-	/* harmony namespace reexport (by used) */ __webpack_require__.d(exports, "j", function() { return __WEBPACK_IMPORTED_MODULE_8__mdl_layout_spacer_component__["a"]; });
-	/* harmony namespace reexport (by used) */ __webpack_require__.d(exports, "k", function() { return __WEBPACK_IMPORTED_MODULE_9__mdl_layout_tab_panel_component__["a"]; });
+	/* harmony namespace reexport (by used) */ __webpack_require__.d(exports, "b", function() { return __WEBPACK_IMPORTED_MODULE_1__mdl_layout_component__["c"]; });
+	/* harmony namespace reexport (by used) */ __webpack_require__.d(exports, "c", function() { return __WEBPACK_IMPORTED_MODULE_1__mdl_layout_component__["d"]; });
+	/* harmony namespace reexport (by used) */ __webpack_require__.d(exports, "d", function() { return __WEBPACK_IMPORTED_MODULE_1__mdl_layout_component__["b"]; });
+	/* harmony namespace reexport (by used) */ __webpack_require__.d(exports, "e", function() { return __WEBPACK_IMPORTED_MODULE_1__mdl_layout_component__["a"]; });
+	/* harmony namespace reexport (by used) */ __webpack_require__.d(exports, "f", function() { return __WEBPACK_IMPORTED_MODULE_2__mdl_layout_header_component__["a"]; });
+	/* harmony namespace reexport (by used) */ __webpack_require__.d(exports, "g", function() { return __WEBPACK_IMPORTED_MODULE_3__mdl_layout_drawer_component__["a"]; });
+	/* harmony namespace reexport (by used) */ __webpack_require__.d(exports, "h", function() { return __WEBPACK_IMPORTED_MODULE_4__mdl_layout_content_component__["a"]; });
+	/* harmony namespace reexport (by used) */ __webpack_require__.d(exports, "i", function() { return __WEBPACK_IMPORTED_MODULE_5__mdl_layout_header_transparent_directive__["a"]; });
+	/* harmony namespace reexport (by used) */ __webpack_require__.d(exports, "j", function() { return __WEBPACK_IMPORTED_MODULE_6__mdl_layout_header_row_component__["a"]; });
+	/* harmony namespace reexport (by used) */ __webpack_require__.d(exports, "k", function() { return __WEBPACK_IMPORTED_MODULE_7__mdl_layout_title_component__["a"]; });
+	/* harmony namespace reexport (by used) */ __webpack_require__.d(exports, "l", function() { return __WEBPACK_IMPORTED_MODULE_8__mdl_layout_spacer_component__["a"]; });
+	/* harmony namespace reexport (by used) */ __webpack_require__.d(exports, "m", function() { return __WEBPACK_IMPORTED_MODULE_9__mdl_layout_tab_panel_component__["a"]; });
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
 	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -84833,21 +85576,21 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	var MDL_LAYOUT_DIRECTIVES = [
 	    __WEBPACK_IMPORTED_MODULE_1__mdl_layout_component__["a" /* MdlLayoutComponent */],
 	    __WEBPACK_IMPORTED_MODULE_2__mdl_layout_header_component__["a" /* MdlLayoutHeaderComponent */],
@@ -84859,22 +85602,24 @@
 	    __WEBPACK_IMPORTED_MODULE_8__mdl_layout_spacer_component__["a" /* MdlLayoutSpacerComponent */],
 	    __WEBPACK_IMPORTED_MODULE_9__mdl_layout_tab_panel_component__["a" /* MdlLayoutTabPanelComponent */]
 	];
-
-
-
-
-
-
-
-
-
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	var MdlLayoutModule = (function () {
 	    function MdlLayoutModule() {
 	    }
 	    MdlLayoutModule.forRoot = function () {
 	        return {
 	            ngModule: MdlLayoutModule,
-	            providers: []
+	            providers: [
+	                __WEBPACK_IMPORTED_MODULE_1__mdl_layout_component__["b" /* MdlScreenSizeService */]
+	            ]
 	        };
 	    };
 	    MdlLayoutModule = __decorate([
@@ -84887,17 +85632,17 @@
 	    ], MdlLayoutModule);
 	    return MdlLayoutModule;
 	}());
-
-
+	
+	
 	/***/ },
 	/* 27 */
 	/***/ function(module, exports, __webpack_require__) {
-
+	
 	"use strict";
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__angular_core__);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__common_mdl_error__ = __webpack_require__(6);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__common_number_property__ = __webpack_require__(7);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__common_number_property__ = __webpack_require__(12);
 	/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return MdlUnsupportedCountOfListItemLinesError; });
 	/* harmony export (binding) */ __webpack_require__.d(exports, "b", function() { return MdlListComponent; });
 	/* harmony export (binding) */ __webpack_require__.d(exports, "c", function() { return MdlListItemComponent; });
@@ -84927,9 +85672,9 @@
 	var __param = (this && this.__param) || function (paramIndex, decorator) {
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
-
-
-
+	
+	
+	
 	var MdlUnsupportedCountOfListItemLinesError = (function (_super) {
 	    __extends(MdlUnsupportedCountOfListItemLinesError, _super);
 	    function MdlUnsupportedCountOfListItemLinesError(lines) {
@@ -84956,8 +85701,14 @@
 	var MdlListItemComponent = (function () {
 	    function MdlListItemComponent(mdlListComponent) {
 	        this.mdlListComponent = mdlListComponent;
-	        this.lines = 1;
+	        this._lines = 1;
 	    }
+	    Object.defineProperty(MdlListItemComponent.prototype, "lines", {
+	        get: function () { return this._lines; },
+	        set: function (value) { this._lines = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__common_number_property__["a" /* toNumber */])(value); },
+	        enumerable: true,
+	        configurable: true
+	    });
 	    MdlListItemComponent.prototype.ngOnInit = function () {
 	        if (this.mdlListComponent === null) {
 	            throw new __WEBPACK_IMPORTED_MODULE_1__common_mdl_error__["b" /* MdlStructureError */]('mdl-list-item', 'mdl-list');
@@ -84969,10 +85720,9 @@
 	        }
 	    };
 	    __decorate([
-	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
-	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__common_number_property__["a" /* NumberProperty */])(), 
-	        __metadata('design:type', Number)
-	    ], MdlListItemComponent.prototype, "lines", void 0);
+	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(), 
+	        __metadata('design:type', Object)
+	    ], MdlListItemComponent.prototype, "lines", null);
 	    MdlListItemComponent = __decorate([
 	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
 	            selector: 'mdl-list-item',
@@ -85186,16 +85936,16 @@
 	    ], MdlListModule);
 	    return MdlListModule;
 	}());
-
-
+	
+	
 	/***/ },
 	/* 28 */
 	/***/ function(module, exports, __webpack_require__) {
-
+	
 	"use strict";
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__angular_core__);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mdl_menu_component__ = __webpack_require__(16);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mdl_menu_component__ = __webpack_require__(17);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mdl_menu_item_component__ = __webpack_require__(47);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__mdl_menu_item_directive__ = __webpack_require__(59);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_common__ = __webpack_require__(1);
@@ -85216,21 +85966,21 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-
-
-
-
-
-
+	
+	
+	
+	
+	
+	
 	var MDL_MENU_DIRECTIVES = [
 	    __WEBPACK_IMPORTED_MODULE_1__mdl_menu_component__["a" /* MdlMenuComponent */],
 	    __WEBPACK_IMPORTED_MODULE_2__mdl_menu_item_component__["a" /* MdlMenuItemComponent */],
 	    __WEBPACK_IMPORTED_MODULE_3__mdl_menu_item_directive__["a" /* MdlMenuItemFullBleedDeviderComponent */],
 	    __WEBPACK_IMPORTED_MODULE_5__mdl_toggle_menu_directive__["a" /* MdlToggleMenuDirective */]
 	];
-
-
-
+	
+	
+	
 	var MdlMenuModule = (function () {
 	    function MdlMenuModule() {
 	    }
@@ -85250,12 +86000,12 @@
 	    ], MdlMenuModule);
 	    return MdlMenuModule;
 	}());
-
-
+	
+	
 	/***/ },
 	/* 29 */
 	/***/ function(module, exports, __webpack_require__) {
-
+	
 	"use strict";
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__angular_core__);
@@ -85273,15 +86023,22 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-
-
-
+	
+	
+	
 	var MdlProgressComponent = (function () {
 	    function MdlProgressComponent() {
 	        this.progress = 0;
 	        this.buffer = 100;
 	        this.aux = 0;
+	        this._indeterminate = false;
 	    }
+	    Object.defineProperty(MdlProgressComponent.prototype, "indeterminate", {
+	        get: function () { return this._indeterminate; },
+	        set: function (value) { this._indeterminate = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__common_boolean_property__["a" /* toBoolean */])(value); },
+	        enumerable: true,
+	        configurable: true
+	    });
 	    MdlProgressComponent.prototype.ngOnChanges = function (changes) {
 	        if (changes['buffer']) {
 	            this.setBuffer(changes['buffer'].currentValue);
@@ -85303,10 +86060,9 @@
 	        __metadata('design:type', Object)
 	    ], MdlProgressComponent.prototype, "aux", void 0);
 	    __decorate([
-	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
-	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__common_boolean_property__["a" /* BooleanProperty */])(), 
-	        __metadata('design:type', Boolean)
-	    ], MdlProgressComponent.prototype, "indeterminate", void 0);
+	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(), 
+	        __metadata('design:type', Object)
+	    ], MdlProgressComponent.prototype, "indeterminate", null);
 	    MdlProgressComponent = __decorate([
 	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
 	            selector: 'mdl-progress',
@@ -85342,12 +86098,12 @@
 	    ], MdlProgressModule);
 	    return MdlProgressModule;
 	}());
-
-
+	
+	
 	/***/ },
 	/* 30 */
 	/***/ function(module, exports, __webpack_require__) {
-
+	
 	"use strict";
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__angular_core__);
@@ -85356,7 +86112,6 @@
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common__ = __webpack_require__(1);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__angular_common__);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__common_boolean_property__ = __webpack_require__(2);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__common_number_property__ = __webpack_require__(7);
 	/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return MdlRadioGroupRegisty; });
 	/* harmony export (binding) */ __webpack_require__.d(exports, "b", function() { return MdlRadioComponent; });
 	/* harmony export (binding) */ __webpack_require__.d(exports, "c", function() { return MdlRadioModule; });
@@ -85372,11 +86127,10 @@
 	var __param = (this && this.__param) || function (paramIndex, decorator) {
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
-
-
-
-
-
+	
+	
+	
+	
 	var noop = function () { };
 	var IS_FOCUSED = 'is-focused';
 	// Registry for mdl-readio compnents. Is responsible to keep the
@@ -85426,8 +86180,8 @@
 	        this.renderer = renderer;
 	        this.ragioGroupRegisty = ragioGroupRegisty;
 	        this.formGroupName = formGroupName;
-	        this.disabled = false;
-	        this.tabindex = 1;
+	        this._disabled = false;
+	        this.tabindex = null;
 	        this.change = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
 	        // the internal state - used to set the underlaying radio button state.
 	        this.checked = false;
@@ -85435,6 +86189,12 @@
 	        this.onChangeCallback = noop;
 	        this.el = elementRef.nativeElement;
 	    }
+	    Object.defineProperty(MdlRadioComponent.prototype, "disabled", {
+	        get: function () { return this._disabled; },
+	        set: function (value) { this._disabled = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__common_boolean_property__["a" /* toBoolean */])(value); },
+	        enumerable: true,
+	        configurable: true
+	    });
 	    MdlRadioComponent.prototype.ngOnInit = function () {
 	        // we need a name and it must be the same as in the formcontrol.
 	        // a radio group without name is useless.
@@ -85515,14 +86275,12 @@
 	        __metadata('design:type', Object)
 	    ], MdlRadioComponent.prototype, "value", void 0);
 	    __decorate([
-	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
-	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__common_boolean_property__["a" /* BooleanProperty */])(), 
-	        __metadata('design:type', Object)
-	    ], MdlRadioComponent.prototype, "disabled", void 0);
+	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(), 
+	        __metadata('design:type', Boolean)
+	    ], MdlRadioComponent.prototype, "disabled", null);
 	    __decorate([
-	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
-	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_4__common_number_property__["a" /* NumberProperty */])(), 
-	        __metadata('design:type', Number)
+	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(), 
+	        __metadata('design:type', Object)
 	    ], MdlRadioComponent.prototype, "tabindex", void 0);
 	    __decorate([
 	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(), 
@@ -85543,7 +86301,7 @@
 	                '[class.is-checked]': 'checked',
 	                '[class.is-disabled]': 'disabled'
 	            },
-	            template: "\n  <input type=\"checkbox\" class=\"mdl-radio__button\" \n    [attr.name]=\"name\"\n    (focus)=\"onFocus()\" \n    (blur)=\"onBlur()\"\n    (keyup.space)=\"spaceKeyPress($event)\"\n    [disabled]=\"disabled\"\n    [tabindex]=\"tabindex\"\n    [(ngModel)]=\"checked\">\n  <span class=\"mdl-radio__label\"><ng-content></ng-content></span>\n  <span class=\"mdl-radio__outer-circle\"></span>\n  <span class=\"mdl-radio__inner-circle\"></span>\n  ",
+	            template: "\n  <input type=\"checkbox\" class=\"mdl-radio__button\" \n    [attr.name]=\"name\"\n    (focus)=\"onFocus()\" \n    (blur)=\"onBlur()\"\n    (keyup.space)=\"spaceKeyPress($event)\"\n    [disabled]=\"disabled\"\n    [attr.tabindex]=\"tabindex\"\n    [(ngModel)]=\"checked\">\n  <span class=\"mdl-radio__label\"><ng-content></ng-content></span>\n  <span class=\"mdl-radio__outer-circle\"></span>\n  <span class=\"mdl-radio__inner-circle\"></span>\n  ",
 	            encapsulation: __WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewEncapsulation"].None
 	        }),
 	        __param(3, __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Optional"])()), 
@@ -85571,17 +86329,17 @@
 	    ], MdlRadioModule);
 	    return MdlRadioModule;
 	}());
-
-
+	
+	
 	/***/ },
 	/* 31 */
 	/***/ function(module, exports, __webpack_require__) {
-
+	
 	"use strict";
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__angular_core__);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__common_mdl_error__ = __webpack_require__(6);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__common_number_property__ = __webpack_require__(7);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__common_number_property__ = __webpack_require__(12);
 	/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return MdlUnsupportedShadowValueError; });
 	/* harmony export (binding) */ __webpack_require__.d(exports, "b", function() { return MdlShadowDirective; });
 	/* harmony export (binding) */ __webpack_require__.d(exports, "c", function() { return MdlShadowModule; });
@@ -85599,9 +86357,9 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-
-
-
+	
+	
+	
 	var MdlUnsupportedShadowValueError = (function (_super) {
 	    __extends(MdlUnsupportedShadowValueError, _super);
 	    function MdlUnsupportedShadowValueError(value) {
@@ -85609,14 +86367,20 @@
 	    }
 	    return MdlUnsupportedShadowValueError;
 	}(__WEBPACK_IMPORTED_MODULE_1__common_mdl_error__["a" /* MdlError */]));
-	var MDL_SHADOW_VALUES = [2, 3, 4, 6, 8, 16, 24];
+	var MDL_SHADOW_VALUES = [0, 2, 3, 4, 6, 8, 16, 24];
 	var MdlShadowDirective = (function () {
 	    function MdlShadowDirective(elementRef, renderer) {
 	        this.elementRef = elementRef;
 	        this.renderer = renderer;
-	        this.mdlShadow = 2;
+	        this._mdlShadow = 2;
 	        this.el = elementRef.nativeElement;
 	    }
+	    Object.defineProperty(MdlShadowDirective.prototype, "mdlShadow", {
+	        get: function () { return this._mdlShadow; },
+	        set: function (value) { this._mdlShadow = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__common_number_property__["a" /* toNumber */])(value); },
+	        enumerable: true,
+	        configurable: true
+	    });
 	    MdlShadowDirective.prototype.ngOnChanges = function (changes) {
 	        if (MDL_SHADOW_VALUES.indexOf(Number(this.mdlShadow)) === -1) {
 	            throw new MdlUnsupportedShadowValueError(this.mdlShadow);
@@ -85628,10 +86392,9 @@
 	        this.renderer.setElementClass(this.el, "mdl-shadow--" + change.currentValue + "dp", true);
 	    };
 	    __decorate([
-	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])('mdl-shadow'),
-	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__common_number_property__["a" /* NumberProperty */])(), 
-	        __metadata('design:type', Number)
-	    ], MdlShadowDirective.prototype, "mdlShadow", void 0);
+	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])('mdl-shadow'), 
+	        __metadata('design:type', Object)
+	    ], MdlShadowDirective.prototype, "mdlShadow", null);
 	    MdlShadowDirective = __decorate([
 	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Directive"])({
 	            selector: '[mdl-shadow]'
@@ -85661,12 +86424,12 @@
 	    ], MdlShadowModule);
 	    return MdlShadowModule;
 	}());
-
-
+	
+	
 	/***/ },
 	/* 32 */
 	/***/ function(module, exports, __webpack_require__) {
-
+	
 	"use strict";
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__angular_core__);
@@ -85686,19 +86449,25 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-
-
-
-
+	
+	
+	
+	
 	var noop = function (_) { };
 	var MdlSliderComponent = (function () {
 	    function MdlSliderComponent(renderer, elRef) {
 	        this.renderer = renderer;
 	        this.elRef = elRef;
-	        this.disabled = false;
+	        this._disabled = false;
 	        this.onTouchedCallback = noop;
 	        this.onChangeCallback = noop;
 	    }
+	    Object.defineProperty(MdlSliderComponent.prototype, "disabled", {
+	        get: function () { return this._disabled; },
+	        set: function (value) { this._disabled = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__common_boolean_property__["a" /* toBoolean */])(value); },
+	        enumerable: true,
+	        configurable: true
+	    });
 	    Object.defineProperty(MdlSliderComponent.prototype, "value", {
 	        get: function () { return this.value_; },
 	        set: function (v) {
@@ -85775,10 +86544,9 @@
 	        __metadata('design:type', (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"]) === 'function' && _c) || Object)
 	    ], MdlSliderComponent.prototype, "inputEl", void 0);
 	    __decorate([
-	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
-	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__common_boolean_property__["a" /* BooleanProperty */])(), 
-	        __metadata('design:type', Object)
-	    ], MdlSliderComponent.prototype, "disabled", void 0);
+	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(), 
+	        __metadata('design:type', Boolean)
+	    ], MdlSliderComponent.prototype, "disabled", null);
 	    __decorate([
 	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(), 
 	        __metadata('design:type', Object)
@@ -85827,20 +86595,20 @@
 	    ], MdlSliderModule);
 	    return MdlSliderModule;
 	}());
-
-
+	
+	
 	/***/ },
 	/* 33 */
 	/***/ function(module, exports, __webpack_require__) {
-
+	
 	"use strict";
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__angular_core__);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__(1);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__angular_common__);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__dialog_outlet_mdl_dialog_outlet_service__ = __webpack_require__(13);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__dialog_outlet_index__ = __webpack_require__(11);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_Subject__ = __webpack_require__(17);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__dialog_outlet_index__ = __webpack_require__(10);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_Subject__ = __webpack_require__(14);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_Subject___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_Subject__);
 	/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return MdlSnackbarComponent; });
 	/* harmony export (binding) */ __webpack_require__.d(exports, "b", function() { return MdlSnackbarService; });
@@ -85854,11 +86622,11 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-
-
-
-
-
+	
+	
+	
+	
+	
 	var ANIMATION_TIME = 250;
 	var MdlSnackbarComponent = (function () {
 	    function MdlSnackbarComponent() {
@@ -85996,12 +86764,12 @@
 	    ], MdlSnackbaModule);
 	    return MdlSnackbaModule;
 	}());
-
-
+	
+	
 	/***/ },
 	/* 34 */
 	/***/ function(module, exports, __webpack_require__) {
-
+	
 	"use strict";
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__angular_core__);
@@ -86019,23 +86787,35 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-
-
-
+	
+	
+	
 	var MdlSpinnerComponent = (function () {
 	    function MdlSpinnerComponent() {
 	        this.layers = [1, 2, 3, 4];
+	        this._active = false;
+	        this._singleColor = false;
 	    }
+	    Object.defineProperty(MdlSpinnerComponent.prototype, "active", {
+	        get: function () { return this._active; },
+	        set: function (value) { this._active = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__common_boolean_property__["a" /* toBoolean */])(value); },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Object.defineProperty(MdlSpinnerComponent.prototype, "singleColor", {
+	        get: function () { return this._singleColor; },
+	        set: function (value) { this._singleColor = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__common_boolean_property__["a" /* toBoolean */])(value); },
+	        enumerable: true,
+	        configurable: true
+	    });
 	    __decorate([
-	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
-	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__common_boolean_property__["a" /* BooleanProperty */])(), 
-	        __metadata('design:type', Boolean)
-	    ], MdlSpinnerComponent.prototype, "active", void 0);
+	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(), 
+	        __metadata('design:type', Object)
+	    ], MdlSpinnerComponent.prototype, "active", null);
 	    __decorate([
-	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])('single-color'),
-	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__common_boolean_property__["a" /* BooleanProperty */])(), 
-	        __metadata('design:type', Boolean)
-	    ], MdlSpinnerComponent.prototype, "singleColor", void 0);
+	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])('single-color'), 
+	        __metadata('design:type', Object)
+	    ], MdlSpinnerComponent.prototype, "singleColor", null);
 	    MdlSpinnerComponent = __decorate([
 	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
 	            selector: 'mdl-spinner',
@@ -86074,18 +86854,18 @@
 	    ], MdlSpinnerModule);
 	    return MdlSpinnerModule;
 	}());
-
-
+	
+	
 	/***/ },
 	/* 35 */
 	/***/ function(module, exports, __webpack_require__) {
-
+	
 	"use strict";
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__angular_core__);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__(3);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__angular_forms__);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__checkbox_mdl_checkbox_component__ = __webpack_require__(9);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__checkbox_mdl_checkbox_component__ = __webpack_require__(8);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common__ = __webpack_require__(1);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__angular_common__);
 	/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return MdlSwitchComponent; });
@@ -86104,10 +86884,10 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-
-
-
-
+	
+	
+	
+	
 	var MdlSwitchComponent = (function (_super) {
 	    __extends(MdlSwitchComponent, _super);
 	    function MdlSwitchComponent(elementRef, renderer) {
@@ -86157,18 +86937,18 @@
 	    ], MdlSwitchModule);
 	    return MdlSwitchModule;
 	}());
-
-
+	
+	
 	/***/ },
 	/* 36 */
 	/***/ function(module, exports, __webpack_require__) {
-
+	
 	"use strict";
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__angular_core__);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mdl_table_component__ = __webpack_require__(60);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__checkbox_mdl_checkbox_component__ = __webpack_require__(9);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__common_mdl_ripple_directive__ = __webpack_require__(10);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__checkbox_mdl_checkbox_component__ = __webpack_require__(8);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__common_mdl_ripple_directive__ = __webpack_require__(9);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_common__ = __webpack_require__(1);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_common___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__angular_common__);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_forms__ = __webpack_require__(3);
@@ -86186,13 +86966,13 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-
-
-
-
-
-
-
+	
+	
+	
+	
+	
+	
+	
 	var MDL_TABLE_DIRECTIVES = [
 	    __WEBPACK_IMPORTED_MODULE_1__mdl_table_component__["a" /* MdlTableComponent */],
 	    __WEBPACK_IMPORTED_MODULE_1__mdl_table_component__["b" /* MdlSelectableTableComponent */]
@@ -86216,19 +86996,19 @@
 	    ], MdlTableModule);
 	    return MdlTableModule;
 	}());
-
-
+	
+	
 	/***/ },
 	/* 37 */
 	/***/ function(module, exports, __webpack_require__) {
-
+	
 	"use strict";
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__angular_core__);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__(3);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__angular_forms__);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__common_boolean_property__ = __webpack_require__(2);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__common_number_property__ = __webpack_require__(7);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__common_number_property__ = __webpack_require__(12);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__button_mdl_button_component__ = __webpack_require__(4);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__icon_mdl_icon_component__ = __webpack_require__(5);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_common__ = __webpack_require__(1);
@@ -86248,14 +87028,14 @@
 	var __param = (this && this.__param) || function (paramIndex, decorator) {
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
-
-
-
-
-
-
-
-
+	
+	
+	
+	
+	
+	
+	
+	
 	var DISABLE_NATIVE_VALIDITY_CHECKING = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["OpaqueToken"]('disableNativeValidityChecking');
 	var noop = function (_) { };
 	var nextId = 0;
@@ -86272,14 +87052,16 @@
 	        this.focusEmitter = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
 	        this.type = 'text';
 	        this.id = "mdl-textfield-" + nextId++;
-	        this.disabled = false;
-	        this.readonly = false;
-	        this.required = false;
-	        this.autofocus = false;
-	        this.isFloatingLabel = false;
-	        this.rows = null;
-	        this.maxrows = -1;
-	        this.tabindex = 1;
+	        this._disabled = false;
+	        this._readonly = false;
+	        this._required = false;
+	        this._autofocus = false;
+	        this._isFloatingLabel = false;
+	        this._rows = null;
+	        this._maxrows = -1;
+	        this.tabindex = null;
+	        // @experimental
+	        this._disableNativeValidityChecking = false;
 	        this.onTouchedCallback = noop;
 	        this.onChangeCallback = noop;
 	        this.el = elmRef.nativeElement;
@@ -86294,6 +87076,54 @@
 	        configurable: true
 	    });
 	    ;
+	    Object.defineProperty(MdlTextFieldComponent.prototype, "disabled", {
+	        get: function () { return this._disabled; },
+	        set: function (value) { this._disabled = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__common_boolean_property__["a" /* toBoolean */])(value); },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Object.defineProperty(MdlTextFieldComponent.prototype, "readonly", {
+	        get: function () { return this._readonly; },
+	        set: function (value) { this._readonly = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__common_boolean_property__["a" /* toBoolean */])(value); },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Object.defineProperty(MdlTextFieldComponent.prototype, "required", {
+	        get: function () { return this._required; },
+	        set: function (value) { this._required = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__common_boolean_property__["a" /* toBoolean */])(value); },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Object.defineProperty(MdlTextFieldComponent.prototype, "autofocus", {
+	        get: function () { return this._autofocus; },
+	        set: function (value) { this._autofocus = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__common_boolean_property__["a" /* toBoolean */])(value); },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Object.defineProperty(MdlTextFieldComponent.prototype, "isFloatingLabel", {
+	        get: function () { return this._isFloatingLabel; },
+	        set: function (value) { this._isFloatingLabel = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__common_boolean_property__["a" /* toBoolean */])(value); },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Object.defineProperty(MdlTextFieldComponent.prototype, "rows", {
+	        get: function () { return this._rows; },
+	        set: function (value) { this._rows = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__common_number_property__["a" /* toNumber */])(value); },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Object.defineProperty(MdlTextFieldComponent.prototype, "maxrows", {
+	        get: function () { return this._maxrows; },
+	        set: function (value) { this._maxrows = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__common_number_property__["a" /* toNumber */])(value); },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Object.defineProperty(MdlTextFieldComponent.prototype, "disableNativeValidityChecking", {
+	        get: function () { return this._disableNativeValidityChecking; },
+	        set: function (value) { this._disableNativeValidityChecking = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__common_boolean_property__["a" /* toBoolean */])(value); },
+	        enumerable: true,
+	        configurable: true
+	    });
 	    MdlTextFieldComponent.prototype.writeValue = function (value) {
 	        this.value_ = value;
 	        this.checkDirty();
@@ -86416,30 +87246,25 @@
 	        __metadata('design:type', Object)
 	    ], MdlTextFieldComponent.prototype, "errorMessage", void 0);
 	    __decorate([
-	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
-	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__common_boolean_property__["a" /* BooleanProperty */])(), 
-	        __metadata('design:type', Object)
-	    ], MdlTextFieldComponent.prototype, "disabled", void 0);
-	    __decorate([
-	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
-	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__common_boolean_property__["a" /* BooleanProperty */])(), 
-	        __metadata('design:type', Object)
-	    ], MdlTextFieldComponent.prototype, "readonly", void 0);
-	    __decorate([
-	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
-	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__common_boolean_property__["a" /* BooleanProperty */])(), 
-	        __metadata('design:type', Object)
-	    ], MdlTextFieldComponent.prototype, "required", void 0);
-	    __decorate([
-	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
-	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__common_boolean_property__["a" /* BooleanProperty */])(), 
+	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(), 
 	        __metadata('design:type', Boolean)
-	    ], MdlTextFieldComponent.prototype, "autofocus", void 0);
+	    ], MdlTextFieldComponent.prototype, "disabled", null);
 	    __decorate([
-	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])('floating-label'),
-	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__common_boolean_property__["a" /* BooleanProperty */])(), 
+	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(), 
 	        __metadata('design:type', Object)
-	    ], MdlTextFieldComponent.prototype, "isFloatingLabel", void 0);
+	    ], MdlTextFieldComponent.prototype, "readonly", null);
+	    __decorate([
+	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(), 
+	        __metadata('design:type', Object)
+	    ], MdlTextFieldComponent.prototype, "required", null);
+	    __decorate([
+	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(), 
+	        __metadata('design:type', Object)
+	    ], MdlTextFieldComponent.prototype, "autofocus", null);
+	    __decorate([
+	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])('floating-label'), 
+	        __metadata('design:type', Object)
+	    ], MdlTextFieldComponent.prototype, "isFloatingLabel", null);
 	    __decorate([
 	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(), 
 	        __metadata('design:type', String)
@@ -86449,29 +87274,25 @@
 	        __metadata('design:type', String)
 	    ], MdlTextFieldComponent.prototype, "autocomplete", void 0);
 	    __decorate([
-	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
-	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__common_number_property__["a" /* NumberProperty */])(), 
-	        __metadata('design:type', Number)
-	    ], MdlTextFieldComponent.prototype, "rows", void 0);
+	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(), 
+	        __metadata('design:type', Object)
+	    ], MdlTextFieldComponent.prototype, "rows", null);
 	    __decorate([
-	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
-	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__common_number_property__["a" /* NumberProperty */])(), 
-	        __metadata('design:type', Number)
-	    ], MdlTextFieldComponent.prototype, "maxrows", void 0);
+	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(), 
+	        __metadata('design:type', Object)
+	    ], MdlTextFieldComponent.prototype, "maxrows", null);
 	    __decorate([
 	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(), 
 	        __metadata('design:type', String)
 	    ], MdlTextFieldComponent.prototype, "icon", void 0);
 	    __decorate([
-	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
-	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__common_number_property__["a" /* NumberProperty */])(), 
+	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(), 
 	        __metadata('design:type', Number)
 	    ], MdlTextFieldComponent.prototype, "tabindex", void 0);
 	    __decorate([
-	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
-	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__common_boolean_property__["a" /* BooleanProperty */])(), 
+	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(), 
 	        __metadata('design:type', Object)
-	    ], MdlTextFieldComponent.prototype, "disableNativeValidityChecking", void 0);
+	    ], MdlTextFieldComponent.prototype, "disableNativeValidityChecking", null);
 	    MdlTextFieldComponent = __decorate([
 	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
 	            selector: 'mdl-textfield',
@@ -86482,7 +87303,7 @@
 	                '[class.mdl-textfield--floating-label]': 'isFloatingLabel',
 	                '[class.has-placeholder]': 'placeholder'
 	            },
-	            template: "\n   <div *ngIf=\"!icon\">\n     <textarea\n        *ngIf=\"rows\"\n        #input\n        [rows]=\"rows\"\n        class=\"mdl-textfield__input\"\n        type=\"text\"\n        [attr.name]=\"name\"\n        [id]=\"id\"\n        [placeholder]=\"placeholder ? placeholder : ''\"\n        (focus)=\"onFocus($event)\"\n        (blur)=\"onBlur($event)\"\n        (keydown)=\"keydownTextarea($event)\"\n        [(ngModel)]=\"value\"\n        [disabled]=\"disabled\"\n        [required]=\"required\"\n        [autofocus]=\"autofocus\"\n        [readonly]=\"readonly\"\n        ></textarea>\n     <input\n        *ngIf=\"!rows\"\n        #input\n        class=\"mdl-textfield__input\"\n        [type]=\"type\"\n        [attr.name]=\"name\"\n        [id]=\"id\"\n        [pattern]=\"pattern ? pattern : '.*'\"\n        [attr.min]=\"min\"\n        [attr.max]=\"max\"\n        [attr.step]=\"step\"\n        [placeholder]=\"placeholder ? placeholder : ''\"\n        [autocomplete]=\"autocomplete ? autocomplete : ''\"\n        (focus)=\"onFocus($event)\"\n        (blur)=\"onBlur($event)\"\n        [(ngModel)]=\"value\"\n        [disabled]=\"disabled\"\n        [required]=\"required\"\n        [autofocus]=\"autofocus\"\n        [readonly]=\"readonly\"\n        [tabindex]=\"tabindex\"\n        >\n     <label class=\"mdl-textfield__label\" [attr.for]=\"id\">{{label}}</label>\n     <span class=\"mdl-textfield__error\">{{errorMessage}}</span>\n   </div>\n   <div *ngIf=\"icon\">\n      <button mdl-button mdl-button-type=\"icon\" (click)=\"setFocus()\">\n         <mdl-icon>{{icon}}</mdl-icon>\n      </button>\n      <div class=\"mdl-textfield__expandable-holder\">\n       <input\n          #input\n          class=\"mdl-textfield__input\"\n          [type]=\"type\"\n          [attr.name]=\"name\"\n          [id]=\"id\"\n          [pattern]=\"pattern ? pattern : '.*'\"\n          [attr.min]=\"min\"\n          [attr.max]=\"max\"\n          [attr.step]=\"step\"\n          [placeholder]=\"placeholder ? placeholder : ''\"\n          [autocomplete]=\"autocomplete ? autocomplete : ''\"\n          (focus)=\"onFocus($event)\"\n          (blur)=\"onBlur($event)\"\n          [(ngModel)]=\"value\"\n          [disabled]=\"disabled\"\n          [required]=\"required\"\n          [autofocus]=\"autofocus\"\n          [readonly]=\"readonly\"\n          [tabindex]=\"tabindex\"\n         >\n     <label class=\"mdl-textfield__label\" [attr.for]=\"id\">{{label}}</label>\n     <span class=\"mdl-textfield__error\">{{errorMessage}}</span>\n      </div>\n   </div>\n   ",
+	            template: "\n   <div *ngIf=\"!icon\">\n     <textarea\n        *ngIf=\"rows\"\n        #input\n        [rows]=\"rows\"\n        class=\"mdl-textfield__input\"\n        type=\"text\"\n        [attr.name]=\"name\"\n        [id]=\"id\"\n        [placeholder]=\"placeholder ? placeholder : ''\"\n        (focus)=\"onFocus($event)\"\n        (blur)=\"onBlur($event)\"\n        (keydown)=\"keydownTextarea($event)\"\n        [(ngModel)]=\"value\"\n        [disabled]=\"disabled\"\n        [required]=\"required\"\n        [autofocus]=\"autofocus\"\n        [readonly]=\"readonly\"\n        ></textarea>\n     <input\n        *ngIf=\"!rows\"\n        #input\n        class=\"mdl-textfield__input\"\n        [type]=\"type\"\n        [attr.name]=\"name\"\n        [id]=\"id\"\n        [pattern]=\"pattern ? pattern : '.*'\"\n        [attr.min]=\"min\"\n        [attr.max]=\"max\"\n        [attr.step]=\"step\"\n        [placeholder]=\"placeholder ? placeholder : ''\"\n        [autocomplete]=\"autocomplete ? autocomplete : ''\"\n        (focus)=\"onFocus($event)\"\n        (blur)=\"onBlur($event)\"\n        [(ngModel)]=\"value\"\n        [disabled]=\"disabled\"\n        [required]=\"required\"\n        [autofocus]=\"autofocus\"\n        [readonly]=\"readonly\"\n        [attr.tabindex]=\"tabindex\"\n        >\n     <label class=\"mdl-textfield__label\" [attr.for]=\"id\">{{label}}</label>\n     <span class=\"mdl-textfield__error\">{{errorMessage}}</span>\n   </div>\n   <div *ngIf=\"icon\">\n      <button mdl-button mdl-button-type=\"icon\" (click)=\"setFocus()\">\n         <mdl-icon>{{icon}}</mdl-icon>\n      </button>\n      <div class=\"mdl-textfield__expandable-holder\">\n       <input\n          #input\n          class=\"mdl-textfield__input\"\n          [type]=\"type\"\n          [attr.name]=\"name\"\n          [id]=\"id\"\n          [pattern]=\"pattern ? pattern : '.*'\"\n          [attr.min]=\"min\"\n          [attr.max]=\"max\"\n          [attr.step]=\"step\"\n          [placeholder]=\"placeholder ? placeholder : ''\"\n          [autocomplete]=\"autocomplete ? autocomplete : ''\"\n          (focus)=\"onFocus($event)\"\n          (blur)=\"onBlur($event)\"\n          [(ngModel)]=\"value\"\n          [disabled]=\"disabled\"\n          [required]=\"required\"\n          [autofocus]=\"autofocus\"\n          [readonly]=\"readonly\"\n          [attr.tabindex]=\"tabindex\"\n         >\n     <label class=\"mdl-textfield__label\" [attr.for]=\"id\">{{label}}</label>\n     <span class=\"mdl-textfield__error\">{{errorMessage}}</span>\n      </div>\n   </div>\n   ",
 	            providers: [{
 	                    provide: __WEBPACK_IMPORTED_MODULE_1__angular_forms__["NG_VALUE_ACCESSOR"],
 	                    useExisting: __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["forwardRef"])(function () { return MdlTextFieldComponent; }),
@@ -86516,12 +87337,12 @@
 	    ], MdlTextFieldModule);
 	    return MdlTextFieldModule;
 	}());
-
-
+	
+	
 	/***/ },
 	/* 38 */
 	/***/ function(module, exports, __webpack_require__) {
-
+	
 	"use strict";
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__angular_core__);
@@ -86542,16 +87363,16 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-
-
-
+	
+	
+	
 	var MDL_TOOLTIP_DIRECTIVES = [
 	    __WEBPACK_IMPORTED_MODULE_1__mdl_tooltip_component__["a" /* MdlTooltipComponent */],
 	    __WEBPACK_IMPORTED_MODULE_2__mdl_tooltip_directive__["a" /* MdlTooltipLargeDirective */],
 	    __WEBPACK_IMPORTED_MODULE_2__mdl_tooltip_directive__["b" /* MdlTooltipDirective */]
 	];
-
-
+	
+	
 	var MdlTooltipModule = (function () {
 	    function MdlTooltipModule() {
 	    }
@@ -86572,12 +87393,12 @@
 	    ], MdlTooltipModule);
 	    return MdlTooltipModule;
 	}());
-
-
+	
+	
 	/***/ },
 	/* 39 */
 	/***/ function(module, exports, __webpack_require__) {
-
+	
 	"use strict";
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__angular_core__);
@@ -86596,9 +87417,9 @@
 	var __param = (this && this.__param) || function (paramIndex, decorator) {
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
-
-
-
+	
+	
+	
 	var MdlChipContactDirective = (function () {
 	    function MdlChipContactDirective(mdlChipComponent) {
 	        this.mdlChipComponent = mdlChipComponent;
@@ -86622,12 +87443,12 @@
 	    return MdlChipContactDirective;
 	    var _a;
 	}());
-
-
+	
+	
 	/***/ },
 	/* 40 */
 	/***/ function(module, exports, __webpack_require__) {
-
+	
 	"use strict";
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__angular_core__);
@@ -86642,8 +87463,8 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-
-
+	
+	
 	var MdlChipComponent = (function () {
 	    function MdlChipComponent() {
 	        this.actionClick = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
@@ -86682,12 +87503,12 @@
 	    return MdlChipComponent;
 	    var _a;
 	}());
-
-
+	
+	
 	/***/ },
 	/* 41 */
 	/***/ function(module, exports, __webpack_require__) {
-
+	
 	"use strict";
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__angular_core__);
@@ -86702,8 +87523,8 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-
-
+	
+	
 	var MdlCommonsModule = (function () {
 	    function MdlCommonsModule() {
 	    }
@@ -86717,12 +87538,12 @@
 	    ], MdlCommonsModule);
 	    return MdlCommonsModule;
 	}());
-
-
+	
+	
 	/***/ },
 	/* 42 */
 	/***/ function(module, exports, __webpack_require__) {
-
+	
 	"use strict";
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__angular_core__);
@@ -86741,8 +87562,8 @@
 	var __param = (this && this.__param) || function (paramIndex, decorator) {
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
-
-
+	
+	
 	// the componnet is used outside the app-root. injecting MdlDialogService would not work
 	// this component is not exported - needs to be instanciated by
 	//    let x = this.appRef.bootstrap(MdlDialogOutletComponent);
@@ -86785,12 +87606,12 @@
 	    return MdlDialogInnerOutletComponent;
 	    var _a, _b;
 	}());
-
-
+	
+	
 	/***/ },
 	/* 43 */
 	/***/ function(module, exports, __webpack_require__) {
-
+	
 	"use strict";
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__angular_core__);
@@ -86805,8 +87626,8 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-
-
+	
+	
 	var MdlLayoutContentComponent = (function () {
 	    function MdlLayoutContentComponent(elRef) {
 	        this.elRef = elRef;
@@ -86830,16 +87651,16 @@
 	    return MdlLayoutContentComponent;
 	    var _a, _b;
 	}());
-
-
+	
+	
 	/***/ },
 	/* 44 */
 	/***/ function(module, exports, __webpack_require__) {
-
+	
 	"use strict";
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__angular_core__);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mdl_layout_component__ = __webpack_require__(15);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mdl_layout_component__ = __webpack_require__(16);
 	/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return MdlLayoutDrawerComponent; });
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
 	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -86853,8 +87674,8 @@
 	var __param = (this && this.__param) || function (paramIndex, decorator) {
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
-
-
+	
+	
 	var MdlLayoutDrawerComponent = (function () {
 	    function MdlLayoutDrawerComponent(parentLayout) {
 	        this.parentLayout = parentLayout;
@@ -86880,16 +87701,16 @@
 	    return MdlLayoutDrawerComponent;
 	    var _a;
 	}());
-
-
+	
+	
 	/***/ },
 	/* 45 */
 	/***/ function(module, exports, __webpack_require__) {
-
+	
 	"use strict";
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__angular_core__);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mdl_layout_component__ = __webpack_require__(15);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mdl_layout_component__ = __webpack_require__(16);
 	/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return MdlLayoutHeaderComponent; });
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
 	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -86903,8 +87724,8 @@
 	var __param = (this && this.__param) || function (paramIndex, decorator) {
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
-
-
+	
+	
 	var MdlLayoutHeaderComponent = (function () {
 	    function MdlLayoutHeaderComponent(elementRef, renderer, mdlLayout) {
 	        this.elementRef = elementRef;
@@ -86947,16 +87768,16 @@
 	    return MdlLayoutHeaderComponent;
 	    var _a, _b, _c;
 	}());
-
-
+	
+	
 	/***/ },
 	/* 46 */
 	/***/ function(module, exports, __webpack_require__) {
-
+	
 	"use strict";
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__angular_core__);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__tabs_index__ = __webpack_require__(12);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__tabs_index__ = __webpack_require__(11);
 	/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return MdlLayoutTabPanelComponent; });
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
 	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -86967,8 +87788,8 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-
-
+	
+	
 	var MdlLayoutTabPanelComponent = (function () {
 	    function MdlLayoutTabPanelComponent() {
 	        this.isActive = false;
@@ -86995,16 +87816,16 @@
 	    ], MdlLayoutTabPanelComponent);
 	    return MdlLayoutTabPanelComponent;
 	}());
-
-
+	
+	
 	/***/ },
 	/* 47 */
 	/***/ function(module, exports, __webpack_require__) {
-
+	
 	"use strict";
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__angular_core__);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mdl_menu_component__ = __webpack_require__(16);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mdl_menu_component__ = __webpack_require__(17);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__common_boolean_property__ = __webpack_require__(2);
 	/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return MdlMenuItemComponent; });
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -87019,17 +87840,24 @@
 	var __param = (this && this.__param) || function (paramIndex, decorator) {
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
-
-
-
+	
+	
+	
 	var MdlMenuItemComponent = (function () {
 	    // forwardRef is needed because of he circular dependency menu queries menuitems; menuitem needs the parent
 	    function MdlMenuItemComponent(elementRef, renderer, mdlMenu) {
 	        this.elementRef = elementRef;
 	        this.renderer = renderer;
 	        this.mdlMenu = mdlMenu;
+	        this._disabled = false;
 	        this.element = elementRef.nativeElement;
 	    }
+	    Object.defineProperty(MdlMenuItemComponent.prototype, "disabled", {
+	        get: function () { return this._disabled; },
+	        set: function (value) { this._disabled = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__common_boolean_property__["a" /* toBoolean */])(value); },
+	        enumerable: true,
+	        configurable: true
+	    });
 	    MdlMenuItemComponent.prototype.onClick = function ($event) {
 	        $event.stopPropagation();
 	        if (this.disabled) {
@@ -87050,10 +87878,9 @@
 	        this.renderer.invokeElementMethod(this.element, 'dispatchEvent', [event]);
 	    };
 	    __decorate([
-	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])('disabled'),
-	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__common_boolean_property__["a" /* BooleanProperty */])(), 
+	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(), 
 	        __metadata('design:type', Boolean)
-	    ], MdlMenuItemComponent.prototype, "disabled", void 0);
+	    ], MdlMenuItemComponent.prototype, "disabled", null);
 	    MdlMenuItemComponent = __decorate([
 	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
 	            selector: 'mdl-menu-item',
@@ -87072,12 +87899,12 @@
 	    return MdlMenuItemComponent;
 	    var _a, _b, _c;
 	}());
-
-
+	
+	
 	/***/ },
 	/* 48 */
 	/***/ function(module, exports, __webpack_require__) {
-
+	
 	"use strict";
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__angular_core__);
@@ -87091,7 +87918,7 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-
+	
 	var MdlTabPanelTitleComponent = (function () {
 	    function MdlTabPanelTitleComponent(vcRef) {
 	        this.vcRef = vcRef;
@@ -87107,12 +87934,12 @@
 	    return MdlTabPanelTitleComponent;
 	    var _a;
 	}());
-
-
+	
+	
 	/***/ },
 	/* 49 */
 	/***/ function(module, exports, __webpack_require__) {
-
+	
 	"use strict";
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__angular_core__);
@@ -87128,8 +87955,8 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-
-
+	
+	
 	var MdlTabPanelContent = (function () {
 	    function MdlTabPanelContent() {
 	    }
@@ -87173,12 +88000,12 @@
 	    ], MdlTabPanelComponent);
 	    return MdlTabPanelComponent;
 	}());
-
-
+	
+	
 	/***/ },
 	/* 50 */
 	/***/ function(module, exports, __webpack_require__) {
-
+	
 	"use strict";
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__angular_core__);
@@ -87199,8 +88026,8 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-
-
+	
+	
 	var IS_ACTIVE = 'is-active';
 	var host = {
 	    '[class.mdl-tooltip]': 'true',
@@ -87277,12 +88104,12 @@
 	    return MdlTooltipComponent;
 	    var _a, _b, _c;
 	}(MdlSimpleTooltipComponent));
-
-
+	
+	
 	/***/ },
 	/* 51 */
 	/***/ function(module, exports, __webpack_require__) {
-
+	
 	"use strict";
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__angular_core__);
@@ -87296,7 +88123,7 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-
+	
 	var AppendViewContainerRefDirective = (function () {
 	    function AppendViewContainerRefDirective(viewRef, renderer) {
 	        this.viewRef = viewRef;
@@ -87318,19 +88145,19 @@
 	    return AppendViewContainerRefDirective;
 	    var _a, _b, _c;
 	}());
-
-
+	
+	
 	/***/ },
 	/* 52 */
 	/***/ function(module, exports, __webpack_require__) {
-
+	
 	"use strict";
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rxjs_Subject__ = __webpack_require__(17);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rxjs_Subject__ = __webpack_require__(14);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rxjs_Subject___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_rxjs_Subject__);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mdl_dialog_service__ = __webpack_require__(8);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mdl_dialog_service__ = __webpack_require__(7);
 	/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return InternalMdlDialogReference; });
-
-
+	
+	
 	/**
 	 * Internal representation of the dialog ref. the service
 	 * user should not have access to the created components
@@ -87368,16 +88195,16 @@
 	    };
 	    return InternalMdlDialogReference;
 	}());
-
-
+	
+	
 	/***/ },
 	/* 53 */
 	/***/ function(module, exports, __webpack_require__) {
-
+	
 	"use strict";
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__angular_core__);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mdl_dialog_service__ = __webpack_require__(8);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mdl_dialog_service__ = __webpack_require__(7);
 	/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return MdlAlertComponent; });
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
 	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -87388,8 +88215,8 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-
-
+	
+	
 	var MdlAlertComponent = (function () {
 	    function MdlAlertComponent(mdlDialogService) {
 	        this.mdlDialogService = mdlDialogService;
@@ -87431,20 +88258,20 @@
 	    return MdlAlertComponent;
 	    var _a;
 	}());
-
-
+	
+	
 	/***/ },
 	/* 54 */
 	/***/ function(module, exports, __webpack_require__) {
-
+	
 	"use strict";
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__angular_core__);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Subject__ = __webpack_require__(17);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Subject__ = __webpack_require__(14);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Subject___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_Subject__);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mdl_dialog_service__ = __webpack_require__(8);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mdl_dialog_service__ = __webpack_require__(7);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__common_boolean_property__ = __webpack_require__(2);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__mdl_dialog_configuration__ = __webpack_require__(14);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__mdl_dialog_configuration__ = __webpack_require__(15);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__mdl_dialog_configuration___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__mdl_dialog_configuration__);
 	/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return MdlDialogComponent; });
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -87456,11 +88283,11 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-
-
-
-
-
+	
+	
+	
+	
+	
 	var MdlDialogComponent = (function () {
 	    function MdlDialogComponent(dialogService) {
 	        this.dialogService = dialogService;
@@ -87469,6 +88296,12 @@
 	        this.isShown = false;
 	        this.dialogRef = null;
 	    }
+	    Object.defineProperty(MdlDialogComponent.prototype, "modal", {
+	        get: function () { return this._modal; },
+	        set: function (value) { this._modal = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__common_boolean_property__["a" /* toBoolean */])(value); },
+	        enumerable: true,
+	        configurable: true
+	    });
 	    MdlDialogComponent.prototype.show = function () {
 	        var _this = this;
 	        if (this.isShown) {
@@ -87509,10 +88342,9 @@
 	        __metadata('design:type', (typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["TemplateRef"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_0__angular_core__["TemplateRef"]) === 'function' && _a) || Object)
 	    ], MdlDialogComponent.prototype, "template", void 0);
 	    __decorate([
-	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])('mdl-modal'),
-	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__common_boolean_property__["a" /* BooleanProperty */])(), 
-	        __metadata('design:type', Object)
-	    ], MdlDialogComponent.prototype, "modal", void 0);
+	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])('mdl-modal'), 
+	        __metadata('design:type', Boolean)
+	    ], MdlDialogComponent.prototype, "modal", null);
 	    __decorate([
 	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])('mdl-dialog-config'), 
 	        __metadata('design:type', (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_4__mdl_dialog_configuration__["IMdlDialogConfiguration"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_4__mdl_dialog_configuration__["IMdlDialogConfiguration"]) === 'function' && _b) || Object)
@@ -87536,12 +88368,12 @@
 	    return MdlDialogComponent;
 	    var _a, _b, _c, _d, _e;
 	}());
-
-
+	
+	
 	/***/ },
 	/* 55 */
 	/***/ function(module, exports, __webpack_require__) {
-
+	
 	"use strict";
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__angular_core__);
@@ -87555,7 +88387,7 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-
+	
 	var MdlLayoutHeaderRowComponent = (function () {
 	    function MdlLayoutHeaderRowComponent() {
 	    }
@@ -87572,12 +88404,12 @@
 	    ], MdlLayoutHeaderRowComponent);
 	    return MdlLayoutHeaderRowComponent;
 	}());
-
-
+	
+	
 	/***/ },
 	/* 56 */
 	/***/ function(module, exports, __webpack_require__) {
-
+	
 	"use strict";
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__angular_core__);
@@ -87591,7 +88423,7 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-
+	
 	var MdlLayoutHeaderTransparentDirective = (function () {
 	    function MdlLayoutHeaderTransparentDirective() {
 	    }
@@ -87606,12 +88438,12 @@
 	    ], MdlLayoutHeaderTransparentDirective);
 	    return MdlLayoutHeaderTransparentDirective;
 	}());
-
-
+	
+	
 	/***/ },
 	/* 57 */
 	/***/ function(module, exports, __webpack_require__) {
-
+	
 	"use strict";
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__angular_core__);
@@ -87625,7 +88457,7 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-
+	
 	var MdlLayoutSpacerComponent = (function () {
 	    function MdlLayoutSpacerComponent() {
 	    }
@@ -87642,12 +88474,12 @@
 	    ], MdlLayoutSpacerComponent);
 	    return MdlLayoutSpacerComponent;
 	}());
-
-
+	
+	
 	/***/ },
 	/* 58 */
 	/***/ function(module, exports, __webpack_require__) {
-
+	
 	"use strict";
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__angular_core__);
@@ -87661,7 +88493,7 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-
+	
 	var MdlLayoutTitleComponent = (function () {
 	    function MdlLayoutTitleComponent() {
 	    }
@@ -87678,12 +88510,12 @@
 	    ], MdlLayoutTitleComponent);
 	    return MdlLayoutTitleComponent;
 	}());
-
-
+	
+	
 	/***/ },
 	/* 59 */
 	/***/ function(module, exports, __webpack_require__) {
-
+	
 	"use strict";
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__angular_core__);
@@ -87697,7 +88529,7 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-
+	
 	var MdlMenuItemFullBleedDeviderComponent = (function () {
 	    function MdlMenuItemFullBleedDeviderComponent() {
 	    }
@@ -87712,12 +88544,12 @@
 	    ], MdlMenuItemFullBleedDeviderComponent);
 	    return MdlMenuItemFullBleedDeviderComponent;
 	}());
-
-
+	
+	
 	/***/ },
 	/* 60 */
 	/***/ function(module, exports, __webpack_require__) {
-
+	
 	"use strict";
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__angular_core__);
@@ -87738,7 +88570,7 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-
+	
 	var MdlDefaultTableModel = (function () {
 	    function MdlDefaultTableModel(columns) {
 	        this.data = new Array();
@@ -87819,17 +88651,17 @@
 	    ], MdlSelectableTableComponent);
 	    return MdlSelectableTableComponent;
 	}(MdlTableComponent));
-
-
+	
+	
 	/***/ },
 	/* 61 */
 	/***/ function(module, exports, __webpack_require__) {
-
+	
 	"use strict";
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__angular_core__);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__common_boolean_property__ = __webpack_require__(2);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__common_number_property__ = __webpack_require__(7);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__common_number_property__ = __webpack_require__(12);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__mdl_tab_panel_component__ = __webpack_require__(49);
 	/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return MdlTabsComponent; });
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -87841,16 +88673,28 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-
-
-
-
+	
+	
+	
+	
 	var MdlTabsComponent = (function () {
 	    function MdlTabsComponent() {
-	        this.selectedIndex = 0;
-	        this.isRipple = false;
+	        this._selectedIndex = 0;
+	        this._isRipple = false;
 	        this.selectedTabEmitter = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
 	    }
+	    Object.defineProperty(MdlTabsComponent.prototype, "selectedIndex", {
+	        get: function () { return this._selectedIndex; },
+	        set: function (value) { this._selectedIndex = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__common_number_property__["a" /* toNumber */])(value); },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Object.defineProperty(MdlTabsComponent.prototype, "isRipple", {
+	        get: function () { return this._isRipple; },
+	        set: function (value) { this._isRipple = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__common_boolean_property__["a" /* toBoolean */])(value); },
+	        enumerable: true,
+	        configurable: true
+	    });
 	    MdlTabsComponent.prototype.ngAfterContentInit = function () {
 	        this.updateSelectedTabIndex();
 	    };
@@ -87879,15 +88723,13 @@
 	        }
 	    };
 	    __decorate([
-	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])('mdl-tab-active-index'),
-	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__common_number_property__["a" /* NumberProperty */])(), 
-	        __metadata('design:type', Number)
-	    ], MdlTabsComponent.prototype, "selectedIndex", void 0);
-	    __decorate([
-	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])('mdl-ripple'),
-	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__common_boolean_property__["a" /* BooleanProperty */])(), 
+	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])('mdl-tab-active-index'), 
 	        __metadata('design:type', Object)
-	    ], MdlTabsComponent.prototype, "isRipple", void 0);
+	    ], MdlTabsComponent.prototype, "selectedIndex", null);
+	    __decorate([
+	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])('mdl-ripple'), 
+	        __metadata('design:type', Object)
+	    ], MdlTabsComponent.prototype, "isRipple", null);
 	    __decorate([
 	        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])('mdl-tab-active-changed'), 
 	        __metadata('design:type', Object)
@@ -87911,12 +88753,12 @@
 	    return MdlTabsComponent;
 	    var _a;
 	}());
-
-
+	
+	
 	/***/ },
 	/* 62 */
 	/***/ function(module, exports, __webpack_require__) {
-
+	
 	"use strict";
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__angular_core__);
@@ -87938,8 +88780,8 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-
-
+	
+	
 	var AbstractMdlTooltipDirective = (function () {
 	    function AbstractMdlTooltipDirective(vcRef, large, componentFactoryResolver, renderer) {
 	        this.vcRef = vcRef;
@@ -88033,18 +88875,18 @@
 	    return MdlTooltipLargeDirective;
 	    var _a, _b, _c;
 	}(AbstractMdlTooltipDirective));
-
-
+	
+	
 	/***/ },
 	/* 63 */
 	/***/ function(module, exports) {
-
+	
 	module.exports = __WEBPACK_EXTERNAL_MODULE_63__;
-
+	
 	/***/ },
 	/* 64 */
 	/***/ function(module, exports, __webpack_require__) {
-
+	
 	"use strict";
 	/* harmony export (immutable) */ exports["a"] = MaterialRipple;
 	/**
@@ -88270,16 +89112,16 @@
 	        }
 	    }
 	};
-
-
+	
+	
 	/***/ },
 	/* 65 */
 	/***/ function(module, exports, __webpack_require__) {
-
+	
 	"use strict";
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__angular_core__);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mdl_menu_component__ = __webpack_require__(16);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mdl_menu_component__ = __webpack_require__(17);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__button_mdl_button_component__ = __webpack_require__(4);
 	/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return MdlToggleMenuDirective; });
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -88291,9 +89133,9 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-
-
-
+	
+	
+	
 	var MdlToggleMenuDirective = (function () {
 	    function MdlToggleMenuDirective(button) {
 	        this.button = button;
@@ -88320,12 +89162,12 @@
 	    return MdlToggleMenuDirective;
 	    var _a, _b;
 	}());
-
-
+	
+	
 	/***/ },
 	/* 66 */
 	/***/ function(module, exports, __webpack_require__) {
-
+	
 	"use strict";
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__angular_core__);
@@ -88339,7 +89181,7 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-
+	
 	var MdlTooltipPositionService = (function () {
 	    function MdlTooltipPositionService() {
 	    }
@@ -88390,24 +89232,24 @@
 	    ], MdlTooltipPositionService);
 	    return MdlTooltipPositionService;
 	}());
-
-
+	
+	
 	/***/ },
 	/* 67 */
 	/***/ function(module, exports, __webpack_require__) {
-
+	
 	"use strict";
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__angular_core__);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__common_mdl_ripple_directive__ = __webpack_require__(10);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__common_mdl_ripple_directive__ = __webpack_require__(9);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__button_mdl_button_component__ = __webpack_require__(4);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__badge_mdl_badge_directive__ = __webpack_require__(21);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__shadow_mdl_shadow_directive__ = __webpack_require__(31);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__card_mdl_card_component__ = __webpack_require__(22);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__chips_index__ = __webpack_require__(23);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__dialog_index__ = __webpack_require__(24);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__dialog_outlet_index__ = __webpack_require__(11);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__checkbox_mdl_checkbox_component__ = __webpack_require__(9);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__dialog_outlet_index__ = __webpack_require__(10);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__checkbox_mdl_checkbox_component__ = __webpack_require__(8);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__radio_mdl_radio_component__ = __webpack_require__(30);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__progress_mdl_progress_component__ = __webpack_require__(29);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__icon_mdl_icon_component__ = __webpack_require__(5);
@@ -88421,7 +89263,7 @@
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__table_index__ = __webpack_require__(36);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__menu_index__ = __webpack_require__(28);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__layout_index__ = __webpack_require__(26);
-	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__tabs_index__ = __webpack_require__(12);
+	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__tabs_index__ = __webpack_require__(11);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__textfield_mdl_textfield_component__ = __webpack_require__(37);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__dialog_outlet_mdl_backdrop_overlay_component__ = __webpack_require__(18);
 	/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__dialog_mdl_dialog_host_component__ = __webpack_require__(19);
@@ -88519,16 +89361,18 @@
 	/* harmony namespace reexport (by provided) */ __webpack_require__.d(exports, "MdlMenuItemComponent", function() { return __WEBPACK_IMPORTED_MODULE_21__menu_index__["e"]; });
 	/* harmony namespace reexport (by provided) */ __webpack_require__.d(exports, "MdlMenuItemFullBleedDeviderComponent", function() { return __WEBPACK_IMPORTED_MODULE_21__menu_index__["f"]; });
 	/* harmony namespace reexport (by provided) */ __webpack_require__.d(exports, "MdlLayoutModule", function() { return __WEBPACK_IMPORTED_MODULE_22__layout_index__["a"]; });
-	/* harmony namespace reexport (by provided) */ __webpack_require__.d(exports, "MdLUnsupportedLayoutTypeError", function() { return __WEBPACK_IMPORTED_MODULE_22__layout_index__["b"]; });
-	/* harmony namespace reexport (by provided) */ __webpack_require__.d(exports, "MdlLayoutComponent", function() { return __WEBPACK_IMPORTED_MODULE_22__layout_index__["c"]; });
-	/* harmony namespace reexport (by provided) */ __webpack_require__.d(exports, "MdlLayoutHeaderComponent", function() { return __WEBPACK_IMPORTED_MODULE_22__layout_index__["d"]; });
-	/* harmony namespace reexport (by provided) */ __webpack_require__.d(exports, "MdlLayoutDrawerComponent", function() { return __WEBPACK_IMPORTED_MODULE_22__layout_index__["e"]; });
-	/* harmony namespace reexport (by provided) */ __webpack_require__.d(exports, "MdlLayoutContentComponent", function() { return __WEBPACK_IMPORTED_MODULE_22__layout_index__["f"]; });
-	/* harmony namespace reexport (by provided) */ __webpack_require__.d(exports, "MdlLayoutHeaderTransparentDirective", function() { return __WEBPACK_IMPORTED_MODULE_22__layout_index__["g"]; });
-	/* harmony namespace reexport (by provided) */ __webpack_require__.d(exports, "MdlLayoutHeaderRowComponent", function() { return __WEBPACK_IMPORTED_MODULE_22__layout_index__["h"]; });
-	/* harmony namespace reexport (by provided) */ __webpack_require__.d(exports, "MdlLayoutTitleComponent", function() { return __WEBPACK_IMPORTED_MODULE_22__layout_index__["i"]; });
-	/* harmony namespace reexport (by provided) */ __webpack_require__.d(exports, "MdlLayoutSpacerComponent", function() { return __WEBPACK_IMPORTED_MODULE_22__layout_index__["j"]; });
-	/* harmony namespace reexport (by provided) */ __webpack_require__.d(exports, "MdlLayoutTabPanelComponent", function() { return __WEBPACK_IMPORTED_MODULE_22__layout_index__["k"]; });
+	/* harmony namespace reexport (by provided) */ __webpack_require__.d(exports, "LAYOUT_SCREEN_SIZE_THRESHOLD", function() { return __WEBPACK_IMPORTED_MODULE_22__layout_index__["b"]; });
+	/* harmony namespace reexport (by provided) */ __webpack_require__.d(exports, "MdLUnsupportedLayoutTypeError", function() { return __WEBPACK_IMPORTED_MODULE_22__layout_index__["c"]; });
+	/* harmony namespace reexport (by provided) */ __webpack_require__.d(exports, "MdlScreenSizeService", function() { return __WEBPACK_IMPORTED_MODULE_22__layout_index__["d"]; });
+	/* harmony namespace reexport (by provided) */ __webpack_require__.d(exports, "MdlLayoutComponent", function() { return __WEBPACK_IMPORTED_MODULE_22__layout_index__["e"]; });
+	/* harmony namespace reexport (by provided) */ __webpack_require__.d(exports, "MdlLayoutHeaderComponent", function() { return __WEBPACK_IMPORTED_MODULE_22__layout_index__["f"]; });
+	/* harmony namespace reexport (by provided) */ __webpack_require__.d(exports, "MdlLayoutDrawerComponent", function() { return __WEBPACK_IMPORTED_MODULE_22__layout_index__["g"]; });
+	/* harmony namespace reexport (by provided) */ __webpack_require__.d(exports, "MdlLayoutContentComponent", function() { return __WEBPACK_IMPORTED_MODULE_22__layout_index__["h"]; });
+	/* harmony namespace reexport (by provided) */ __webpack_require__.d(exports, "MdlLayoutHeaderTransparentDirective", function() { return __WEBPACK_IMPORTED_MODULE_22__layout_index__["i"]; });
+	/* harmony namespace reexport (by provided) */ __webpack_require__.d(exports, "MdlLayoutHeaderRowComponent", function() { return __WEBPACK_IMPORTED_MODULE_22__layout_index__["j"]; });
+	/* harmony namespace reexport (by provided) */ __webpack_require__.d(exports, "MdlLayoutTitleComponent", function() { return __WEBPACK_IMPORTED_MODULE_22__layout_index__["k"]; });
+	/* harmony namespace reexport (by provided) */ __webpack_require__.d(exports, "MdlLayoutSpacerComponent", function() { return __WEBPACK_IMPORTED_MODULE_22__layout_index__["l"]; });
+	/* harmony namespace reexport (by provided) */ __webpack_require__.d(exports, "MdlLayoutTabPanelComponent", function() { return __WEBPACK_IMPORTED_MODULE_22__layout_index__["m"]; });
 	/* harmony namespace reexport (by provided) */ __webpack_require__.d(exports, "MdlTabsModule", function() { return __WEBPACK_IMPORTED_MODULE_23__tabs_index__["b"]; });
 	/* harmony namespace reexport (by provided) */ __webpack_require__.d(exports, "MdlTabsComponent", function() { return __WEBPACK_IMPORTED_MODULE_23__tabs_index__["c"]; });
 	/* harmony namespace reexport (by provided) */ __webpack_require__.d(exports, "MdlTabPanelContent", function() { return __WEBPACK_IMPORTED_MODULE_23__tabs_index__["d"]; });
@@ -88550,60 +89394,60 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	// AOT :( https://github.com/angular/angular/issues/11606
-
-
-
-
+	
+	
+	
+	
 	var MDL_MODULES = [
 	    __WEBPACK_IMPORTED_MODULE_2__button_mdl_button_component__["b" /* MdlButtonModule */],
 	    __WEBPACK_IMPORTED_MODULE_22__layout_index__["a" /* MdlLayoutModule */],
@@ -88683,8 +89527,8 @@
 	    ], MdlNonRootModule);
 	    return MdlNonRootModule;
 	}());
-
-
+	
+	
 	/***/ }
 	/******/ ])
 	});
@@ -88693,18 +89537,27 @@
 
 /***/ },
 /* 211 */
+/*!*********************************************!*\
+  !*** ./src/app/home/calendar/calendar.html ***!
+  \*********************************************/
 /***/ function(module, exports) {
 
 	module.exports = "<div [@flyInOut]=\"'in'\" class=\"mdl-grid\" [ngClass]=\"form.metricSelected\">\n    <div class=\"mdl-grid mdl-cell--12-col sd-align-right\">\n\n        <form #f=\"ngForm\" novalidate style=\"width: 100%\">\n            <div class=\"sd-formGroup\">\n                <!--   <select style=\"float: right\" name=\"yearSelected\" [(ngModel)]=\"form.yearSelected\"\n                           (change)=\"setYear(form.yearSelected)\">\n                       <option *ngFor=\"let year of years\" [value]=\"year.value\">\n                           {{year.name}}\n                       </option>\n                   </select>-->\n                <div style=\"float:right\">\n                    <span style=\"font-size:1.4rem; vertical-align: sub\">{{form.yearSelected}}</span>\n                    <button mdl-button #btn1=\"mdlButton\" (click)=\"m1.toggle($event, btn1)\" mdl-button-type=\"icon\"\n                            mdl-ripple>\n                        <mdl-icon>more_vert</mdl-icon>\n                    </button>\n                    <mdl-menu #m1=\"mdlMenu\" mdl-menu-position=\"bottom-right\">\n                        <mdl-menu-item mdl-ripple (click)=\"setYear(year.value)\" *ngFor=\"let year of years\">{{year.name}}\n                        </mdl-menu-item>\n                    </mdl-menu>\n                </div>\n            </div>\n            <div class=\"sd-formGroup\">\n                <mdl-radio [(ngModel)]=\"form.metricSelected\" name=\"metrics\" value=\"sleeping-quality\" mdl-ripple>\n                    Sleeping Quality\n                </mdl-radio>\n                <mdl-radio [(ngModel)]=\"form.metricSelected\" name=\"metrics\" value=\"tiredness-feeling\" mdl-ripple>\n                    Tiredness Feeling\n                </mdl-radio>\n            </div>\n\n        </form>\n\n\n    </div>\n    <div class=\"mdl-cell mdl-cell--4-col\" *ngFor=\"let month of months\">\n        <div class=\"calendar\">\n            <div class=\"header\">\n                {{ month.name }}\n                <i class=\"fa fa-angle-left\"></i>\n                <i class=\"fa fa-angle-right\"></i>\n            </div>\n            <div class=\"week names\">\n                <span class=\"day\">Mon</span>\n                <span class=\"day\">Tue</span>\n                <span class=\"day\">Wed</span>\n                <span class=\"day\">Thu</span>\n                <span class=\"day\">Fri</span>\n                <span class=\"day\">Sat</span>\n                <span class=\"day\">Sun</span>\n            </div>\n            <div class=\"week\" *ngFor=\"let week of month.weeks\">\n    <span [ngClass]=\"decorateDay(day)\"\n          (click)=\"onSelect(day)\"\n          class=\"calendar__day\"\n          *ngFor=\"let day of week.days\">\n      {{ day.number }}\n    </span>\n            </div>\n        </div>\n    </div>\n    <a (click)=\"onSelectCurrentDay()\" class=\"sd-add-button\" mdl-button mdl-button-type=\"fab\" mdl-colored=\"accent\"\n       mdl-ripple>\n        <mdl-icon>add</mdl-icon>\n    </a>\n</div>\n\n"
 
 /***/ },
 /* 212 */
+/*!*********************************************!*\
+  !*** ./src/app/home/calendar/calendar.scss ***!
+  \*********************************************/
 /***/ function(module, exports) {
 
 	module.exports = "/* app css stylesheet */\n.inactive {\n  color: #ccc !important;\n  pointer-events: none;\n  cursor: default; }\n\n.menu {\n  list-style: none;\n  border-bottom: 0.1em solid black;\n  margin-bottom: 2em;\n  padding: 0 0 0.5em; }\n\n.menu:before {\n  content: \"[\"; }\n\n.menu:after {\n  content: \"]\"; }\n\n.menu > li {\n  display: inline; }\n\n.menu > li:before {\n  content: \"|\";\n  padding-right: 0.3em; }\n\n.menu > li:nth-child(1):before {\n  content: \"\";\n  padding: 0; }\n\n.border-box {\n  box-sizing: border-box;\n  -moz-box-sizing: border-box; }\n\n.calendar {\n  float: left;\n  display: block;\n  box-sizing: border-box;\n  -moz-box-sizing: border-box;\n  background: white;\n  border: solid 1px #CCC;\n  margin-bottom: 10px; }\n\n.calendar > div.header {\n  float: left;\n  width: 100%;\n  background: #3477AB;\n  height: 40px;\n  color: white;\n  line-height: 40px; }\n\n.calendar > div.header > * {\n  height: 40px;\n  line-height: 40px !important;\n  display: inline-block;\n  vertical-align: middle; }\n\n.calendar > div.header > i {\n  float: left;\n  width: 40px;\n  font-size: 1.125em;\n  font-weight: bold;\n  position: relative;\n  box-sizing: border-box;\n  -moz-box-sizing: border-box;\n  padding: 0 10px;\n  cursor: pointer; }\n\n.calendar > div.header > i.fa-angle-left {\n  text-align: left; }\n\n.calendar > div.header > i.fa-angle-right {\n  text-align: right;\n  margin-left: -40px; }\n\n.calendar > div.header > span {\n  float: left;\n  width: 100%;\n  font-weight: bold;\n  text-transform: uppercase;\n  box-sizing: border-box;\n  -moz-box-sizing: border-box;\n  padding-left: 50px;\n  margin-left: -40px;\n  text-align: center;\n  padding-right: 40px;\n  color: inherit; }\n\n.calendar > div.week {\n  float: left;\n  width: 100%;\n  border-top: solid 1px #CCC; }\n\n.calendar > div.week:first-child {\n  border-top: none; }\n\n.calendar > div.week > span.day {\n  float: left;\n  width: 14.28571429%;\n  box-sizing: border-box;\n  -moz-box-sizing: border-box;\n  font-size: 0.75em;\n  text-align: center;\n  height: 30px;\n  line-height: 30px !important;\n  display: inline-block;\n  vertical-align: middle;\n  background: white;\n  cursor: auto;\n  color: grey; }\n\n.calendar__day {\n  float: left;\n  width: 14.28571429%;\n  box-sizing: border-box;\n  -moz-box-sizing: border-box;\n  font-size: 0.75em;\n  text-align: center;\n  height: 30px;\n  line-height: 30px !important;\n  display: inline-block;\n  vertical-align: middle;\n  background: white;\n  cursor: auto;\n  color: grey; }\n\n.calendar > div.week > span.day:first-child {\n  border-left: none; }\n\n.calendar > div.week > span.day.today {\n  background: #E3F2FF; }\n\n.calendar__day--today {\n  color: indianred !important; }\n\n.calendar__day--current-month {\n  color: black;\n  cursor: pointer; }\n\n.calendar > div.week > span.day.different-year {\n  color: #C0C0C0; }\n\n.selected {\n  background: #2875C7 !important;\n  color: white !important; }\n\n.calendar > div.week.names > span {\n  color: #2875C7;\n  font-weight: bold; }\n\n.sleeping-quality .sleeping-quality--good {\n  background-color: #2EB669 !important; }\n\n.sleeping-quality .sleeping-quality--regular {\n  background-color: #FFCD41 !important; }\n\n.sleeping-quality .sleeping-quality--bad {\n  background-color: #FD4045 !important; }\n\n.tiredness-feeling .tiredness-feeling--good {\n  background-color: #2EB669 !important; }\n\n.tiredness-feeling .tiredness-feeling--regular {\n  background-color: #FFCD41 !important; }\n\n.tiredness-feeling .tiredness-feeling--bad {\n  background-color: #FD4045 !important; }\n\n/** form angular demo */\n.css-form input.ng-invalid.ng-touched {\n  background-color: #FA787E; }\n\n.css-form input.ng-valid.ng-touched {\n  background-color: #78FA89; }\n\n/** add button */\n.sd-add-button {\n  position: fixed;\n  display: block;\n  right: 0;\n  bottom: 0;\n  margin-right: 30px;\n  margin-bottom: 20px;\n  z-index: 900; }\n\n.sd-align-right {\n  flex-direction: row-reverse; }\n\n.sd-formGroup {\n  width: 100%;\n  display: block; }\n"
 
 /***/ },
 /* 213 */
+/*!**********************************!*\
+  !*** ./src/app/header/header.ts ***!
+  \**********************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -88717,9 +89570,9 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var core_1 = __webpack_require__(3);
-	var angular2_mdl_1 = __webpack_require__(210);
-	var template = __webpack_require__(214);
+	var core_1 = __webpack_require__(/*! @angular/core */ 3);
+	var angular2_mdl_1 = __webpack_require__(/*! angular2-mdl */ 210);
+	var template = __webpack_require__(/*! ./header.html */ 214);
 	var Header = (function () {
 	    function Header() {
 	    }
@@ -88736,16 +89589,22 @@
 	    __metadata("design:paramtypes", [])
 	], Header);
 	exports.Header = Header;
-	
+
 
 /***/ },
 /* 214 */
+/*!************************************!*\
+  !*** ./src/app/header/header.html ***!
+  \************************************/
 /***/ function(module, exports) {
 
 	module.exports = "<mdl-layout-header-row>\n    <mdl-layout-title>Sleep Diary <sup><small>alpha</small></sup></mdl-layout-title>\n    <mdl-layout-spacer></mdl-layout-spacer>\n    <!-- Navigation. We hide it in small screens. -->\n    <nav class=\"mdl-navigation mdl-layout--large-screen-only\">\n    </nav>\n</mdl-layout-header-row>"
 
 /***/ },
 /* 215 */
+/*!**********************************!*\
+  !*** ./src/app/footer/footer.ts ***!
+  \**********************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -88758,8 +89617,8 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var core_1 = __webpack_require__(3);
-	var template = __webpack_require__(216);
+	var core_1 = __webpack_require__(/*! @angular/core */ 3);
+	var template = __webpack_require__(/*! ./footer.html */ 216);
 	var Footer = (function () {
 	    function Footer() {
 	    }
@@ -88769,27 +89628,36 @@
 	    core_1.Component({
 	        selector: 'footer-comp',
 	        template: template,
-	        styles: [__webpack_require__(217)],
+	        styles: [__webpack_require__(/*! ./footer.scss */ 217)],
 	    }),
 	    __metadata("design:paramtypes", [])
 	], Footer);
 	exports.Footer = Footer;
-	
+
 
 /***/ },
 /* 216 */
+/*!************************************!*\
+  !*** ./src/app/footer/footer.html ***!
+  \************************************/
 /***/ function(module, exports) {
 
 	module.exports = "<footer class=\"mdl-mini-footer sd-align-bottom\">\n    <div class=\"mdl-mini-footer__left-section\">\n        <ul class=\"mdl-mini-footer__link-list\">\n            <li><a href=\"https://github.com/datracka/sleepdiary.io\" target=\"_blank\">Github</a></li>\n            <li><a href=\"https://www.linkedin.com/in/vicensfayos\" target=\"_blank\">About me</a></li>\n        </ul>\n    </div>\n</footer>"
 
 /***/ },
 /* 217 */
+/*!************************************!*\
+  !*** ./src/app/footer/footer.scss ***!
+  \************************************/
 /***/ function(module, exports) {
 
 	module.exports = ".sd-align-bottom {\n  position: fixed;\n  width: 100%;\n  bottom: 0;\n  padding: 16px !important; }\n"
 
 /***/ },
 /* 218 */
+/*!**********************************!*\
+  !*** ./src/app/drawer/drawer.ts ***!
+  \**********************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -88802,10 +89670,10 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var core_1 = __webpack_require__(3);
-	var angular2_mdl_1 = __webpack_require__(210);
-	var router_1 = __webpack_require__(30);
-	var template = __webpack_require__(219);
+	var core_1 = __webpack_require__(/*! @angular/core */ 3);
+	var angular2_mdl_1 = __webpack_require__(/*! angular2-mdl */ 210);
+	var router_1 = __webpack_require__(/*! @angular/router */ 30);
+	var template = __webpack_require__(/*! ./drawer.html */ 219);
 	var Drawer = (function () {
 	    function Drawer(router) {
 	        this.router = router;
@@ -88829,16 +89697,22 @@
 	    __metadata("design:paramtypes", [router_1.Router])
 	], Drawer);
 	exports.Drawer = Drawer;
-	
+
 
 /***/ },
 /* 219 */
+/*!************************************!*\
+  !*** ./src/app/drawer/drawer.html ***!
+  \************************************/
 /***/ function(module, exports) {
 
 	module.exports = "<nav class=\"mdl-navigation\">\n    <!-- https://github.com/google/material-design-lite/issues/1246-->\n    <a routerLink=\"/home/monthly\" class=\"mdl-navigation__link\"><mdl-icon>today</mdl-icon> Calendar</a>\n    <a routerLink=\"/home/entry/new\" class=\"mdl-navigation__link\"><mdl-icon>add</mdl-icon> New Entry</a>\n    <a class=\"mdl-navigation__link\" href=\"#\"><mdl-icon>trending_up</mdl-icon> Statistics</a>\n    <a class=\"mdl-navigation__link\" (click)=\"logOut()\"><mdl-icon>cancel</mdl-icon> Logout</a>\n</nav>"
 
 /***/ },
 /* 220 */
+/*!*******************************************************!*\
+  !*** ./src/app/shared/common/close-menu.directive.ts ***!
+  \*******************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -88851,7 +89725,7 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var core_1 = __webpack_require__(3);
+	var core_1 = __webpack_require__(/*! @angular/core */ 3);
 	var CloseMenuDirective = (function () {
 	    function CloseMenuDirective(el, renderer) {
 	        this.el = el;
@@ -88881,18 +89755,21 @@
 	    __metadata("design:paramtypes", [core_1.ElementRef, core_1.Renderer])
 	], CloseMenuDirective);
 	exports.CloseMenuDirective = CloseMenuDirective;
-	
+
 
 /***/ },
 /* 221 */
+/*!*************************************************!*\
+  !*** ./~/@angular2-mdl-ext/select/index.umd.js ***!
+  \*************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	(function (global, factory) {
-	     true ? factory(exports, __webpack_require__(3), __webpack_require__(24), __webpack_require__(22)) :
+	     true ? factory(exports, __webpack_require__(/*! @angular/core */ 3), __webpack_require__(/*! @angular/forms */ 24), __webpack_require__(/*! @angular/common */ 22)) :
 	    typeof define === 'function' && define.amd ? define(['exports', '@angular/core', '@angular/forms', '@angular/common'], factory) :
 	    (factory((global.angular2Mdl = global.angular2Mdl || {}, global.angular2Mdl.select = global.angular2Mdl.select || {}),global.ng.core,global.ng.forms,global.ng.common));
 	}(this, (function (exports,_angular_core,_angular_forms,_angular_common) { 'use strict';
-
+	
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
 	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -88959,7 +89836,7 @@
 	    ], MdlOptionComponent);
 	    return MdlOptionComponent;
 	}());
-
+	
 	var __decorate$2 = (this && this.__decorate) || function (decorators, target, key, desc) {
 	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -89080,7 +89957,7 @@
 	    ], MdlPopoverModule);
 	    return MdlPopoverModule;
 	}());
-
+	
 	var __extends = (this && this.__extends) || function (d, b) {
 	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
 	    function __() { this.constructor = d; }
@@ -89415,27 +90292,30 @@
 	    ], MdlSelectModule);
 	    return MdlSelectModule;
 	}());
-
+	
 	exports.MdlOptionComponent = MdlOptionComponent;
 	exports.SearchableComponent = SearchableComponent;
 	exports.MdlSelectComponent = MdlSelectComponent;
 	exports.MdlSelectModule = MdlSelectModule;
-
+	
 	Object.defineProperty(exports, '__esModule', { value: true });
-
+	
 	})));
 
 
 /***/ },
 /* 222 */
+/*!**************************************************!*\
+  !*** ./~/@angular2-mdl-ext/popover/index.umd.js ***!
+  \**************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	(function (global, factory) {
-	     true ? factory(exports, __webpack_require__(3)) :
+	     true ? factory(exports, __webpack_require__(/*! @angular/core */ 3)) :
 	    typeof define === 'function' && define.amd ? define(['exports', '@angular/core'], factory) :
 	    (factory((global.angular2Mdl = global.angular2Mdl || {}, global.angular2Mdl.popover = global.angular2Mdl.popover || {}),global.ng.core));
 	}(this, (function (exports,_angular_core) { 'use strict';
-
+	
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
 	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -89556,12 +90436,12 @@
 	    ], MdlPopoverModule);
 	    return MdlPopoverModule;
 	}());
-
+	
 	exports.MdlPopoverComponent = MdlPopoverComponent;
 	exports.MdlPopoverModule = MdlPopoverModule;
-
+	
 	Object.defineProperty(exports, '__esModule', { value: true });
-
+	
 	})));
 
 
