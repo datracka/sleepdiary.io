@@ -1,6 +1,6 @@
 import {Component, style, state, animate, transition, trigger} from "@angular/core";
 import {Router} from "@angular/router";
-import {SignupService} from "../shared/signup/signup.service";
+import {SignupService} from "../services/signup/signup.service";
 
 const styles   = require('./signup.css');
 const template = require('./signup.html');

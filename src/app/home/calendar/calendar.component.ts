@@ -10,15 +10,15 @@ import {
     AfterViewInit, ViewContainerRef
 } from '@angular/core';
 import * as moment from 'moment';
-import {Month} from '../../shared/calendar/month';
-import {CalendarService} from '../../shared/calendar/calendar.service'
+import {Month} from '../../services/calendar/month';
+import {CalendarService} from '../../services/calendar/calendar.service'
 import {ActivatedRoute, Router} from "@angular/router";
-import {Week} from "../../shared/calendar/week";
-import {Day} from "../../shared/calendar/day";
-import {MetricsIndicators} from "../../shared/common/metrics-indicators";
-import {Metric} from "../../shared/common/metrics";
+import {Week} from "../../services/calendar/week";
+import {Day} from "../../services/calendar/day";
+import {MetricsIndicators} from "../../services/common/metrics-indicators";
+import {Metric} from "../../services/common/metrics";
 import {MdlSnackbarService} from "angular2-mdl";
-import {Entry} from "../../shared/common/entry";
+import {Entry} from "../../services/common/entry";
 let template = require('./calendar.html');
 
 

@@ -50775,6 +50775,7 @@
 	var angular2_jwt_1 = __webpack_require__(/*! angular2-jwt */ 76);
 	var home_module_1 = __webpack_require__(/*! ./home/home.module */ 79);
 	var angular2_mdl_1 = __webpack_require__(/*! angular2-mdl */ 210);
+	var statistics_module_1 = __webpack_require__(/*! ./statistics/statistics.module */ 223);
 	/*https://angular.io/docs/ts/latest/cookbook/dependency-injection.html#!#usefactory*/
 	var AppModule = (function () {
 	    function AppModule(appRef) {
@@ -50792,6 +50793,7 @@
 	            forms_1.FormsModule,
 	            app_routes_1.routing,
 	            home_module_1.HomeModule,
+	            statistics_module_1.StatisticsModule,
 	            http_1.HttpModule,
 	            angular2_mdl_1.MdlModule
 	        ],
@@ -66786,7 +66788,7 @@
 	};
 	var core_1 = __webpack_require__(/*! @angular/core */ 3);
 	var router_1 = __webpack_require__(/*! @angular/router */ 30);
-	var login_service_1 = __webpack_require__(/*! ../shared/login/login.service */ 62);
+	var login_service_1 = __webpack_require__(/*! ../services/login/login.service */ 62);
 	var template = __webpack_require__(/*! ./login.html */ 64);
 	var Login = (function () {
 	    function Login(router, loginService) {
@@ -66831,9 +66833,9 @@
 
 /***/ },
 /* 62 */
-/*!***********************************************!*\
-  !*** ./src/app/shared/login/login.service.ts ***!
-  \***********************************************/
+/*!*************************************************!*\
+  !*** ./src/app/services/login/login.service.ts ***!
+  \*************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -66869,9 +66871,9 @@
 
 /***/ },
 /* 63 */
-/*!******************************************!*\
-  !*** ./src/app/shared/common/headers.ts ***!
-  \******************************************/
+/*!********************************************!*\
+  !*** ./src/app/services/common/headers.ts ***!
+  \********************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -66932,7 +66934,7 @@
 	};
 	var core_1 = __webpack_require__(/*! @angular/core */ 3);
 	var router_1 = __webpack_require__(/*! @angular/router */ 30);
-	var signup_service_1 = __webpack_require__(/*! ../shared/signup/signup.service */ 68);
+	var signup_service_1 = __webpack_require__(/*! ../services/signup/signup.service */ 68);
 	var styles = __webpack_require__(/*! ./signup.css */ 69);
 	var template = __webpack_require__(/*! ./signup.html */ 72);
 	var SignUp = (function () {
@@ -66979,9 +66981,9 @@
 
 /***/ },
 /* 68 */
-/*!*************************************************!*\
-  !*** ./src/app/shared/signup/signup.service.ts ***!
-  \*************************************************/
+/*!***************************************************!*\
+  !*** ./src/app/services/signup/signup.service.ts ***!
+  \***************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -67558,10 +67560,10 @@
 	var home_1 = __webpack_require__(/*! ./home */ 81);
 	var header_1 = __webpack_require__(/*! ../header/header */ 213);
 	var footer_1 = __webpack_require__(/*! ../footer/footer */ 215);
-	var auth_guard_1 = __webpack_require__(/*! ../shared/common/auth-guard */ 93);
+	var auth_guard_1 = __webpack_require__(/*! ../services/common/auth-guard */ 93);
 	var angular2_mdl_1 = __webpack_require__(/*! angular2-mdl */ 210);
 	var drawer_1 = __webpack_require__(/*! ../drawer/drawer */ 218);
-	var close_menu_directive_1 = __webpack_require__(/*! ../shared/common/close-menu.directive */ 220);
+	var close_menu_directive_1 = __webpack_require__(/*! ../services/common/close-menu.directive */ 220);
 	var select_1 = __webpack_require__(/*! @angular2-mdl-ext/select */ 221);
 	var popover_1 = __webpack_require__(/*! @angular2-mdl-ext/popover */ 222);
 	var HomeModule = (function () {
@@ -67583,8 +67585,8 @@
 	            home_1.HomeComponent,
 	            monthly_component_1.MonthlyViewComponent,
 	            yearly_component_1.YearlyViewComponent,
-	            calendar_component_1.Calendar,
 	            entry_form_component_1.EntryForm,
+	            calendar_component_1.Calendar,
 	            header_1.Header,
 	            drawer_1.Drawer,
 	            footer_1.Footer,
@@ -67612,7 +67614,7 @@
 	var yearly_component_1 = __webpack_require__(/*! ./yearly/yearly.component */ 83);
 	var monthly_component_1 = __webpack_require__(/*! ./monthly/monthly.component */ 85);
 	var entry_form_component_1 = __webpack_require__(/*! ./entryForm/entry-form.component */ 88);
-	var auth_guard_1 = __webpack_require__(/*! ../shared/common/auth-guard */ 93);
+	var auth_guard_1 = __webpack_require__(/*! ../services/common/auth-guard */ 93);
 	var homeRoutes = [
 	    {
 	        path: 'home',
@@ -67634,10 +67636,6 @@
 	            {
 	                path: 'entry/:uuid',
 	                component: entry_form_component_1.EntryForm
-	            },
-	            {
-	                path: 'statistics',
-	                component: StatisticsComponent
 	            }
 	        ]
 	    }
@@ -67749,7 +67747,7 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(/*! @angular/core */ 3);
-	var calendar_service_1 = __webpack_require__(/*! ../../shared/calendar/calendar.service */ 86);
+	var calendar_service_1 = __webpack_require__(/*! ../../services/calendar/calendar.service */ 86);
 	var template = __webpack_require__(/*! ./monthly.html */ 87);
 	var MonthlyViewComponent = (function () {
 	    function MonthlyViewComponent() {
@@ -67771,9 +67769,9 @@
 
 /***/ },
 /* 86 */
-/*!*****************************************************!*\
-  !*** ./src/app/shared/calendar/calendar.service.ts ***!
-  \*****************************************************/
+/*!*******************************************************!*\
+  !*** ./src/app/services/calendar/calendar.service.ts ***!
+  \*******************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -67839,9 +67837,9 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(/*! @angular/core */ 3);
-	var entry_1 = __webpack_require__(/*! ../../shared/common/entry */ 89);
+	var entry_1 = __webpack_require__(/*! ../../services/common/entry */ 89);
 	var router_1 = __webpack_require__(/*! @angular/router */ 30);
-	var entry_form_service_1 = __webpack_require__(/*! ../../shared/entry-form/entry-form.service */ 90);
+	var entry_form_service_1 = __webpack_require__(/*! ../../services/entry-form/entry-form.service */ 90);
 	var template = __webpack_require__(/*! ./entry-form.html */ 91);
 	var EntryForm = (function () {
 	    // https://scotch.io/tutorials/how-to-deal-with-different-form-controls-in-angular-2
@@ -67950,9 +67948,9 @@
 
 /***/ },
 /* 89 */
-/*!****************************************!*\
-  !*** ./src/app/shared/common/entry.ts ***!
-  \****************************************/
+/*!******************************************!*\
+  !*** ./src/app/services/common/entry.ts ***!
+  \******************************************/
 /***/ function(module, exports) {
 
 	"use strict";
@@ -67973,9 +67971,9 @@
 
 /***/ },
 /* 90 */
-/*!*********************************************************!*\
-  !*** ./src/app/shared/entry-form/entry-form.service.ts ***!
-  \*********************************************************/
+/*!***********************************************************!*\
+  !*** ./src/app/services/entry-form/entry-form.service.ts ***!
+  \***********************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -68051,9 +68049,9 @@
 
 /***/ },
 /* 93 */
-/*!*********************************************!*\
-  !*** ./src/app/shared/common/auth-guard.ts ***!
-  \*********************************************/
+/*!***********************************************!*\
+  !*** ./src/app/services/common/auth-guard.ts ***!
+  \***********************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -68108,12 +68106,12 @@
 	};
 	var core_1 = __webpack_require__(/*! @angular/core */ 3);
 	var moment = __webpack_require__(/*! moment */ 95);
-	var month_1 = __webpack_require__(/*! ../../shared/calendar/month */ 206);
-	var calendar_service_1 = __webpack_require__(/*! ../../shared/calendar/calendar.service */ 86);
+	var month_1 = __webpack_require__(/*! ../../services/calendar/month */ 206);
+	var calendar_service_1 = __webpack_require__(/*! ../../services/calendar/calendar.service */ 86);
 	var router_1 = __webpack_require__(/*! @angular/router */ 30);
-	var week_1 = __webpack_require__(/*! ../../shared/calendar/week */ 207);
-	var day_1 = __webpack_require__(/*! ../../shared/calendar/day */ 208);
-	var metrics_indicators_1 = __webpack_require__(/*! ../../shared/common/metrics-indicators */ 209);
+	var week_1 = __webpack_require__(/*! ../../services/calendar/week */ 207);
+	var day_1 = __webpack_require__(/*! ../../services/calendar/day */ 208);
+	var metrics_indicators_1 = __webpack_require__(/*! ../../services/common/metrics-indicators */ 209);
 	var angular2_mdl_1 = __webpack_require__(/*! angular2-mdl */ 210);
 	var template = __webpack_require__(/*! ./calendar.html */ 211);
 	//todo:
@@ -83596,9 +83594,9 @@
 
 /***/ },
 /* 206 */
-/*!******************************************!*\
-  !*** ./src/app/shared/calendar/month.ts ***!
-  \******************************************/
+/*!********************************************!*\
+  !*** ./src/app/services/calendar/month.ts ***!
+  \********************************************/
 /***/ function(module, exports) {
 
 	"use strict";
@@ -83617,9 +83615,9 @@
 
 /***/ },
 /* 207 */
-/*!*****************************************!*\
-  !*** ./src/app/shared/calendar/week.ts ***!
-  \*****************************************/
+/*!*******************************************!*\
+  !*** ./src/app/services/calendar/week.ts ***!
+  \*******************************************/
 /***/ function(module, exports) {
 
 	"use strict";
@@ -83634,9 +83632,9 @@
 
 /***/ },
 /* 208 */
-/*!****************************************!*\
-  !*** ./src/app/shared/calendar/day.ts ***!
-  \****************************************/
+/*!******************************************!*\
+  !*** ./src/app/services/calendar/day.ts ***!
+  \******************************************/
 /***/ function(module, exports) {
 
 	"use strict";
@@ -83657,9 +83655,9 @@
 
 /***/ },
 /* 209 */
-/*!*****************************************************!*\
-  !*** ./src/app/shared/common/metrics-indicators.ts ***!
-  \*****************************************************/
+/*!*******************************************************!*\
+  !*** ./src/app/services/common/metrics-indicators.ts ***!
+  \*******************************************************/
 /***/ function(module, exports) {
 
 	"use strict";
@@ -90679,13 +90677,13 @@
   \************************************/
 /***/ function(module, exports) {
 
-	module.exports = "<nav class=\"mdl-navigation\">\n    <!-- https://github.com/google/material-design-lite/issues/1246-->\n    <a routerLink=\"/home/monthly\" class=\"mdl-navigation__link\"><mdl-icon>today</mdl-icon> Calendar</a>\n    <a routerLink=\"/home/entry/new\" class=\"mdl-navigation__link\"><mdl-icon>add</mdl-icon> New Entry</a>\n    <a routerLink=\"/home/entry/statistics\" href=\"#\"><mdl-icon>trending_up</mdl-icon> Statistics</a>\n    <a class=\"mdl-navigation__link\" (click)=\"logOut()\"><mdl-icon>cancel</mdl-icon> Logout</a>\n</nav>"
+	module.exports = "<nav class=\"mdl-navigation\">\n    <!-- https://github.com/google/material-design-lite/issues/1246-->\n    <a routerLink=\"/home/monthly\" class=\"mdl-navigation__link\"><mdl-icon>today</mdl-icon> Calendar</a>\n    <a routerLink=\"/home/entry/new\" class=\"mdl-navigation__link\"><mdl-icon>add</mdl-icon> New Entry</a>\n    <a routerLink=\"/home/statistics\" class=\"mdl-navigation__link\"><mdl-icon>trending_up</mdl-icon> Statistics</a>\n    <a class=\"mdl-navigation__link\" (click)=\"logOut()\"><mdl-icon>cancel</mdl-icon> Logout</a>\n</nav>"
 
 /***/ },
 /* 220 */
-/*!*******************************************************!*\
-  !*** ./src/app/shared/common/close-menu.directive.ts ***!
-  \*******************************************************/
+/*!*********************************************************!*\
+  !*** ./src/app/services/common/close-menu.directive.ts ***!
+  \*********************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -91417,6 +91415,172 @@
 	
 	})));
 
+
+/***/ },
+/* 223 */
+/*!*************************************************!*\
+  !*** ./src/app/statistics/statistics.module.ts ***!
+  \*************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var core_1 = __webpack_require__(/*! @angular/core */ 3);
+	var statistics_routes_1 = __webpack_require__(/*! ./statistics.routes */ 224);
+	var statistics_1 = __webpack_require__(/*! ./statistics */ 225);
+	var sample_component_1 = __webpack_require__(/*! ./sample/sample.component */ 227);
+	var common_1 = __webpack_require__(/*! @angular/common */ 22);
+	var auth_guard_1 = __webpack_require__(/*! ../services/common/auth-guard */ 93);
+	var angular2_mdl_1 = __webpack_require__(/*! angular2-mdl */ 210);
+	var StatisticsModule = (function () {
+	    function StatisticsModule() {
+	    }
+	    return StatisticsModule;
+	}());
+	StatisticsModule = __decorate([
+	    core_1.NgModule({
+	        imports: [
+	            common_1.CommonModule,
+	            statistics_routes_1.statisticsRouting,
+	            angular2_mdl_1.MdlModule
+	        ],
+	        declarations: [
+	            statistics_1.StatisticsComponent,
+	            sample_component_1.SampleComponent
+	        ],
+	        providers: [
+	            auth_guard_1.AuthGuard
+	        ]
+	    }),
+	    __metadata("design:paramtypes", [])
+	], StatisticsModule);
+	exports.StatisticsModule = StatisticsModule;
+
+
+/***/ },
+/* 224 */
+/*!*************************************************!*\
+  !*** ./src/app/statistics/statistics.routes.ts ***!
+  \*************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var router_1 = __webpack_require__(/*! @angular/router */ 30);
+	var statistics_1 = __webpack_require__(/*! ./statistics */ 225);
+	var auth_guard_1 = __webpack_require__(/*! ../services/common/auth-guard */ 93);
+	var sample_component_1 = __webpack_require__(/*! ./sample/sample.component */ 227);
+	var statisticsRoutes = [
+	    {
+	        path: 'statistics',
+	        component: statistics_1.StatisticsComponent,
+	        canActivate: [auth_guard_1.AuthGuard],
+	        children: [
+	            {
+	                path: '',
+	                component: sample_component_1.SampleComponent
+	            },
+	            {
+	                path: 'sample',
+	                component: sample_component_1.SampleComponent
+	            },
+	        ]
+	    }
+	];
+	exports.statisticsRouting = router_1.RouterModule.forChild(statisticsRoutes);
+
+
+/***/ },
+/* 225 */
+/*!******************************************!*\
+  !*** ./src/app/statistics/statistics.ts ***!
+  \******************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var core_1 = __webpack_require__(/*! @angular/core */ 3);
+	var template = __webpack_require__(/*! ./statistics.html */ 226);
+	var StatisticsComponent = (function () {
+	    function StatisticsComponent() {
+	    }
+	    return StatisticsComponent;
+	}());
+	StatisticsComponent = __decorate([
+	    core_1.Component({
+	        template: template
+	    }),
+	    __metadata("design:paramtypes", [])
+	], StatisticsComponent);
+	exports.StatisticsComponent = StatisticsComponent;
+
+
+/***/ },
+/* 226 */
+/*!********************************************!*\
+  !*** ./src/app/statistics/statistics.html ***!
+  \********************************************/
+/***/ function(module, exports) {
+
+	module.exports = ""
+
+/***/ },
+/* 227 */
+/*!*******************************************************!*\
+  !*** ./src/app/statistics/sample/sample.component.ts ***!
+  \*******************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var core_1 = __webpack_require__(/*! @angular/core */ 3);
+	var template = __webpack_require__(/*! ./sample.html */ 228);
+	var SampleComponent = (function () {
+	    function SampleComponent() {
+	    }
+	    return SampleComponent;
+	}());
+	SampleComponent = __decorate([
+	    core_1.Component({
+	        selector: 'sample-view',
+	        template: template
+	    }),
+	    __metadata("design:paramtypes", [])
+	], SampleComponent);
+	exports.SampleComponent = SampleComponent;
+
+
+/***/ },
+/* 228 */
+/*!***********************************************!*\
+  !*** ./src/app/statistics/sample/sample.html ***!
+  \***********************************************/
+/***/ function(module, exports) {
+
+	module.exports = "<div>Sample Component!</div>"
 
 /***/ }
 /******/ ]);

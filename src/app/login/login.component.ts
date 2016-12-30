@@ -1,6 +1,6 @@
 import {Component, style, state, animate, transition, trigger} from '@angular/core';
 import {Router} from '@angular/router';
-import {LoginService} from '../shared/login/login.service';
+import {LoginService} from '../services/login/login.service';
 
 const template = require('./login.html');
 

@@ -4,8 +4,7 @@ import {YearlyViewComponent} from "./yearly/yearly.component";
 import {MonthlyViewComponent} from "./monthly/monthly.component";
 import {EntryForm} from "./entryForm/entry-form.component";
 import {ModuleWithProviders} from "@angular/core";
-import {AuthGuard} from "../shared/common/auth-guard";
-import {StatisticsComponent} from "./Statistics/statistics.component";
+import {AuthGuard} from "../services/common/auth-guard";
 
 const homeRoutes: Routes = [
     {
@@ -24,10 +23,6 @@ const homeRoutes: Routes = [
             {
                 path: 'yearly',
                 component: YearlyViewComponent
-            },
-            {
-                path: 'statistics',
-                component: StatisticsComponent
             },
             {
                 path: 'entry/:uuid',

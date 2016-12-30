@@ -12,6 +12,8 @@ import {AuthHttp, AuthConfig} from "angular2-jwt";
 
 import {HomeModule} from "./home/home.module";
 import {MdlModule} from "angular2-mdl";
+import {StatisticsModule} from "./statistics/statistics.module";
+
 
 /*https://angular.io/docs/ts/latest/cookbook/dependency-injection.html#!#usefactory*/
 @NgModule({
@@ -19,7 +21,8 @@ import {MdlModule} from "angular2-mdl";
         BrowserModule,
         FormsModule,
         routing,
-        HomeModule,
+        HomeModule, //rename to CalendarModule
+        StatisticsModule,
         HttpModule,
         MdlModule
     ],
