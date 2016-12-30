@@ -15,6 +15,7 @@ import {Drawer} from "../drawer/drawer";
 import {CloseMenuDirective} from "../shared/common/close-menu.directive";
 import {MdlSelectModule} from "@angular2-mdl-ext/select";
 import {MdlPopoverModule} from "@angular2-mdl-ext/popover";
+import {StatisticsComponent} from "./Statistics/statistics.component";
 
 @NgModule({
     imports: [
@@ -29,6 +30,7 @@ import {MdlPopoverModule} from "@angular2-mdl-ext/popover";
         HomeComponent,
         MonthlyViewComponent,
         YearlyViewComponent,
+        StatisticsComponent,
         Calendar,
         EntryForm,
         Header,

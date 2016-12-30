@@ -67634,6 +67634,10 @@
 	            {
 	                path: 'entry/:uuid',
 	                component: entry_form_component_1.EntryForm
+	            },
+	            {
+	                path: 'statistics',
+	                component: StatisticsComponent
 	            }
 	        ]
 	    }
@@ -90675,7 +90679,7 @@
   \************************************/
 /***/ function(module, exports) {
 
-	module.exports = "<nav class=\"mdl-navigation\">\n    <!-- https://github.com/google/material-design-lite/issues/1246-->\n    <a routerLink=\"/home/monthly\" class=\"mdl-navigation__link\"><mdl-icon>today</mdl-icon> Calendar</a>\n    <a routerLink=\"/home/entry/new\" class=\"mdl-navigation__link\"><mdl-icon>add</mdl-icon> New Entry</a>\n    <a class=\"mdl-navigation__link\" href=\"#\"><mdl-icon>trending_up</mdl-icon> Statistics</a>\n    <a class=\"mdl-navigation__link\" (click)=\"logOut()\"><mdl-icon>cancel</mdl-icon> Logout</a>\n</nav>"
+	module.exports = "<nav class=\"mdl-navigation\">\n    <!-- https://github.com/google/material-design-lite/issues/1246-->\n    <a routerLink=\"/home/monthly\" class=\"mdl-navigation__link\"><mdl-icon>today</mdl-icon> Calendar</a>\n    <a routerLink=\"/home/entry/new\" class=\"mdl-navigation__link\"><mdl-icon>add</mdl-icon> New Entry</a>\n    <a routerLink=\"/home/entry/statistics\" href=\"#\"><mdl-icon>trending_up</mdl-icon> Statistics</a>\n    <a class=\"mdl-navigation__link\" (click)=\"logOut()\"><mdl-icon>cancel</mdl-icon> Logout</a>\n</nav>"
 
 /***/ },
 /* 220 */
