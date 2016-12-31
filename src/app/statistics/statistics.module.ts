@@ -3,8 +3,8 @@ import {statisticsRouting} from "./statistics.routes";
 import {StatisticsComponent} from "./statistics";
 import {SampleComponent} from "./sample/sample.component";
 import {AuthGuard} from "../services/common/auth-guard";
-import {MdlModule} from "angular2-mdl";
 import {SharedModule} from "../shared/shared.module";
+import {BaseChartDirective} from "./sample/sample.directive";
 
 @NgModule({
     imports: [
@@ -13,7 +13,8 @@ import {SharedModule} from "../shared/shared.module";
     ],
     declarations: [
         StatisticsComponent,
-        SampleComponent
+        SampleComponent,
+        BaseChartDirective
     ],
     providers: [
         AuthGuard

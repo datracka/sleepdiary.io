@@ -50775,7 +50775,7 @@
 	var angular2_jwt_1 = __webpack_require__(/*! angular2-jwt */ 76);
 	var home_module_1 = __webpack_require__(/*! ./home/home.module */ 79);
 	var angular2_mdl_1 = __webpack_require__(/*! angular2-mdl */ 210);
-	var statistics_module_1 = __webpack_require__(/*! ./statistics/statistics.module */ 223);
+	var statistics_module_1 = __webpack_require__(/*! ./statistics/statistics.module */ 224);
 	/*https://angular.io/docs/ts/latest/cookbook/dependency-injection.html#!#usefactory*/
 	var AppModule = (function () {
 	    function AppModule(appRef) {
@@ -67555,17 +67555,13 @@
 	var monthly_component_1 = __webpack_require__(/*! ./monthly/monthly.component */ 85);
 	var entry_form_component_1 = __webpack_require__(/*! ./entryForm/entry-form.component */ 88);
 	var yearly_component_1 = __webpack_require__(/*! ./yearly/yearly.component */ 83);
-	var common_1 = __webpack_require__(/*! @angular/common */ 22);
 	var forms_1 = __webpack_require__(/*! @angular/forms */ 24);
 	var home_1 = __webpack_require__(/*! ./home */ 81);
-	var header_1 = __webpack_require__(/*! ../header/header */ 213);
-	var footer_1 = __webpack_require__(/*! ../footer/footer */ 215);
 	var auth_guard_1 = __webpack_require__(/*! ../services/common/auth-guard */ 93);
-	var angular2_mdl_1 = __webpack_require__(/*! angular2-mdl */ 210);
-	var drawer_1 = __webpack_require__(/*! ../drawer/drawer */ 218);
-	var close_menu_directive_1 = __webpack_require__(/*! ../services/common/close-menu.directive */ 220);
-	var select_1 = __webpack_require__(/*! @angular2-mdl-ext/select */ 221);
-	var popover_1 = __webpack_require__(/*! @angular2-mdl-ext/popover */ 222);
+	var close_menu_directive_1 = __webpack_require__(/*! ../services/common/close-menu.directive */ 213);
+	var select_1 = __webpack_require__(/*! @angular2-mdl-ext/select */ 214);
+	var popover_1 = __webpack_require__(/*! @angular2-mdl-ext/popover */ 215);
+	var shared_module_1 = __webpack_require__(/*! ../shared/shared.module */ 216);
 	var HomeModule = (function () {
 	    function HomeModule() {
 	    }
@@ -67574,10 +67570,9 @@
 	HomeModule = __decorate([
 	    core_1.NgModule({
 	        imports: [
-	            common_1.CommonModule,
+	            shared_module_1.SharedModule,
 	            forms_1.FormsModule,
 	            home_routes_1.homeRouting,
-	            angular2_mdl_1.MdlModule,
 	            popover_1.MdlPopoverModule,
 	            select_1.MdlSelectModule
 	        ],
@@ -67587,9 +67582,6 @@
 	            yearly_component_1.YearlyViewComponent,
 	            entry_form_component_1.EntryForm,
 	            calendar_component_1.Calendar,
-	            header_1.Header,
-	            drawer_1.Drawer,
-	            footer_1.Footer,
 	            close_menu_directive_1.CloseMenuDirective
 	        ],
 	        providers: [
@@ -90526,161 +90518,6 @@
 
 /***/ },
 /* 213 */
-/*!**********************************!*\
-  !*** ./src/app/header/header.ts ***!
-  \**********************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
-	var __metadata = (this && this.__metadata) || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var core_1 = __webpack_require__(/*! @angular/core */ 3);
-	var angular2_mdl_1 = __webpack_require__(/*! angular2-mdl */ 210);
-	var template = __webpack_require__(/*! ./header.html */ 214);
-	var Header = (function () {
-	    function Header() {
-	    }
-	    return Header;
-	}());
-	Header = __decorate([
-	    core_1.Component({
-	        selector: 'header-comp',
-	        template: template,
-	        providers: [
-	            angular2_mdl_1.MdlLayoutComponent
-	        ]
-	    }),
-	    __metadata("design:paramtypes", [])
-	], Header);
-	exports.Header = Header;
-
-
-/***/ },
-/* 214 */
-/*!************************************!*\
-  !*** ./src/app/header/header.html ***!
-  \************************************/
-/***/ function(module, exports) {
-
-	module.exports = "<mdl-layout-header-row>\n    <mdl-layout-title>Sleep Diary <sup><small>alpha</small></sup></mdl-layout-title>\n    <mdl-layout-spacer></mdl-layout-spacer>\n    <!-- Navigation. We hide it in small screens. -->\n    <nav class=\"mdl-navigation mdl-layout--large-screen-only\">\n    </nav>\n</mdl-layout-header-row>"
-
-/***/ },
-/* 215 */
-/*!**********************************!*\
-  !*** ./src/app/footer/footer.ts ***!
-  \**********************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
-	var __metadata = (this && this.__metadata) || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var core_1 = __webpack_require__(/*! @angular/core */ 3);
-	var template = __webpack_require__(/*! ./footer.html */ 216);
-	var Footer = (function () {
-	    function Footer() {
-	    }
-	    return Footer;
-	}());
-	Footer = __decorate([
-	    core_1.Component({
-	        selector: 'footer-comp',
-	        template: template,
-	        styles: [__webpack_require__(/*! ./footer.scss */ 217)],
-	    }),
-	    __metadata("design:paramtypes", [])
-	], Footer);
-	exports.Footer = Footer;
-
-
-/***/ },
-/* 216 */
-/*!************************************!*\
-  !*** ./src/app/footer/footer.html ***!
-  \************************************/
-/***/ function(module, exports) {
-
-	module.exports = "<footer class=\"mdl-mini-footer sd-align-bottom\">\n    <div class=\"mdl-mini-footer__left-section\">\n        <ul class=\"mdl-mini-footer__link-list\">\n            <li><a href=\"https://github.com/datracka/sleepdiary.io\" target=\"_blank\">Github</a></li>\n            <li><a href=\"https://www.linkedin.com/in/vicensfayos\" target=\"_blank\">About me</a></li>\n        </ul>\n    </div>\n</footer>"
-
-/***/ },
-/* 217 */
-/*!************************************!*\
-  !*** ./src/app/footer/footer.scss ***!
-  \************************************/
-/***/ function(module, exports) {
-
-	module.exports = ".sd-align-bottom {\n  position: fixed;\n  width: 100%;\n  bottom: 0;\n  padding: 16px !important; }\n"
-
-/***/ },
-/* 218 */
-/*!**********************************!*\
-  !*** ./src/app/drawer/drawer.ts ***!
-  \**********************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
-	var __metadata = (this && this.__metadata) || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var core_1 = __webpack_require__(/*! @angular/core */ 3);
-	var angular2_mdl_1 = __webpack_require__(/*! angular2-mdl */ 210);
-	var router_1 = __webpack_require__(/*! @angular/router */ 30);
-	var template = __webpack_require__(/*! ./drawer.html */ 219);
-	var Drawer = (function () {
-	    function Drawer(router) {
-	        this.router = router;
-	    }
-	    Drawer.prototype.logOut = function () {
-	        //remove items
-	        localStorage.removeItem('user');
-	        localStorage.removeItem('id_token');
-	        this.router.navigate(['/login']);
-	    };
-	    return Drawer;
-	}());
-	Drawer = __decorate([
-	    core_1.Component({
-	        selector: 'drawer-comp',
-	        template: template,
-	        providers: [
-	            angular2_mdl_1.MdlLayoutComponent
-	        ]
-	    }),
-	    __metadata("design:paramtypes", [router_1.Router])
-	], Drawer);
-	exports.Drawer = Drawer;
-
-
-/***/ },
-/* 219 */
-/*!************************************!*\
-  !*** ./src/app/drawer/drawer.html ***!
-  \************************************/
-/***/ function(module, exports) {
-
-	module.exports = "<nav class=\"mdl-navigation\">\n    <!-- https://github.com/google/material-design-lite/issues/1246-->\n    <a routerLink=\"/home/monthly\" class=\"mdl-navigation__link\"><mdl-icon>today</mdl-icon> Calendar</a>\n    <a routerLink=\"/home/entry/new\" class=\"mdl-navigation__link\"><mdl-icon>add</mdl-icon> New Entry</a>\n    <a routerLink=\"/home/statistics\" class=\"mdl-navigation__link\"><mdl-icon>trending_up</mdl-icon> Statistics</a>\n    <a class=\"mdl-navigation__link\" (click)=\"logOut()\"><mdl-icon>cancel</mdl-icon> Logout</a>\n</nav>"
-
-/***/ },
-/* 220 */
 /*!*********************************************************!*\
   !*** ./src/app/services/common/close-menu.directive.ts ***!
   \*********************************************************/
@@ -90729,7 +90566,7 @@
 
 
 /***/ },
-/* 221 */
+/* 214 */
 /*!*************************************************!*\
   !*** ./~/@angular2-mdl-ext/select/index.umd.js ***!
   \*************************************************/
@@ -91275,7 +91112,7 @@
 
 
 /***/ },
-/* 222 */
+/* 215 */
 /*!**************************************************!*\
   !*** ./~/@angular2-mdl-ext/popover/index.umd.js ***!
   \**************************************************/
@@ -91417,7 +91254,202 @@
 
 
 /***/ },
+/* 216 */
+/*!*****************************************!*\
+  !*** ./src/app/shared/shared.module.ts ***!
+  \*****************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var core_1 = __webpack_require__(/*! @angular/core */ 3);
+	var common_1 = __webpack_require__(/*! @angular/common */ 22);
+	var footer_1 = __webpack_require__(/*! ./footer/footer */ 217);
+	var header_1 = __webpack_require__(/*! ./header/header */ 220);
+	var drawer_1 = __webpack_require__(/*! ./drawer/drawer */ 222);
+	var angular2_mdl_1 = __webpack_require__(/*! angular2-mdl */ 210);
+	var SharedModule = (function () {
+	    function SharedModule() {
+	    }
+	    return SharedModule;
+	}());
+	SharedModule = __decorate([
+	    core_1.NgModule({
+	        imports: [common_1.CommonModule, angular2_mdl_1.MdlModule],
+	        declarations: [footer_1.Footer, header_1.Header, drawer_1.Drawer],
+	        exports: [footer_1.Footer, header_1.Header,
+	            common_1.CommonModule, drawer_1.Drawer, angular2_mdl_1.MdlModule]
+	    }),
+	    __metadata("design:paramtypes", [])
+	], SharedModule);
+	exports.SharedModule = SharedModule;
+
+
+/***/ },
+/* 217 */
+/*!*****************************************!*\
+  !*** ./src/app/shared/footer/footer.ts ***!
+  \*****************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var core_1 = __webpack_require__(/*! @angular/core */ 3);
+	var template = __webpack_require__(/*! ./footer.html */ 218);
+	var Footer = (function () {
+	    function Footer() {
+	    }
+	    return Footer;
+	}());
+	Footer = __decorate([
+	    core_1.Component({
+	        selector: 'footer-comp',
+	        template: template,
+	        styles: [__webpack_require__(/*! ./footer.scss */ 219)],
+	    }),
+	    __metadata("design:paramtypes", [])
+	], Footer);
+	exports.Footer = Footer;
+
+
+/***/ },
+/* 218 */
+/*!*******************************************!*\
+  !*** ./src/app/shared/footer/footer.html ***!
+  \*******************************************/
+/***/ function(module, exports) {
+
+	module.exports = "<footer class=\"mdl-mini-footer sd-align-bottom\">\n    <div class=\"mdl-mini-footer__left-section\">\n        <ul class=\"mdl-mini-footer__link-list\">\n            <li><a href=\"https://github.com/datracka/sleepdiary.io\" target=\"_blank\">Github</a></li>\n            <li><a href=\"https://www.linkedin.com/in/vicensfayos\" target=\"_blank\">About me</a></li>\n        </ul>\n    </div>\n</footer>"
+
+/***/ },
+/* 219 */
+/*!*******************************************!*\
+  !*** ./src/app/shared/footer/footer.scss ***!
+  \*******************************************/
+/***/ function(module, exports) {
+
+	module.exports = ".sd-align-bottom {\n  position: fixed;\n  width: 100%;\n  bottom: 0;\n  padding: 16px !important; }\n"
+
+/***/ },
+/* 220 */
+/*!*****************************************!*\
+  !*** ./src/app/shared/header/header.ts ***!
+  \*****************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var core_1 = __webpack_require__(/*! @angular/core */ 3);
+	var angular2_mdl_1 = __webpack_require__(/*! angular2-mdl */ 210);
+	var template = __webpack_require__(/*! ./header.html */ 221);
+	var Header = (function () {
+	    function Header() {
+	    }
+	    return Header;
+	}());
+	Header = __decorate([
+	    core_1.Component({
+	        selector: 'header-comp',
+	        template: template,
+	        providers: [
+	            angular2_mdl_1.MdlLayoutComponent
+	        ]
+	    }),
+	    __metadata("design:paramtypes", [])
+	], Header);
+	exports.Header = Header;
+
+
+/***/ },
+/* 221 */
+/*!*******************************************!*\
+  !*** ./src/app/shared/header/header.html ***!
+  \*******************************************/
+/***/ function(module, exports) {
+
+	module.exports = "<mdl-layout-header-row>\n    <mdl-layout-title>Sleep Diary <sup><small>alpha</small></sup></mdl-layout-title>\n    <mdl-layout-spacer></mdl-layout-spacer>\n    <!-- Navigation. We hide it in small screens. -->\n    <nav class=\"mdl-navigation mdl-layout--large-screen-only\">\n    </nav>\n</mdl-layout-header-row>"
+
+/***/ },
+/* 222 */
+/*!*****************************************!*\
+  !*** ./src/app/shared/drawer/drawer.ts ***!
+  \*****************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var core_1 = __webpack_require__(/*! @angular/core */ 3);
+	var angular2_mdl_1 = __webpack_require__(/*! angular2-mdl */ 210);
+	var router_1 = __webpack_require__(/*! @angular/router */ 30);
+	var template = __webpack_require__(/*! ./drawer.html */ 223);
+	var Drawer = (function () {
+	    function Drawer(router) {
+	        this.router = router;
+	    }
+	    Drawer.prototype.logOut = function () {
+	        //remove items
+	        localStorage.removeItem('user');
+	        localStorage.removeItem('id_token');
+	        this.router.navigate(['/login']);
+	    };
+	    return Drawer;
+	}());
+	Drawer = __decorate([
+	    core_1.Component({
+	        selector: 'drawer-comp',
+	        template: template,
+	        providers: [
+	            angular2_mdl_1.MdlLayoutComponent
+	        ]
+	    }),
+	    __metadata("design:paramtypes", [router_1.Router])
+	], Drawer);
+	exports.Drawer = Drawer;
+
+
+/***/ },
 /* 223 */
+/*!*******************************************!*\
+  !*** ./src/app/shared/drawer/drawer.html ***!
+  \*******************************************/
+/***/ function(module, exports) {
+
+	module.exports = "<nav class=\"mdl-navigation\">\n    <!-- https://github.com/google/material-design-lite/issues/1246-->\n    <a routerLink=\"/home/monthly\" class=\"mdl-navigation__link\"><mdl-icon>today</mdl-icon> Calendar</a>\n    <a routerLink=\"/home/entry/new\" class=\"mdl-navigation__link\"><mdl-icon>add</mdl-icon> New Entry</a>\n    <a routerLink=\"/home/statistics\" class=\"mdl-navigation__link\"><mdl-icon>trending_up</mdl-icon> Statistics</a>\n    <a class=\"mdl-navigation__link\" (click)=\"logOut()\"><mdl-icon>cancel</mdl-icon> Logout</a>\n</nav>"
+
+/***/ },
+/* 224 */
 /*!*************************************************!*\
   !*** ./src/app/statistics/statistics.module.ts ***!
   \*************************************************/
@@ -91434,12 +91466,12 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(/*! @angular/core */ 3);
-	var statistics_routes_1 = __webpack_require__(/*! ./statistics.routes */ 224);
-	var statistics_1 = __webpack_require__(/*! ./statistics */ 225);
-	var sample_component_1 = __webpack_require__(/*! ./sample/sample.component */ 227);
-	var common_1 = __webpack_require__(/*! @angular/common */ 22);
+	var statistics_routes_1 = __webpack_require__(/*! ./statistics.routes */ 225);
+	var statistics_1 = __webpack_require__(/*! ./statistics */ 226);
+	var sample_component_1 = __webpack_require__(/*! ./sample/sample.component */ 228);
 	var auth_guard_1 = __webpack_require__(/*! ../services/common/auth-guard */ 93);
-	var angular2_mdl_1 = __webpack_require__(/*! angular2-mdl */ 210);
+	var shared_module_1 = __webpack_require__(/*! ../shared/shared.module */ 216);
+	var sample_directive_1 = __webpack_require__(/*! ./sample/sample.directive */ 230);
 	var StatisticsModule = (function () {
 	    function StatisticsModule() {
 	    }
@@ -91448,13 +91480,13 @@
 	StatisticsModule = __decorate([
 	    core_1.NgModule({
 	        imports: [
-	            common_1.CommonModule,
-	            statistics_routes_1.statisticsRouting,
-	            angular2_mdl_1.MdlModule
+	            shared_module_1.SharedModule,
+	            statistics_routes_1.statisticsRouting
 	        ],
 	        declarations: [
 	            statistics_1.StatisticsComponent,
-	            sample_component_1.SampleComponent
+	            sample_component_1.SampleComponent,
+	            sample_directive_1.BaseChartDirective
 	        ],
 	        providers: [
 	            auth_guard_1.AuthGuard
@@ -91466,7 +91498,7 @@
 
 
 /***/ },
-/* 224 */
+/* 225 */
 /*!*************************************************!*\
   !*** ./src/app/statistics/statistics.routes.ts ***!
   \*************************************************/
@@ -91474,9 +91506,9 @@
 
 	"use strict";
 	var router_1 = __webpack_require__(/*! @angular/router */ 30);
-	var statistics_1 = __webpack_require__(/*! ./statistics */ 225);
+	var statistics_1 = __webpack_require__(/*! ./statistics */ 226);
 	var auth_guard_1 = __webpack_require__(/*! ../services/common/auth-guard */ 93);
-	var sample_component_1 = __webpack_require__(/*! ./sample/sample.component */ 227);
+	var sample_component_1 = __webpack_require__(/*! ./sample/sample.component */ 228);
 	var statisticsRoutes = [
 	    {
 	        path: 'statistics',
@@ -91498,7 +91530,7 @@
 
 
 /***/ },
-/* 225 */
+/* 226 */
 /*!******************************************!*\
   !*** ./src/app/statistics/statistics.ts ***!
   \******************************************/
@@ -91515,7 +91547,7 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(/*! @angular/core */ 3);
-	var template = __webpack_require__(/*! ./statistics.html */ 226);
+	var template = __webpack_require__(/*! ./statistics.html */ 227);
 	var StatisticsComponent = (function () {
 	    function StatisticsComponent() {
 	    }
@@ -91531,16 +91563,16 @@
 
 
 /***/ },
-/* 226 */
+/* 227 */
 /*!********************************************!*\
   !*** ./src/app/statistics/statistics.html ***!
   \********************************************/
 /***/ function(module, exports) {
 
-	module.exports = ""
+	module.exports = "<mdl-layout mdl-layout-fixed-header mdl-layout-header-seamed>\n    <mdl-layout-header>\n        <header-comp></header-comp>\n    </mdl-layout-header>\n    <mdl-layout-drawer closeDrawerOnClick>\n        <mdl-layout-title>Menu</mdl-layout-title>\n        <drawer-comp></drawer-comp>\n    </mdl-layout-drawer>\n    <mdl-layout-content>\n        <router-outlet ></router-outlet>\n        <!-- <footer-comp></footer-comp>-->\n    </mdl-layout-content>\n</mdl-layout>\n<dialog-outlet></dialog-outlet>"
 
 /***/ },
-/* 227 */
+/* 228 */
 /*!*******************************************************!*\
   !*** ./src/app/statistics/sample/sample.component.ts ***!
   \*******************************************************/
@@ -91557,15 +91589,26 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(/*! @angular/core */ 3);
-	var template = __webpack_require__(/*! ./sample.html */ 228);
+	var template = __webpack_require__(/*! ./sample.html */ 229);
 	var SampleComponent = (function () {
 	    function SampleComponent() {
+	        // Pie
+	        this.pieChartLabels = ['Download Sales', 'In-Store Sales', 'Mail Sales'];
+	        this.pieChartData = [300, 500, 100];
+	        this.pieChartType = 'pie';
 	    }
+	    // events
+	    SampleComponent.prototype.chartClicked = function (e) {
+	        console.log(e);
+	    };
+	    SampleComponent.prototype.chartHovered = function (e) {
+	        console.log(e);
+	    };
 	    return SampleComponent;
 	}());
 	SampleComponent = __decorate([
 	    core_1.Component({
-	        selector: 'sample-view',
+	        selector: 'pie-chart-demo',
 	        template: template
 	    }),
 	    __metadata("design:paramtypes", [])
@@ -91574,13 +91617,292 @@
 
 
 /***/ },
-/* 228 */
+/* 229 */
 /*!***********************************************!*\
   !*** ./src/app/statistics/sample/sample.html ***!
   \***********************************************/
 /***/ function(module, exports) {
 
-	module.exports = "<div>Sample Component!</div>"
+	module.exports = "<div>Sample Component!</div>\n<div style=\"display: block\">\n    <canvas baseChart\n            [data]=\"pieChartData\"\n            [labels]=\"pieChartLabels\"\n            [chartType]=\"pieChartType\"\n            (chartHover)=\"chartHovered($event)\"\n            (chartClick)=\"chartClicked($event)\"></canvas>\n</div>"
+
+/***/ },
+/* 230 */
+/*!*******************************************************!*\
+  !*** ./src/app/statistics/sample/sample.directive.ts ***!
+  \*******************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	/*** copy pasted from https://github.com/valor-software/ng2-charts.git ***/
+	"use strict";
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var core_1 = __webpack_require__(/*! @angular/core */ 3);
+	/* tslint:disable-next-line */
+	var BaseChartDirective = (function () {
+	    function BaseChartDirective(element) {
+	        this.labels = [];
+	        this.options = {};
+	        this.chartClick = new core_1.EventEmitter();
+	        this.chartHover = new core_1.EventEmitter();
+	        this.initFlag = false;
+	        this.element = element;
+	    }
+	    BaseChartDirective.prototype.ngOnInit = function () {
+	        this.ctx = this.element.nativeElement.getContext('2d');
+	        this.cvs = this.element.nativeElement;
+	        this.initFlag = true;
+	        if (this.data || this.datasets) {
+	            this.refresh();
+	        }
+	    };
+	    BaseChartDirective.prototype.ngOnChanges = function (changes) {
+	        if (this.initFlag) {
+	            // Check if the changes are in the data or datasets
+	            if (changes.hasOwnProperty('data') || changes.hasOwnProperty('datasets') || changes.hasOwnProperty('labels')) {
+	                this.chart.data.datasets = this.getDatasets();
+	                this.chart.data.labels = this.labels;
+	                this.chart.update();
+	            }
+	            else {
+	                this.refresh();
+	            }
+	        }
+	    };
+	    BaseChartDirective.prototype.ngOnDestroy = function () {
+	        if (this.chart) {
+	            this.chart.destroy();
+	            this.chart = void 0;
+	        }
+	    };
+	    BaseChartDirective.prototype.getChartBuilder = function (ctx /*, data:Array<any>, options:any*/) {
+	        var _this = this;
+	        var datasets = this.getDatasets();
+	        var options = Object.assign({}, this.options);
+	        if (this.legend === false) {
+	            options.legend = { display: false };
+	        }
+	        // hock for onHover and onClick events
+	        options.hover = options.hover || {};
+	        if (!options.hover.onHover) {
+	            options.hover.onHover = function (active) {
+	                if (active && !active.length) {
+	                    return;
+	                }
+	                _this.chartHover.emit({ active: active });
+	            };
+	        }
+	        if (!options.onClick) {
+	            options.onClick = function (event, active) {
+	                _this.chartClick.emit({ event: event, active: active });
+	            };
+	        }
+	        var opts = {
+	            type: this.chartType,
+	            data: {
+	                labels: this.labels,
+	                datasets: datasets
+	            },
+	            options: options
+	        };
+	        if (typeof Chart === 'undefined') {
+	            throw new Error('ng2-charts configuration issue: Embedding Chart.js lib is mandatory');
+	        }
+	        return new Chart(ctx, opts);
+	    };
+	    BaseChartDirective.prototype.getDatasets = function () {
+	        var _this = this;
+	        var datasets = void 0;
+	        // in case if datasets is not provided, but data is present
+	        if (!this.datasets || !this.datasets.length && (this.data && this.data.length)) {
+	            if (Array.isArray(this.data[0])) {
+	                datasets = this.data.map(function (data, index) {
+	                    return { data: data, label: _this.labels[index] || "Label " + index };
+	                });
+	            }
+	            else {
+	                datasets = [{ data: this.data, label: "Label 0" }];
+	            }
+	        }
+	        if (this.datasets && this.datasets.length ||
+	            (datasets && datasets.length)) {
+	            datasets = (this.datasets || datasets)
+	                .map(function (elm, index) {
+	                var newElm = Object.assign({}, elm);
+	                if (_this.colors && _this.colors.length) {
+	                    Object.assign(newElm, _this.colors[index]);
+	                }
+	                else {
+	                    Object.assign(newElm, getColors(_this.chartType, index, newElm.data.length));
+	                }
+	                return newElm;
+	            });
+	        }
+	        if (!datasets) {
+	            throw new Error("ng-charts configuration error,\n      data or datasets field are required to render char " + this.chartType);
+	        }
+	        return datasets;
+	    };
+	    BaseChartDirective.prototype.refresh = function () {
+	        // if (this.options && this.options.responsive) {
+	        //   setTimeout(() => this.refresh(), 50);
+	        // }
+	        // todo: remove this line, it is producing flickering
+	        this.ngOnDestroy();
+	        this.chart = this.getChartBuilder(this.ctx /*, data, this.options*/);
+	    };
+	    return BaseChartDirective;
+	}());
+	BaseChartDirective.defaultColors = [
+	    [255, 99, 132],
+	    [54, 162, 235],
+	    [255, 206, 86],
+	    [231, 233, 237],
+	    [75, 192, 192],
+	    [151, 187, 205],
+	    [220, 220, 220],
+	    [247, 70, 74],
+	    [70, 191, 189],
+	    [253, 180, 92],
+	    [148, 159, 177],
+	    [77, 83, 96]
+	];
+	__decorate([
+	    core_1.Input(),
+	    __metadata("design:type", Array)
+	], BaseChartDirective.prototype, "data", void 0);
+	__decorate([
+	    core_1.Input(),
+	    __metadata("design:type", Array)
+	], BaseChartDirective.prototype, "datasets", void 0);
+	__decorate([
+	    core_1.Input(),
+	    __metadata("design:type", Array)
+	], BaseChartDirective.prototype, "labels", void 0);
+	__decorate([
+	    core_1.Input(),
+	    __metadata("design:type", Object)
+	], BaseChartDirective.prototype, "options", void 0);
+	__decorate([
+	    core_1.Input(),
+	    __metadata("design:type", String)
+	], BaseChartDirective.prototype, "chartType", void 0);
+	__decorate([
+	    core_1.Input(),
+	    __metadata("design:type", Array)
+	], BaseChartDirective.prototype, "colors", void 0);
+	__decorate([
+	    core_1.Input(),
+	    __metadata("design:type", Boolean)
+	], BaseChartDirective.prototype, "legend", void 0);
+	__decorate([
+	    core_1.Output(),
+	    __metadata("design:type", core_1.EventEmitter)
+	], BaseChartDirective.prototype, "chartClick", void 0);
+	__decorate([
+	    core_1.Output(),
+	    __metadata("design:type", core_1.EventEmitter)
+	], BaseChartDirective.prototype, "chartHover", void 0);
+	BaseChartDirective = __decorate([
+	    core_1.Directive({ selector: 'canvas[baseChart]', exportAs: 'base-chart' }),
+	    __metadata("design:paramtypes", [core_1.ElementRef])
+	], BaseChartDirective);
+	exports.BaseChartDirective = BaseChartDirective;
+	function rgba(colour, alpha) {
+	    return 'rgba(' + colour.concat(alpha).join(',') + ')';
+	}
+	function getRandomInt(min, max) {
+	    return Math.floor(Math.random() * (max - min + 1)) + min;
+	}
+	function formatLineColor(colors) {
+	    return {
+	        backgroundColor: rgba(colors, 0.4),
+	        borderColor: rgba(colors, 1),
+	        pointBackgroundColor: rgba(colors, 1),
+	        pointBorderColor: '#fff',
+	        pointHoverBackgroundColor: '#fff',
+	        pointHoverBorderColor: rgba(colors, 0.8)
+	    };
+	}
+	function formatBarColor(colors) {
+	    return {
+	        backgroundColor: rgba(colors, 0.6),
+	        borderColor: rgba(colors, 1),
+	        hoverBackgroundColor: rgba(colors, 0.8),
+	        hoverBorderColor: rgba(colors, 1)
+	    };
+	}
+	function formatPieColors(colors) {
+	    return {
+	        backgroundColor: colors.map(function (color) { return rgba(color, 0.6); }),
+	        borderColor: colors.map(function () { return '#fff'; }),
+	        pointBackgroundColor: colors.map(function (color) { return rgba(color, 1); }),
+	        pointBorderColor: colors.map(function () { return '#fff'; }),
+	        pointHoverBackgroundColor: colors.map(function (color) { return rgba(color, 1); }),
+	        pointHoverBorderColor: colors.map(function (color) { return rgba(color, 1); })
+	    };
+	}
+	function formatPolarAreaColors(colors) {
+	    return {
+	        backgroundColor: colors.map(function (color) { return rgba(color, 0.6); }),
+	        borderColor: colors.map(function (color) { return rgba(color, 1); }),
+	        hoverBackgroundColor: colors.map(function (color) { return rgba(color, 0.8); }),
+	        hoverBorderColor: colors.map(function (color) { return rgba(color, 1); })
+	    };
+	}
+	function getRandomColor() {
+	    return [getRandomInt(0, 255), getRandomInt(0, 255), getRandomInt(0, 255)];
+	}
+	/**
+	 * Generate colors for line|bar charts
+	 * @param index
+	 * @returns {number[]|Color}
+	 */
+	function generateColor(index) {
+	    return BaseChartDirective.defaultColors[index] || getRandomColor();
+	}
+	/**
+	 * Generate colors for pie|doughnut charts
+	 * @param count
+	 * @returns {Colors}
+	 */
+	function generateColors(count) {
+	    var colorsArr = new Array(count);
+	    for (var i = 0; i < count; i++) {
+	        colorsArr[i] = BaseChartDirective.defaultColors[i] || getRandomColor();
+	    }
+	    return colorsArr;
+	}
+	/**
+	 * Generate colors by chart type
+	 * @param chartType
+	 * @param index
+	 * @param count
+	 * @returns {Color}
+	 */
+	function getColors(chartType, index, count) {
+	    if (chartType === 'pie' || chartType === 'doughnut') {
+	        return formatPieColors(generateColors(count));
+	    }
+	    if (chartType === 'polarArea') {
+	        return formatPolarAreaColors(generateColors(count));
+	    }
+	    if (chartType === 'line' || chartType === 'radar') {
+	        return formatLineColor(generateColor(index));
+	    }
+	    if (chartType === 'bar' || chartType === 'horizontalBar') {
+	        return formatBarColor(generateColor(index));
+	    }
+	    return generateColor(index);
+	}
+	/** end copy pasted **/ 
+
 
 /***/ }
 /******/ ]);
