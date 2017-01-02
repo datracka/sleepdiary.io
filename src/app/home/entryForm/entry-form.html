@@ -1,3 +1,9 @@
+<header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
+    <div class="mdl-layout__header-row">
+        <span class="mdl-layout-title">Calendar Monthly view</span>
+        <div class="mdl-layout-spacer"></div>
+    </div>
+</header>
 <form [@flyInOut]="'in'" mdl #f="ngForm" novalidate (ngSubmit)="onSubmit()">
     <input [ngModel]="entry.uuid" type="hidden" class="form-control" name="uuid" id="uuid">
     <input [ngModel]="entry.date" type="hidden" class="form-control" name="date" id="date">
