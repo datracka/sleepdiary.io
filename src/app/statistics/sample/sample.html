@@ -1,52 +1,37 @@
 <div class="mdl-grid sd-align-center">
+    <div class="mdl-grid mdl-cell--12-col">
+        <strong>Statistics for January 2017</strong>
+    </div>
     <div class="mdl-grid mdl-cell--12-col sd-align-right">
-        <div class="sd-formGroup">
-            <mdl-radio name="metrics" value="sleeping-quality" mdl-ripple>
-                Sleeping Quality
-            </mdl-radio>
-            <mdl-radio name="metrics"  value="tiredness-feeling" mdl-ripple>
-                Tiredness Feeling
-            </mdl-radio>
-        </div>
+
     </div>
-    <div class="mdl-cell mdl-cell--3-col">
+    <div class="mdl-cell mdl-cell--4-col">
         <div style="display: block">
             <canvas baseChart
-                    [data]="pieChartData"
-                    [labels]="pieChartLabels"
-                    [chartType]="pieChartType"
+                    [data]="lineChartData"
+                    [labels]="lineChartLabels"
+                    [options]="lineChartOptions"
+                    [chartType]="lineChartType"
                     (chartHover)="chartHovered($event)"
                     (chartClick)="chartClicked($event)"></canvas>
         </div>
     </div>
-    <div class="mdl-cell mdl-cell--3-col">
-        <div style="display: block">
-            <canvas baseChart
-                    [data]="pieChartData"
-                    [labels]="pieChartLabels"
-                    [chartType]="pieChartType"
-                    (chartHover)="chartHovered($event)"
-                    (chartClick)="chartClicked($event)"></canvas>
-        </div>
+    <div class="mdl-cell mdl-cell--4-col">
+        <canvas baseChart
+                [data]="pieChartData"
+                [labels]="pieChartLabels"
+                [chartType]="pieChartType"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)"></canvas>
     </div>
-    <div class="mdl-cell mdl-cell--3-col">
-        <div style="display: block">
-            <canvas baseChart
-                    [data]="pieChartData"
-                    [labels]="pieChartLabels"
-                    [chartType]="pieChartType"
-                    (chartHover)="chartHovered($event)"
-                    (chartClick)="chartClicked($event)"></canvas>
-        </div>
-    </div>
-    <div class="mdl-cell mdl-cell--3-col">
-        <div style="display: block">
-            <canvas baseChart
-                    [data]="pieChartData"
-                    [labels]="pieChartLabels"
-                    [chartType]="pieChartType"
-                    (chartHover)="chartHovered($event)"
-                    (chartClick)="chartClicked($event)"></canvas>
-        </div>
+    <div class="mdl-cell mdl-cell--4-col">
+        <canvas baseChart
+                [datasets]="barChartData"
+                [labels]="barChartLabels"
+                [options]="barChartOptions"
+                [legend]="barChartLegend"
+                [chartType]="barChartType"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)"></canvas>
     </div>
 </div>
