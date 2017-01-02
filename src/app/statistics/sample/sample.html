@@ -1,22 +1,27 @@
 <div class="mdl-grid sd-align-center">
-    <div class="mdl-grid mdl-cell--12-col">
-        <strong>Statistics for January 2017</strong>
-    </div>
-    <div class="mdl-grid mdl-cell--12-col sd-align-right">
-
+    <div class="mdl-grid mdl-cell--12-col" style="float:right">
+        <button mdl-button #btn1="mdlButton" mdl-button-type="icon"
+                mdl-ripple>
+            <mdl-icon>more_vert</mdl-icon>
+        </button>
+        <mdl-menu #m1="mdlMenu" mdl-menu-position="bottom-right">
+            <mdl-menu-item mdl-ripple>
+            </mdl-menu-item>
+        </mdl-menu>
+        <span style="line-height: 30px">January</span>
     </div>
     <div class="mdl-cell mdl-cell--4-col">
+        <div>Per day:</div>
         <div style="display: block">
             <canvas baseChart
-                    [data]="lineChartData"
+                    [datasets]="lineChartData"
                     [labels]="lineChartLabels"
-                    [options]="lineChartOptions"
-                    [chartType]="lineChartType"
-                    (chartHover)="chartHovered($event)"
-                    (chartClick)="chartClicked($event)"></canvas>
+                    [legend]="lineChartLegend"
+                    [chartType]="lineChartType"></canvas>
         </div>
     </div>
     <div class="mdl-cell mdl-cell--4-col">
+        <div>Total Sleeping Quality:</div>
         <canvas baseChart
                 [data]="pieChartData"
                 [labels]="pieChartLabels"
@@ -25,6 +30,7 @@
                 (chartClick)="chartClicked($event)"></canvas>
     </div>
     <div class="mdl-cell mdl-cell--4-col">
+        <div>Average:</div>
         <canvas baseChart
                 [datasets]="barChartData"
                 [labels]="barChartLabels"

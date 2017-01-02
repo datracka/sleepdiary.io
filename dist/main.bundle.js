@@ -91276,6 +91276,7 @@
 	var header_1 = __webpack_require__(/*! ./header/header */ 220);
 	var drawer_1 = __webpack_require__(/*! ./drawer/drawer */ 222);
 	var angular2_mdl_1 = __webpack_require__(/*! angular2-mdl */ 210);
+	var router_1 = __webpack_require__(/*! @angular/router */ 30);
 	var SharedModule = (function () {
 	    function SharedModule() {
 	    }
@@ -91283,7 +91284,7 @@
 	}());
 	SharedModule = __decorate([
 	    core_1.NgModule({
-	        imports: [common_1.CommonModule, angular2_mdl_1.MdlModule],
+	        imports: [common_1.CommonModule, angular2_mdl_1.MdlModule, router_1.RouterModule],
 	        declarations: [footer_1.Footer, header_1.Header, drawer_1.Drawer],
 	        exports: [footer_1.Footer, header_1.Header,
 	            common_1.CommonModule, drawer_1.Drawer, angular2_mdl_1.MdlModule]
@@ -91446,7 +91447,7 @@
   \*******************************************/
 /***/ function(module, exports) {
 
-	module.exports = "<nav class=\"mdl-navigation\">\n    <!-- https://github.com/google/material-design-lite/issues/1246-->\n    <a routerLink=\"/home/monthly\" class=\"mdl-navigation__link\"><mdl-icon>today</mdl-icon> Calendar</a>\n    <a routerLink=\"/home/entry/new\" class=\"mdl-navigation__link\"><mdl-icon>add</mdl-icon> New Entry</a>\n    <a routerLink=\"/home/statistics\" class=\"mdl-navigation__link\"><mdl-icon>trending_up</mdl-icon> Statistics</a>\n    <a class=\"mdl-navigation__link\" (click)=\"logOut()\"><mdl-icon>cancel</mdl-icon> Logout</a>\n</nav>"
+	module.exports = "<nav class=\"mdl-navigation\">\n    <!-- https://github.com/google/material-design-lite/issues/1246-->\n    <a [routerLink]=\"['/home/monthly']\" class=\"mdl-navigation__link\"><mdl-icon>today</mdl-icon> Calendar</a>\n    <a [routerLink]=\"['/statistics/sample']\" class=\"mdl-navigation__link\"><mdl-icon>trending_up</mdl-icon> Statistics</a>\n    <a class=\"mdl-navigation__link\" (click)=\"logOut()\"><mdl-icon>cancel</mdl-icon> Logout</a>\n</nav>"
 
 /***/ },
 /* 224 */
@@ -91471,7 +91472,7 @@
 	var sample_component_1 = __webpack_require__(/*! ./sample/sample.component */ 228);
 	var auth_guard_1 = __webpack_require__(/*! ../services/common/auth-guard */ 93);
 	var shared_module_1 = __webpack_require__(/*! ../shared/shared.module */ 216);
-	var sample_directive_1 = __webpack_require__(/*! ./sample/sample.directive */ 230);
+	var sample_directive_1 = __webpack_require__(/*! ./sample/sample.directive */ 231);
 	var StatisticsModule = (function () {
 	    function StatisticsModule() {
 	    }
@@ -91592,24 +91593,38 @@
 	var template = __webpack_require__(/*! ./sample.html */ 229);
 	var SampleComponent = (function () {
 	    function SampleComponent() {
+	        //line
+	        this.lineChartData = [
+	            { data: [65, 59, 80, 81, 56, 55, 40], label: 'Sleeping Quality' },
+	            { data: [28, 48, 40, 19, 86, 27, 90], label: 'Tiredness Feelings' }
+	        ];
+	        this.lineChartLabels = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+	        this.lineChartType = 'line';
+	        this.lineChartLegend = true;
 	        // Pie
-	        this.pieChartLabels = ['Download Sales', 'In-Store Sales', 'Mail Sales'];
-	        this.pieChartData = [300, 500, 100];
 	        this.pieChartType = 'pie';
+	        this.pieChartLabels = ['Good', 'Regular', 'Bad'];
+	        this.pieChartData = [300, 500, 100];
+	        //bar
+	        this.barChartOptions = {
+	            scaleShowVerticalLines: false,
+	            responsive: true
+	        };
+	        this.barChartLabels = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+	        this.barChartType = 'bar';
+	        this.barChartLegend = true;
+	        this.barChartData = [
+	            { data: [65, 59, 80, 81, 56, 55, 40], label: 'Sleeping Quality' },
+	            { data: [28, 48, 40, 19, 86, 27, 90], label: 'Tiredness Feelings' }
+	        ];
 	    }
-	    // events
-	    SampleComponent.prototype.chartClicked = function (e) {
-	        console.log(e);
-	    };
-	    SampleComponent.prototype.chartHovered = function (e) {
-	        console.log(e);
-	    };
 	    return SampleComponent;
 	}());
 	SampleComponent = __decorate([
 	    core_1.Component({
 	        selector: 'pie-chart-demo',
-	        template: template
+	        template: template,
+	        styles: [__webpack_require__(/*! ./sample.scss */ 230)],
 	    }),
 	    __metadata("design:paramtypes", [])
 	], SampleComponent);
@@ -91623,10 +91638,19 @@
   \***********************************************/
 /***/ function(module, exports) {
 
-	module.exports = "<div>Sample Component!</div>\n<div style=\"display: block\">\n    <canvas baseChart\n            [data]=\"pieChartData\"\n            [labels]=\"pieChartLabels\"\n            [chartType]=\"pieChartType\"\n            (chartHover)=\"chartHovered($event)\"\n            (chartClick)=\"chartClicked($event)\"></canvas>\n</div>"
+	module.exports = "<div class=\"mdl-grid sd-align-center\">\n    <div class=\"mdl-grid mdl-cell--12-col\" style=\"float:right\">\n        <button mdl-button #btn1=\"mdlButton\" mdl-button-type=\"icon\"\n                mdl-ripple>\n            <mdl-icon>more_vert</mdl-icon>\n        </button>\n        <mdl-menu #m1=\"mdlMenu\" mdl-menu-position=\"bottom-right\">\n            <mdl-menu-item mdl-ripple>\n            </mdl-menu-item>\n        </mdl-menu>\n        <span style=\"line-height: 30px\">January</span>\n    </div>\n    <div class=\"mdl-cell mdl-cell--4-col\">\n        <div>Per day:</div>\n        <div style=\"display: block\">\n            <canvas baseChart\n                    [datasets]=\"lineChartData\"\n                    [labels]=\"lineChartLabels\"\n                    [legend]=\"lineChartLegend\"\n                    [chartType]=\"lineChartType\"></canvas>\n        </div>\n    </div>\n    <div class=\"mdl-cell mdl-cell--4-col\">\n        <div>Total Sleeping Quality:</div>\n        <canvas baseChart\n                [data]=\"pieChartData\"\n                [labels]=\"pieChartLabels\"\n                [chartType]=\"pieChartType\"\n                (chartHover)=\"chartHovered($event)\"\n                (chartClick)=\"chartClicked($event)\"></canvas>\n    </div>\n    <div class=\"mdl-cell mdl-cell--4-col\">\n        <div>Average:</div>\n        <canvas baseChart\n                [datasets]=\"barChartData\"\n                [labels]=\"barChartLabels\"\n                [options]=\"barChartOptions\"\n                [legend]=\"barChartLegend\"\n                [chartType]=\"barChartType\"\n                (chartHover)=\"chartHovered($event)\"\n                (chartClick)=\"chartClicked($event)\"></canvas>\n    </div>\n</div>"
 
 /***/ },
 /* 230 */
+/*!***********************************************!*\
+  !*** ./src/app/statistics/sample/sample.scss ***!
+  \***********************************************/
+/***/ function(module, exports) {
+
+	module.exports = ".sd-align-center {\n  align-items: center;\n  justify-content: center; }\n"
+
+/***/ },
+/* 231 */
 /*!*******************************************************!*\
   !*** ./src/app/statistics/sample/sample.directive.ts ***!
   \*******************************************************/
