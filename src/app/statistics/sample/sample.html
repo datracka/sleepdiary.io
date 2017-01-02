@@ -1,9 +1,52 @@
-<div>Sample Component!</div>
-<div style="display: block">
-    <canvas baseChart
-            [data]="pieChartData"
-            [labels]="pieChartLabels"
-            [chartType]="pieChartType"
-            (chartHover)="chartHovered($event)"
-            (chartClick)="chartClicked($event)"></canvas>
+<div class="mdl-grid sd-align-center">
+    <div class="mdl-grid mdl-cell--12-col sd-align-right">
+        <div class="sd-formGroup">
+            <mdl-radio name="metrics" value="sleeping-quality" mdl-ripple>
+                Sleeping Quality
+            </mdl-radio>
+            <mdl-radio name="metrics"  value="tiredness-feeling" mdl-ripple>
+                Tiredness Feeling
+            </mdl-radio>
+        </div>
+    </div>
+    <div class="mdl-cell mdl-cell--3-col">
+        <div style="display: block">
+            <canvas baseChart
+                    [data]="pieChartData"
+                    [labels]="pieChartLabels"
+                    [chartType]="pieChartType"
+                    (chartHover)="chartHovered($event)"
+                    (chartClick)="chartClicked($event)"></canvas>
+        </div>
+    </div>
+    <div class="mdl-cell mdl-cell--3-col">
+        <div style="display: block">
+            <canvas baseChart
+                    [data]="pieChartData"
+                    [labels]="pieChartLabels"
+                    [chartType]="pieChartType"
+                    (chartHover)="chartHovered($event)"
+                    (chartClick)="chartClicked($event)"></canvas>
+        </div>
+    </div>
+    <div class="mdl-cell mdl-cell--3-col">
+        <div style="display: block">
+            <canvas baseChart
+                    [data]="pieChartData"
+                    [labels]="pieChartLabels"
+                    [chartType]="pieChartType"
+                    (chartHover)="chartHovered($event)"
+                    (chartClick)="chartClicked($event)"></canvas>
+        </div>
+    </div>
+    <div class="mdl-cell mdl-cell--3-col">
+        <div style="display: block">
+            <canvas baseChart
+                    [data]="pieChartData"
+                    [labels]="pieChartLabels"
+                    [chartType]="pieChartType"
+                    (chartHover)="chartHovered($event)"
+                    (chartClick)="chartClicked($event)"></canvas>
+        </div>
+    </div>
 </div>
