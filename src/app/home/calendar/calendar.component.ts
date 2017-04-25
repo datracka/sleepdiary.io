@@ -40,7 +40,7 @@ let template = require('./calendar.html');
 })
 export class Calendar implements OnInit, AfterViewInit {
 
-    totalDays: any; //data structure for interpolating styles
+    totalDays: any = new Map(); //data structure for interpolating styles
     entries: Array<Entry>;
     sub: any;
     form: any;
@@ -80,8 +80,6 @@ export class Calendar implements OnInit, AfterViewInit {
                 private router: Router,
                 public route: ActivatedRoute,
                 public calendarService: CalendarService) {
-
-        this.totalDays = new Map();
     }
 
     showSnackbar(message) {
@@ -117,18 +115,7 @@ export class Calendar implements OnInit, AfterViewInit {
 
         this.calendarService.getAll(this.form.yearSelected).subscribe(
             response => {
-                this.entries = response.json();
-                let dayMatches = [];
-                for (var key in this.entries) {
-                    if (this.entries.hasOwnProperty(key)) {
-                        let entry: Entry = this.entries[key];
-                        let dayMatch: Day = this.totalDays.get(entry.date.substr(0, 10));
-                        dayMatch.sleepingQuality = entry.sleepingQuality;
-                        dayMatch.tirednessFeeling = entry.tirednessFeeling;
-                        dayMatches.push(dayMatch);
-                    }
-                }
-                this.paintInitialDayBackground(dayMatches);
+              this.processResponse(response)
             }
         );
 
@@ -157,6 +144,29 @@ export class Calendar implements OnInit, AfterViewInit {
             });
     }
 
+    processResponse(response) {
+      this.entries = response.json();
+      let dayMatches = [];
+      for (var entry in this.entries) {
+        if (this.entries.hasOwnProperty(entry)) {
+          let e: Entry = this.entries[entry];
+          let entryKey = e.date.substr(0, 10);
+          let intermediateObject: Day = {...this.totalDays.get(entryKey)};
+          let dayMatch: Day = new Day(
+            intermediateObject.name,
+            intermediateObject.number,
+            intermediateObject.isCurrentMonth,
+            intermediateObject.isToday,
+            intermediateObject.date
+          );
+          dayMatch.sleepingQuality = 'sleeping-quality--' + e.sleepingQuality;
+          dayMatch.tirednessFeeling = 'tiredness-feeling--' + e.tirednessFeeling;
+
+          this.totalDays.set(entryKey, dayMatch as Day);
+        }
+      }
+    }
+
     paintInitialDayBackground(dayMatches) {
         dayMatches.forEach(function (day) {
             day.sleepingQuality = 'sleeping-quality--' + day.sleepingQuality;
@@ -167,11 +177,12 @@ export class Calendar implements OnInit, AfterViewInit {
 
     decorateDay(day) {
         let a = [];
+        let key = day.date.format('YYYY-MM-DD');
 
         if (day.isCurrentMonth) {
             a.push('calendar__day--current-month');
-            a.push(day.sleepingQuality);
-            a.push(day.tirednessFeeling);
+            a.push(this.totalDays.get(key).sleepingQuality);
+            a.push(this.totalDays.get(key).tirednessFeeling);
 
             if (day.isToday) {
                 a.push('calendar__day--today')
@@ -189,21 +200,12 @@ export class Calendar implements OnInit, AfterViewInit {
         //get values for given year
         this.calendarService.getAll(this.form.yearSelected).subscribe(
             response => {
-                this.entries = response.json();
-                let dayMatches = [];
-                for (var key in this.entries) {
-                    if (this.entries.hasOwnProperty(key)) {
-                        let entry: Entry = this.entries[key];
-                        let dayMatch: Day = this.totalDays.get(entry.date.substr(0, 10));
-                        dayMatch.sleepingQuality = entry.sleepingQuality;
-                        dayMatch.tirednessFeeling = entry.tirednessFeeling;
-                        dayMatches.push(dayMatch);
-                    }
-                }
-                this.paintInitialDayBackground(dayMatches);
+              this.processResponse(response)
             }
         );
     }
+
+
 
     /**
      * FIX: DRY onSelectCurrentDay / onSelect
@@ -246,7 +248,7 @@ export class Calendar implements OnInit, AfterViewInit {
         this.router.navigate(['/home/entry', uuid, {day: day.date.format("YYYY-MM-DD")}]);
     }
 
-    //** #####  render methods **/
+    //** #####  RENDER METHODS ################## **/
 
     getMonthDateRange(year: String, month: number, isStartOnMonday: boolean) {
 
@@ -266,6 +268,7 @@ export class Calendar implements OnInit, AfterViewInit {
 
     }
 
+    //** FIX: Should return months and not modify inside the function **/
     buildMonths(lang: String, year: String) {
 
         for (var i = 0; i < 12; i++) {

@@ -7,7 +7,7 @@ export class Day {
     public tirednessFeeling: string;
     public sleepingQuality: string;
 
-    constructor(name: any, number: any, isCurrentMonth: boolean, isToday: boolean, date: any) {
+    constructor(name?: any, number?: any, isCurrentMonth?: boolean, isToday?: boolean, date?: any) {
         this.name = name;
         this.number = number;
         this.isCurrentMonth = isCurrentMonth;
