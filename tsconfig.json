@@ -1,8 +1,7 @@
 {
-  "compileOnSave": true,
   "compilerOptions": {
     "module": "commonjs",
-    "target": "es5",
+    "target": "es6",
     "outDir": "dist",
     "rootDir": ".",
     "sourceMap": true,
@@ -12,11 +11,13 @@
   },
   "exclude": [
     "node_modules",
-    "dist"
+    "dist",
+    "e2e"
   ],
   "awesomeTypescriptLoaderOptions": {
     "useWebpackText": true
   },
+  "lib": ["es6", "dom", "es2015.iterable"],
   "compileOnSave": false,
   "buildOnSave": false
 }
