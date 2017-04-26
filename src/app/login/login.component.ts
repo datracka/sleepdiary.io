@@ -1,6 +1,7 @@
 import {Component, style, state, animate, transition, trigger} from '@angular/core';
 import {Router} from '@angular/router';
 import {LoginService} from '../services/login/login.service';
+import {LoginModel} from "./LoginModel";
 
 const template = require('./login.html');
 
@@ -22,12 +23,20 @@ const template = require('./login.html');
 })
 export class Login {
 
+    public loginModel: LoginModel;
+    public submitted = false;
+    public test = "test1";
+
     constructor(public router: Router, public loginService: LoginService) {
+      this.loginModel = new LoginModel('','');
     }
 
-    login(event, email, password) {
+    get diagnostic() { return JSON.stringify(this.loginModel); }
+
+    login(event, values, valid) {
         event.preventDefault();
-        let body: any = JSON.stringify({email, password});
+        console.log(values, valid)
+        /*let body: any = JSON.stringify({email, password});
         this.loginService.login(body).subscribe(
             response => {
                 localStorage.setItem('id_token', response.json().token_key);
@@ -38,7 +47,7 @@ export class Login {
                 alert(error.text());
                 console.log(error.text());
             }
-        );
+        );*/
     }
 
 }
