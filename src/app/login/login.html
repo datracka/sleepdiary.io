@@ -6,45 +6,33 @@
                     <section [@flyInOut]="'in'" class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
                         <div>
                           {{diagnostic}}
-                            <form #loginForm="ngForm">
-                                <div class="group">
-                                    <input type="text" class="form-control" id="email"
-                                           name="email" [(ngModel)]="loginModel.email" #email="ngModel"
-                                           minlength="4" maxlength="24" required>
-                                    <span class="highlight"></span>
-                                    <span class="bar"></span>
-                                    <label>E-mail</label>
-                                </div>
-                              <div *ngIf="email.errors && (email.dirty || email.touched)"
-                                   class="alert alert-danger">
-                                <div [hidden]="!email.errors.required">
-                                  E-mail is required
-                                </div>
-                                <div [hidden]="!email.errors.minlength">
-                                  Name must be at least 4 characters long.
-                                </div>
-                                <div [hidden]="!email.errors.maxlength">
-                                  Name cannot be more than 24 characters long.
-                                </div>
+                            <form #loginForm="ngForm"  (ngSubmit)="login($event, loginForm, email.value, password.value)">
+                              <div class="group">
+                                <input type="text" class="form-control" id="email"
+                                       name="email" [(ngModel)]="loginModel.email" #email="ngModel"
+                                       required>
+                                <span class="highlight"></span>
+                                <span class="bar"></span>
+                                <label>E-mail</label>
                               </div>
-
-                               <div class="group">
-                                    <input type="password" class="form-control" id="password"
-                                           name="password"
-                                           [(ngModel)]="loginModel.password" #password="ngModel"
-                                           required minlength="4" maxlength="24">
-                                    <span class="highlight"></span>
-                                    <span class="bar"></span>
-                                    <label>Password</label>
-                                </div>
-                                <div class="mdl-layout-spacer"></div>
-                                <button class="mdl-button mdl-js-button mdl-button&#45;&#45;raised mdl-button&#45;&#45;colored mdl-button&#45;&#45;align-right"
-                                        type="submit">Submit
-                                </button>
+                              <div class="group">
+                                <input type="password" class="form-control" id="password"
+                                       name="password"
+                                       required
+                                       [(ngModel)]="loginModel.password" #password="ngModel">
+                                <span class="highlight"></span>
+                                <span class="bar"></span>
+                                <label>Password</label>
+                              </div>
+                              <div class="mdl-layout-spacer"></div>
+                              <button
+                                [disabled]="!loginForm.form.valid"
+                                class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-button--align-right"
+                                      type="submit" >Submit
+                              </button>
                             </form>
                             <div style="text-align: right">You don't have an account? <a routerLink="/signup" href="#">Sign up</a></div>
                         </div>
-
                     </section>
                 </div>
             </main>

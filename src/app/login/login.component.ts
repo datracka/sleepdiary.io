@@ -35,7 +35,7 @@ export class Login {
 
     login(event, values, valid) {
         event.preventDefault();
-        console.log(values, valid)
+        console.log("values", values);
         /*let body: any = JSON.stringify({email, password});
         this.loginService.login(body).subscribe(
             response => {

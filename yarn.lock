@@ -45,13 +45,13 @@
   version "4.0.3"
   resolved "https://registry.yarnpkg.com/@angular/router/-/router-4.0.3.tgz#24184e9b1266c4ad017b2be81573464b1e4c5dfa"
 
-"@angular2-mdl-ext/popover@^0.5.0":
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/@angular2-mdl-ext/popover/-/popover-0.5.0.tgz#f3337557075794b12df537a8f834901547e94591"
+"@angular2-mdl-ext/popover@^0.6.0":
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/@angular2-mdl-ext/popover/-/popover-0.6.0.tgz#6e810ffa0607849b1bba2f50b518fd153c643f69"
 
-"@angular2-mdl-ext/select@^0.8.1":
-  version "0.8.2"
-  resolved "https://registry.yarnpkg.com/@angular2-mdl-ext/select/-/select-0.8.2.tgz#fcb57f57b51a21bce259613c1d0e84afc3ac0433"
+"@angular2-mdl-ext/select@^0.10.3":
+  version "0.10.3"
+  resolved "https://registry.yarnpkg.com/@angular2-mdl-ext/select/-/select-0.10.3.tgz#ea10ec091185c7472e7a0670caa87064890fd7be"
 
 "@types/fs-extra@0.0.33":
   version "0.0.33"
@@ -185,7 +185,7 @@ angular2-jwt@^0.1.26:
   version "0.1.28"
   resolved "https://registry.yarnpkg.com/angular2-jwt/-/angular2-jwt-0.1.28.tgz#4896dbb88ec561382cf485ff9eaa6f96a683f4d1"
 
-angular2-mdl@^2.8.0:
+angular2-mdl@^2.13.2:
   version "2.13.2"
   resolved "https://registry.yarnpkg.com/angular2-mdl/-/angular2-mdl-2.13.2.tgz#66aec904f2e92c2375ec26be943fc0d14e274935"
 

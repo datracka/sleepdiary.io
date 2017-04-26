@@ -20,7 +20,7 @@ label 				 {
     font-weight:normal;
     position:absolute;
     pointer-events:none;
-    left:5px;
+    left:10px;
     top:10px;
     transition:0.2s ease all;
     -moz-transition:0.2s ease all;
@@ -111,5 +111,14 @@ form {
     display: flex;
     flex-direction: column;
 
+}
+
+/* form validation */
+
+.ng-valid[required], .ng-valid.required  {
+  border-left: 5px solid #42A948; /* green */
+}
+.ng-invalid:not(form)  {
+  border-left: 5px solid #a94442; /* red */
 }
 
