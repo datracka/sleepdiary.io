@@ -115,10 +115,11 @@ form {
 
 /* form validation */
 
-.ng-valid[required], .ng-valid.required  {
-  border-left: 5px solid #42A948; /* green */
+.form-control.ng-touched.ng-valid[required], .form-control.ng-touched.ng-valid.required  {
+  border-left: 5px solid #42A948;
 }
-.ng-invalid:not(form)  {
-  border-left: 5px solid #a94442; /* red */
+
+.ng-touched:not(form):not(.group).ng-invalid:not(form):not(.group)  {
+  border-left: 5px solid #a94442;
 }
 

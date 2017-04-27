@@ -33,10 +33,11 @@ export class Login {
 
     get diagnostic() { return JSON.stringify(this.loginModel); }
 
-    login(event, values, valid) {
+    login(event, form, email, password) {
         event.preventDefault();
-        console.log("values", values);
-        /*let body: any = JSON.stringify({email, password});
+        let emailValue = email.value;
+        let passwordValue = password.vallue;
+        let body: any = JSON.stringify({emailValue, passwordValue});
         this.loginService.login(body).subscribe(
             response => {
                 localStorage.setItem('id_token', response.json().token_key);
@@ -44,10 +45,41 @@ export class Login {
                 this.router.navigate(['/home/monthly', {actionRef: 'login'}]);
             },
             error => {
-                alert(error.text());
-                console.log(error.text());
+                console.log(form, email, password, error);
             }
-        );*/
+        );
     }
 
 }
+
+/*
+
+## Validation Rules:
+
+E-mail: required & e-mail
+password: required & more than 6
+
+## Server Side validation:
+
+{
+  fields: {
+    e-mail: KEY //[ REQUIRED | E-MAIL_NOT_VALID ]
+    password: KEY // [ REQUIRED | MIN_LENGTH_6 ]
+  },
+   error: [FIELDS_UNCOMPLETED | USER_INACTIVE | WRONG_DATA]
+}
+
+ERROR: 402
+
+Other errors:
+
+
+
+ inspiration:
+
+ https://angular.io/docs/ts/latest/cookbook/form-validation.html
+ https://plnkr.co/edit/?p=preview
+ https://angular.io/docs/ts/latest/guide/forms.html
+ https://www.puzzle.ch/blog/articles/2017/01/18/server-side-validations-with-angular-2
+
+*/

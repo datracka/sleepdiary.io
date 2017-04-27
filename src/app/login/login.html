@@ -5,28 +5,34 @@
                 <div class="mdl-layout__tab-panel is-active" id="overview">
                     <section [@flyInOut]="'in'" class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
                         <div>
-                          {{diagnostic}}
-                            <form #loginForm="ngForm"  (ngSubmit)="login($event, loginForm, email.value, password.value)">
-                              <div class="group">
+                            <form #loginForm="ngForm" (ngSubmit)="login($event, loginForm, emailRef, passwordRef)">
+                              <div class="group" ngModelGroup="login">
                                 <input type="text" class="form-control" id="email"
-                                       name="email" [(ngModel)]="loginModel.email" #email="ngModel"
-                                       required>
+                                       name="email" [(ngModel)]="loginModel.email" #emailRef="ngModel"
+                                       required
+                                       pattern="[^@\s]+@[^@\s]+\.[^@\s]+"
+                                       #spy>
                                 <span class="highlight"></span>
                                 <span class="bar"></span>
                                 <label>E-mail</label>
+                                <span *ngIf="emailRef.touched && emailRef.errors?.required">This field is required</span>
+                                <span *ngIf="emailRef.touched && emailRef.errors?.pattern">Does not look as a valid e-mail</span>
                               </div>
+
                               <div class="group">
                                 <input type="password" class="form-control" id="password"
                                        name="password"
-                                       required
-                                       [(ngModel)]="loginModel.password" #password="ngModel">
+                                       required minlength="6"
+                                       [(ngModel)]="loginModel.password" #passwordRef="ngModel">
                                 <span class="highlight"></span>
                                 <span class="bar"></span>
                                 <label>Password</label>
+                                <span *ngIf="passwordRef.touched && passwordRef.errors?.required">This field is required</span>
+                                <span *ngIf="passwordRef.touched && passwordRef.errors?.minlength">Minimum length of 6 Characters</span>
                               </div>
+
                               <div class="mdl-layout-spacer"></div>
                               <button
-                                [disabled]="!loginForm.form.valid"
                                 class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-button--align-right"
                                       type="submit" >Submit
                               </button>
