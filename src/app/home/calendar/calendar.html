@@ -3,12 +3,6 @@
 
         <form #f="ngForm" novalidate style="width: 100%">
             <div class="sd-formGroup">
-                <!--   <select style="float: right" name="yearSelected" [(ngModel)]="form.yearSelected"
-                           (change)="setYear(form.yearSelected)">
-                       <option *ngFor="let year of years" [value]="year.value">
-                           {{year.name}}
-                       </option>
-                   </select>-->
                 <div style="float:right">
                     <span style="font-size:1.4rem; vertical-align: sub">{{form.yearSelected}}</span>
                     <button mdl-button #btn1="mdlButton" (click)="m1.toggle($event, btn1)" mdl-button-type="icon"
