@@ -42,6 +42,10 @@ var webpackConfig = {
         loaders: ['raw-loader', 'sass-loader']
       },
       {
+        test: /\.(eot|svg|ttf|woff|woff2)$/,
+        loader: 'file-loader'
+      },
+      {
         test: /\.global\.scss$/,
         loaders: ['style-loader', 'css-loader', 'sass-loader']
       }
