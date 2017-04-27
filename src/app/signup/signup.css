@@ -113,3 +113,13 @@ form {
 
 }
 
+/* form validation */
+
+.form-control.ng-touched.ng-valid[required], .form-control.ng-touched.ng-valid.required  {
+  border-left: 5px solid #42A948;
+}
+
+.ng-touched:not(form):not(.fieldset).ng-invalid:not(form):not(.fieldset)  {
+  border-left: 5px solid #a94442;
+}
+

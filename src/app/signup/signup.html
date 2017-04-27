@@ -5,28 +5,40 @@
                 <div class="mdl-layout__tab-panel is-active" id="overview">
                     <section [@flyInOut]="'in'" class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
                         <div>
-                            <form role="form" (submit)="signUp($event, name.value, email.value, password.value)">
-                                <div class="group">
-                                    <input type="text" #name class="form-control" id="name"
-                                           required>
-                                    <span class="highlight"></span>
-                                    <span class="bar"></span>
-                                    <label>Name</label>
-                                </div>
-                                <div class="group">
-                                    <input type="text" #email class="form-control" id="email"
-                                           required>
-                                    <span class="highlight"></span>
-                                    <span class="bar"></span>
-                                    <label>Email</label>
-                                </div>
-                                <div class="group">
-                                    <input type="password" #password class="form-control" id="password"
-                                           required>
-                                    <span class="highlight"></span>
-                                    <span class="bar"></span>
-                                    <label>Password</label>
-                                </div>
+                            <form role="form" #signUpFormRef="ngForm"(ngSubmit)="signUp($event, nameRef.value, emailRef.value, passwordRef.value)">
+                              <fieldset class="fieldset" ngModelGroup="signUp">
+                                  <div class="group">
+                                      <input type="text" name="name"
+                                             #nameRef="ngModel"
+                                             [(ngModel)]="signUpModel.name"
+                                             class="form-control" id="name"
+                                             required>
+                                      <span class="highlight"></span>
+                                      <span class="bar"></span>
+                                      <label>Name</label>
+                                      <span *ngIf="nameRef.touched && nameRef.errors?.required">This field is required</span>
+                                  </div>
+                                  <div class="group">
+                                      <input type="text" name="email" #emailRef="ngModel"
+                                             pattern="[^@\s]+@[^@\s]+\.[^@\s]+"
+                                             [(ngModel)]="signUpModel.email" class="form-control" id="email"
+                                             required>
+                                      <span class="highlight"></span>
+                                      <span class="bar"></span>
+                                      <label>Email</label>
+                                      <span *ngIf="emailRef.touched && emailRef.errors?.required">This field is required</span>
+                                      <span *ngIf="emailRef.touched && emailRef.errors?.pattern">It does not look as a valid e-mail</span>
+                                  </div>
+                                  <div class="group">
+                                      <input type="password" name="password" #passwordRef="ngModel" [(ngModel)]="signUpModel.password" class="form-control" id="password"
+                                             required minlength="6">
+                                      <span class="highlight"></span>
+                                      <span class="bar"></span>
+                                      <label>Password</label>
+                                      <span *ngIf="passwordRef.touched && passwordRef.errors?.required">This field is required</span>
+                                      <span *ngIf="passwordRef.touched && passwordRef.errors?.minlength">Minimum length of 6 Characters</span>
+                                  </div>
+                              </fieldset>
                                 <div class="mdl-layout-spacer"></div>
                                 <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-button--align-right"
                                         type="submit">Sign up

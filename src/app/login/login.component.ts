@@ -24,7 +24,6 @@ const template = require('./login.html');
 export class Login {
 
     public loginModel: LoginModel;
-    public submitted = false;
     public test = "test1";
 
     constructor(public router: Router, public loginService: LoginService) {
@@ -33,11 +32,11 @@ export class Login {
 
     get diagnostic() { return JSON.stringify(this.loginModel); }
 
-    login(event, form, email, password) {
+    login(event, form, emailRef, passwordRef) {
         event.preventDefault();
-        let emailValue = email.value;
-        let passwordValue = password.vallue;
-        let body: any = JSON.stringify({emailValue, passwordValue});
+        let email = emailRef.value;
+        let password = passwordRef.value;
+        let body: any = JSON.stringify({email, password});
         this.loginService.login(body).subscribe(
             response => {
                 localStorage.setItem('id_token', response.json().token_key);

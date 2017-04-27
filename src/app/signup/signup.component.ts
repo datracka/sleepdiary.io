@@ -1,6 +1,7 @@
 import {Component, style, state, animate, transition, trigger} from "@angular/core";
 import {Router} from "@angular/router";
 import {SignupService} from "../services/signup/signup.service";
+import {SignUpModel} from "./signupModel";
 
 const styles   = require('./signup.css');
 const template = require('./signup.html');
@@ -22,7 +23,10 @@ const template = require('./signup.html');
 })
 export class SignUp {
 
+    public signUpModel: SignUpModel;
+
     constructor(public router: Router, public signUpService: SignupService) {
+      this.signUpModel = new SignUpModel('','','',);
     }
 
     signUp(event, name, email, password) {
