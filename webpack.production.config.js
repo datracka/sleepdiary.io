@@ -1,12 +1,6 @@
-var webpack = require('webpack');
 var path = require('path');
-
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 var DotenvPlugin = require('webpack-dotenv-plugin');
-var BrowserSyncPlugin = require('browser-sync-webpack-plugin');
-
-/** postcss plugins */
-var precss       = require('precss');
-var autoprefixer = require('autoprefixer');
 
 /**
  * Webpack Constants
@@ -24,13 +18,14 @@ var webpackConfig = {
   },
 
   output: {
-    path: './dist_prod'
+    path: path.resolve(__dirname, 'dist_prod')
   },
-
-  plugins: [],
+  plugins: [
+    new UglifyJSPlugin()
+  ],
 
   module: {
-    loaders: [
+    rules: [
       // .ts files for TypeScript
       { test: /\.ts$/, loaders: ['awesome-typescript-loader', 'angular2-template-loader'] },
       { test: /\.css$/, loaders: ['to-string-loader', 'css-loader', 'postcss-loader'] },
@@ -45,42 +40,34 @@ var webpackConfig = {
         loaders: ['style-loader', 'css-loader', 'sass-loader']
       }
     ]
-  },
-  postcss: function () {
-    return [precss, autoprefixer];
   }
-
 };
 
 /** plugins **/
 
 webpackConfig.plugins.push(new DotenvPlugin({ sample: './.env.default', path: './.env.prod' }))
-if (ENV !== 'test') { //when test don't want add this plugin
-  webpackConfig.plugins.push(new BrowserSyncPlugin({ host: 'localhost', port: 3000, proxy: 'http://localhost:3100'}));
-}
 
 // Our Webpack Defaults
 var defaultConfig = {
+
   cache: false,
-  debug: false,
   output: {
     filename: '[name].bundle.js',
     sourceMapFilename: '[name].map',
     chunkFilename: '[id].chunk.js'
   },
-
   resolve: {
-    root: [ path.join(__dirname, 'src') ],
-    extensions: ['', '.ts', '.js']
+    modules: [
+      path.join(__dirname, 'src'),
+      "node_modules"
+    ],
+    extensions: ['.ts', '.js']
   },
 
   node: {
-    global: 1,
-    crypto: 'empty',
-    module: 0,
-    Buffer: 0,
-    clearImmediate: 0,
-    setImmediate: 0
+    global: true,
+    Buffer: false,
+    setImmediate: false
   }
 };
 
