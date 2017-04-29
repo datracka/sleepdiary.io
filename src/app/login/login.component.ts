@@ -24,7 +24,6 @@ const template = require('./login.html');
 export class Login {
 
     public loginModel: LoginModel;
-    public test = "test1";
 
     constructor(public router: Router, public loginService: LoginService) {
       this.loginModel = new LoginModel('','');
@@ -44,7 +43,8 @@ export class Login {
                 this.router.navigate(['/home/monthly', {actionRef: 'login'}]);
             },
             error => {
-                console.log(form, email, password, error);
+
+                console.log(form, emailRef, passwordRef, error, this);
             }
         );
     }
@@ -80,5 +80,9 @@ Other errors:
  https://plnkr.co/edit/?p=preview
  https://angular.io/docs/ts/latest/guide/forms.html
  https://www.puzzle.ch/blog/articles/2017/01/18/server-side-validations-with-angular-2
+
+ ## Building a form with formBuilder && setting server validation.
+
+ http://www.carlrippon.com/?p=720
 
 */
