@@ -1,4 +1,3 @@
-
 let path = require('path');
 
 let DotenvPlugin = require('webpack-dotenv-plugin');
@@ -31,6 +30,7 @@ var webpackConfig = {
   plugins: [],
 
   module: {
+    exprContextCritical: false, //used for removing warning "Critical dependency: the request of a dependency is an expression"
     rules: [
       // .ts files for TypeScript
       { test: /\.ts$/, loaders: ['awesome-typescript-loader', 'angular2-template-loader'] },
