@@ -21,7 +21,10 @@ var webpackConfig = {
     path: path.resolve(__dirname, 'dist_prod')
   },
   plugins: [
-    new UglifyJSPlugin()
+    new UglifyJSPlugin({
+        mangle: true,
+        compress: false
+      })
   ],
 
   module: {
