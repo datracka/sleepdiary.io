@@ -1,5 +1,6 @@
 import {BrowserModule} from "@angular/platform-browser";
 import {FormsModule}   from '@angular/forms';
+import {ReactiveFormsModule} from '@angular/forms';
 import {NgModule, ApplicationRef} from "@angular/core";
 import {HttpModule, Http} from '@angular/http';
 
@@ -21,6 +22,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     routing,
     HomeModule, //rename to CalendarModule
