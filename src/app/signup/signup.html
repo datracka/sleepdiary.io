@@ -1,57 +1,57 @@
 <mdl-layout mdl-layout-fixed-header mdl-layout-header-seamed>
-    <mdl-layout-content>
-        <div class="sd-align-center">
-            <main class="mdl-layout__content">
-                <div class="mdl-layout__tab-panel is-active" id="overview">
-                    <section [@flyInOut]="'in'" class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
-                        <div>
-                            <form role="form" #signUpFormRef="ngForm"(ngSubmit)="signUp($event, nameRef.value, emailRef.value, passwordRef.value)">
-                              <fieldset class="fieldset" ngModelGroup="signUp">
-                                  <div class="group">
-                                      <input type="text" name="name"
-                                             #nameRef="ngModel"
-                                             [(ngModel)]="signUpModel.name"
-                                             class="form-control" id="name"
-                                             required>
-                                      <span class="highlight"></span>
-                                      <span class="bar"></span>
-                                      <label>Name</label>
-                                      <span *ngIf="nameRef.touched && nameRef.errors?.required">This field is required</span>
-                                  </div>
-                                  <div class="group">
-                                      <input type="text" name="email" #emailRef="ngModel"
-                                             pattern="[^@\s]+@[^@\s]+\.[^@\s]+"
-                                             [(ngModel)]="signUpModel.email" class="form-control" id="email"
-                                             required>
-                                      <span class="highlight"></span>
-                                      <span class="bar"></span>
-                                      <label>Email</label>
-                                      <span *ngIf="emailRef.touched && emailRef.errors?.required">This field is required</span>
-                                      <span *ngIf="emailRef.touched && emailRef.errors?.pattern">It does not look as a valid e-mail</span>
-                                  </div>
-                                  <div class="group">
-                                      <input type="password" name="password" #passwordRef="ngModel" [(ngModel)]="signUpModel.password" class="form-control" id="password"
-                                             required minlength="6">
-                                      <span class="highlight"></span>
-                                      <span class="bar"></span>
-                                      <label>Password</label>
-                                      <span *ngIf="passwordRef.touched && passwordRef.errors?.required">This field is required</span>
-                                      <span *ngIf="passwordRef.touched && passwordRef.errors?.minlength">Minimum length of 6 Characters</span>
-                                  </div>
-                              </fieldset>
-                                <div class="mdl-layout-spacer"></div>
-                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-button--align-right"
-                                        type="submit">Sign up
-                                </button>
-                            </form>
-                            <div style="text-align: right">You have already an account? <a routerLink="/login" href="#">Sign in</a></div>
-
-                        </div>
-                    </section>
+  <mdl-layout-content>
+    <div class="sd-align-center">
+      <main class="mdl-layout__content">
+        <div class="mdl-layout__tab-panel is-active" id="overview">
+          <section [@flyInOut]="'in'" class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+            <div>
+              <form role="form" [formGroup]="signUpForm" (ngSubmit)="signUp()" novalidate>
+                <div class="group">
+                  <input type="text" class="form-control" id="name"
+                         required
+                         name="name" formControlName="name">
+                  <span class="highlight"></span>
+                  <span class="bar"></span>
+                  <label>Name</label>
+                  <span *ngIf="signUpForm.get('name').touched && signUpForm.get('name').getError('required')">This field is required</span>
                 </div>
-            </main>
+                <div class="group">
+                  <input type="text" class="form-control" id="email"
+                         required
+                         pattern="[^@\s]+@[^@\s]+\.[^@\s]+"
+                         name="email" formControlName="email">
+                  <span class="highlight"></span>
+                  <span class="bar"></span>
+                  <label>E-mail</label>
+                  <span *ngIf="signUpForm.get('email').touched && signUpForm.get('email').getError('required')">This field is required</span>
+                  <span *ngIf="signUpForm.get('email').touched && signUpForm.get('email').touched && signUpForm.get('email').getError('pattern')">It does not look as a valid e-mail</span>
+                </div>
+                <div class="group">
+                  <input type="password" class="form-control" id="password"
+                         name="password" formControlName="password"
+                         required minlength="6">
+                  <span class="highlight"></span>
+                  <span class="bar"></span>
+                  <label>Password</label>
+                  <span *ngIf="signUpForm.get('password').touched && signUpForm.get('password').getError('required')">This field is required</span>
+                  <span *ngIf="signUpForm.get('password').touched && signUpForm.get('password').getError('minlength')">Minimum length of 6 Characters</span>
+                </div>
+                <p *ngIf="userNotExists">Ups!! User entered already exists!</p>
+                <p *ngIf="miscellaneousError">Ups!! User entered is not active!</p>
+                <div class="mdl-layout-spacer"></div>
+                <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-button--align-right"
+                        type="submit">Sign up
+                </button>
+              </form>
+              <div style="text-align: right">You have already an account? <a routerLink="/login" href="#">Sign in</a>
+              </div>
+
+            </div>
+          </section>
         </div>
-    </mdl-layout-content>
+      </main>
+    </div>
+  </mdl-layout-content>
 </mdl-layout>
 
 

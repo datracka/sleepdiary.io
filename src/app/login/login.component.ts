@@ -33,6 +33,7 @@ const LENGTH_MIN_6 = 'min_length_6'
 })
 export class Login {
 
+  //FIX loginModel is not used!
   public loginModel: LoginModel;
   public loginForm: FormGroup;
   public userNotExists: boolean;
@@ -109,50 +110,9 @@ export class Login {
       );
     }
   }
-
-  /*    login(event, form, emailRef, passwordRef) {
-   event.preventDefault();
-   let email = emailRef.value;
-   let password = passwordRef.value;
-   let body: any = JSON.stringify({email, password});
-   this.loginService.login(body).subscribe(
-   response => {
-   localStorage.setItem('id_token', response.json().token_key);
-   localStorage.setItem('user', JSON.stringify(response.json()));
-   this.router.navigate(['/home/monthly', {actionRef: 'login'}]);
-   },
-   error => {
-
-   console.log(form, emailRef, passwordRef, error, this);
-   }
-   );
-   }*/
-
 }
 
 /*
-
- ## Validation Rules:
-
- E-mail: required & e-mail
- password: required & more than 6
-
- ## Server Side validation:
-
- {
- fields: {
- e-mail: KEY //[ REQUIRED | E-MAIL_NOT_VALID ]
- password: KEY // [ REQUIRED | MIN_LENGTH_6 ]
- },
- error: [FIELDS_UNCOMPLETED | USER_INACTIVE | WRONG_DATA]
- }
-
- ERROR: 402
-
- Other errors:
-
-
-
  inspiration:
 
  https://angular.io/docs/ts/latest/cookbook/form-validation.html

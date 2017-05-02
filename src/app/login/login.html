@@ -1,45 +1,48 @@
 <mdl-layout mdl-layout-fixed-header mdl-layout-header-seamed>
-    <mdl-layout-content>
-        <div class="sd-align-center">
-            <main class="mdl-layout__content">
-                <div class="mdl-layout__tab-panel is-active" id="overview">
-                    <section [@flyInOut]="'in'" class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
-                        <div>
-                          <form [formGroup]="loginForm" (ngSubmit)="login()" novalidate>
-                            <div class="group" >
-                              <input type="text" class="form-control" id="email"
-                                     required
-                                     pattern="[^@\s]+@[^@\s]+\.[^@\s]+"
-                                     name="email" formControlName="email" #emailRef>
-                              <span class="highlight"></span>
-                              <span class="bar"></span>
-                              <label>E-mail</label>
-                              <span *ngIf="loginForm.get('email').touched && loginForm.get('email').getError('required')">This field is required</span>
-                              <span *ngIf="loginForm.get('email').touched && loginForm.get('email').touched && loginForm.get('email').getError('pattern')">It does not look as a valid e-mail</span>
-                            </div>
-                            <div class="group">
-                              <input type="password" class="form-control" id="password"
-                                     name="password" formControlName="password"
-                                     required minlength="6"
-                                      #passwordRef>
-                              <span class="highlight"></span>
-                              <span class="bar"></span>
-                              <label>Password</label>
-                              <span *ngIf="loginForm.get('password').touched && loginForm.get('password').getError('required')">This field is required</span>
-                              <span *ngIf="loginForm.get('password').touched && loginForm.get('password').getError('minlength')">Minimum length of 6 Characters</span>
-                            </div>
-                            <p *ngIf="userNotExists" class="text-align:right">Ups!! User entered does not exists!</p>
-                            <p *ngIf="userNotActive" class="text-align:right">Ups!! User entered is not active!</p>
-                            <button
-                              class="mdl-button mdl-js-button mdl-button&#45;&#45;raised mdl-button&#45;&#45;colored mdl-button&#45;&#45;align-right"
-                              type="submit" >Submit</button>
-                          </form>
-                            <div style="text-align: right">You don't have an account? <a routerLink="/signup" href="#">Sign up</a></div>
-                        </div>
-                    </section>
+  <mdl-layout-content>
+    <div class="sd-align-center">
+      <main class="mdl-layout__content">
+        <div class="mdl-layout__tab-panel is-active" id="overview">
+          <section [@flyInOut]="'in'" class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+            <div>
+              <form role="form" [formGroup]="loginForm" (ngSubmit)="login()" novalidate>
+                <div class="group">
+                  <input type="text" class="form-control" id="email"
+                         required
+                         pattern="[^@\s]+@[^@\s]+\.[^@\s]+"
+                         name="email" formControlName="email">
+                  <span class="highlight"></span>
+                  <span class="bar"></span>
+                  <label>E-mail</label>
+                  <span *ngIf="loginForm.get('email').touched && loginForm.get('email').getError('required')">This field is required</span>
+                  <span
+                    *ngIf="loginForm.get('email').touched && loginForm.get('email').touched && loginForm.get('email').getError('pattern')">It does not look as a valid e-mail</span>
                 </div>
-            </main>
+                <div class="group">
+                  <input type="password" class="form-control" id="password"
+                         name="password" formControlName="password"
+                         required minlength="6"
+                         #passwordRef>
+                  <span class="highlight"></span>
+                  <span class="bar"></span>
+                  <label>Password</label>
+                  <span *ngIf="loginForm.get('password').touched && loginForm.get('password').getError('required')">This field is required</span>
+                  <span *ngIf="loginForm.get('password').touched && loginForm.get('password').getError('minlength')">Minimum length of 6 Characters</span>
+                </div>
+                <p *ngIf="userNotExists">Ups!! User entered does not exists!</p>
+                <p *ngIf="userNotActive">Ups!! User entered is not active!</p>
+                <button
+                  class="mdl-button mdl-js-button mdl-button&#45;&#45;raised mdl-button&#45;&#45;colored mdl-button&#45;&#45;align-right"
+                  type="submit">Submit
+                </button>
+              </form>
+              <div style="text-align: right">You don't have an account? <a routerLink="/signup" href="#">Sign up</a>
+              </div>
+            </div>
+          </section>
         </div>
-    </mdl-layout-content>
+      </main>
+    </div>
+  </mdl-layout-content>
 </mdl-layout>
 
