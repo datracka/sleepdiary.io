@@ -28,8 +28,8 @@
                               <span *ngIf="loginForm.get('password').touched && loginForm.get('password').getError('required')">This field is required</span>
                               <span *ngIf="loginForm.get('password').touched && loginForm.get('password').getError('minlength')">Minimum length of 6 Characters</span>
                             </div>
-                            <p *ngIf="userNotExists" class="text-align:right">Ups!! User entered does not exists!</p>
-                            <p *ngIf="userNotActive" class="text-align:right">Ups!! User entered is not active!</p>
+                            <p *ngIf="userNotExists">Ups!! User entered does not exists!</p>
+                            <p *ngIf="userNotActive">Ups!! User entered is not active!</p>
                             <button
                               class="mdl-button mdl-js-button mdl-button&#45;&#45;raised mdl-button&#45;&#45;colored mdl-button&#45;&#45;align-right"
                               type="submit" >Submit</button>
