@@ -81,6 +81,7 @@ let defaultConfig = {
 
   devServer: {
     contentBase: path.join(__dirname, "src"),
+    historyApiFallback: true,
     port: 9000,
     proxy: {
       '/api/1': {

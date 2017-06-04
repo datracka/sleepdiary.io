@@ -1,4 +1,4 @@
-import { Routes, RouterModule } from '@angular/router';
+import {Routes, RouterModule, PreloadAllModules} from '@angular/router';
 
 import {Login} from "./login";
 import {SignUp} from "./signup";
@@ -6,27 +6,31 @@ import {ModuleWithProviders} from "@angular/core";
 
 // https://angular.io/docs/ts/latest/guide/router.html
 const appRouting: Routes = [
-    {
-        path: '',
-        redirectTo: '/login',
-        pathMatch: 'full'
-    },
-    {
-        path: 'login',
-        component: Login
-    },
-    {
-        path: 'signup',
-        component: SignUp
-    }
+  {
+    path: '',
+    redirectTo: '/login',
+    pathMatch: 'full'
+  },
+  {
+    path: 'login',
+    component: Login
+  },
+  {
+    path: 'signup',
+    component: SignUp
+  }
 ];
 
 const appRoutes: Routes = [
-    ...appRouting,
+  ...appRouting,
 
 ];
 
-export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);
+export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes, {
+  useHash: false,
+  preloadingStrategy: PreloadAllModules
+});
+
 
 
 
