@@ -15,6 +15,10 @@ import {HomeModule} from "./home/home.module";
 import {MdlModule} from "angular2-mdl";
 import {StatisticsModule} from "./statistics/statistics.module";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import { environment } from '../../config/environment';
+import {AngularFireModule} from "angularfire2";
+import {AngularFireAuthModule} from "angularfire2/auth";
+import {AngularFireDatabaseModule} from "angularfire2/database";
 
 
 /*https://angular.io/docs/ts/latest/cookbook/dependency-injection.html#!#usefactory*/
@@ -28,7 +32,10 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     HomeModule, //rename to CalendarModule
     StatisticsModule,
     HttpModule,
-    MdlModule
+    MdlModule,
+    AngularFireModule.initializeApp(environment.firebase, 'sleepdiary'),
+    AngularFireDatabaseModule, // imports firebase/database, only needed for database features
+    AngularFireAuthModule, // imports firebase/auth, only needed for auth features
   ],
   providers: [
     {

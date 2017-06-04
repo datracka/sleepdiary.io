@@ -10,41 +10,20 @@
  `git clone git@github.com:datracka/sleepdiary.io.git`
  
 * Install dependencies
- `$ npm typings -g install && npm install`
+ `$ yarn global add typings && yarn`
 
 * Run the app
- `$ npm start`
- 
+ `$ yarn start`
+
+* configure fireBase keys
+https://firebase.google.com/docs/web/setup
+
 *  browse http://localhost:3000
 
-(You need the REST backend API running. By default the front-end app 
-is looking for localhost:8080. This can be change in .env.dev file)
+~~(You need the REST backend API running. By default the front-end app 
+is looking for localhost:8080. This can be change in .env.dev file)~~
  
-## Development & git management
 
-We are using develop branch for development. It has a stable and all the time deployable versión. For development we are stick to feature
-branch philosophy 
-
-More info: 
-
-// link to git flow
-// link to feature branch
-
-Besides that wee use a git tree philosophy https://medium.com/@porteneuve/mastering-git-subtrees-943d29a798ec#.rhx54pb4e
-so you need to do the following steps:
-
-* Get shared repository (we use)
-
-    * Add remote
-        `$ git remote add shared git@github.com:datracka/sleepdiary.io-shared.git`
-        `$ git fetch shared`
-
-    * Set remote files in chosen location  
-        `$ git read-tree \` (press enter)
-        `> --prefix=app/src/shared -u shared/<branch>` default develop 
-        
-        **NOTICE** if shared already exists this command will raise an error: `Can't not do binding`. To override
-        this remove the `-u` flag to only set the binding in cache and not write the files themself
 
 ### Production (WIP)
 
