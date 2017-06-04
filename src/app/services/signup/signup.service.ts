@@ -4,7 +4,6 @@ import {Observable} from "rxjs";
 import {contentHeaders} from "../common/headers";
 import {AngularFireAuth} from "angularfire2/auth";
 
-
 @Injectable()
 export class SignupService {
 
