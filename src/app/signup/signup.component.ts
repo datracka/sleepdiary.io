@@ -1,4 +1,5 @@
-import {Component, style, state, animate, transition, trigger} from "@angular/core";
+import {Component} from '@angular/core';
+import {style, state, animate, transition, trigger} from '@angular/animations';
 import {Router} from "@angular/router";
 import {SignupService} from "../services/signup/signup.service";
 import {SignUpModel} from "./signupModel";

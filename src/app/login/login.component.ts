@@ -1,4 +1,5 @@
-import {Component, style, state, animate, transition, trigger} from '@angular/core';
+import {Component} from '@angular/core';
+import {style, state, animate, transition, trigger} from '@angular/animations';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {Router} from '@angular/router';
 import {LoginService} from '../services/login/login.service';
@@ -12,7 +13,7 @@ const ERROR_FIELD_VALIDATION = 'error_field_validation';
 const ERROR_NOT_ACTIVE = 'error_not_active';
 const IS_REQUIRED = 'required';
 const IS_NOT_EMAIL = 'email';
-const LENGTH_MIN_6 = 'min_length_6'
+const LENGTH_MIN_6 = 'min_length_6';
 
 
 @Component({

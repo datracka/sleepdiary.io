@@ -1,14 +1,9 @@
 import {
     Component,
-    Input,
-    style,
-    state,
-    animate,
-    transition,
-    trigger,
     OnInit,
-    AfterViewInit, ViewContainerRef
+    AfterViewInit
 } from '@angular/core';
+import {style, state, animate, transition, trigger} from '@angular/animations';
 import * as moment from 'moment';
 import {Month} from '../../services/calendar/month';
 import {CalendarService} from '../../services/calendar/calendar.service'
