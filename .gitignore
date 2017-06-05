@@ -12,6 +12,7 @@ _test-output
 _temp
 coverage/
 docs/
+/config/environment.ts
 /dist_prod/**/*.map
 
 !**/*e2e-spec.js
@@ -22,4 +23,5 @@ docs/
 !install.js
 !/dist_prod/**/*.js
 !/dist/**/*.js
+!/config/environment.example.ts
 
