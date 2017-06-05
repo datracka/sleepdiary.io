@@ -6,11 +6,15 @@ this is intended to track the current status track
 
 Currently Implementing Firebase Signup 
 
-Method: createUserWithEmailAndPassword is not found
+Signup works, pending handling properly positive and negative cases and 
+show it accordingly in UI
 
-There is breaking changes in angularfire 4 and I can not
-find a proper tutorial so relying in documentation. 
+Method: createUserWithEmailAndPassword
+
+Next steps: Implement login service :) 
+
 
 * https://github.com/angular/angularfire2/blob/master/docs/1-install-and-setup.md
 * https://progblog.io/Angular-2-Firebase-Tutorial-Part-2-Adding-Authentication/
 * https://github.com/designcourse/angular-auth-demo/blob/master/src/app/signup/signup.component.ts
+* https://github.com/angular/angularfire2/tree/master/docs

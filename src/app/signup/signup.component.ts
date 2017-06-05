@@ -47,9 +47,9 @@ export class SignUp {
 
     createForm() {
       this.signUpForm = this.fb.group({
-        name: '',
-        email: '',
-        password: ''
+        name: 'test',
+        email: 'test@gmail.com',
+        password: '123456a'
       })
     }
 
@@ -60,7 +60,7 @@ export class SignUp {
         let name: any = this.signUpForm.get('name').value;
         let email: any = this.signUpForm.get('email').value;
         let password: any = this.signUpForm.get('password').value;
-        let body: any = JSON.stringify({name, email, password});
+        let body: any = {name, email, password};
 
         this.signUpService.signup(body).subscribe(
           response => {
