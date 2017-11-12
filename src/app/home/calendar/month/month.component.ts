@@ -1,5 +1,5 @@
 import {
-  Component,
+  Component, Input,
 } from '@angular/core';
 let template = require('./month.html');
 
@@ -9,7 +9,5 @@ let template = require('./month.html');
   styleUrls: ['./month.scss']
 })
 export class Month {
-  constructor() {
-
-  }
+  @Input() name;
 }

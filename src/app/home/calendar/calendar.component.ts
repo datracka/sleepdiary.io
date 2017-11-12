@@ -1,3 +1,4 @@
+import { CalendarForm } from './calendar-form';
 import {
   Component,
   Input,
@@ -11,7 +12,7 @@ import {
 } from '@angular/core';
 import * as moment from 'moment';
 import { CalendarService } from '../../services/calendar/calendar.service'
-import {MetricsIndicators} from "../../services/common/metrics-indicators";
+import { MetricsIndicators } from "../../services/common/metrics-indicators";
 
 let template = require('./calendar.html');
 
@@ -23,13 +24,12 @@ let template = require('./calendar.html');
 })
 export class Calendar implements OnInit {
 
-  form: any;
+  form: CalendarForm; // TODO: type year and metric
   years: any = [
     { value: '2016', name: '2016' },
     { value: '2017', name: '2017' },
     { value: '2018', name: '2018' }
   ];
-
   months: Array<String> = [
     'January',
     'February',
@@ -45,22 +45,18 @@ export class Calendar implements OnInit {
     'December',
   ];
 
+  currentYearSelected = moment().format('YYYY');
+
   constructor() {
   }
 
   ngOnInit() {
-
-    this.form = {
-      yearSelected: '2017',
-      metricSelected: MetricsIndicators.SLEEPING_QUALITY
-    };
-
-
+    this.form = new CalendarForm(this.currentYearSelected, MetricsIndicators.SLEEPING_QUALITY);
   }
 
   setYear(year) {
 
-    this.form.yearSelected = year;
+    this.form.year = year;
     //TODO get values for given year
 
   }

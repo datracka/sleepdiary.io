@@ -3,7 +3,7 @@
     <form #f="ngForm" novalidate style="width: 100%">
       <div class="sd-formGroup">
         <div style="float:right">
-          <span style="font-size:1.4rem; vertical-align: sub">{{form.yearSelected}}</span>
+          <span style="font-size:1.4rem; vertical-align: sub">{{form.year}}</span>
           <button mdl-button #btn1="mdlButton" (click)="m1.toggle($event, btn1)" mdl-button-type="icon" mdl-ripple>
             <mdl-icon>more_vert</mdl-icon>
           </button>
@@ -18,7 +18,7 @@
 
   <div class="mdl-cell mdl-cell--4-col">
     <div class="calendar">
-      <month></month>
+      <month [name]=[month] *ngFor="let month of months"></month>
     </div>
   </div>
 </div>
