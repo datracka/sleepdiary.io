@@ -1,0 +1,62 @@
+<div [@flyInOut]="'in'" class="mdl-grid" [ngClass]="form.metricSelected">
+    <div class="mdl-grid mdl-cell--12-col sd-align-right">
+
+        <form #f="ngForm" novalidate style="width: 100%">
+            <div class="sd-formGroup">
+                <div style="float:right">
+                    <span style="font-size:1.4rem; vertical-align: sub">{{form.yearSelected}}</span>
+                    <button mdl-button #btn1="mdlButton" (click)="m1.toggle($event, btn1)" mdl-button-type="icon"
+                            mdl-ripple>
+                        <mdl-icon>more_vert</mdl-icon>
+                    </button>
+                    <mdl-menu #m1="mdlMenu" mdl-menu-position="bottom-right">
+                        <mdl-menu-item mdl-ripple (click)="setYear(year.value)" *ngFor="let year of years">{{year.name}}
+                        </mdl-menu-item>
+                    </mdl-menu>
+                </div>
+            </div>
+            <div class="sd-formGroup">
+                <mdl-radio [(ngModel)]="form.metricSelected" name="metrics" value="sleeping-quality" mdl-ripple>
+                    Sleeping Quality
+                </mdl-radio>
+                <mdl-radio [(ngModel)]="form.metricSelected" name="metrics" value="tiredness-feeling" mdl-ripple>
+                    Tiredness Feeling
+                </mdl-radio>
+            </div>
+
+        </form>
+
+
+    </div>
+    <div class="mdl-cell mdl-cell--4-col" *ngFor="let month of months">
+        <div class="calendar">
+            <div class="header">
+                {{ month.name }}
+                <i class="fa fa-angle-left"></i>
+                <i class="fa fa-angle-right"></i>
+            </div>
+            <div class="week names">
+                <span class="day">Mon</span>
+                <span class="day">Tue</span>
+                <span class="day">Wed</span>
+                <span class="day">Thu</span>
+                <span class="day">Fri</span>
+                <span class="day">Sat</span>
+                <span class="day">Sun</span>
+            </div>
+            <div class="week" *ngFor="let week of month.weeks">
+    <span [ngClass]="decorateDay(day)"
+          (click)="onSelect(day)"
+          class="calendar__day"
+          *ngFor="let day of week.days">
+      {{ day.number }}
+    </span>
+            </div>
+        </div>
+    </div>
+    <a (click)="onSelectCurrentDay()" class="sd-add-button" mdl-button mdl-button-type="fab" mdl-colored="accent"
+       mdl-ripple>
+        <mdl-icon>add</mdl-icon>
+    </a>
+</div>
+
