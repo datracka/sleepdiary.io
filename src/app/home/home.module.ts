@@ -1,6 +1,9 @@
 import {homeRouting} from "./home.routes";
 import {NgModule} from "@angular/core";
 import {Calendar} from "./calendar/calendar.component";
+import {Month} from "./calendar/month";
+import {Week} from "./calendar/week";
+import {Day} from "./calendar/day";
 import {MonthlyViewComponent} from "./monthly/monthly.component";
 import {EntryForm} from "./entryForm/entry-form.component";
 import {YearlyViewComponent} from "./yearly/yearly.component";
@@ -27,6 +30,9 @@ import {SharedModule} from "../shared/shared.module";
         YearlyViewComponent,
         EntryForm,
         Calendar,
+        Month,
+        Week,
+        Day,
         CloseMenuDirective
 
     ],
