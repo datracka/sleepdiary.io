@@ -1,8 +1,46 @@
 # Branch refactor-calendar
 
+What I am doing:
+
+I am fixing an error on month.hmtl template. Week component is not recognized!!
+
+What I have to do: 
+
 - 1. Move Calendar to component approach
 - 2. Render calendar should happend only once when selecting year.
 - 2.1 Refactor Render. Render renders Day components inside Week Components and inside Month components.
+
+> in Calendar Component
+
+<Month [monthData]="monthData" ngFor="monthData in yearData"> 
+
+monthData has all render information for rendering a complete month. That is array of Weeks containing array of Days. (Similar what we have right now, but improved and refactored). 
+monthData has an array on weekData 
+
+> In Month Component
+
+Using monthData for the current month iterates on array of weeks for rendering weeks component. 
+weekData has an array on dayData
+
+<Week [weekData]="weekData ngFor="weekData in monthData>
+
+> In Week Component
+
+Using WeekData for the current Week iterats on array ow weeks for rendering the day component
+
+<Day [dayData]="dayData" nfFor="dayData in WeekData>
+
+dayData contains strictly calendar information:
+
+date: moment
+isToday: boolean
+isCurrentMonth: boolean
+
+> In Day Component
+
+Once a day component is rendered it has properties and state
+
+Recomended read: 
 
 https://medium.com/@charliegreenman/redux-vs-rxjs-ngrx-store-db6066058719
 

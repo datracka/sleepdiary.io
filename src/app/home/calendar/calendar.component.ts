@@ -10,11 +10,11 @@ import {
     AfterViewInit, ViewContainerRef
 } from '@angular/core';
 import * as moment from 'moment';
-import {Month} from '../../services/calendar/month';
+import {MonthRender} from '../../services/calendar/month.render';
 import {CalendarService} from '../../services/calendar/calendar.service'
 import {ActivatedRoute, Router} from "@angular/router";
-import {Week} from "../../services/calendar/week";
-import {Day} from "../../services/calendar/day";
+import {WeekRender} from "../../services/calendar/week.render";
+import {DayRender} from "../../services/calendar/day.render";
 import {MetricsIndicators} from "../../services/common/metrics-indicators";
 import {Metric} from "../../services/common/metrics";
 import {MdlSnackbarService} from "angular2-mdl";
@@ -54,19 +54,19 @@ export class Calendar implements OnInit, AfterViewInit {
         {value: '2018', name: '2018'}
     ];
 
-    months: Array<Month> = [
-        new Month('January'),
-        new Month('February'),
-        new Month('March'),
-        new Month('April'),
-        new Month('May'),
-        new Month('June'),
-        new Month('July'),
-        new Month('August'),
-        new Month('September'),
-        new Month('October'),
-        new Month('November'),
-        new Month('December'),
+    year: Array<MonthRender> = [
+        new MonthRender('January'),
+        new MonthRender('February'),
+        new MonthRender('March'),
+        new MonthRender('April'),
+        new MonthRender('May'),
+        new MonthRender('June'),
+        new MonthRender('July'),
+        new MonthRender('August'),
+        new MonthRender('September'),
+        new MonthRender('October'),
+        new MonthRender('November'),
+        new MonthRender('December'),
     ];
 
     public metric: Metric;
@@ -151,8 +151,8 @@ export class Calendar implements OnInit, AfterViewInit {
         if (this.entries.hasOwnProperty(entry)) {
           let e: Entry = this.entries[entry];
           let entryKey = e.date.substr(0, 10);
-          let intermediateObject: Day = {...this.totalDays.get(entryKey)};
-          let dayMatch: Day = new Day(
+          let intermediateObject: DayRender = {...this.totalDays.get(entryKey)};
+          let dayMatch: DayRender = new DayRender(
             intermediateObject.name,
             intermediateObject.number,
             intermediateObject.isCurrentMonth,
@@ -261,10 +261,7 @@ export class Calendar implements OnInit, AfterViewInit {
             startDateOfWeek.startOf('week');
         }
 
-        return {
-            monthStartDate: monthStartDate,
-            startDateOfWeek: startDateOfWeek
-        };
+        return startDateOfWeek;
 
     }
 
@@ -272,15 +269,15 @@ export class Calendar implements OnInit, AfterViewInit {
     buildMonths(lang: String, year: String) {
 
         for (var i = 0; i < 12; i++) {
-            let moment: any = this.getMonthDateRange(year, i, true);
-            let weeks: Array<Week> = this.buildWeeks(moment.startDateOfWeek, i);
-            this.months[i].setWeeks(weeks);
+            let startDateOfWeek: any = this.getMonthDateRange(year, i, true);
+            let weeks: Array<WeekRender> = this.buildWeeks(startDateOfWeek, i);
+            this.year[i].setWeeks(weeks);
         }
     }
 
     buildWeeks(startDateOfWeek: any, currentMonth: number): any {
 
-        let days: Array<Week> = [],
+        let days: Array<WeekRender> = [],
             currentDate: any = startDateOfWeek.clone(),
             nextMonth: number = 0;
 
@@ -291,7 +288,7 @@ export class Calendar implements OnInit, AfterViewInit {
         }
 
         while ((currentDate.month() !== nextMonth)) {
-            let week: Week = new Week(
+            let week: WeekRender = new WeekRender(
                 this.buildDays(currentDate.clone(), currentMonth));
             days.push(week);
             currentDate.add(1, "w");
@@ -300,9 +297,9 @@ export class Calendar implements OnInit, AfterViewInit {
     }
 
     buildDays(date: any, month: any) {
-        var days: Array<Day> = [];
+        var days: Array<DayRender> = [];
         for (var i = 0; i < 7; i++) {
-            let day: Day = new Day(
+            let day: DayRender = new DayRender(
                 date.format("dd").substring(0, 1),
                 date.date(),
                 date.month() === month,

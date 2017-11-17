@@ -7,7 +7,9 @@ import {YearlyViewComponent} from "./yearly/yearly.component";
 import {FormsModule} from "@angular/forms";
 import {HomeComponent} from "./home";
 import {AuthGuard} from "../services/common/auth-guard";
-
+import {Month} from "./calendar/month";
+import {Week} from "./calendar/week";
+import {Day} from "./calendar/day";
 import {CloseMenuDirective} from "../services/common/close-menu.directive";
 import {MdlSelectModule} from "@angular2-mdl-ext/select";
 import {MdlPopoverModule} from "@angular2-mdl-ext/popover";
@@ -27,6 +29,9 @@ import {SharedModule} from "../shared/shared.module";
         YearlyViewComponent,
         EntryForm,
         Calendar,
+        Month,
+        Week,
+        Day,
         CloseMenuDirective
 
     ],
