@@ -1,4 +1,5 @@
 <div class="mdl-grid">
+  <-- component: 1 -->
   <div class="mdl-grid mdl-cell--12-col sd-align-right">
     <form #f="ngForm" novalidate style="width: 100%">
       <div class="sd-formGroup">
@@ -15,10 +16,10 @@
       </div>
     </form>
   </div>
-
+  <-- Component2 -->
   <div class="mdl-cell mdl-cell--4-col">
     <div class="calendar">
-      <month [name]=[month] *ngFor="let month of months"></month>
+      <month [renderData]="renderData" *ngFor="let monthData of year"></month>
     </div>
   </div>
 </div>
