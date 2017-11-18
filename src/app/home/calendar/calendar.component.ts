@@ -10,9 +10,9 @@ import {
     AfterViewInit, ViewContainerRef
 } from '@angular/core';
 import * as moment from 'moment';
-import {MonthRender} from '../../services/calendar/month.render';
 import {CalendarService} from '../../services/calendar/calendar.service'
 import {ActivatedRoute, Router} from "@angular/router";
+import {MonthRender} from '../../services/calendar/month.render';
 import {WeekRender} from "../../services/calendar/week.render";
 import {DayRender} from "../../services/calendar/day.render";
 import {MetricsIndicators} from "../../services/common/metrics-indicators";
@@ -54,7 +54,7 @@ export class Calendar implements OnInit, AfterViewInit {
         {value: '2018', name: '2018'}
     ];
 
-    year: Array<MonthRender> = [
+    yearRender: Array<MonthRender> = [
         new MonthRender('January'),
         new MonthRender('February'),
         new MonthRender('March'),
@@ -98,7 +98,7 @@ export class Calendar implements OnInit, AfterViewInit {
             });
 
         this.form = {
-            yearSelected: '2016',
+            yearSelected: '2017',
             metricSelected:  MetricsIndicators.SLEEPING_QUALITY
         };
 
@@ -111,7 +111,7 @@ export class Calendar implements OnInit, AfterViewInit {
         this.form.yearSelected = currentYearSelected;
     }
 
-    ngAfterViewInit() {
+     ngAfterViewInit() {
 
         this.calendarService.getAll(this.form.yearSelected).subscribe(
             response => {
@@ -265,14 +265,16 @@ export class Calendar implements OnInit, AfterViewInit {
 
     }
 
-    //** FIX: Should return months and not modify inside the function **/
+    /* TODO: Should return months and not modify inside the function
+    AKA do it functional programing!! */
     buildMonths(lang: String, year: String) {
 
         for (var i = 0; i < 12; i++) {
             let startDateOfWeek: any = this.getMonthDateRange(year, i, true);
             let weeks: Array<WeekRender> = this.buildWeeks(startDateOfWeek, i);
-            this.year[i].setWeeks(weeks);
+            this.yearRender[i].setWeeks(weeks);
         }
+        //console.log(this.yearRender);
     }
 
     buildWeeks(startDateOfWeek: any, currentMonth: number): any {

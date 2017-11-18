@@ -1,0 +1,89 @@
+.header {
+  float: left;
+  width: 100%;
+  background: #5D7877;
+  height: 40px;
+  color: white;
+  line-height: 40px;
+}
+
+.header > * {
+  height: 40px;
+  line-height: 40px !important;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.header > i {
+  float: left;
+  width: 40px;
+  font-size: 1.125em;
+  font-weight: bold;
+  position: relative;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  padding: 0 10px;
+  cursor: pointer;
+}
+
+.header > i.fa-angle-left {
+  text-align: left;
+}
+
+.header > i.fa-angle-right {
+  text-align: right;
+  margin-left: -40px;
+}
+
+.header > span {
+  float: left;
+  width: 100%;
+  font-weight: bold;
+  text-transform: uppercase;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  padding-left: 50px;
+  margin-left: -40px;
+  text-align: center;
+  padding-right: 40px;
+  color: inherit;
+}
+
+.calendar {
+  float: left;
+  display: block;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  background: white;
+  border: solid 1px #CCC;
+  margin-bottom: 10px;
+}
+
+
+.week {
+  float: left;
+  width: 100%;
+  border-top: solid 1px #CCC;
+}
+
+.week:first-child {
+  border-top: none;
+}
+
+.week > .day {
+  float: left;
+  width: 14.28571429%;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  font-size: 0.75em;
+  text-align: center;
+  height: 30px;
+  line-height: 30px !important;
+  display: inline-block;
+  vertical-align: middle;
+  background: white;
+  cursor: auto;
+  color: grey;
+}
+
+

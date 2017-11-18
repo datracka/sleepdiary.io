@@ -1,3 +1,4 @@
+import { MonthRender } from './../../../services/calendar/month.render';
 import {
   Input,
   Component,
@@ -12,10 +13,9 @@ let template = require('./month.html');
 })
 export class Month implements OnInit {
 
-  @Input() month: any;
+  @Input() monthRender: MonthRender;
 
   ngOnInit() {
-
   }
 
 }

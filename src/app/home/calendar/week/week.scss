@@ -1,0 +1,29 @@
+.week {
+  float: left;
+  width: 100%;
+  border-top: solid 1px #CCC;
+}
+
+.week:first-child {
+  border-top: none;
+}
+
+.week > .day {
+  float: left;
+  width: 14.28571429%;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  font-size: 0.75em;
+  text-align: center;
+  height: 30px;
+  line-height: 30px !important;
+  display: inline-block;
+  vertical-align: middle;
+  background: white;
+  cursor: auto;
+  color: grey;
+}
+
+.week > .day:first-child {
+  border-left: none;
+}

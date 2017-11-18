@@ -48,8 +48,8 @@ export class Login {
 
   createForm() {
     this.loginForm = this.fb.group({
-      email: '',
-      password: ''
+      email: 'datracka@gmail.com',
+      password: '123456a'
     })
   }
 

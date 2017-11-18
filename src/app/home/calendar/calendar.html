@@ -1,37 +1,34 @@
 <div [@flyInOut]="'in'" class="mdl-grid" [ngClass]="form.metricSelected">
-    <div class="mdl-grid mdl-cell--12-col sd-align-right">
+  <div class="mdl-grid mdl-cell--12-col sd-align-right">
 
-        <form #f="ngForm" novalidate style="width: 100%">
-            <div class="sd-formGroup">
-                <div style="float:right">
-                    <span style="font-size:1.4rem; vertical-align: sub">{{form.yearSelected}}</span>
-                    <button mdl-button #btn1="mdlButton" (click)="m1.toggle($event, btn1)" mdl-button-type="icon"
-                            mdl-ripple>
-                        <mdl-icon>more_vert</mdl-icon>
-                    </button>
-                    <mdl-menu #m1="mdlMenu" mdl-menu-position="bottom-right">
-                        <mdl-menu-item mdl-ripple (click)="setYear(year.value)" *ngFor="let year of years">{{year.name}}
-                        </mdl-menu-item>
-                    </mdl-menu>
-                </div>
-            </div>
-            <div class="sd-formGroup">
-                <mdl-radio [(ngModel)]="form.metricSelected" name="metrics" value="sleeping-quality" mdl-ripple>
-                    Sleeping Quality
-                </mdl-radio>
-                <mdl-radio [(ngModel)]="form.metricSelected" name="metrics" value="tiredness-feeling" mdl-ripple>
-                    Tiredness Feeling
-                </mdl-radio>
-            </div>
+    <form #f="ngForm" novalidate style="width: 100%">
+      <div class="sd-formGroup">
+        <div style="float:right">
+          <span style="font-size:1.4rem; vertical-align: sub">{{form.yearSelected}}</span>
+          <button mdl-button #btn1="mdlButton" (click)="m1.toggle($event, btn1)" mdl-button-type="icon" mdl-ripple>
+            <mdl-icon>more_vert</mdl-icon>
+          </button>
+          <mdl-menu #m1="mdlMenu" mdl-menu-position="bottom-right">
+            <mdl-menu-item mdl-ripple (click)="setYear(year.value)" *ngFor="let year of years">{{year.name}}
+            </mdl-menu-item>
+          </mdl-menu>
+        </div>
+      </div>
+      <div class="sd-formGroup">
+        <mdl-radio [(ngModel)]="form.metricSelected" name="metrics" value="sleeping-quality" mdl-ripple>
+          Sleeping Quality
+        </mdl-radio>
+        <mdl-radio [(ngModel)]="form.metricSelected" name="metrics" value="tiredness-feeling" mdl-ripple>
+          Tiredness Feeling
+        </mdl-radio>
+      </div>
 
-        </form>
+    </form>
 
 
-    </div>
-    <month [month]="month" *ngFor="let month of year"></month>
-    <a (click)="onSelectCurrentDay()" class="sd-add-button" mdl-button mdl-button-type="fab" mdl-colored="accent"
-       mdl-ripple>
-        <mdl-icon>add</mdl-icon>
-    </a>
+  </div>
+  <month class="mdl-cell mdl-cell--4-col" [monthRender]="month" *ngFor="let month of yearRender"></month>
+  <a (click)="onSelectCurrentDay()" class="sd-add-button" mdl-button mdl-button-type="fab" mdl-colored="accent" mdl-ripple>
+    <mdl-icon>add</mdl-icon>
+  </a>
 </div>
-

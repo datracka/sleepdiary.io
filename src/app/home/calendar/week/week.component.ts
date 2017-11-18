@@ -1,3 +1,4 @@
+import { WeekRender } from './../../../services/calendar/week.render';
 import {
   Input,
   Component,
@@ -12,10 +13,10 @@ let template = require('./week.html');
 })
 export class Week implements OnInit {
 
-  @Input() week: any;
+  @Input() weekRender: WeekRender;
 
   ngOnInit() {
-
+    console.log('#', this.weekRender.days);
   }
 
 }

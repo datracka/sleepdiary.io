@@ -1,3 +1,4 @@
+import { DayRender } from './../../../services/calendar/day.render';
 import {
   Input,
   Component,
@@ -12,8 +13,10 @@ let template = require('./day.html');
 })
 export class Day implements OnInit {
 
-  ngOnInit() {
+  @Input() dayRender: DayRender;
 
+  ngOnInit() {
+    console.log('##', this.dayRender);
   }
 
 }

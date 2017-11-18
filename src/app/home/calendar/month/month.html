@@ -1,2 +1,17 @@
-<div>{{month.name}}</div>
-<Week [week]="week" *ngFor="let week of month"></Week>
+<div class="calendar">
+  <div class="header">
+    {{ monthRender.name }}
+    <i class="fa fa-angle-left"></i>
+    <i class="fa fa-angle-right"></i>
+  </div>
+  <div class="week names">
+    <span class="day">Mon</span>
+    <span class="day">Tue</span>
+    <span class="day">Wed</span>
+    <span class="day">Thu</span>
+    <span class="day">Fri</span>
+    <span class="day">Sat</span>
+    <span class="day">Sun</span>
+  </div>
+  <week [weekRender]="week" *ngFor="let week of monthRender.weeks"></week>
+</div>

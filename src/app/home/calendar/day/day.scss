@@ -1,0 +1,24 @@
+.calendar__day {
+  float: left;
+  width: 14.28571429%;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  font-size: 0.75em;
+  text-align: center;
+  height: 30px;
+  line-height: 30px !important;
+  display: inline-block;
+  vertical-align: middle;
+  background: white;
+  cursor: auto;
+  color: grey;
+}
+
+.calendar__day--today {
+  color: indianred !important;
+}
+
+.calendar__day--current-month {
+  color: black;
+  cursor: pointer;
+}

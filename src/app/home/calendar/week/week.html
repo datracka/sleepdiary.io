@@ -1,3 +1,5 @@
-<!-- <Day [day]="day" ngFor="let day of week"></Day>
- -->
-Week!
+<div class="week">
+  <day [dayRender]="day" *ngFor="let day of weekRender.days"></day>
+</div>
+
+
