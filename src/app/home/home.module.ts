@@ -1,3 +1,4 @@
+import { CalendarForm } from './calendar/calendarForm/calendar-form.component';
 import {homeRouting} from "./home.routes";
 import {NgModule} from "@angular/core";
 import {Calendar} from "./calendar/calendar.component";
@@ -29,6 +30,7 @@ import {SharedModule} from "../shared/shared.module";
         YearlyViewComponent,
         EntryForm,
         Calendar,
+        CalendarForm,
         Month,
         Week,
         Day,

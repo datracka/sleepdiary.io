@@ -16,7 +16,6 @@ export class Week implements OnInit {
   @Input() weekRender: WeekRender;
 
   ngOnInit() {
-    console.log('#', this.weekRender.days);
   }
 
 }

@@ -16,7 +16,6 @@ export class Day implements OnInit {
   @Input() dayRender: DayRender;
 
   ngOnInit() {
-    console.log('##', this.dayRender);
   }
 
 }

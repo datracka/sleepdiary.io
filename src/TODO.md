@@ -2,13 +2,14 @@
 
 What I am doing:
 
-I am fixing an error on month.hmtl template. Week component is not recognized!!
+empty
 
 What I have to do: 
 
-- 1. Move Calendar to component approach
-- 2. Render calendar should happend only once when selecting year.
-- 2.1 Refactor Render. Render renders Day components inside Week Components and inside Month components.
+- 1. Move Calendar to component approach (DONE)
+- 2. Refactor Render. Render renders Day components inside Week Components and inside Month components. (DONE)
+- 3. Encapsulate Form and avoid repanting. 
+- 4. Move methods to proper place
 
 > in Calendar Component
 
