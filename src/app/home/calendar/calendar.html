@@ -1,8 +1,7 @@
 <div [@flyInOut]="'in'" class="mdl-grid">
   <div class="mdl-grid mdl-cell--12-col sd-align-right">
-    <calendar-form
-    [currentYearSelected]="currentYearSelected"
-    (onSetYear)="onSetYear($event)"></calendar-form>
+    <calendar-form [currentYearSelected]="currentYearSelected" (onSetYear)="onSetYear($event)" (onSetMetric)="onSetMetric($event)">
+    </calendar-form>
   </div>
   <month class="mdl-cell mdl-cell--4-col" [monthRender]="month" *ngFor="let month of yearRender"></month>
   <a (click)="onSelectCurrentDay()" class="sd-add-button" mdl-button mdl-button-type="fab" mdl-colored="accent" mdl-ripple>

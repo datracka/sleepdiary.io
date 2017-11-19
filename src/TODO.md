@@ -2,7 +2,7 @@
 
 What I am doing:
 
-empty
+- CalendarForm still repaints after scrolling. The problem is in the year selected section! why?
 
 What I have to do: 
 
@@ -48,3 +48,5 @@ https://medium.com/@charliegreenman/redux-vs-rxjs-ngrx-store-db6066058719
 https://www.typescriptlang.org/docs/handbook/basic-types.html
 
 https://vsavkin.com/managing-state-in-angular-2-applications-caf78d123d02#.5s50qv6y1
+
+https://blog.nrwl.io/using-ngrx-4-to-manage-state-in-angular-applications-64e7a1f84b7b

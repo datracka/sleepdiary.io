@@ -43,16 +43,11 @@ export class Calendar implements OnInit, AfterViewInit {
   totalDays: any = new Map(); //data structure for interpolating styles
   entries: Array<Entry>;
   public currentYearSelected: String = "2017";
+  public currentMetricSelected: String = MetricsIndicators.SLEEPING_QUALITY;
   sub: any;
   public params: any = {
     day: null,
   }
-
-  years: any = [
-    { value: '2016', name: '2016' },
-    { value: '2017', name: '2017' },
-    { value: '2018', name: '2018' }
-  ];
 
   yearRender: Array<MonthRender> = [
     new MonthRender('January'),
@@ -67,12 +62,6 @@ export class Calendar implements OnInit, AfterViewInit {
     new MonthRender('October'),
     new MonthRender('November'),
     new MonthRender('December'),
-  ];
-
-  public metric: Metric;
-  public metrics = [
-    { value: MetricsIndicators.SLEEPING_QUALITY, display: 'Sleeping Quality' },
-    { value: MetricsIndicators.TIREDNESS_FEELING, display: 'Tiredness Feeling' },
   ];
 
   constructor(
@@ -108,7 +97,7 @@ export class Calendar implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
 
-    this.calendarService.getAll(this.form.yearSelected).subscribe(
+    this.calendarService.getAll(this.currentYearSelected).subscribe(
       response => {
         this.processResponse(response)
       }
@@ -163,6 +152,8 @@ export class Calendar implements OnInit, AfterViewInit {
   }
 
   onSetYear(year: String) {
+    console.log('year', year);
+    this.currentYearSelected = year;
     this.buildMonths('en', year);
     //get values for given year
     this.calendarService.getAll(year).subscribe(
@@ -170,6 +161,11 @@ export class Calendar implements OnInit, AfterViewInit {
         this.processResponse(response)
       }
     );
+  }
+
+  onSetMetric(metric: String) {
+    console.log('metric', metric);
+    this.currentMetricSelected = metric;
   }
 
   paintInitialDayBackground(dayMatches) {
@@ -257,7 +253,7 @@ export class Calendar implements OnInit, AfterViewInit {
   }
 
   /* TODO: Should return months and not modify inside the function
-  AKA do it functional programing!! */
+  AKA do functional programing way!! */
   buildMonths(lang: String, year: String) {
 
     for (var i = 0; i < 12; i++) {
@@ -265,6 +261,7 @@ export class Calendar implements OnInit, AfterViewInit {
       let weeks: Array<WeekRender> = this.buildWeeks(startDateOfWeek, i);
       this.yearRender[i].setWeeks(weeks);
     }
+    console.log('yearRender', this.yearRender);
   }
 
   buildWeeks(startDateOfWeek: any, currentMonth: number): any {
