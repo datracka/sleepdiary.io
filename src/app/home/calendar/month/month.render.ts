@@ -1,4 +1,4 @@
-import {WeekRender} from './week.render'
+import {WeekRender} from '../week/week.render'
 
 export class MonthRender {
 

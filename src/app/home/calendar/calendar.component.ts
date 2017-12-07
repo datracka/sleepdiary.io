@@ -1,3 +1,4 @@
+import { DayRender } from './day/day.render';
 import {
   Component,
   Input,
@@ -12,9 +13,8 @@ import {
 import * as moment from 'moment';
 import { CalendarService } from '../../services/calendar/calendar.service'
 import { ActivatedRoute, Router } from "@angular/router";
-import { MonthRender } from '../../services/calendar/month.render';
-import { WeekRender } from "../../services/calendar/week.render";
-import { DayRender } from "../../services/calendar/day.render";
+import { MonthRender } from './month/month.render';
+import { WeekRender } from "./week/week.render";
 import { MetricsIndicators } from "../../services/common/metrics-indicators";
 import { Metric } from "../../services/common/metrics";
 import { MdlSnackbarService } from "angular2-mdl";

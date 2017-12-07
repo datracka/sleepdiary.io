@@ -1,15 +1,19 @@
 # Branch refactor-calendar
 
-What I am doing:
+## What I am doing:
 
-- CalendarForm still repaints after scrolling. The problem is in the year selected section! why?
 
-What I have to do: 
 
-- 1. Move Calendar to component approach (DONE)
-- 2. Refactor Render. Render renders Day components inside Week Components and inside Month components. (DONE)
-- 3. Encapsulate Form and avoid repanting. 
-- 4. Move methods to proper place
+## What I have to do: 
+
+- 1. - 4. Move methods to proper place
+
+ää What it pending: 
+
+- 1. Encapsulate Form and avoid repanting. 
+- 2. Renable Calendar Form: Notice: CalendarForm still repaints after scrolling. The problem is in the year selected section! why? it is a performance issue and has to be solved together with renabling the calendar
+
+## Architecture notes: 
 
 > in Calendar Component
 
@@ -31,7 +35,7 @@ Using WeekData for the current Week iterats on array ow weeks for rendering the 
 
 <Day [dayData]="dayData" nfFor="dayData in WeekData>
 
-dayData contains strictly calendar information:
+dayData contains strictly calendar information for rendetind:
 
 date: moment
 isToday: boolean
@@ -39,7 +43,9 @@ isCurrentMonth: boolean
 
 > In Day Component
 
-Once a day component is rendered it has properties and state
+Once a day component is rendered it has properties and state.
+
+** Dont' mix render objects with state containers in model **
 
 Recomended read: 
 
@@ -50,3 +56,5 @@ https://www.typescriptlang.org/docs/handbook/basic-types.html
 https://vsavkin.com/managing-state-in-angular-2-applications-caf78d123d02#.5s50qv6y1
 
 https://blog.nrwl.io/using-ngrx-4-to-manage-state-in-angular-applications-64e7a1f84b7b
+
+https://blog.nrwl.io/managing-state-in-angular-applications-22b75ef5625f

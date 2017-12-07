@@ -16,7 +16,6 @@ import {MdlModule} from "angular2-mdl";
 import {StatisticsModule} from "./statistics/statistics.module";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
-
 /*https://angular.io/docs/ts/latest/cookbook/dependency-injection.html#!#usefactory*/
 @NgModule({
   imports: [
@@ -25,7 +24,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     ReactiveFormsModule,
     BrowserAnimationsModule,
     routing,
-    HomeModule, //rename to CalendarModule
+    HomeModule,
     StatisticsModule,
     HttpModule,
     MdlModule

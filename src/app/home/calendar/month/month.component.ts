@@ -1,4 +1,4 @@
-import { MonthRender } from './../../../services/calendar/month.render';
+import { MonthRender } from './month.render';
 import {
   Input,
   Component,

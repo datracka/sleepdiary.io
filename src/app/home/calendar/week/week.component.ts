@@ -1,4 +1,4 @@
-import { WeekRender } from './../../../services/calendar/week.render';
+import { WeekRender } from './week.render';
 import {
   Input,
   Component,

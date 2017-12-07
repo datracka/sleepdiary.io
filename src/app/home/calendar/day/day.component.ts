@@ -1,4 +1,4 @@
-import { DayRender } from './../../../services/calendar/day.render';
+import { DayRender } from './day.render';
 import {
   Input,
   Component,
