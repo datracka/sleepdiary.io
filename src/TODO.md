@@ -2,7 +2,11 @@
 
 ## What I am doing:
 
+Following https://blog.nrwl.io/using-ngrx-4-to-manage-state-in-angular-applications-64e7a1f84b7b 
+I try to understand how Effect() work. The idea is that going to a ROUTE dispatch an action that is
+handled by HomeEffects. 
 
+the current step is go to the main route /home/monthly and console.log in HomeEffect that an action is being dispatch (although still not handled)... now I have an error which I dont' know where is coming from.
 
 ## What I have to do: 
 
