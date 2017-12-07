@@ -16,6 +16,7 @@ the current step is go to the main route /home/monthly and console.log in HomeEf
 
 - 1. Encapsulate Form and avoid repanting. 
 - 2. Renable Calendar Form: Notice: CalendarForm still repaints after scrolling. The problem is in the year selected section! why? it is a performance issue and has to be solved together with renabling the calendar
+- 3. replace github @ngrx dependencies for npm
 
 ## Architecture notes: 
 

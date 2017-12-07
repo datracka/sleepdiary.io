@@ -15,11 +15,6 @@ import {CloseMenuDirective} from "../services/common/close-menu.directive";
 import {MdlSelectModule} from "@angular2-mdl-ext/select";
 import {MdlPopoverModule} from "@angular2-mdl-ext/popover";
 import {SharedModule} from "../shared/shared.module";
-import { StoreRouterConnectingModule } from "@ngrx/router-store";
-import { EffectsModule } from "@ngrx/effects";
-import { appReducer, initialState, State, HomeEffects } from './model';
-import { StoreModule } from '@ngrx/store';
-
 
 @NgModule({
     imports: [
@@ -27,12 +22,7 @@ import { StoreModule } from '@ngrx/store';
         FormsModule,
         homeRouting,
         MdlPopoverModule,
-        MdlSelectModule,
-        StoreRouterConnectingModule,
-        EffectsModule.forRoot([
-          HomeEffects
-        ]),
-        StoreModule.forRoot(<any>{app: appReducer}, {initialState}),
+        MdlSelectModule
     ],
     declarations: [
         HomeComponent,

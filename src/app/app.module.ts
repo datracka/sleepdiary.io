@@ -1,3 +1,7 @@
+import { StoreRouterConnectingModule } from '@ngrx/router-store';
+import { StoreModule } from '@ngrx/store';
+import { HomeEffects, initialState } from './model';
+import { EffectsModule } from '@ngrx/effects';
 import {BrowserModule} from "@angular/platform-browser";
 import {FormsModule}   from '@angular/forms';
 import {ReactiveFormsModule} from '@angular/forms';
@@ -15,6 +19,7 @@ import {HomeModule} from "./home/home.module";
 import {MdlModule} from "angular2-mdl";
 import {StatisticsModule} from "./statistics/statistics.module";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import { appReducer } from './model';
 
 /*https://angular.io/docs/ts/latest/cookbook/dependency-injection.html#!#usefactory*/
 @NgModule({
@@ -27,7 +32,12 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     HomeModule,
     StatisticsModule,
     HttpModule,
-    MdlModule
+    MdlModule,
+    EffectsModule.forRoot([
+      HomeEffects
+    ]),
+    StoreModule.forRoot(<any>{app: appReducer}, {initialState}),
+    StoreRouterConnectingModule
   ],
   providers: [
     {
@@ -45,6 +55,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
       },
       deps: [Http]
     },
+    HomeEffects
   ],
   declarations: [
     AppComponent,
