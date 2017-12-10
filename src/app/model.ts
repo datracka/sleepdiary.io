@@ -1,13 +1,6 @@
 import { Injectable } from '@angular/core';
-import { RouterAction, ROUTER_NAVIGATION, RouterNavigationAction } from '@ngrx/router-store';
-import { Actions, Effect } from '@ngrx/effects';
 import { Store } from "@ngrx/store";
-import { ActivatedRouteSnapshot } from "@angular/router";
-import "rxjs/observable/of";
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/filter';
-import { Observable } from "rxjs/Observable";
-
+import { RouterAction } from '@ngrx/router-store';
 // state
 export type AppState = {
   days: Array<Day>,
@@ -51,33 +44,11 @@ export type Action = RouterAction<State> | GetCalendarByYear | GetEntry | PostEn
 // reducer
 
 export function appReducer(state: AppState, action: Action): AppState {
+  console.log('implement reducer for action: ', action.type);
   switch (action.type) {
     default: {
       return state;
     }
   }
 }
-@Injectable()
-export class HomeEffects {
-  @Effect() navigateToHome = this.handleNavigation('home', (r: ActivatedRouteSnapshot) => {
-      return null; // temporal
-   });
 
-
-  private handleNavigation(segment: string, callback: (a: ActivatedRouteSnapshot, state: State) => Observable<any>) {
-    // const nav = this.actions.filter((action: Action) => {console.log('und..', action.type); return true});/* .
-    const nav = this.actions.ofType(ROUTER_NAVIGATION).
-      map(firstSegment).
-      filter(s => s.routeConfig.path === segment);
-  }
-  constructor(private actions: Actions, private store: Store<State>) {
-  }
-
-
-}
-
-// helpers
-function firstSegment(r: RouterNavigationAction) {
-  console.log('r.payload', r.payload);
-  return r.payload.routerState.root.firstChild;
-}

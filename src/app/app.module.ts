@@ -1,7 +1,6 @@
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { StoreModule } from '@ngrx/store';
-import { HomeEffects, initialState } from './model';
-import { EffectsModule } from '@ngrx/effects';
+import { initialState } from './model';
 import {BrowserModule} from "@angular/platform-browser";
 import {FormsModule}   from '@angular/forms';
 import {ReactiveFormsModule} from '@angular/forms';
@@ -33,9 +32,6 @@ import { appReducer } from './model';
     StatisticsModule,
     HttpModule,
     MdlModule,
-    EffectsModule.forRoot([
-      HomeEffects
-    ]),
     StoreModule.forRoot(<any>{app: appReducer}, {initialState}),
     StoreRouterConnectingModule
   ],
@@ -55,7 +51,6 @@ import { appReducer } from './model';
       },
       deps: [Http]
     },
-    HomeEffects
   ],
   declarations: [
     AppComponent,

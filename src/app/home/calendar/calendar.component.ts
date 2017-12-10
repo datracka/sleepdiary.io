@@ -152,7 +152,7 @@ export class Calendar implements OnInit, AfterViewInit {
   }
 
   onSetYear(year: String) {
-    console.log('year', year);
+
     this.currentYearSelected = year;
     this.buildMonths('en', year);
     //get values for given year
@@ -164,7 +164,6 @@ export class Calendar implements OnInit, AfterViewInit {
   }
 
   onSetMetric(metric: String) {
-    console.log('metric', metric);
     this.currentMetricSelected = metric;
   }
 
@@ -261,7 +260,7 @@ export class Calendar implements OnInit, AfterViewInit {
       let weeks: Array<WeekRender> = this.buildWeeks(startDateOfWeek, i);
       this.yearRender[i].setWeeks(weeks);
     }
-    console.log('yearRender', this.yearRender);
+    // console.log('yearRender', this.yearRender);
   }
 
   buildWeeks(startDateOfWeek: any, currentMonth: number): any {

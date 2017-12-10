@@ -1,6 +1,9 @@
+import {NgModule} from "@angular/core";
+import { EffectsModule } from '@ngrx/effects';
+
+import { HomeEffects } from './home.effects';
 import { CalendarForm } from './calendar/calendarForm/calendar-form.component';
 import {homeRouting} from "./home.routes";
-import {NgModule} from "@angular/core";
 import {Calendar} from "./calendar/calendar.component";
 import {MonthlyViewComponent} from "./monthly/monthly.component";
 import {EntryForm} from "./entryForm/entry-form.component";
@@ -15,6 +18,7 @@ import {CloseMenuDirective} from "../services/common/close-menu.directive";
 import {MdlSelectModule} from "@angular2-mdl-ext/select";
 import {MdlPopoverModule} from "@angular2-mdl-ext/popover";
 import {SharedModule} from "../shared/shared.module";
+import {CalendarService} from '../services/calendar/calendar.service'
 
 @NgModule({
     imports: [
@@ -22,7 +26,10 @@ import {SharedModule} from "../shared/shared.module";
         FormsModule,
         homeRouting,
         MdlPopoverModule,
-        MdlSelectModule
+        MdlSelectModule,
+        EffectsModule.forRoot([
+          HomeEffects
+        ]),
     ],
     declarations: [
         HomeComponent,
@@ -38,7 +45,9 @@ import {SharedModule} from "../shared/shared.module";
 
     ],
     providers: [
-        AuthGuard
+        AuthGuard,
+        HomeEffects,
+        CalendarService
     ]
 })
 export class HomeModule {

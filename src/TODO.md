@@ -3,10 +3,14 @@
 ## What I am doing:
 
 Following https://blog.nrwl.io/using-ngrx-4-to-manage-state-in-angular-applications-64e7a1f84b7b 
-I try to understand how Effect() work. The idea is that going to a ROUTE dispatch an action that is
-handled by HomeEffects. 
+I implement Effect() and all ngrx philosophy to make sleepdiary.io to follow the redux pattern. 
 
-the current step is go to the main route /home/monthly and console.log in HomeEffect that an action is being dispatch (although still not handled)... now I have an error which I dont' know where is coming from.
+For a given url 'home/monthly' trigger the related effect -> Effect dispatch action -> Reducer
+-> Next steps (3)
+ payload from request has to be set in the action
+ set action type and remove hardcoded.
+ Reducer has to be implemented
+
 
 ## What I have to do: 
 
@@ -16,7 +20,7 @@ the current step is go to the main route /home/monthly and console.log in HomeEf
 
 - 1. Encapsulate Form and avoid repanting. 
 - 2. Renable Calendar Form: Notice: CalendarForm still repaints after scrolling. The problem is in the year selected section! why? it is a performance issue and has to be solved together with renabling the calendar
-- 3. replace github @ngrx dependencies for npm
+- 3. replace gith 4ub @ngrx dependencies for npm
 
 ## Architecture notes: 
 
