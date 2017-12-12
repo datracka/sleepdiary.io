@@ -39,9 +39,10 @@
     "@angular/router": "4.0.3",
     "@angular2-mdl-ext/popover": "0.6.0",
     "@angular2-mdl-ext/select": "0.10.3",
-    "@ngrx/effects": "github:ngrx/effects-builds",
-    "@ngrx/router-store": "github:ngrx/router-store-builds",
-    "@ngrx/store": "github:ngrx/store-builds",
+    "@ngrx/effects": "4.1.1",
+    "@ngrx/router-store": "4.1.1",
+    "@ngrx/store": "4.1.1",
+    "@ngrx/store-devtools": "4.1.1",
     "angular2-jwt": "0.1.26",
     "angular2-mdl": "2.13.2",
     "chart.js": "2.4.0",
@@ -108,6 +109,8 @@
     "babel": true
   },
   "babel": {
-    "presets": ["es2015"]
+    "presets": [
+      "es2015"
+    ]
   }
 }

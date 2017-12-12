@@ -46,6 +46,9 @@ export type Action = RouterAction<State> | GetCalendarByYear | GetEntry | PostEn
 export function appReducer(state: AppState, action: Action): AppState {
   console.log('implement reducer for action: ', action.type);
   switch (action.type) {
+    case 'GET_CALENDAR_YEARLY':
+      const days = {...state.days, ...action.payload};
+      return {...state, days};
     default: {
       return state;
     }

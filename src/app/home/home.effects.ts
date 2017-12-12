@@ -18,9 +18,9 @@ import { CalendarService } from '../services/calendar/calendar.service'
 
 @Injectable()
 export class HomeEffects {
-  @Effect() navigateToHome = this.handleNavigation('/home/monthly', (r: ActivatedRouteSnapshot) => {
+  @Effect() navigateToHome = this.handleNavigation('home/monthly', (r: ActivatedRouteSnapshot) => {
     this.calendarService.getAll('2017')
-    .mapTo({type: 'GET_CALENDAR_YEARLY', payload: 'payload'})
+    .map(response => ({type: 'GET_CALENDAR_YEARLY', payload: response.json()}))
     .subscribe((action)=>{
       this.store.dispatch(action)
   });
@@ -34,7 +34,7 @@ export class HomeEffects {
     const nav = this.actions.ofType(ROUTER_NAVIGATION).
       map(firstSegment).
       filter(s => {
-        return s.url === segment
+        return s.url.includes(segment)
       });
 
     return nav.withLatestFrom(this.store)

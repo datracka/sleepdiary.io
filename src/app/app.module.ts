@@ -6,6 +6,7 @@ import {FormsModule}   from '@angular/forms';
 import {ReactiveFormsModule} from '@angular/forms';
 import {NgModule, ApplicationRef} from "@angular/core";
 import {HttpModule, Http} from '@angular/http';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 import {routing} from "./app.routes"
 import {Login} from "./login/login.component";
@@ -33,7 +34,10 @@ import { appReducer } from './model';
     HttpModule,
     MdlModule,
     StoreModule.forRoot(<any>{app: appReducer}, {initialState}),
-    StoreRouterConnectingModule
+    StoreRouterConnectingModule,
+    StoreDevtoolsModule.instrument({
+      maxAge: 10
+    })
   ],
   providers: [
     {
