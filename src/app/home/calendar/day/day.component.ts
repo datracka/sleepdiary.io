@@ -1,3 +1,5 @@
+import { Store } from "@ngrx/store";
+
 import { DayRender } from './day.render';
 import {
   Input,
@@ -15,6 +17,9 @@ export class Day implements OnInit {
 
   @Input() dayRender: DayRender;
 
+  constructor(private store: Store<State>) {
+
+  }
   ngOnInit() {
   }
 
