@@ -5,12 +5,12 @@
 Following https://blog.nrwl.io/using-ngrx-4-to-manage-state-in-angular-applications-64e7a1f84b7b 
 I implement Effect() and all ngrx philosophy to make sleepdiary.io to follow the redux pattern. 
 
-For a given url 'home/monthly' trigger the related effect -> Effect dispatch action -> Reducer
--> Next steps (3)
- payload from request has to be set in the action
- set action type and remove hardcoded.
- Reducer has to be implemented
+-> Next steps: State is updated! Now the component Day should react to the state change. 
 
+Every day component should look into the state retrieved and if the payload contains the day it should be
+rerender with the proper color. 
+
+so every day.component.ts: is getting the store, selecting days array and checking if the day is inside the array. If so, it will rerender himself (pending to do).... the question is... it is OK that every day check the whole array looking for himself??????? 
 
 ## What I have to do: 
 

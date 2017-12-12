@@ -13,7 +13,5 @@ export class DayRender {
         this.isCurrentMonth = isCurrentMonth;
         this.isToday = isToday;
         this.date = date;
-        this.tirednessFeeling = '';
-        this.sleepingQuality = '';
     }
 }
