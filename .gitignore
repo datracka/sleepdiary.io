@@ -18,6 +18,7 @@ config/
 !**/*e2e-spec.js
 !karma*.js
 !protractor*.js
+!postcss.config.js
 !webpack.*
 !wallaby.js
 !install.js
