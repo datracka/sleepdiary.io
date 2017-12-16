@@ -1,27 +1,28 @@
 import { Injectable } from '@angular/core';
 import { Actions, Effect } from '@ngrx/effects';
 import { ROUTER_NAVIGATION, RouterNavigationAction } from '@ngrx/router-store';
-import { ActivatedRouteSnapshot } from "@angular/router";
-import { Store } from "@ngrx/store";
+import { ActivatedRouteSnapshot } from '@angular/router';
+import { Store } from '@ngrx/store';
 import 'rxjs/observable/of';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/withLatestFrom';
 import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/catch';
-import 'rxjs/add/operator/mapTo'
+import 'rxjs/add/operator/mapTo';
 import { of } from 'rxjs/observable/of';
 import { Observable } from 'rxjs/Observable';
 import { CalendarService } from '../services/calendar/calendar.service';
+import { ROUTE_CALENDAR_MONTHLY_PAGE } from './calendar.constants';
 
 @Injectable()
 export class CalendarEffects {
-  @Effect() navigateToHome = this.handleNavigation('home/monthly', (r: ActivatedRouteSnapshot) => {
+  @Effect() navigateToHome = this.handleNavigation(ROUTE_CALENDAR_MONTHLY_PAGE, (r: ActivatedRouteSnapshot) => {
     this.calendarService.getAll('2017')
-    .map(response => ({type: 'GET_CALENDAR_YEARLY', payload: response.json()}))
-    .subscribe((action)=> {
-      this.store.dispatch(action);
-  });
+      .map(response => ({ type: 'GET_CALENDAR_YEARLY', payload: response.json() }))
+      .subscribe((action) => {
+        this.store.dispatch(action);
+      });
     return null;
   });
 
@@ -32,7 +33,7 @@ export class CalendarEffects {
     const nav = this.actions.ofType(ROUTER_NAVIGATION).
       map(firstSegment).
       filter(s => {
-        return s.url.includes(segment)
+        return s.url.includes(segment);
       });
 
     return nav.withLatestFrom(this.store)

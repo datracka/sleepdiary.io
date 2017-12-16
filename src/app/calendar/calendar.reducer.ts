@@ -34,17 +34,17 @@ export type DeleteEntry = { type: 'DELETE_ENTRY', payload: {} }
 export type SelectFilter = { type: 'SELECT_FILTER', payload: {} }
 export type SelectYear = { type: 'SELECT_YEAR', payload: {} }
 export type Action = RouterAction<CalendarState> |
-GetCalendarByYear |
-GetEntry | PostEntry | PutEntry | DeleteEntry | SelectFilter | SelectYear;
+  GetCalendarByYear |
+  GetEntry | PostEntry | PutEntry | DeleteEntry | SelectFilter | SelectYear;
 
 
 // TODO: remove hardcore data
 export const calendarInitialState: CalendarState = {
-    days: [],
-    filters: {
-      metrics: 'sleepQuality',
-      year: 2017
-    }
+  days: [],
+  filters: {
+    metrics: 'sleepQuality',
+    year: 2017
+  }
 };
 
 // reducer
@@ -52,15 +52,15 @@ export const calendarInitialState: CalendarState = {
 export function calendarReducer(state: CalendarState, action: Action): CalendarState {
   switch (action.type) {
     case GET_CALENDAR_YEARLY:
-      const days = {...state.days, ...action.payload};
-      return {...state, days};
+      const days = { ...state.days, ...action.payload };
+      return { ...state, days };
     case GET_ENTRY:
     case POST_ENTRY:
     case PUT_ENTRY:
     case DELETE_ENTRY:
     case SELECT_FILTER:
     case SELECT_YEAR:
-    break;
+      break;
     default: {
       return state;
     }
