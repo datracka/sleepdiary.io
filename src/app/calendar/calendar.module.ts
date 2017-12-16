@@ -1,11 +1,11 @@
 import {NgModule} from '@angular/core';
-import { EffectsModule } from '@ngrx/effects';
-import { StoreModule } from '@ngrx/store';
+// import { EffectsModule } from '@ngrx/effects';
+// import { StoreModule } from '@ngrx/store';
 import {MdlSelectModule} from '@angular2-mdl-ext/select';
 import {MdlPopoverModule} from '@angular2-mdl-ext/popover';
 import {FormsModule} from '@angular/forms';
 
-import { HomeEffects } from './calendar.effects';
+// import { HomeEffects } from './calendar.effects';
 import { CalendarForm } from './calendar.form/calendar-form.component';
 import {calendarRouting} from './calendar.routes';
 import {CalendarRenderMonthly} from './calendar.render.monthly';
@@ -20,7 +20,7 @@ import {CloseMenuDirective} from '../services/common/close-menu.directive';
 
 import {SharedModule} from '../shared/shared.module';
 import {CalendarService} from '../services/calendar/calendar.service';
-import { calendarReducer } from './calendar.reducer';
+// import { calendarReducer } from './calendar.reducer';
 
 @NgModule({
     imports: [
@@ -48,7 +48,7 @@ import { calendarReducer } from './calendar.reducer';
     ],
     providers: [
         AuthGuard,
-        HomeEffects,
+        // HomeEffects,
         CalendarService
     ]
 })

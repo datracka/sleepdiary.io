@@ -1,9 +1,9 @@
 import {Component, style, state, animate, transition, trigger} from "@angular/core";
-import {Router} from "@angular/router";
-import {FormBuilder, FormGroup} from "@angular/forms";
+import {Router} from '@angular/router';
+import {FormBuilder, FormGroup} from '@angular/forms';
 
-import {SignupService} from "../services/signup/signup.service";
-import {SignUpModel} from "./signupModel";
+import {SignupService} from '../services/signup';
+import {SignUpModel} from './signupModel';
 import {
   ROUTE_CALENDAR_MONTHLY_PAGE
 } from '../app.constants';
@@ -42,7 +42,7 @@ export class SignUp {
     public miscellaneousError: boolean
 
     constructor(public router: Router, public signUpService: SignupService, private fb: FormBuilder) {
-      this.signUpModel = new SignUpModel('','','',);
+      this.signUpModel = new SignUpModel('', '', '');
       this.userNotExists = false;
       this.miscellaneousError = false;
       this.createForm();

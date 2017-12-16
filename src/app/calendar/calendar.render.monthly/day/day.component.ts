@@ -1,5 +1,5 @@
-import { Store } from "@ngrx/store";
-import { CalendarState } from '../../calendar.reducer';
+// import { Store } from "@ngrx/store";
+// import { CalendarState } from '../../calendar.reducer';
 import { DayRender } from './day.render';
 import {
   Input,
@@ -19,18 +19,18 @@ export class Day implements OnInit {
   sleepQuality: string;
   tirednessFeeling: string;
 
-  constructor(private store: Store<CalendarState>) {
+/*   constructor(private store: Store<CalendarState>) {
 
-  }
+  } */
   ngOnInit() {
-    this.store.select('days').subscribe(state => {
+   /*  this.store.select('days').subscribe(state => {
 
-      /* const reducer = (accumulator, currentValue) => {
+      const reducer = (accumulator, currentValue) => {
         this.dayRender.date.isSame(currentValue.date.substring(0, 10), 'day');
       }
       const exist = state.days.reduce(reducer);
-      console.log('exists', exist); */
-    });
+      console.log('exists', exist);
+    }); */
   }
 
 }

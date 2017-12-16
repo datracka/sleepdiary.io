@@ -1,11 +1,11 @@
-import { StoreRouterConnectingModule } from '@ngrx/router-store';
+// import { StoreRouterConnectingModule } from '@ngrx/router-store';
 // import { StoreModule } from '@ngrx/store';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgModule, ApplicationRef } from '@angular/core';
 import { HttpModule, Http } from '@angular/http';
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+// import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { AuthHttp, AuthConfig } from 'angular2-jwt';
 import { MdlModule } from 'angular2-mdl';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
