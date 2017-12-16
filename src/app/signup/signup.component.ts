@@ -1,8 +1,12 @@
 import {Component, style, state, animate, transition, trigger} from "@angular/core";
 import {Router} from "@angular/router";
+import {FormBuilder, FormGroup} from "@angular/forms";
+
 import {SignupService} from "../services/signup/signup.service";
 import {SignUpModel} from "./signupModel";
-import {FormBuilder, FormGroup} from "@angular/forms";
+import {
+  ROUTE_CALENDAR_MONTHLY_PAGE
+} from '../app.constants';
 
 const styles   = require('./signup.css');
 const template = require('./signup.html');
@@ -65,7 +69,7 @@ export class SignUp {
           response => {
             localStorage.setItem('id_token', response.json().token_key);
             localStorage.setItem('user', JSON.stringify(response.json()));
-            this.router.navigate(['/home/monthly']);
+            this.router.navigate([ROUTE_CALENDAR_MONTHLY_PAGE]);
           },
           error => {
             let e = JSON.parse(error.text());

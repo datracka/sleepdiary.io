@@ -13,8 +13,7 @@ import 'rxjs/add/operator/mapTo'
 import { of } from 'rxjs/observable/of';
 import { Observable } from 'rxjs/Observable';
 import { AppState } from '../app.reducer';
-import { CalendarService } from '../services/calendar/calendar.service'
-
+import { CalendarService } from '../services/calendar/calendar.service';
 
 @Injectable()
 export class HomeEffects {

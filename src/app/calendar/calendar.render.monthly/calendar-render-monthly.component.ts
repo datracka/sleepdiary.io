@@ -19,6 +19,10 @@ import { MonthRender } from './month/month.render';
 import { WeekRender } from './week/week.render';
 import { MetricsIndicators } from '../../services/common/metrics-indicators';
 import { Entry } from '../../services/common/entry';
+import {
+  ROUTE_ENTRY_FORM
+} from '../../app.constants';
+
 let template = require('./calendar-render-monthly.html');
 
 
@@ -211,7 +215,7 @@ export class CalendarRenderMonthly implements OnInit, AfterViewInit {
     if (typeof entry[0] !== 'undefined') {
       uuid = entry[0].uuid;
     }
-    this.router.navigate(['/home/entry', uuid, { day: current.format("YYYY-MM-DD") }]);
+    this.router.navigate([ROUTE_ENTRY_FORM, uuid, { day: current.format("YYYY-MM-DD") }]);
   }
 
   onSelect(day: any) {
@@ -231,7 +235,7 @@ export class CalendarRenderMonthly implements OnInit, AfterViewInit {
     if (typeof entry[0] !== 'undefined') {
       uuid = entry[0].uuid;
     }
-    this.router.navigate(['/home/entry', uuid, { day: day.date.format("YYYY-MM-DD") }]);
+    this.router.navigate([ROUTE_ENTRY_FORM, uuid, { day: day.date.format("YYYY-MM-DD") }]);
   }
 
   //** #####  RENDER METHODS ################## **/

@@ -1,7 +1,9 @@
 import {Component, AfterViewInit, OnInit, style, state, animate, transition, trigger} from "@angular/core";
-import {Entry} from "../services/common/entry";
 import {ActivatedRoute, Router} from "@angular/router";
+
+import {Entry} from "../services/common/entry";
 import {EntryFormService} from "../services/entry-form/entry-form.service";
+import { ROUTE_CALENDAR_MONTHLY_PAGE } from '../app.constants';
 
 let template = require('./entry-form.html');
 @Component({
@@ -93,14 +95,14 @@ export class EntryForm implements OnInit, AfterViewInit {
         if (this.entry.uuid != '') {
             this.entryFormService.updateEntry(this.entry).subscribe(
                 response => {
-                    this.router.navigate(['/home/monthly', {actionRef: 'update', day: this.params.day}]);
+                    this.router.navigate([ROUTE_CALENDAR_MONTHLY_PAGE, {actionRef: 'update', day: this.params.day}]);
                 }
             );
         } else {
             this.entryFormService.newEntry(this.entry).subscribe(
                 response => {
                     // do something!!
-                    this.router.navigate(['/home/monthly', {actionRef: 'insert', day: this.params.day}]);
+                    this.router.navigate([ROUTE_CALENDAR_MONTHLY_PAGE, {actionRef: 'insert', day: this.params.day}]);
                 }
             );
         }
@@ -108,14 +110,14 @@ export class EntryForm implements OnInit, AfterViewInit {
     }
 
     back() {
-        this.router.navigate(['/home/monthly', {day: this.params.day}]);
+        this.router.navigate([ROUTE_CALENDAR_MONTHLY_PAGE, {day: this.params.day}]);
     }
 
     deleteEntry(uuid: string) {
         if (this.entry.uuid != '') {
             this.entryFormService.deleteEntry(uuid).subscribe(
                 response => {
-                    this.router.navigate(['/home/monthly', {actionRef: 'delete', day: this.params.day}]);
+                    this.router.navigate([ROUTE_CALENDAR_MONTHLY_PAGE, {actionRef: 'delete', day: this.params.day}]);
                 }
             );
         }

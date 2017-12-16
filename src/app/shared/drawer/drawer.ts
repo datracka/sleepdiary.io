@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import {MdlLayoutComponent} from "angular2-mdl";
 import {Router} from "@angular/router";
+import {
+  ROUTE_LOGIN
+} from '../../app.constants';
 
 const template = require('./drawer.html');
 @Component({
@@ -21,6 +24,6 @@ export class Drawer {
         //remove items
         localStorage.removeItem('user');
         localStorage.removeItem('id_token');
-        this.router.navigate(['/login']);
+        this.router.navigate([ROUTE_LOGIN]);
     }
 }
