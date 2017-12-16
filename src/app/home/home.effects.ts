@@ -3,16 +3,16 @@ import { Actions, Effect } from '@ngrx/effects';
 import { ROUTER_NAVIGATION, RouterNavigationAction } from '@ngrx/router-store';
 import { ActivatedRouteSnapshot } from "@angular/router";
 import { Store } from "@ngrx/store";
-import "rxjs/observable/of";
-import "rxjs/add/operator/map";
-import "rxjs/add/operator/filter";
-import "rxjs/add/operator/withLatestFrom";
-import "rxjs/add/operator/switchMap";
-import "rxjs/add/operator/catch";
+import 'rxjs/observable/of';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/filter';
+import 'rxjs/add/operator/withLatestFrom';
+import 'rxjs/add/operator/switchMap';
+import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/mapTo'
-import { of } from "rxjs/observable/of";
-import { Observable } from "rxjs/Observable";
-import { State, GetCalendarByYear } from '../model';
+import { of } from 'rxjs/observable/of';
+import { Observable } from 'rxjs/Observable';
+import { AppState } from '../app.reducer';
 import { CalendarService } from '../services/calendar/calendar.service'
 
 
@@ -27,10 +27,10 @@ export class HomeEffects {
     return null;
   });
 
-  constructor(private actions: Actions, private store: Store<State>, public calendarService: CalendarService) {
+  constructor(private actions: Actions, private store: Store<AppState>, public calendarService: CalendarService) {
   }
 
-  private handleNavigation(segment: string, callback: (a: ActivatedRouteSnapshot, state: State) => Observable<any>) {
+  private handleNavigation(segment: string, callback: (a: ActivatedRouteSnapshot, state: AppState) => Observable<any>) {
     const nav = this.actions.ofType(ROUTER_NAVIGATION).
       map(firstSegment).
       filter(s => {
