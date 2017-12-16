@@ -1,14 +1,15 @@
-// import { StoreRouterConnectingModule } from '@ngrx/router-store';
-// import { StoreModule } from '@ngrx/store';
+import { StoreRouterConnectingModule } from '@ngrx/router-store';
+import { StoreModule } from '@ngrx/store';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgModule, ApplicationRef } from '@angular/core';
 import { HttpModule, Http } from '@angular/http';
-// import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { AuthHttp, AuthConfig } from 'angular2-jwt';
 import { MdlModule } from 'angular2-mdl';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { EffectsModule } from '@ngrx/effects';
 
 import { routing } from './app.routes';
 import { Login } from './login/login.component';
@@ -17,7 +18,7 @@ import { AppComponent } from './app.component';
 import { CalendarModule } from './calendar/calendar.module';
 import { StatisticsModule } from './statistics/statistics.module';
 import { EntryForm } from './entry-form';
-// import { appReducer, initialState } from './app.reducer';
+import { reducers, metaReducers } from './app.reducer';
 
 /*https://angular.io/docs/ts/latest/cookbook/dependency-injection.html#!#usefactory*/
 @NgModule({
@@ -31,11 +32,12 @@ import { EntryForm } from './entry-form';
     StatisticsModule,
     HttpModule,
     MdlModule,
-    // StoreModule.forRoot(<any>{ app: appReducer }, { initialState }),
-    /* StoreRouterConnectingModule,
+    StoreModule.forRoot(reducers, { metaReducers }),
+    StoreRouterConnectingModule,
     StoreDevtoolsModule.instrument({
       maxAge: 10
-    }) */
+    }),
+    EffectsModule.forRoot([])
   ],
   providers: [
     {

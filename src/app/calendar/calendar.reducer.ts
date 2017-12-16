@@ -9,7 +9,6 @@ import {
   SELECT_YEAR
 } from './calendar.constants';
 
-
 export type Day = {
   uuid: number,
   user: number,
@@ -68,3 +67,6 @@ export function calendarReducer(state: CalendarState, action: Action): CalendarS
   }
 }
 
+export const reducers = {
+  calendare: calendarReducer
+};

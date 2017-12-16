@@ -1,11 +1,11 @@
 import {NgModule} from '@angular/core';
-// import { EffectsModule } from '@ngrx/effects';
-// import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreModule } from '@ngrx/store';
 import {MdlSelectModule} from '@angular2-mdl-ext/select';
 import {MdlPopoverModule} from '@angular2-mdl-ext/popover';
 import {FormsModule} from '@angular/forms';
 
-// import { HomeEffects } from './calendar.effects';
+import { CalendarEffects } from './calendar.effects';
 import { CalendarForm } from './calendar.form/calendar-form.component';
 import {calendarRouting} from './calendar.routes';
 import {CalendarRenderMonthly} from './calendar.render.monthly';
@@ -20,7 +20,7 @@ import {CloseMenuDirective} from '../services/common/close-menu.directive';
 
 import {SharedModule} from '../shared/shared.module';
 import {CalendarService} from '../services/calendar/calendar.service';
-// import { calendarReducer } from './calendar.reducer';
+import { reducers } from './calendar.reducer';
 
 @NgModule({
     imports: [
@@ -29,10 +29,10 @@ import {CalendarService} from '../services/calendar/calendar.service';
         calendarRouting,
         MdlPopoverModule,
         MdlSelectModule,
-       /*  EffectsModule.forRoot([
-          HomeEffects
-        ]), */
-        // StoreModule.forFeature('calendar', calendarReducer),
+       EffectsModule.forRoot([
+          CalendarEffects
+        ]),
+        StoreModule.forFeature('calendar', reducers),
     ],
     declarations: [
         CalendarComponent,
