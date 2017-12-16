@@ -2,7 +2,13 @@
 
 ## What I am doing:
 
-Following https://blog.nrwl.io/using-ngrx-4-to-manage-state-in-angular-applications-64e7a1f84b7b
+- CalendarEffects returns null... why? I get some answer from server???
+- logger and freeze I think are not working ;)
+- just investigation... why my EffectsModule in root is not needed? and yes in the example app?
+
+## What I have to do:
+
+* Following https://blog.nrwl.io/using-ngrx-4-to-manage-state-in-angular-applications-64e7a1f84b7b
 I implement Effect() and all ngrx philosophy to make sleepdiary.io to follow the redux pattern.
 
 * translate the exampple-app to our needs.
@@ -11,16 +17,9 @@ I implement Effect() and all ngrx philosophy to make sleepdiary.io to follow the
 
 Basically is takind advantage of featureState stuff and get rid of layout state as long we don't have it
 
-Interestig as well how the route state is handling in the example app!!! (the code I have already should be removed and repalaced for the cleaner one)
-
-## What I have to do:
-
 * 1. * 4. Move methods to proper place
-
-* Remeber:
-
+* 
 * 1. Encapsulate Form and avoid repanting.
-* 2. Renable Calendar Form: Notice: CalendarForm still repaints after scrolling. The problem is in the year selected section! why? it is a performance issue and has to be solved together with renabling the calendar
 
 ## Architecture notes:
 

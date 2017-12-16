@@ -1,4 +1,3 @@
-import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { StoreModule } from '@ngrx/store';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
@@ -10,6 +9,10 @@ import { AuthHttp, AuthConfig } from 'angular2-jwt';
 import { MdlModule } from 'angular2-mdl';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EffectsModule } from '@ngrx/effects';
+import {
+  StoreRouterConnectingModule,
+  RouterStateSerializer,
+} from '@ngrx/router-store';
 
 import { routing } from './app.routes';
 import { Login } from './login/login.component';
@@ -19,6 +22,7 @@ import { CalendarModule } from './calendar/calendar.module';
 import { StatisticsModule } from './statistics/statistics.module';
 import { EntryForm } from './entry-form';
 import { reducers, metaReducers } from './app.reducer';
+import { CustomRouterStateSerializer } from './utils/custom-router-serializer';
 
 /*https://angular.io/docs/ts/latest/cookbook/dependency-injection.html#!#usefactory*/
 @NgModule({
@@ -36,8 +40,7 @@ import { reducers, metaReducers } from './app.reducer';
     StoreRouterConnectingModule,
     StoreDevtoolsModule.instrument({
       maxAge: 10
-    }),
-    EffectsModule.forRoot([])
+    })
   ],
   providers: [
     {
@@ -55,6 +58,7 @@ import { reducers, metaReducers } from './app.reducer';
       },
       deps: [Http]
     },
+    { provide: RouterStateSerializer, useClass: CustomRouterStateSerializer },
   ],
   declarations: [
     AppComponent,

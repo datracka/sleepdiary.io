@@ -15,6 +15,9 @@ import { Observable } from 'rxjs/Observable';
 import { CalendarService } from '../services/calendar/calendar.service';
 import { ROUTE_CALENDAR_MONTHLY_PAGE } from './calendar.constants';
 
+// TODO:
+// state <any>
+// params instead 2017
 @Injectable()
 export class CalendarEffects {
   @Effect() navigateToHome = this.handleNavigation(ROUTE_CALENDAR_MONTHLY_PAGE, (r: ActivatedRouteSnapshot) => {
