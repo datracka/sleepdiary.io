@@ -1,12 +1,10 @@
-import {Component, style, state, animate, transition, trigger} from "@angular/core";
+import {Component, style, state, animate, transition, trigger} from '@angular/core';
 import {Router} from '@angular/router';
 import {FormBuilder, FormGroup} from '@angular/forms';
 
 import {SignupService} from '../services/signup';
 import {SignUpModel} from './signupModel';
-import {
-  ROUTE_CALENDAR_MONTHLY_PAGE
-} from '../app.constants';
+import { ROUTE_CALENDAR_MONTHLY_PAGE } from '../calendar/calendar.constants';
 
 const styles   = require('./signup.css');
 const template = require('./signup.html');

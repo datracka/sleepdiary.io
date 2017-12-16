@@ -12,8 +12,10 @@ import {
   IS_REQUIRED,
   IS_NOT_EMAIL,
   LENGTH_MIN_6,
-  ROUTE_CALENDAR_MONTHLY_PAGE
 } from '../app.constants';
+
+import { ROUTE_CALENDAR_MONTHLY_PAGE } from '../calendar/calendar.constants';
+
 
 const template = require('./login.html');
 
