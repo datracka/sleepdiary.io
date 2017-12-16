@@ -1,11 +1,11 @@
 import {Component} from '@angular/core';
 
-const template = require('./home.html');
+const template = require('./calendar.html');
 
 @Component({
     template: template
 })
-export class HomeComponent {
+export class CalendarComponent {
 }
 
 

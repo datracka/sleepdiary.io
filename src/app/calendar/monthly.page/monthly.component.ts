@@ -5,13 +5,13 @@ import {CalendarService} from "../../services/calendar/calendar.service";
 const template = require('./monthly.html');
 
 @Component({
-    selector: 'monthly-view',
+    selector: 'monthly-page',
     providers: [
         CalendarService
     ],
     template: template
 })
-export class MonthlyViewComponent {
+export class MonthlyPageComponent {
 
     constructor() {
     }

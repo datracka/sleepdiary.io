@@ -5,29 +5,28 @@ import {MdlSelectModule} from '@angular2-mdl-ext/select';
 import {MdlPopoverModule} from '@angular2-mdl-ext/popover';
 import {FormsModule} from '@angular/forms';
 
-import { HomeEffects } from './home.effects';
-import { CalendarForm } from './calendar/calendarForm/calendar-form.component';
-import {homeRouting} from './home.routes';
-import {Calendar} from './calendar/calendar.component';
-import {EntryForm} from './entryForm/entry-form.component';
-import {MonthlyViewComponent} from './monthly/monthly.component';
-import {YearlyViewComponent} from './yearly/yearly.component';
-import {HomeComponent} from './home';
+import { HomeEffects } from './calendar.effects';
+import { CalendarForm } from './calendar.form/calendar-form.component';
+import {calendarRouting} from './calendar.routes';
+import {CalendarRenderMonthly} from './calendar.render.monthly';
+import {MonthlyPageComponent} from './monthly.page/monthly.component';
+import {YearlyPageComponent} from './yearly.page/yearly.component';
+import {CalendarComponent} from './calendar';
 import {AuthGuard} from '../services/common/auth-guard';
-import {Month} from './calendar/month';
-import {Week} from './calendar/week';
-import {Day} from './calendar/day';
+import {Month} from './calendar.render.monthly/month';
+import {Week} from './calendar.render.monthly/week';
+import {Day} from './calendar.render.monthly/day';
 import {CloseMenuDirective} from '../services/common/close-menu.directive';
 
 import {SharedModule} from '../shared/shared.module';
 import {CalendarService} from '../services/calendar/calendar.service';
-import { calendarReducer } from './calendar/calendar.reducer';
+import { calendarReducer } from './calendar.reducer';
 
 @NgModule({
     imports: [
         SharedModule,
         FormsModule,
-        homeRouting,
+        calendarRouting,
         MdlPopoverModule,
         MdlSelectModule,
        /*  EffectsModule.forRoot([
@@ -36,11 +35,10 @@ import { calendarReducer } from './calendar/calendar.reducer';
         // StoreModule.forFeature('calendar', calendarReducer),
     ],
     declarations: [
-        HomeComponent,
-        MonthlyViewComponent,
-        YearlyViewComponent,
-        EntryForm,
-        Calendar,
+        CalendarComponent,
+        MonthlyPageComponent,
+        YearlyPageComponent,
+        CalendarRenderMonthly,
         CalendarForm,
         Month,
         Week,
@@ -54,5 +52,5 @@ import { calendarReducer } from './calendar/calendar.reducer';
         CalendarService
     ]
 })
-export class HomeModule {
+export class CalendarModule {
 }

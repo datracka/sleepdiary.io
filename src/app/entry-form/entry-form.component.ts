@@ -1,7 +1,7 @@
 import {Component, AfterViewInit, OnInit, style, state, animate, transition, trigger} from "@angular/core";
-import {Entry} from "../../services/common/entry";
+import {Entry} from "../services/common/entry";
 import {ActivatedRoute, Router} from "@angular/router";
-import {EntryFormService} from "../../services/entry-form/entry-form.service";
+import {EntryFormService} from "../services/entry-form/entry-form.service";
 
 let template = require('./entry-form.html');
 @Component({

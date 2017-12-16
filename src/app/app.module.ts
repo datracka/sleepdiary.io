@@ -14,8 +14,9 @@ import { routing } from './app.routes';
 import { Login } from './login/login.component';
 import { SignUp } from './signup/signup.component';
 import { AppComponent } from './app.component';
-import { HomeModule } from './home/home.module';
+import { CalendarModule } from './calendar/calendar.module';
 import { StatisticsModule } from './statistics/statistics.module';
+import { EntryForm } from './entry-form';
 // import { appReducer, initialState } from './app.reducer';
 
 /*https://angular.io/docs/ts/latest/cookbook/dependency-injection.html#!#usefactory*/
@@ -26,7 +27,7 @@ import { StatisticsModule } from './statistics/statistics.module';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     routing,
-    HomeModule,
+    CalendarModule,
     StatisticsModule,
     HttpModule,
     MdlModule,
@@ -56,7 +57,8 @@ import { StatisticsModule } from './statistics/statistics.module';
   declarations: [
     AppComponent,
     Login,
-    SignUp
+    SignUp,
+    EntryForm
   ],
   entryComponents: [AppComponent]
 })

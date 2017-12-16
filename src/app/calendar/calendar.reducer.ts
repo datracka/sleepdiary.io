@@ -7,7 +7,7 @@ import {
   DELETE_ENTRY,
   SELECT_FILTER,
   SELECT_YEAR
-} from './constants';
+} from './calendar.constants';
 
 
 export type Day = {

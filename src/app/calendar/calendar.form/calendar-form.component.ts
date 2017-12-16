@@ -5,7 +5,7 @@ import {
   OnInit,
   Output
 } from '@angular/core';
-import { MetricsIndicators } from "../../../services/common/metrics-indicators";
+import { MetricsIndicators } from '../../services/common/metrics-indicators';
 let template = require('./calendar-form.html');
 
 @Component({

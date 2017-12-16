@@ -1,8 +1,9 @@
 import {Routes, RouterModule, PreloadAllModules} from '@angular/router';
 
-import {Login} from "./login";
-import {SignUp} from "./signup";
-import {ModuleWithProviders} from "@angular/core";
+import {Login} from './login';
+import {SignUp} from './signup';
+import {ModuleWithProviders} from '@angular/core';
+import {EntryForm} from './entry-form/entry-form.component';
 
 // https://angular.io/docs/ts/latest/guide/router.html
 const appRouting: Routes = [
@@ -18,7 +19,12 @@ const appRouting: Routes = [
   {
     path: 'signup',
     component: SignUp
+  },
+  {
+    path: 'entry/:uuid',
+    component: EntryForm
   }
+
 ];
 
 const appRoutes: Routes = [

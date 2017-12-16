@@ -2,11 +2,11 @@ import {Component} from '@angular/core';
 
 const template = require('./yearly.html');
 @Component({
-    selector: 'yearly-view',
+    selector: 'yearly-page',
     template: template,
     providers: [
     ]
 
 })
-export class YearlyViewComponent {
+export class YearlyPageComponent {
 }

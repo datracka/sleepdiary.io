@@ -1,4 +1,4 @@
-import { DayRender } from './day/day.render';
+import { ActivatedRoute, Router } from "@angular/router";
 import {
   Component,
   Input,
@@ -8,25 +8,25 @@ import {
   transition,
   trigger,
   OnInit,
-  AfterViewInit, ViewContainerRef
+  AfterViewInit,
+  ViewContainerRef
 } from '@angular/core';
+import { MdlSnackbarService } from 'angular2-mdl';
 import * as moment from 'moment';
-import { CalendarService } from '../../services/calendar/calendar.service'
-import { ActivatedRoute, Router } from "@angular/router";
+import { DayRender } from './day/day.render';
+import { CalendarService } from '../../services/calendar/calendar.service';
 import { MonthRender } from './month/month.render';
-import { WeekRender } from "./week/week.render";
-import { MetricsIndicators } from "../../services/common/metrics-indicators";
-import { Metric } from "../../services/common/metrics";
-import { MdlSnackbarService } from "angular2-mdl";
-import { Entry } from "../../services/common/entry";
-let template = require('./calendar.html');
+import { WeekRender } from './week/week.render';
+import { MetricsIndicators } from '../../services/common/metrics-indicators';
+import { Entry } from '../../services/common/entry';
+let template = require('./calendar-render-monthly.html');
 
 
 //todo:
 @Component({
-  selector: 'calendar',
+  selector: 'calendar-render-monthly',
   template: template,
-  styleUrls: ['./calendar.scss'],
+  styleUrls: ['./calendar-render-monthly.scss'],
   providers: [CalendarService],
   animations: [
     trigger('flyInOut', [
@@ -38,7 +38,7 @@ let template = require('./calendar.html');
     ])
   ]
 })
-export class Calendar implements OnInit, AfterViewInit {
+export class CalendarRenderMonthly implements OnInit, AfterViewInit {
 
   totalDays: any = new Map(); //data structure for interpolating styles
   entries: Array<Entry>;
