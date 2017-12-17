@@ -1,9 +1,10 @@
-import {Routes, RouterModule, PreloadAllModules} from '@angular/router';
+import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 
-import {Login} from './login';
-import {SignUp} from './signup';
-import {ModuleWithProviders} from '@angular/core';
-import {EntryForm} from './entry-form/entry-form.component';
+import { Login } from './login';
+import { SignUp } from './signup';
+import { ModuleWithProviders } from '@angular/core';
+import { EntryForm } from './entry-form/entry-form.component';
+import { AuthGuard } from './services/common/auth-guard';
 
 // https://angular.io/docs/ts/latest/guide/router.html
 const appRouting: Routes = [
@@ -23,8 +24,13 @@ const appRouting: Routes = [
   {
     path: 'entry/:uuid',
     component: EntryForm
+  },
+  { path: 'lazy', loadChildren: './lazy/lazy.module#LazyModule' },
+  {
+    path: 'calendar',
+    loadChildren: './calendar/calendar.module#CalendarModule',
+    canActivate: [AuthGuard],
   }
-
 ];
 
 const appRoutes: Routes = [
@@ -33,8 +39,7 @@ const appRoutes: Routes = [
 ];
 
 export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes, {
-  useHash: false,
-  preloadingStrategy: PreloadAllModules
+  useHash: false
 });
 
 

@@ -18,7 +18,6 @@ import { routing } from './app.routes';
 import { Login } from './login/login.component';
 import { SignUp } from './signup/signup.component';
 import { AppComponent } from './app.component';
-import { CalendarModule } from './calendar/calendar.module';
 import { StatisticsModule } from './statistics/statistics.module';
 import { EntryForm } from './entry-form';
 import { reducers, metaReducers } from './app.reducer';
@@ -32,7 +31,6 @@ import { CustomRouterStateSerializer } from './utils/custom-router-serializer';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     routing,
-    CalendarModule,
     StatisticsModule,
     HttpModule,
     MdlModule,

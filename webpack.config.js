@@ -2,10 +2,10 @@ let path = require('path');
 
 let DotenvPlugin = require('webpack-dotenv-plugin');
 let BrowserSyncPlugin = require('browser-sync-webpack-plugin');
-let _ref  = require('awesome-typescript-loader');
+let _ref = require('awesome-typescript-loader');
 
 /** postcss plugins */
-let precss       = require('precss');
+let precss = require('precss');
 let autoprefixer = require('autoprefixer');
 
 /**
@@ -19,8 +19,8 @@ var webpackConfig = {
 
   entry: {
     'polyfills': './src/polyfills.browser.ts',
-    'vendor':    './src/vendor.browser.ts',
-    'main':       './src/main.browser.ts',
+    'vendor': './src/vendor.browser.ts',
+    'main': './src/main.browser.ts',
   },
 
   output: {
@@ -33,7 +33,7 @@ var webpackConfig = {
     exprContextCritical: false, //used for removing warning "Critical dependency: the request of a dependency is an expression"
     rules: [
       // .ts files for TypeScript
-      { test: /\.ts$/, loaders: ['awesome-typescript-loader', 'angular2-template-loader'] },
+      { test: /\.ts$/, loaders: ['ng-router-loader', 'awesome-typescript-loader', 'angular2-template-loader'] },
       { test: /\.css$/, loaders: ['to-string-loader', 'css-loader', 'postcss-loader'] },
       { test: /\.html$/, loader: 'raw-loader' },
       {
@@ -58,7 +58,7 @@ var webpackConfig = {
 webpackConfig.plugins.push(new _ref.CheckerPlugin());
 webpackConfig.plugins.push(new DotenvPlugin({ sample: './.env.default', path: './.env.dev' }))
 if (ENV !== 'test') { //when test don't want add this plugin
-  webpackConfig.plugins.push(new BrowserSyncPlugin({ host: 'localhost', port: 9001, proxy: 'http://localhost:9000'}));
+  webpackConfig.plugins.push(new BrowserSyncPlugin({ host: 'localhost', port: 9001, proxy: 'http://localhost:9000' }));
 }
 
 // Our Webpack Defaults

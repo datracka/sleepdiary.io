@@ -7,22 +7,16 @@
             <div>
               <form role="form" [formGroup]="loginForm" (ngSubmit)="login()" novalidate>
                 <div class="group">
-                  <input type="text" class="form-control" id="email"
-                         required
-                         pattern="[^@\s]+@[^@\s]+\.[^@\s]+"
-                         name="email" formControlName="email">
+                  <input type="text" class="form-control" id="email" required pattern="[^@\s]+@[^@\s]+\.[^@\s]+" name="email" formControlName="email">
                   <span class="highlight"></span>
                   <span class="bar"></span>
                   <label>E-mail</label>
                   <span *ngIf="loginForm.get('email').touched && loginForm.get('email').getError('required')">This field is required</span>
-                  <span
-                    *ngIf="loginForm.get('email').touched && loginForm.get('email').touched && loginForm.get('email').getError('pattern')">It does not look as a valid e-mail</span>
+                  <span *ngIf="loginForm.get('email').touched && loginForm.get('email').touched && loginForm.get('email').getError('pattern')">It does not look as a valid e-mail</span>
                 </div>
                 <div class="group">
-                  <input type="password" class="form-control" id="password"
-                         name="password" formControlName="password"
-                         required minlength="6"
-                         #passwordRef>
+                  <input type="password" class="form-control" id="password" name="password" formControlName="password" required minlength="6"
+                    #passwordRef>
                   <span class="highlight"></span>
                   <span class="bar"></span>
                   <label>Password</label>
@@ -31,12 +25,12 @@
                 </div>
                 <p *ngIf="userNotExists">Ups!! User entered does not exists!</p>
                 <p *ngIf="userNotActive">Ups!! User entered is not active!</p>
-                <button
-                  class="mdl-button mdl-js-button mdl-button&#45;&#45;raised mdl-button&#45;&#45;colored mdl-button&#45;&#45;align-right"
+                <button class="mdl-button mdl-js-button mdl-button&#45;&#45;raised mdl-button&#45;&#45;colored mdl-button&#45;&#45;align-right"
                   type="submit">Submit
                 </button>
               </form>
-              <div style="text-align: right">You don't have an account? <a routerLink="/signup" href="#">Sign up</a>
+              <div style="text-align: right">You don't have an account?
+                <a routerLink="/signup" href="#">Sign up</a>
               </div>
             </div>
           </section>
@@ -45,4 +39,3 @@
     </div>
   </mdl-layout-content>
 </mdl-layout>
-
