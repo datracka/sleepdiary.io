@@ -3,9 +3,7 @@
     <calendar-form [currentYearSelected]="currentYearSelected" (onSetYear)="onSetYear($event)" (onSetMetric)="onSetMetric($event)">
     </calendar-form>
   </div>
-  <!-- <month class="mdl-cell mdl-cell--4-col" [monthRender]="month" *ngFor="let month of yearRender" [entries]="hello"></month> -->
-  and...
-  <div *ngFor="let entry of entries">here</div>
+  <month class="mdl-cell mdl-cell--4-col" [monthRender]="month" *ngFor="let month of yearRender" [entries$]="entries$"></month>
   <a (click)="onSelectCurrentDay()" class="sd-add-button" mdl-button mdl-button-type="fab" mdl-colored="accent" mdl-ripple>
     <mdl-icon>add</mdl-icon>
   </a>

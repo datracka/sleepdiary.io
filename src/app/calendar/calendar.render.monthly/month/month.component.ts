@@ -1,4 +1,5 @@
 import { MonthRender } from './month.render';
+import { Observable } from 'rxjs/Rx';
 import {
   Input,
   Component,
@@ -16,7 +17,7 @@ let template = require('./month.html');
 export class Month implements OnInit {
 
   @Input() monthRender: MonthRender;
-  @Input() entries: any;
+  @Input() entries$: Observable<any[]>;
 
   ngOnInit() {
   }

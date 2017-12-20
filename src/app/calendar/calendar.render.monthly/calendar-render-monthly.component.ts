@@ -39,8 +39,7 @@ let template = require('./calendar-render-monthly.html');
 export class CalendarRenderMonthly implements OnInit, AfterViewInit {
 
   totalDays: any = new Map(); // data structure for interpolating styles
-  @Input() entries: any[];
-  hello: string = 'hello'; // remove after test.
+  @Input() entries$: Observable<any[]>;
 
   yearRender: Array<MonthRender> = [
     new MonthRender('January'),
@@ -65,7 +64,7 @@ export class CalendarRenderMonthly implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-    console.log('##', this.entries);
+    this.buildMonths('en', '2017');
   }
 
   ngAfterViewInit() { }
@@ -89,7 +88,7 @@ export class CalendarRenderMonthly implements OnInit, AfterViewInit {
   AKA do functional programing way!! */
   buildMonths(lang: String, year: String) {
 
-    for (var i = 0; i < 12; i++) {
+    for (let i = 0; i < 12; i++) {
       let startDateOfWeek: any = this.getMonthDateRange(year, i, true);
       let weeks: Array<WeekRender> = this.buildWeeks(startDateOfWeek, i);
       this.yearRender[i].setWeeks(weeks);

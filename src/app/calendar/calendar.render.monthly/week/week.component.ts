@@ -1,4 +1,5 @@
 import { WeekRender } from './week.render';
+import { Observable } from 'rxjs/Rx';
 import {
   Input,
   Component,
@@ -16,7 +17,7 @@ let template = require('./week.html');
 export class Week implements OnInit {
 
   @Input() weekRender: WeekRender;
-  @Input() entries: any;
+  @Input() entries$: Observable<any[]>;
 
   ngOnInit() {
   }

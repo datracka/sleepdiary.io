@@ -1,1 +1,3 @@
-<span class="calendar__day">{{ dayRender.number }}</span>
+<span class="calendar__day" [class.sleeping-quality--good]="sleepingQuality === 'good'" [class.sleeping-quality--regular]="sleepingQuality === 'regular'"
+  [class.sleeping-quality--bad]="sleepingQuality === 'bad'" [class.tiredness-feeling--good]="tirednessFeeling === 'good'" [class.tiredness-feeling--regular]="tirednessFeeling === 'regular'"
+  [class.tiredness-feeling--bad]="tirednessFeeling === 'bad'">{{ dayRender.number }}</span>

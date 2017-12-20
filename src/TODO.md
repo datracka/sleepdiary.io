@@ -2,11 +2,10 @@
 
 ## What I am doing:
 
-I am busy with 2 things. 
-
-- first and most important: I retrieve the state with a selector in the 'smart'component monthly.component.ts. The expectation is that once the async call is resolved this.entries will be passed through to the render component calendar-render-monthly.component.ts... but it fails. 
-This component receives an empty array [].... for testing pourposes I tweak the related html template! 
-
+- Show proper CSS for a calendar day
+- implement ACTIONS LOAD, SUCCESS, FAIL
+- Implement types for the current code (day component)
+- Implement model
 - calendar.effects is complaining in console. Why?
 
 ## What I have to do:

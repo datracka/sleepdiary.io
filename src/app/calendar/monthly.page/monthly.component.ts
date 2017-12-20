@@ -20,6 +20,5 @@ export class MonthlyPageComponent {
 
   constructor(private store: Store<fromCalendar.CalendarState>) {
     this.entries$ = this.store.select(fromCalendar.getCalendarDays);
-    this.entries$.subscribe(values => console.log('###', values));
   }
 }
