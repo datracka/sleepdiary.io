@@ -17,16 +17,10 @@ import { DayRender } from './day/day.render';
 import { CalendarService } from '../../services/calendar/calendar.service';
 import { MonthRender } from './month/month.render';
 import { WeekRender } from './week/week.render';
-import { MetricsIndicators } from '../../services/common/metrics-indicators';
-import { Entry } from '../../services/common/entry';
-import {
-  ROUTE_ENTRY_FORM
-} from '../../app.constants';
+import { Observable } from 'rxjs/Rx';
 
 let template = require('./calendar-render-monthly.html');
 
-
-//todo:
 @Component({
   selector: 'calendar-render-monthly',
   template: template,
@@ -44,14 +38,9 @@ let template = require('./calendar-render-monthly.html');
 })
 export class CalendarRenderMonthly implements OnInit, AfterViewInit {
 
-  totalDays: any = new Map(); //data structure for interpolating styles
-  entries: Array<Entry>;
-  public currentYearSelected: String = "2017";
-  public currentMetricSelected: String = MetricsIndicators.SLEEPING_QUALITY;
-  sub: any;
-  public params: any = {
-    day: null,
-  }
+  totalDays: any = new Map(); // data structure for interpolating styles
+  @Input() entries: any[];
+  hello: string = 'hello'; // remove after test.
 
   yearRender: Array<MonthRender> = [
     new MonthRender('January'),
@@ -75,170 +64,11 @@ export class CalendarRenderMonthly implements OnInit, AfterViewInit {
     public calendarService: CalendarService) {
   }
 
-  showSnackbar(message) {
-    this.mdlSnackbarService.showSnackbar({
-      message: message,
-    });
-  }
-
-
   ngOnInit() {
-
-    this.sub = this.route
-      .params
-      .subscribe(params => {
-        this.params.day = params['day'];
-      });
-
-    this.currentYearSelected = moment().format('YYYY');
-    //if param day is fullfilled we use this information for building the calendar
-    if (typeof this.params.day !== 'undefined' && this.params.day !== null) {
-      this.currentYearSelected = moment(this.params.day).format("YYYY");
-    }
-    this.buildMonths('en', this.currentYearSelected);
-
+    console.log('##', this.entries);
   }
 
-  ngAfterViewInit() {
-
-    this.calendarService.getAll(this.currentYearSelected).subscribe(
-      response => {
-        this.processResponse(response)
-      }
-    );
-
-    this.sub = this.route
-      .params
-      .subscribe(params => {
-        let text = "";
-        switch (params['actionRef']) {
-          case 'login':
-            let user = JSON.parse(localStorage.getItem('user'));
-            text = "Hi, " + user.name;
-            break;
-          case 'insert':
-            text = "New entry added!";
-            break;
-          case 'update':
-            text = "Entry updated!";
-            break;
-          case 'delete':
-            text = "Entry deleted!";
-            break;
-        }
-        if (text !== '') {
-          this.showSnackbar(text);
-        }
-      });
-  }
-
-  processResponse(response) {
-    this.entries = response.json();
-    let dayMatches = [];
-    for (var entry in this.entries) {
-      if (this.entries.hasOwnProperty(entry)) {
-        let e: Entry = this.entries[entry];
-        let entryKey = e.date.substr(0, 10);
-        let intermediateObject: DayRender = { ...this.totalDays.get(entryKey) };
-        let dayMatch: DayRender = new DayRender(
-          intermediateObject.name,
-          intermediateObject.number,
-          intermediateObject.isCurrentMonth,
-          intermediateObject.isToday,
-          intermediateObject.date
-        );
-        dayMatch.sleepingQuality = 'sleeping-quality--' + e.sleepingQuality;
-        dayMatch.tirednessFeeling = 'tiredness-feeling--' + e.tirednessFeeling;
-
-        this.totalDays.set(entryKey, dayMatch as Day);
-      }
-    }
-  }
-
-  onSetYear(year: String) {
-
-    this.currentYearSelected = year;
-    this.buildMonths('en', year);
-    //get values for given year
-    this.calendarService.getAll(year).subscribe(
-      response => {
-        this.processResponse(response)
-      }
-    );
-  }
-
-  onSetMetric(metric: String) {
-    this.currentMetricSelected = metric;
-  }
-
-  paintInitialDayBackground(dayMatches) {
-    dayMatches.forEach(function (day) {
-      day.sleepingQuality = 'sleeping-quality--' + day.sleepingQuality;
-      day.tirednessFeeling = 'tiredness-feeling--' + day.tirednessFeeling;
-
-    });
-  }
-
-  decorateDay(day) {
-    let a = [];
-    let key = day.date.format('YYYY-MM-DD');
-
-    if (day.isCurrentMonth) {
-      a.push('calendar__day--current-month');
-      a.push(this.totalDays.get(key).sleepingQuality);
-      a.push(this.totalDays.get(key).tirednessFeeling);
-
-      if (day.isToday) {
-        a.push('calendar__day--today')
-      }
-    }
-
-    return a;
-  }
-
-
-  /**
-   * FIX: DRY onSelectCurrentDay / onSelect
-   */
-  onSelectCurrentDay() {
-
-    let current = moment();
-
-    let entry = this.entries.filter((entry) => {
-      //cos date is a ISODate we get 10 firsts characters. Ugly but works
-      if (current.isSame(entry.date.substring(0, 10), 'day'))
-        return entry;
-    });
-
-    let uuid = 'new';
-
-    if (typeof entry[0] !== 'undefined') {
-      uuid = entry[0].uuid;
-    }
-    this.router.navigate([ROUTE_ENTRY_FORM, uuid, { day: current.format("YYYY-MM-DD") }]);
-  }
-
-  onSelect(day: any) {
-
-    let dayMoment = day.date;
-    let entry = this.entries.filter((entry) => {
-      //cos date is a ISODate we get 10 firsts characters. Ugly but works
-      if (dayMoment.isSame(entry.date.substring(0, 10), 'day'))
-        return entry;
-    });
-    let uuid = 'new';
-
-    if (!day.isCurrentMonth) {
-      return false;
-    }
-
-    if (typeof entry[0] !== 'undefined') {
-      uuid = entry[0].uuid;
-    }
-    this.router.navigate([ROUTE_ENTRY_FORM, uuid, { day: day.date.format("YYYY-MM-DD") }]);
-  }
-
-  //** #####  RENDER METHODS ################## **/
+  ngAfterViewInit() { }
 
   getMonthDateRange(year: String, month: number, isStartOnMonday: boolean) {
 
@@ -308,7 +138,5 @@ export class CalendarRenderMonthly implements OnInit, AfterViewInit {
 
     return days;
   }
-
-  /** ## end render methods **/
 
 }

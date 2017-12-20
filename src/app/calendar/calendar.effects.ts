@@ -13,26 +13,29 @@ import 'rxjs/add/operator/mapTo';
 import { of } from 'rxjs/observable/of';
 import { Observable } from 'rxjs/Observable';
 import { CalendarService } from '../services/calendar/calendar.service';
-import { ROUTE_CALENDAR_MONTHLY_PAGE } from './calendar.constants';
+import { ROUTE_CALENDAR_MONTHLY_PAGE, CALENDAR_ACTIONS } from './calendar.constants';
+import { CalendarState } from './calendar.reducer';
+
 
 // TODO:
 // state <any>
 // params instead 2017
+// (pre)append & (post)append LOADING status Action
 @Injectable()
 export class CalendarEffects {
   @Effect() navigateToHome = this.handleNavigation(ROUTE_CALENDAR_MONTHLY_PAGE, (r: ActivatedRouteSnapshot) => {
     this.calendarService.getAll('2017')
-      .map(response => ({ type: 'GET_CALENDAR_YEARLY', payload: response.json() }))
+      .map(response => ({ type: CALENDAR_ACTIONS.GET_YEARLY, payload: response.json() }))
       .subscribe((action) => {
         this.store.dispatch(action);
       });
     return null;
   });
 
-  constructor(private actions: Actions, private store: Store<any>, public calendarService: CalendarService) {
+  constructor(private actions: Actions, private store: Store<CalendarState>, public calendarService: CalendarService) {
   }
 
-  private handleNavigation(segment: string, callback: (a: ActivatedRouteSnapshot, state: any) => Observable<any>) {
+  private handleNavigation(segment: string, callback: (a: ActivatedRouteSnapshot, state: CalendarState) => Observable<any>) {
     const nav = this.actions.ofType(ROUTER_NAVIGATION).
       map(firstSegment).
       filter(s => {

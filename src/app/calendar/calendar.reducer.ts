@@ -1,13 +1,10 @@
 import { RouterAction } from '@ngrx/router-store';
+import { createSelector, createFeatureSelector } from '@ngrx/store';
 import {
-  GET_CALENDAR_YEARLY,
-  GET_ENTRY,
-  POST_ENTRY,
-  PUT_ENTRY,
-  DELETE_ENTRY,
-  SELECT_FILTER,
-  SELECT_YEAR
+  CALENDAR_ACTIONS
 } from './calendar.constants';
+
+// types
 
 export type Day = {
   uuid: number,
@@ -26,18 +23,19 @@ export type CalendarState = {
   filters: Filters
 };
 
-export type GetCalendarByYear = { type: 'GET_CALENDAR_YEARLY', payload: {} }
-export type GetEntry = { type: 'GET_ENTRY', payload: {} }
-export type PostEntry = { type: 'POST_ENTRY', payload: {} }
-export type PutEntry = { type: 'PUT_ENTRY', payload: {} }
-export type DeleteEntry = { type: 'DELETE_ENTRY', payload: {} }
-export type SelectFilter = { type: 'SELECT_FILTER', payload: {} }
-export type SelectYear = { type: 'SELECT_YEAR', payload: {} }
+export type GetCalendarByYear = { type: '[CALENDAR] GET_YEARLY', payload: {} }
+export type GetEntry = { type: '[CALENDAR] GET_ENTRY', payload: {} }
+export type PostEntry = { type: '[CALENDAR] POST_ENTRY', payload: {} }
+export type PutEntry = { type: '[CALENDAR] PUT_ENTRY', payload: {} }
+export type DeleteEntry = { type: '[CALENDAR] DELETE_ENTRY', payload: {} }
+export type SelectFilter = { type: '[CALENDAR] SELECT_FILTER', payload: {} }
+export type SelectYear = { type: '[CALENDAR] SELECT_YEAR', payload: {} }
 export type Action = RouterAction<CalendarState> |
   GetCalendarByYear |
   GetEntry | PostEntry | PutEntry | DeleteEntry | SelectFilter | SelectYear;
 
 
+// InititalState
 // TODO: remove hardcore data
 export const calendarInitialState: CalendarState = {
   days: [],
@@ -49,17 +47,17 @@ export const calendarInitialState: CalendarState = {
 
 // reducer
 
-export function calendarReducer(state: CalendarState, action: Action): CalendarState {
+export default function calendarReducer(state: CalendarState = calendarInitialState, action: Action): CalendarState {
   switch (action.type) {
-    case GET_CALENDAR_YEARLY:
+    case CALENDAR_ACTIONS.GET_YEARLY:
       const days = { ...state.days, ...action.payload };
       return { ...state, days };
-    case GET_ENTRY:
-    case POST_ENTRY:
-    case PUT_ENTRY:
-    case DELETE_ENTRY:
-    case SELECT_FILTER:
-    case SELECT_YEAR:
+    case CALENDAR_ACTIONS.GET_ENTRY:
+    case CALENDAR_ACTIONS.POST_ENTRY:
+    case CALENDAR_ACTIONS.PUT_ENTRY:
+    case CALENDAR_ACTIONS.DELETE_ENTRY:
+    case CALENDAR_ACTIONS.SELECT_FILTER:
+    case CALENDAR_ACTIONS.SELECT_YEAR:
       break;
     default: {
       return state;
@@ -67,6 +65,13 @@ export function calendarReducer(state: CalendarState, action: Action): CalendarS
   }
 }
 
-export const reducers = {
-  calendare: calendarReducer
-};
+// selectors
+
+export const getCalendarState = createFeatureSelector<CalendarState>('calendar');
+export const getDays = (state: CalendarState) => state.days;
+export const getCalendarDays = createSelector(
+  getCalendarState,
+  getDays,
+);
+
+

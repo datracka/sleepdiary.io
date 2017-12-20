@@ -25,7 +25,6 @@ const appRouting: Routes = [
     path: 'entry/:uuid',
     component: EntryForm
   },
-  { path: 'lazy', loadChildren: './lazy/lazy.module#LazyModule' },
   {
     path: 'calendar',
     loadChildren: './calendar/calendar.module#CalendarModule',

@@ -20,7 +20,7 @@ import { CloseMenuDirective } from '../services/common/close-menu.directive';
 
 import { SharedModule } from '../shared/shared.module';
 import { CalendarService } from '../services/calendar/calendar.service';
-import { reducers } from './calendar.reducer';
+import calendarReducer from './calendar.reducer';
 
 @NgModule({
   imports: [
@@ -32,7 +32,7 @@ import { reducers } from './calendar.reducer';
     EffectsModule.forRoot([
       CalendarEffects
     ]),
-    StoreModule.forFeature('calendar', reducers),
+    StoreModule.forFeature('calendar', calendarReducer),
   ],
   declarations: [
     CalendarComponent,

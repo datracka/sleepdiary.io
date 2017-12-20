@@ -2,9 +2,12 @@
 
 ## What I am doing:
 
-- CalendarEffects returns null... why? I get some answer from server???
-- logger and freeze I think are not working ;)
-- just investigation... why my EffectsModule in root is not needed? and yes in the example app?
+I am busy with 2 things. 
+
+- first and most important: I retrieve the state with a selector in the 'smart'component monthly.component.ts. The expectation is that once the async call is resolved this.entries will be passed through to the render component calendar-render-monthly.component.ts... but it fails. 
+This component receives an empty array [].... for testing pourposes I tweak the related html template! 
+
+- calendar.effects is complaining in console. Why?
 
 ## What I have to do:
 
