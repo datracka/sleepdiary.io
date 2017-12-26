@@ -1,5 +1,5 @@
 import { DayRender } from './day.render';
-import { OnInit } from '@angular/core';
+import { OnInit, ChangeDetectorRef } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
 import {
   Input,
@@ -11,7 +11,8 @@ let template = require('./day.html');
 @Component({
   selector: 'day',
   template: template,
-  styleUrls: ['./day.scss']
+  styleUrls: ['./day.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class Day implements OnInit {
 
@@ -20,7 +21,7 @@ export class Day implements OnInit {
   sleepingQuality: string;
   tirednessFeeling: string;
 
-  constructor() { }
+  constructor(private cdr: ChangeDetectorRef) { }
 
   ngOnInit() {
     this.entries$.subscribe(
@@ -32,7 +33,7 @@ export class Day implements OnInit {
         if (found.length > 0) {
           this.sleepingQuality = found[0].sleepingQuality;
           this.tirednessFeeling = found[0].tirednessFeeling;
-          console.log(this.dayRender.date.toString(), this.sleepingQuality, this.tirednessFeeling);
+          this.cdr.markForCheck();
         }
       }
     );

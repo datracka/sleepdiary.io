@@ -9,7 +9,8 @@ import {
   trigger,
   OnInit,
   AfterViewInit,
-  ViewContainerRef
+  ViewContainerRef,
+  ChangeDetectionStrategy
 } from '@angular/core';
 import { MdlSnackbarService } from 'angular2-mdl';
 import * as moment from 'moment';
@@ -26,6 +27,7 @@ let template = require('./calendar-render-monthly.html');
   template: template,
   styleUrls: ['./calendar-render-monthly.scss'],
   providers: [CalendarService],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   animations: [
     trigger('flyInOut', [
       state('in', style({ opacity: 1 })),

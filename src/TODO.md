@@ -72,6 +72,8 @@ Once a day component is rendered it has properties and state.
 
 ** Dont' mix render objects with state containers in model **
 
+
+
 Recomended read:
 
 https://medium.com/@charliegreenman/redux-vs-rxjs-ngrx-store-db6066058719

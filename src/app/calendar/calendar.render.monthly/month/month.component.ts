@@ -11,7 +11,8 @@ let template = require('./month.html');
 @Component({
   selector: 'month',
   template: template,
-  styleUrls: ['./month.scss']
+  styleUrls: ['./month.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class Month implements OnInit {
 

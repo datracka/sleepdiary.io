@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, ChangeDetectionStrategy } from "@angular/core";
 import { CalendarService } from '../../services/calendar/calendar.service';
 import { Store } from '@ngrx/store';
 import * as fromCalendar from '../calendar.reducer';
@@ -9,6 +9,7 @@ const template = require('./monthly.html');
 
 @Component({
   selector: 'monthly-page',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
     CalendarService
   ],

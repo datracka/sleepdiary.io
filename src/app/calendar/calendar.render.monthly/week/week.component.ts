@@ -11,7 +11,8 @@ let template = require('./week.html');
 @Component({
   selector: 'week',
   template: template,
-  styleUrls: ['./week.scss']
+  styleUrls: ['./week.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class Week implements OnInit {
 
