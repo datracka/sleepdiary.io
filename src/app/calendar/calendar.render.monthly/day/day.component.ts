@@ -10,7 +10,6 @@ let template = require('./day.html');
 
 @Component({
   selector: 'day',
-  changeDetection: ChangeDetectionStrategy.OnPush,
   template: template,
   styleUrls: ['./day.scss']
 })
