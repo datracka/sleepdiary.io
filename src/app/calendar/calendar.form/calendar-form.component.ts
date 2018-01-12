@@ -5,7 +5,13 @@ import {
   OnInit,
   Output
 } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { State } from '../../app.reducer';
+import { getCalendarFilters, Filters } from '../calendar.reducer';
 import { MetricsIndicators } from '../../services/common/metrics-indicators';
+import {
+  CALENDAR_ACTIONS
+} from '../calendar.constants';
 let template = require('./calendar-form.html');
 
 @Component({
@@ -15,19 +21,22 @@ let template = require('./calendar-form.html');
 })
 export class CalendarForm implements OnInit {
 
-
-  @Input() currentYearSelected: String;
-  @Output() onSetYear = new EventEmitter<String>();
-  @Output() onSetMetric = new EventEmitter<String>();
-
   public form: any;
+  filters: Filters;
+  @Input() currentYearSelected: String;
   public metricIndicator: MetricsIndicators = MetricsIndicators.SLEEPING_QUALITY;
-
   years: any = [
     { value: '2016', name: '2016' },
     { value: '2017', name: '2017' },
-    { value: '2018', name: '2018' }
+    { value: '2018', name: '2018' },
+    { value: '2019', name: '2019' }
   ];
+
+  constructor(private store: Store<State>) {
+    this.store.select(getCalendarFilters).subscribe(filters => {
+      this.filters = filters;
+    });
+  }
 
   ngOnInit() {
 
@@ -37,14 +46,17 @@ export class CalendarForm implements OnInit {
     };
   }
 
-  setYear(year: String) {
-    this.onSetYear.emit(year);
-    this.form.yearSelected = year;
+  setMetric(value) {
+    this.store.dispatch({
+      type: CALENDAR_ACTIONS.SELECT_METRIC,
+      payload: value
+    });
   }
 
-  setMetric(metric: String) {
-    this.onSetMetric.emit(metric);
-    this.form.metricSelected = metric;
+  setYear(value) {
+    this.store.dispatch({
+      type: CALENDAR_ACTIONS.SELECT_YEAR,
+      payload: value
+    });
   }
-
 }

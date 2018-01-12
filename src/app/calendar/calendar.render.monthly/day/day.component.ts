@@ -6,6 +6,7 @@ import {
   Component,
   ChangeDetectionStrategy
 } from '@angular/core';
+import { OnChanges } from '@angular/core/src/metadata/lifecycle_hooks';
 let template = require('./day.html');
 
 @Component({

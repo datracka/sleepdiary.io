@@ -14,7 +14,7 @@ export type Day = {
 };
 
 export type Filters = {
-  metrics: String,
+  metric: String | {},
   year: number
 };
 
@@ -23,16 +23,16 @@ export type CalendarState = {
   filters: Filters
 };
 
-export type GetCalendarByYear = { type: '[CALENDAR] GET_YEARLY', payload: {} }
-export type GetEntry = { type: '[CALENDAR] GET_ENTRY', payload: {} }
-export type PostEntry = { type: '[CALENDAR] POST_ENTRY', payload: {} }
-export type PutEntry = { type: '[CALENDAR] PUT_ENTRY', payload: {} }
-export type DeleteEntry = { type: '[CALENDAR] DELETE_ENTRY', payload: {} }
-export type SelectFilter = { type: '[CALENDAR] SELECT_FILTER', payload: {} }
-export type SelectYear = { type: '[CALENDAR] SELECT_YEAR', payload: {} }
+export type GetCalendarByYear = { type: '[CALENDAR] GET_YEARLY', payload: {} };
+export type GetEntry = { type: '[CALENDAR] GET_ENTRY', payload: {} };
+export type PostEntry = { type: '[CALENDAR] POST_ENTRY', payload: {} };
+export type PutEntry = { type: '[CALENDAR] PUT_ENTRY', payload: {} };
+export type DeleteEntry = { type: '[CALENDAR] DELETE_ENTRY', payload: {} };
+export type SelectMetric = { type: '[CALENDAR] SELECT_METRIC', payload: string };
+export type SelectYear = { type: '[CALENDAR] SELECT_YEAR', payload: number };
 export type Action = RouterAction<CalendarState> |
   GetCalendarByYear |
-  GetEntry | PostEntry | PutEntry | DeleteEntry | SelectFilter | SelectYear;
+  GetEntry | PostEntry | PutEntry | DeleteEntry | SelectMetric | SelectYear;
 
 
 // InititalState
@@ -40,7 +40,7 @@ export type Action = RouterAction<CalendarState> |
 export const calendarInitialState: CalendarState = {
   days: [],
   filters: {
-    metrics: 'sleepQuality',
+    metric: 'sleepQuality',
     year: 2017
   }
 };
@@ -56,9 +56,22 @@ export default function calendarReducer(state: CalendarState = calendarInitialSt
     case CALENDAR_ACTIONS.POST_ENTRY:
     case CALENDAR_ACTIONS.PUT_ENTRY:
     case CALENDAR_ACTIONS.DELETE_ENTRY:
-    case CALENDAR_ACTIONS.SELECT_FILTER:
+    case CALENDAR_ACTIONS.SELECT_METRIC:
+      return {
+        ...state,
+        filters: {
+          ...state.filters,
+          metric: action.payload
+        }
+      };
     case CALENDAR_ACTIONS.SELECT_YEAR:
-      break;
+      return {
+        ...state,
+        filters: {
+          ...state.filters,
+          year: action.payload
+        }
+      };
     default: {
       return state;
     }
@@ -73,5 +86,13 @@ export const getCalendarDays = createSelector(
   getCalendarState,
   getDays,
 );
+export const getFilters = (state: CalendarState) => state.filters;
+
+export const getCalendarFilters = createSelector(
+  getCalendarState,
+  getFilters
+);
+
+
 
 

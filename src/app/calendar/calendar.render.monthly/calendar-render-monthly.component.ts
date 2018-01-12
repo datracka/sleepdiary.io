@@ -8,8 +8,7 @@ import {
   transition,
   trigger,
   OnInit,
-  AfterViewInit,
-  ViewContainerRef,
+  OnChanges,
   ChangeDetectionStrategy
 } from '@angular/core';
 import { MdlSnackbarService } from 'angular2-mdl';
@@ -19,6 +18,7 @@ import { CalendarService } from '../../services/calendar/calendar.service';
 import { MonthRender } from './month/month.render';
 import { WeekRender } from './week/week.render';
 import { Observable } from 'rxjs/Rx';
+import { Filters } from '../calendar.reducer';
 
 let template = require('./calendar-render-monthly.html');
 
@@ -38,10 +38,11 @@ let template = require('./calendar-render-monthly.html');
     ])
   ]
 })
-export class CalendarRenderMonthly implements OnInit, AfterViewInit {
+export class CalendarRenderMonthly implements OnInit, OnChanges {
 
   totalDays: any = new Map(); // data structure for interpolating styles
   @Input() entries$: Observable<any[]>;
+  @Input() filters: Filters;
 
   yearRender: Array<MonthRender> = [
     new MonthRender('January'),
@@ -66,29 +67,18 @@ export class CalendarRenderMonthly implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-    this.buildMonths('en', '2017');
+    console.log('onInit', this.filters);
+    this.buildMonths('en', this.filters.year);
   }
 
-  ngAfterViewInit() { }
-
-  getMonthDateRange(year: String, month: number, isStartOnMonday: boolean) {
-
-    let monthStartDate: any = moment([year, month]).isoWeekday(1);
-
-    let startDateOfWeek = monthStartDate.clone();
-    if (isStartOnMonday) {
-      startDateOfWeek.startOf('isoWeek');
-    } else {
-      startDateOfWeek.startOf('week');
-    }
-
-    return startDateOfWeek;
-
+  ngOnChanges() {
+    console.log('onChange', this.filters);
+    this.buildMonths('en', this.filters.year);
   }
 
   /* TODO: Should return months and not modify inside the function
   AKA do functional programing way!! */
-  buildMonths(lang: String, year: String) {
+  buildMonths(lang: String, year: number) {
 
     for (let i = 0; i < 12; i++) {
       let startDateOfWeek: any = this.getMonthDateRange(year, i, true);
@@ -96,6 +86,18 @@ export class CalendarRenderMonthly implements OnInit, AfterViewInit {
       this.yearRender[i].setWeeks(weeks);
     }
     // console.log('yearRender', this.yearRender);
+  }
+
+  getMonthDateRange(year: number, month: number, isStartOnMonday: boolean) {
+    let monthStartDate: any = moment([year, month]).isoWeekday(1);
+    let startDateOfWeek = monthStartDate.clone();
+
+    if (isStartOnMonday) {
+      startDateOfWeek.startOf('isoWeek');
+    } else {
+      startDateOfWeek.startOf('week');
+    }
+    return startDateOfWeek;
   }
 
   buildWeeks(startDateOfWeek: any, currentMonth: number): any {
