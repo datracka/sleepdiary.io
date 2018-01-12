@@ -4,6 +4,7 @@ import {
   Input,
   Component,
   OnInit,
+  OnChanges,
   ChangeDetectionStrategy
 } from '@angular/core';
 let template = require('./month.html');
@@ -14,12 +15,16 @@ let template = require('./month.html');
   styleUrls: ['./month.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class Month implements OnInit {
+export class Month implements OnInit, OnChanges {
 
   @Input() monthRender: MonthRender;
   @Input() entries$: Observable<any[]>;
 
   ngOnInit() {
+  }
+
+  ngOnChanges() {
+    // console.log('month change');
   }
 
 }

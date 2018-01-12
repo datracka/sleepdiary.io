@@ -19,10 +19,10 @@ const template = require('./monthly.html');
 export class MonthlyPageComponent {
 
   entries$: Observable<any[]>;
-  filters: Filters;
+  year: number;
 
   constructor(private store: Store<fromCalendar.CalendarState>) {
     this.entries$ = this.store.select(fromCalendar.getCalendarDays);
-    this.store.select(fromCalendar.getCalendarFilters).subscribe(filters => this.filters = filters);
+    this.store.select(fromCalendar.getFilterYear).subscribe(year => this.year = year);
   }
 }

@@ -81,17 +81,23 @@ export default function calendarReducer(state: CalendarState = calendarInitialSt
 // selectors
 
 export const getCalendarState = createFeatureSelector<CalendarState>('calendar');
+export const getFiltersState = createFeatureSelector<Filters>('filters');
+
 export const getDays = (state: CalendarState) => state.days;
+export const getFilters = (state: CalendarState) => state.filters;
+
 export const getCalendarDays = createSelector(
   getCalendarState,
   getDays,
 );
-export const getFilters = (state: CalendarState) => state.filters;
 
 export const getCalendarFilters = createSelector(
   getCalendarState,
   getFilters
 );
+
+export const getFilterYear = createSelector(getCalendarFilters, (state: Filters) => state.year);
+export const getFilterMetric = createSelector(getCalendarFilters, (state: Filters) => state.metric);
 
 
 

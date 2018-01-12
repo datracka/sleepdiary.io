@@ -18,7 +18,8 @@ import { CalendarService } from '../../services/calendar/calendar.service';
 import { MonthRender } from './month/month.render';
 import { WeekRender } from './week/week.render';
 import { Observable } from 'rxjs/Rx';
-import { Filters } from '../calendar.reducer';
+import { Store } from '@ngrx/store';
+import * as fromCalendar from '../calendar.reducer';
 
 let template = require('./calendar-render-monthly.html');
 
@@ -42,7 +43,7 @@ export class CalendarRenderMonthly implements OnInit, OnChanges {
 
   totalDays: any = new Map(); // data structure for interpolating styles
   @Input() entries$: Observable<any[]>;
-  @Input() filters: Filters;
+  @Input() year: number;
 
   private nmonthsName = [
     'January',
@@ -59,22 +60,27 @@ export class CalendarRenderMonthly implements OnInit, OnChanges {
     'December'
   ];
   yearRender: Array<MonthRender> = [];
-  test = 'test';
+  metric: string | {};
 
   constructor(
     private mdlSnackbarService: MdlSnackbarService,
     private router: Router,
     public route: ActivatedRoute,
-    public calendarService: CalendarService) {
+    public calendarService: CalendarService,
+    private store: Store<fromCalendar.CalendarState>) {
+    this.store.select(fromCalendar.getFilterMetric).subscribe(metric => {
+      this.metric = metric;
+    });
+
   }
 
   ngOnInit() {
-    this.buildMonths('en', this.filters.year);
+    this.buildMonths('en', this.year);
   }
 
   ngOnChanges() {
     console.log('calendar-render-monthly OnChange');
-    this.buildMonths('en', this.filters.year);
+    this.buildMonths('en', this.year);
   }
 
   buildMonths(lang: String, year: number) {
