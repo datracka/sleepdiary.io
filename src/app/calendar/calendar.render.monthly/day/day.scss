@@ -23,38 +23,26 @@
   cursor: pointer;
 }
 
-.sleeping-quality .sleeping-quality--good {
+:host-context(.sleeping-quality) .sleeping-quality--good {
   background-color: #2EB669 !important;
 }
 
-.sleeping-quality .sleeping-quality--regular {
+:host-context(.sleeping-quality) .sleeping-quality--regular {
   background-color: #FFCD41 !important;
 }
 
-.sleeping-quality .sleeping-quality--bad {
+:host-context(.sleeping-quality) .sleeping-quality--bad {
   background-color: #FD4045 !important;
 }
 
-.tiredness-feeling .tiredness-feeling--good {
+:host-context(.tiredness-feeling) .tiredness-feeling--good {
   background-color: #2EB669 !important;
 }
 
-.tiredness-feeling .tiredness-feeling--regular {
+:host-context(.tiredness-feeling) .tiredness-feeling--regular {
   background-color: #FFCD41 !important;
 }
 
-.tiredness-feeling .tiredness-feeling--bad {
-  background-color: #FD4045 !important;
-}
-
-.sleeping-quality--good {
-  background-color: #2EB669 !important;
-}
-
-.sleeping-quality--regular {
-  background-color: #FFCD41 !important;
-}
-
-.sleeping-quality--bad {
+:host-context(.tiredness-feeling) .tiredness-feeling--bad {
   background-color: #FD4045 !important;
 }

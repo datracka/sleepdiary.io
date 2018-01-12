@@ -44,20 +44,22 @@ export class CalendarRenderMonthly implements OnInit, OnChanges {
   @Input() entries$: Observable<any[]>;
   @Input() filters: Filters;
 
-  yearRender: Array<MonthRender> = [
-    new MonthRender('January'),
-    new MonthRender('February'),
-    new MonthRender('March'),
-    new MonthRender('April'),
-    new MonthRender('May'),
-    new MonthRender('June'),
-    new MonthRender('July'),
-    new MonthRender('August'),
-    new MonthRender('September'),
-    new MonthRender('October'),
-    new MonthRender('November'),
-    new MonthRender('December'),
+  private nmonthsName = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December'
   ];
+  yearRender: Array<MonthRender> = [];
+  test = 'test';
 
   constructor(
     private mdlSnackbarService: MdlSnackbarService,
@@ -67,23 +69,22 @@ export class CalendarRenderMonthly implements OnInit, OnChanges {
   }
 
   ngOnInit() {
-    console.log('onInit', this.filters);
     this.buildMonths('en', this.filters.year);
   }
 
   ngOnChanges() {
-    console.log('onChange', this.filters);
+    console.log('calendar-render-monthly OnChange');
     this.buildMonths('en', this.filters.year);
   }
 
-  /* TODO: Should return months and not modify inside the function
-  AKA do functional programing way!! */
   buildMonths(lang: String, year: number) {
-
+    this.yearRender = []; // reset year
     for (let i = 0; i < 12; i++) {
+      const month = new MonthRender(this.nmonthsName[i]);
       let startDateOfWeek: any = this.getMonthDateRange(year, i, true);
       let weeks: Array<WeekRender> = this.buildWeeks(startDateOfWeek, i);
-      this.yearRender[i].setWeeks(weeks);
+      month.setWeeks(weeks);
+      this.yearRender.push(month);
     }
     // console.log('yearRender', this.yearRender);
   }

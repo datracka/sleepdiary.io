@@ -3,7 +3,7 @@ import { createSelector, createFeatureSelector } from '@ngrx/store';
 import {
   CALENDAR_ACTIONS
 } from './calendar.constants';
-
+import { MetricsIndicators } from '../services/common/metrics-indicators';
 // types
 
 export type Day = {
@@ -40,7 +40,7 @@ export type Action = RouterAction<CalendarState> |
 export const calendarInitialState: CalendarState = {
   days: [],
   filters: {
-    metric: 'sleepQuality',
+    metric: MetricsIndicators.SLEEPING_QUALITY,
     year: 2017
   }
 };
