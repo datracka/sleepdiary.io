@@ -4,6 +4,7 @@ import { ModuleWithProviders } from '@angular/core';
 import { CalendarComponent } from './calendar';
 import { YearlyPageComponent } from './yearly.page/yearly.component';
 import { MonthlyPageComponent } from './monthly.page/monthly.component';
+import { CalendarForm } from './calendar-form.page/calendar-form.component';
 
 const calendarRoutes: Routes = [
   {

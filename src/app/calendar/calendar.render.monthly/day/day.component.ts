@@ -6,7 +6,8 @@ import {
   Component,
   ChangeDetectionStrategy
 } from '@angular/core';
-import { OnChanges } from '@angular/core/src/metadata/lifecycle_hooks';
+import { Router } from '@angular/router';
+import { Entry } from '../../../services/common/entry';
 let template = require('./day.html');
 
 @Component({
@@ -21,22 +22,30 @@ export class Day implements OnInit {
   @Input() entries$: Observable<any[]>;
   sleepingQuality: string;
   tirednessFeeling: string;
+  entry: Array<Entry>;
 
-  constructor(private cdr: ChangeDetectorRef) { }
+  constructor(private cdr: ChangeDetectorRef, private router: Router, ) { }
 
   ngOnInit() {
     this.entries$.subscribe(
-      entry => {
-        const arr = Object.keys(entry).map((k) => entry[k]);
-        const found = arr.filter(
+      entries => {
+        const arr = Object.keys(entries).map((k) => entries[k]);
+        this.entry = arr.filter(
           entry => this.dayRender.date.isSame(entry.date.substring(0, 10), 'day')
         );
-        if (found.length > 0) {
-          this.sleepingQuality = found[0].sleepingQuality;
-          this.tirednessFeeling = found[0].tirednessFeeling;
+        if (this.entry.length > 0) {
+          this.sleepingQuality = this.entry[0].sleepingQuality;
+          this.tirednessFeeling = this.entry[0].tirednessFeeling;
           this.cdr.markForCheck();
         }
       }
     );
   }
+
+  handleClick() {
+    if (!this.dayRender.isCurrentMonth) { return false; }
+    const uuid = (this.entry.length > 0) ? this.entry[0].uuid : 'new';
+    this.router.navigate(['/entry', uuid, { day: this.dayRender.date.format('YYYY-MM-DD') }]);
+  }
 }
+
