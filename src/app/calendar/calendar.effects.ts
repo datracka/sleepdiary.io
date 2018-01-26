@@ -24,7 +24,7 @@ import { CalendarState } from './calendar.reducer';
 @Injectable()
 export class CalendarEffects {
   @Effect() navigateToHome = this.handleNavigation(ROUTE_CALENDAR_MONTHLY_PAGE, (r: ActivatedRouteSnapshot) => {
-    this.calendarService.getAll('2017')
+    this.calendarService.getAll('2018')
       .map(response => ({ type: CALENDAR_ACTIONS.GET_YEARLY, payload: response.json() }))
       .subscribe((action) => {
         this.store.dispatch(action);

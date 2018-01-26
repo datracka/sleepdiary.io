@@ -9,7 +9,9 @@ import {
   trigger,
   OnInit,
   OnChanges,
-  ChangeDetectionStrategy
+  ChangeDetectionStrategy,
+  Output,
+  EventEmitter
 } from '@angular/core';
 import { MdlSnackbarService } from 'angular2-mdl';
 import * as moment from 'moment';
@@ -20,6 +22,7 @@ import { WeekRender } from './week/week.render';
 import { Observable } from 'rxjs/Rx';
 import { Store } from '@ngrx/store';
 import * as fromCalendar from '../calendar.reducer';
+
 
 let template = require('./calendar-render-monthly.html');
 
@@ -44,6 +47,7 @@ export class CalendarRenderMonthly implements OnInit, OnChanges {
   totalDays: any = new Map(); // data structure for interpolating styles
   @Input() entries$: Observable<any[]>;
   @Input() year: number;
+  @Output() clickOnAdd: EventEmitter<any> = new EventEmitter<any>();
 
   private nmonthsName = [
     'January',
@@ -75,11 +79,16 @@ export class CalendarRenderMonthly implements OnInit, OnChanges {
   }
 
   ngOnInit() {
+    console.log('calendar-render-monthly OnInit', this.year);
     this.buildMonths('en', this.year);
   }
 
+  handleClick() {
+    this.clickOnAdd.emit();
+  }
+
   ngOnChanges() {
-    console.log('calendar-render-monthly OnChange');
+    console.log('calendar-render-monthly OnChange', this.year);
     this.buildMonths('en', this.year);
   }
 

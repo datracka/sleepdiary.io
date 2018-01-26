@@ -41,7 +41,7 @@ export const calendarInitialState: CalendarState = {
   days: [],
   filters: {
     metric: MetricsIndicators.SLEEPING_QUALITY,
-    year: 2017
+    year: 2018
   }
 };
 

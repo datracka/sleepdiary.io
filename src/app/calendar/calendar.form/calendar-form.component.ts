@@ -24,6 +24,7 @@ export class CalendarForm implements OnInit {
   public form: any;
   filters: Filters;
   @Input() currentYearSelected: String;
+  @Input() year: number;
   public metricIndicator: MetricsIndicators = MetricsIndicators.SLEEPING_QUALITY;
   years: any = [
     { value: '2016', name: '2016' },

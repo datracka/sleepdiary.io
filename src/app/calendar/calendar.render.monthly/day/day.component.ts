@@ -24,7 +24,7 @@ export class Day implements OnInit {
   tirednessFeeling: string;
   entry: Array<Entry>;
 
-  constructor(private cdr: ChangeDetectorRef, private router: Router, ) { }
+  constructor(private cdr: ChangeDetectorRef, private router: Router) { }
 
   ngOnInit() {
     this.entries$.subscribe(

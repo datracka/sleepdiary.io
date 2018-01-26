@@ -4,4 +4,4 @@
     <div class="mdl-layout-spacer"></div>
   </div>
 </header>
-<calendar-render-monthly [entries$]="entries$" [year]="year"></calendar-render-monthly>
+<calendar-render-monthly (clickOnAdd)="clickOnAdd()" [entries$]="entries$" [year]="year"></calendar-render-monthly>
