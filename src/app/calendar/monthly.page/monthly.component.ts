@@ -28,27 +28,19 @@ export class MonthlyPageComponent {
     this.store.select(fromCalendar.getFilterYear).subscribe(year => this.year = year);
   }
   /*
-    Architectural problem!
-
-    Backend is not Source of Truth. Client checks entries in Redux state and switch if 'ner' or 'existing'
-    entry-form receives 'new' or 'uuid' and retrieve whole information from state
-
-    This is stupid and a lost of resources. We are gathering all the information for mantaining the state between views.
-
-    Better approach ask Backend if exists or not current day...
+    We check if the current day is already filled and if so we retrieve the uuid to send to entry-form
+    Entry-form will use it to retrieve the day from backend
   */
   clickOnAdd() {
-    console.log('clickOnAdd!');
     this.entries$.subscribe(
       entries => {
         const arr = Object.keys(entries).map((k) => entries[k]);
         const entry: Array<Entry> = arr.filter(
-          entry => moment().isSame(entry.date.substring(0, 10), 'day')
+          e => moment().isSame(e.date.substring(0, 10), 'day')
         );
-        console.log('there is day', entry);
         const uuid = (entry.length > 0) ? entry[0].uuid : 'new';
         this.router.navigate(['/entry', uuid, { day: moment().format('YYYY-MM-DD') }]);
       }
-    )
+    );
   }
 }

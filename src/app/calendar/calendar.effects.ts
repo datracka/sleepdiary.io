@@ -13,8 +13,17 @@ import 'rxjs/add/operator/mapTo';
 import { of } from 'rxjs/observable/of';
 import { Observable } from 'rxjs/Observable';
 import { CalendarService } from '../services/calendar/calendar.service';
-import { ROUTE_CALENDAR_MONTHLY_PAGE, CALENDAR_ACTIONS } from './calendar.constants';
+import {
+  ROUTE_CALENDAR_MONTHLY_PAGE,
+  CALENDAR_ACTIONS,
+  GET_ENTRY,
+  POST_ENTRY,
+  PUT_ENTRY,
+  DELETE_ENTRY
+} from './calendar.constants';
 import { CalendarState } from './calendar.reducer';
+import { Entry } from '../services/common/entry';
+import { EntryFormService } from '../services/entry-form/entry-form.service';
 
 
 // TODO:
@@ -27,15 +36,32 @@ export class CalendarEffects {
     this.calendarService.getAll('2018')
       .map(response => ({ type: CALENDAR_ACTIONS.GET_YEARLY, payload: response.json() }))
       .subscribe((action) => {
+        console.log('dispatch route navigation!');
         this.store.dispatch(action);
       });
     return null;
   });
 
-  constructor(private actions: Actions, private store: Store<CalendarState>, public calendarService: CalendarService) {
+  /* maybe move this effects to his own file ... */
+  @Effect() newEntry = this.actions.ofType(GET_ENTRY)
+    .switchMap((entry: any) => {
+      return this.entryFormService.newEntry(entry)
+        .switchMap(() => of()). // do nothing when it succeeds
+        catch(e => {
+          console.log('Error', e);
+          return of({ type: 'ROLLBACK_EXAMPLE', payload: {} }); // example. Here (get) no useful!
+        });
+    });
+  @Effect() updateEntry = undefined;
+  @Effect() deleteEntry = undefined;
+
+  constructor(private actions: Actions, private store: Store<CalendarState>,
+    public calendarService: CalendarService,
+    public entryFormService: EntryFormService) {
   }
 
   private handleNavigation(segment: string, callback: (a: ActivatedRouteSnapshot, state: CalendarState) => Observable<any>) {
+    console.log('here');
     const nav = this.actions.ofType(ROUTER_NAVIGATION).
       map(firstSegment).
       filter(s => {

@@ -78,10 +78,6 @@ export class CalendarRenderMonthly implements OnInit, OnChanges {
 
   }
 
-  ngOnInit() {
-    console.log('calendar-render-monthly OnInit', this.year);
-    this.buildMonths('en', this.year);
-  }
 
   handleClick() {
     this.clickOnAdd.emit();
