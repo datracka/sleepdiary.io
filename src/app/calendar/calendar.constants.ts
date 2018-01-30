@@ -2,6 +2,7 @@
 
 export const ROUTE_CALENDAR_MONTHLY_PAGE = '/calendar/monthly';
 export const ROUTE_CALENDAR_YEARLY_PAGE = '/calendar/yearly';
+export const ROUTE_ENTRY_FORM = '/calendar/entry';
 
 // actions
 

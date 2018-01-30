@@ -6,6 +6,7 @@ import { Observable } from 'rxjs/Rx';
 import * as moment from 'moment';
 import { Entry } from '../../services/common/entry';
 import { Router } from '@angular/router';
+import { ROUTE_ENTRY_FORM } from '../calendar.constants';
 
 
 const template = require('./monthly.html');
@@ -39,7 +40,7 @@ export class MonthlyPageComponent {
           e => moment().isSame(e.date.substring(0, 10), 'day')
         );
         const uuid = (entry.length > 0) ? entry[0].uuid : 'new';
-        this.router.navigate(['/entry', uuid, { day: moment().format('YYYY-MM-DD') }]);
+        this.router.navigate([ROUTE_ENTRY_FORM, uuid, { day: moment().format('YYYY-MM-DD') }]);
       }
     );
   }

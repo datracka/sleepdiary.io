@@ -19,7 +19,6 @@ import { Login } from './login/login.component';
 import { SignUp } from './signup/signup.component';
 import { AppComponent } from './app.component';
 import { StatisticsModule } from './statistics/statistics.module';
-import { EntryForm } from './entry-form';
 import { reducers, metaReducers } from './app.reducer';
 import { CustomRouterStateSerializer } from './utils/custom-router-serializer';
 
@@ -61,8 +60,7 @@ import { CustomRouterStateSerializer } from './utils/custom-router-serializer';
   declarations: [
     AppComponent,
     Login,
-    SignUp,
-    EntryForm
+    SignUp
   ],
   entryComponents: [AppComponent]
 })

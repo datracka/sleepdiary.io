@@ -5,6 +5,7 @@ import { MdlSelectModule } from '@angular2-mdl-ext/select';
 import { MdlPopoverModule } from '@angular2-mdl-ext/popover';
 import { FormsModule } from '@angular/forms';
 
+import { EntryForm } from './entry-form';
 import { CalendarEffects } from './calendar.effects';
 import { CalendarForm } from './calendar.form/calendar-form.component';
 import { calendarRouting } from './calendar.routes';
@@ -21,6 +22,7 @@ import { CloseMenuDirective } from '../services/common/close-menu.directive';
 import { SharedModule } from '../shared/shared.module';
 import { CalendarService } from '../services/calendar/calendar.service';
 import calendarReducer from './calendar.reducer';
+import { EntryFormService } from '../services/entry-form/entry-form.service';
 
 @NgModule({
   imports: [
@@ -43,13 +45,13 @@ import calendarReducer from './calendar.reducer';
     Month,
     Week,
     Day,
-    CloseMenuDirective
-
+    CloseMenuDirective,
+    EntryForm
   ],
   providers: [
     AuthGuard,
-    // HomeEffects,
-    CalendarService
+    CalendarService,
+    EntryFormService
   ]
 })
 export class CalendarModule {

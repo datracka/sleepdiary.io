@@ -42,7 +42,7 @@ let template = require('./calendar-render-monthly.html');
     ])
   ]
 })
-export class CalendarRenderMonthly implements OnInit, OnChanges {
+export class CalendarRenderMonthly implements OnChanges {
 
   totalDays: any = new Map(); // data structure for interpolating styles
   @Input() entries$: Observable<any[]>;

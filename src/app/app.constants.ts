@@ -1,6 +1,5 @@
 // routes
 
-export const ROUTE_ENTRY_FORM = '/entry';
 export const ROUTE_LOGIN = 'login';
 export const ROUTE_SIGN_UP = 'signup';
 

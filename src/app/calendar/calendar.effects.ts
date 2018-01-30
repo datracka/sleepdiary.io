@@ -43,17 +43,17 @@ export class CalendarEffects {
   });
 
   /* maybe move this effects to his own file ... */
-  @Effect() newEntry = this.actions.ofType(GET_ENTRY)
-    .switchMap((entry: any) => {
-      return this.entryFormService.newEntry(entry)
-        .switchMap(() => of()). // do nothing when it succeeds
-        catch(e => {
-          console.log('Error', e);
-          return of({ type: 'ROLLBACK_EXAMPLE', payload: {} }); // example. Here (get) no useful!
-        });
-    });
-  @Effect() updateEntry = undefined;
-  @Effect() deleteEntry = undefined;
+  /*   @Effect() newEntry = this.actions.ofType(GET_ENTRY)
+      .switchMap((entry: any) => {
+        return this.entryFormService.newEntry(entry)
+          .switchMap(() => of()). // do nothing when it succeeds
+          catch(e => {
+            console.log('Error', e);
+            return of({ type: 'ROLLBACK_EXAMPLE', payload: {} }); // example. Here (get) no useful!
+          });
+      });
+    @Effect() updateEntry = undefined;
+    @Effect() deleteEntry = undefined; */
 
   constructor(private actions: Actions, private store: Store<CalendarState>,
     public calendarService: CalendarService,
@@ -61,7 +61,6 @@ export class CalendarEffects {
   }
 
   private handleNavigation(segment: string, callback: (a: ActivatedRouteSnapshot, state: CalendarState) => Observable<any>) {
-    console.log('here');
     const nav = this.actions.ofType(ROUTER_NAVIGATION).
       map(firstSegment).
       filter(s => {

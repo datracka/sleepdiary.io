@@ -1,9 +1,9 @@
 import { Component, AfterViewInit, OnInit, style, state, animate, transition, trigger } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { Entry } from '../services/common/entry';
-import { EntryFormService } from '../services/entry-form/entry-form.service';
-import { ROUTE_CALENDAR_MONTHLY_PAGE } from '../calendar/calendar.constants';
+import { Entry } from '../../services/common/entry';
+import { EntryFormService } from '../../services/entry-form/entry-form.service';
+import { ROUTE_CALENDAR_MONTHLY_PAGE } from '../../calendar/calendar.constants';
 
 let template = require('./entry-form.html');
 @Component({
@@ -60,7 +60,7 @@ export class EntryForm implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-    //get params from URL
+    // get params from URL
     this.sub = this.route
       .params
       .subscribe(params => {

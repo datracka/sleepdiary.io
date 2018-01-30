@@ -8,6 +8,7 @@ import {
 } from '@angular/core';
 import { Router } from '@angular/router';
 import { Entry } from '../../../services/common/entry';
+import { ROUTE_ENTRY_FORM } from '../../calendar.constants';
 let template = require('./day.html');
 
 @Component({
@@ -45,7 +46,7 @@ export class Day implements OnInit {
   handleClick() {
     if (!this.dayRender.isCurrentMonth) { return false; }
     const uuid = (this.entry.length > 0) ? this.entry[0].uuid : 'new';
-    this.router.navigate(['/entry', uuid, { day: this.dayRender.date.format('YYYY-MM-DD') }]);
+    this.router.navigate([ROUTE_ENTRY_FORM, uuid, { day: this.dayRender.date.format('YYYY-MM-DD') }]);
   }
 }
 
