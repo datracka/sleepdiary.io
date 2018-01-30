@@ -14,10 +14,5 @@ What we have to do now.
 Actions are (as well) catched by reducer and update state
 - Set optimistic updates (actions when request to the server fails... ROLLBACK_INSERT, ROLLBACK_UPDATE, ROLLBACK_DELETE) see https://blog.nrwl.io/using-ngrx-4-to-manage-state-in-angular-applications-64e7a1f84b7b
 
-questions:
 
-- Should entry effects() be in own effects file?? Entry are not 
-inside of calendar module
-But entry are affecting calendar namespace state... (entry-form updates calendar state.)
-
-- mportant need to understand properly rxjs!! (see tutorial)
+- **Important need to understand properly rxjs!! (see tutorial)
