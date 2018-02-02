@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Actions, Effect } from '@ngrx/effects';
 import { ROUTER_NAVIGATION, RouterNavigationAction } from '@ngrx/router-store';
-import { ActivatedRouteSnapshot } from '@angular/router';
+import { ActivatedRouteSnapshot, ActivatedRoute, RouterStateSnapshot } from '@angular/router';
 import { Store } from '@ngrx/store';
 import 'rxjs/observable/of';
 import 'rxjs/add/operator/map';
@@ -15,6 +15,7 @@ import { Observable } from 'rxjs/Observable';
 import { CalendarService } from '../services/calendar/calendar.service';
 import {
   ROUTE_CALENDAR_MONTHLY_PAGE,
+  ROUTE_ENTRY_FORM,
   CALENDAR_ACTIONS,
   GET_ENTRY,
   POST_ENTRY,
@@ -35,25 +36,30 @@ import { Action, GetEntry } from './calendar.reducer';
 @Injectable()
 export class CalendarEffects {
 
-  @Effect() navigateToHome = this.handleNavigation(ROUTE_CALENDAR_MONTHLY_PAGE, (r: ActivatedRouteSnapshot) => {
-    this.calendarService.getAll('2018')
+  @Effect() navigateToHome = this.handleNavigation(ROUTE_CALENDAR_MONTHLY_PAGE, () => {
+    console.log('ROUTE_CALENDAR_MONTHLY_PAGE');
+    this.calendarService.getAll('2018') // ,-- refactor it : param should be in url!!! /calendar/monthly/2018
       .map(response => ({ type: CALENDAR_ACTIONS.GET_YEARLY, payload: response.json() }))
       .subscribe((action) => {
         this.store.dispatch(action);
         return of();
       });
-    return null;
+    return of(); // to avoid console warning... nevertheles something is wrong...
   });
-  /* effect not used */
-  @Effect() getEntry = this.actions.ofType(CALENDAR_ACTIONS.GET_ENTRY)
-    .switchMap((action: GetEntry) => {
-      return this.entryFormService.getEntry(action.payload)
-        .switchMap(response => of({ type: CALENDAR_ACTIONS.GET_ENTRY, payload: response.json() }))
-        .catch(e => {
-          console.log('Error', e);
-          return of();
-        });
-    });
+
+  @Effect() navigateToEntryForm = this.handleNavigation('/calendar/entry/:uuid', (r: ActivatedRouteSnapshot) => {
+    console.log('aaaa', +r);
+    return of();
+  });
+  /*   @Effect() getEntry = this.actions.ofType(CALENDAR_ACTIONS.GET_ENTRY)
+      .switchMap((action: GetEntry) => {
+        return this.entryFormService.getEntry(action.payload);
+      })
+      .map(response => ({ type: CALENDAR_ACTIONS.GET_YEARLY, payload: response.json() }))
+      .catch(e => {
+        console.log('Error', e);
+        return of();
+      }); */
   /* maybe move this effects to his own file ... */
   /*   @Effect() newEntry = this.actions.ofType(GET_ENTRY)
       .switchMap((entry: any) => {
@@ -72,7 +78,7 @@ export class CalendarEffects {
     public entryFormService: EntryFormService) {
   }
 
-  private handleNavigation(segment: string, callback: (a: ActivatedRouteSnapshot, state: CalendarState) => Observable<any>) {
+  private handleNavigation(segment: string, callback: (a: ActivatedRouteSnapshot) => Observable<any>) {
     const nav = this.actions.ofType(ROUTER_NAVIGATION).
       map(firstSegment).
       filter(s => {
@@ -81,7 +87,7 @@ export class CalendarEffects {
 
     return nav.withLatestFrom(this.store)
       .switchMap(a => {
-        return callback(a[0], a[1]);
+        return callback(a[0]);
       })
       .catch(e => {
         console.log('Network error', e);

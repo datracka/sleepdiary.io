@@ -84,7 +84,7 @@ export class EntryForm implements OnInit, AfterViewInit {
     if (this.params.uuid !== 'new') {
       // update existing entry
       let uuid: string = this.params.uuid;
-      this.store.select(getCalendarDays)
+      /* this.store.select(getCalendarDays)
         .subscribe(entries => {
           const arrEntries = Object.keys(entries).map((k) => entries[k]);
           const entry: Array<Entry> = arrEntries.filter(
@@ -92,7 +92,7 @@ export class EntryForm implements OnInit, AfterViewInit {
               return e.uuid === uuid;
             });
           this.entry = entry[0];
-        });
+        }); */
     } else {
       this.entry.date = new Date(this.params.day).toISOString();
     }

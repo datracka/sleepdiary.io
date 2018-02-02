@@ -1,6 +1,11 @@
 # Implementing actions for get, update, insert and delete
 
-## Problem now: in Effects actionCALENDAR_ACTIONS.GET_ENTRY to update the state is not dispatched!!... the reducer takes a shit of it! Why?
+## working on: navigateToEntryForm (effects)
+
+Problem: I need the uuid from url param. I can not retrieve it. Following example 'state_management_ngrx_4' looks quite easy. I don"t know why. Theory is that is related to the ROUTE I am looking for... just check how it works in the project example or ask for help in google.
+
+After that the rest of actions to dispatch should be much easier....
+
 
 What we have to do now.
 
@@ -9,10 +14,6 @@ What we have to do now.
 - The service therefore is used by effects() class.
 Actions are (as well) catched by reducer and update state
 - Set optimistic updates (actions when request to the server fails... ROLLBACK_INSERT, ROLLBACK_UPDATE, ROLLBACK_DELETE) see https://blog.nrwl.io/using-ngrx-4-to-manage-state-in-angular-applications-64e7a1f84b7b
-
-
-- **Important need to understand properly rxjs!! (see tutorial)
-
 
 Architectural challenge:
 
