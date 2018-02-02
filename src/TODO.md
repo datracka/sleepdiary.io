@@ -1,10 +1,6 @@
 # Implementing actions for get, update, insert and delete
 
-What we have currently: (clasical way)
-
-- onLoad entry-component loads entry from server (get)
-- when action performend component entry-form through service request information to server.
-- with insert / update / delete backend is updated
+## Problem now: in Effects actionCALENDAR_ACTIONS.GET_ENTRY to update the state is not dispatched!!... the reducer takes a shit of it! Why?
 
 What we have to do now.
 
@@ -16,3 +12,14 @@ Actions are (as well) catched by reducer and update state
 
 
 - **Important need to understand properly rxjs!! (see tutorial)
+
+
+Architectural challenge:
+
+- When listing calendar we get all items
+- When asking for an element in form we get element from backend
+- - if element already exists we dont do anything
+- - we retrieve the element from the state
+- Wnen listing calendar second time retrieve all items updating list with only missing one. 
+
+

@@ -24,7 +24,7 @@ export type CalendarState = {
 };
 
 export type GetCalendarByYear = { type: '[CALENDAR] GET_YEARLY', payload: {} };
-export type GetEntry = { type: '[CALENDAR] GET_ENTRY', payload: {} };
+export type GetEntry = { type: '[CALENDAR] GET_ENTRY', payload: string };
 export type PostEntry = { type: '[CALENDAR] POST_ENTRY', payload: {} };
 export type PutEntry = { type: '[CALENDAR] PUT_ENTRY', payload: {} };
 export type DeleteEntry = { type: '[CALENDAR] DELETE_ENTRY', payload: {} };
@@ -50,9 +50,16 @@ export const calendarInitialState: CalendarState = {
 export default function calendarReducer(state: CalendarState = calendarInitialState, action: Action): CalendarState {
   switch (action.type) {
     case CALENDAR_ACTIONS.GET_YEARLY:
-      const days = { ...state.days, ...action.payload };
-      return { ...state, days };
+      return {
+        ...state,
+        days: { ...state.days, ...action.payload }
+      };
     case CALENDAR_ACTIONS.GET_ENTRY:
+      console.log(action.payload);
+      return {
+        ...state,
+        days: { ...state.days }
+      };
     case CALENDAR_ACTIONS.POST_ENTRY:
     case CALENDAR_ACTIONS.PUT_ENTRY:
     case CALENDAR_ACTIONS.DELETE_ENTRY:

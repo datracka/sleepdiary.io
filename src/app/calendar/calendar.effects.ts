@@ -24,6 +24,8 @@ import {
 import { CalendarState } from './calendar.reducer';
 import { Entry } from '../services/common/entry';
 import { EntryFormService } from '../services/entry-form/entry-form.service';
+import { CALENDAR_ACTIONS } from './calendar.constants';
+import { Action, GetEntry } from './calendar.reducer';
 
 
 // TODO:
@@ -32,16 +34,26 @@ import { EntryFormService } from '../services/entry-form/entry-form.service';
 // (pre)append & (post)append LOADING status Action
 @Injectable()
 export class CalendarEffects {
+
   @Effect() navigateToHome = this.handleNavigation(ROUTE_CALENDAR_MONTHLY_PAGE, (r: ActivatedRouteSnapshot) => {
     this.calendarService.getAll('2018')
       .map(response => ({ type: CALENDAR_ACTIONS.GET_YEARLY, payload: response.json() }))
       .subscribe((action) => {
-        console.log('dispatch route navigation!');
         this.store.dispatch(action);
+        return of();
       });
     return null;
   });
-
+  /* effect not used */
+  @Effect() getEntry = this.actions.ofType(CALENDAR_ACTIONS.GET_ENTRY)
+    .switchMap((action: GetEntry) => {
+      return this.entryFormService.getEntry(action.payload)
+        .switchMap(response => of({ type: CALENDAR_ACTIONS.GET_ENTRY, payload: response.json() }))
+        .catch(e => {
+          console.log('Error', e);
+          return of();
+        });
+    });
   /* maybe move this effects to his own file ... */
   /*   @Effect() newEntry = this.actions.ofType(GET_ENTRY)
       .switchMap((entry: any) => {
