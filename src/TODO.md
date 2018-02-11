@@ -2,14 +2,18 @@
 
 ## working on: navigateToEntryForm (effects)
 
-Problem: Now we have ActivatedRouteSnapshot as parameter and therefore we can get the information in @effects. Issue is get the proper information from object. 
+### Next steps:
 
-and rememeber to fix the calendare effects call!!
+- check why is fucking slow!!!
 
-After that the rest of actions to dispatch should be much easier....
+- Add new entry, dispatch action, set effect and implement reducer. 
+- Add update entry, dispatch action, set effect and implement reducer.
+- Add delete entry, dispatch action, set effect and implemeent reducer.
 
+Optional: implement optimistic updated. So for example for add new entry
+ACTION: NEW_ENTRY -> UI sets back to calendar but in the meanwhile is triggered the  EFFECT (POST) and if it fails, it triggers another action REMOVE_NEW_ENTRY that says the user it was a problem adding the entry.
 
-What we have to do now
+#### GUIDE:
 
 - Compoment entry-form dispatch actions.
 - Actions are "catched" by effects() and dispatch request to server
