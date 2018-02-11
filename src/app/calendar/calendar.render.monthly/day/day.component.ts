@@ -46,7 +46,8 @@ export class Day implements OnInit {
   handleClick() {
     if (!this.dayRender.isCurrentMonth) { return false; }
     const uuid = (this.entry.length > 0) ? this.entry[0].uuid : 'new';
-    this.router.navigate([ROUTE_ENTRY_FORM, uuid, { day: this.dayRender.date.format('YYYY-MM-DD') }]);
+    // TODO '/calendar/entry' should be a CONSTANT
+    this.router.navigate(['/calendar/entry', uuid, { day: this.dayRender.date.format('YYYY-MM-DD') }]);
   }
 }
 

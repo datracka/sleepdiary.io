@@ -84,15 +84,15 @@ export class EntryForm implements OnInit, AfterViewInit {
     if (this.params.uuid !== 'new') {
       // update existing entry
       let uuid: string = this.params.uuid;
-      /* this.store.select(getCalendarDays)
+      this.store.select(getCalendarDays)
         .subscribe(entries => {
-          const arrEntries = Object.keys(entries).map((k) => entries[k]);
+          const arrEntries = Object.keys(entries).map(key => entries[key]);
           const entry: Array<Entry> = arrEntries.filter(
             e => {
               return e.uuid === uuid;
             });
           this.entry = entry[0];
-        }); */
+        });
     } else {
       this.entry.date = new Date(this.params.day).toISOString();
     }
@@ -126,7 +126,8 @@ export class EntryForm implements OnInit, AfterViewInit {
   }
 
   back() {
-    this.router.navigate([ROUTE_CALENDAR_MONTHLY_PAGE, { day: this.params.day }]);
+    // TODO 'calendar/monthly' should be a constant
+    this.router.navigate(['calendar/monthly', { day: this.params.day }]);
   }
 
   deleteEntry(uuid: string) {

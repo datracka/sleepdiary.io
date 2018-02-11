@@ -55,7 +55,7 @@ import { CustomRouterStateSerializer } from './utils/custom-router-serializer';
       },
       deps: [Http]
     },
-    { provide: RouterStateSerializer, useClass: CustomRouterStateSerializer },
+    /* { provide: RouterStateSerializer, useClass: CustomRouterStateSerializer }, */
   ],
   declarations: [
     AppComponent,

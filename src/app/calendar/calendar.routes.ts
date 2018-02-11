@@ -4,6 +4,7 @@ import { EntryForm } from './entry-form/entry-form.component';
 import { CalendarComponent } from './calendar';
 import { YearlyPageComponent } from './yearly.page/yearly.component';
 import { MonthlyPageComponent } from './monthly.page/monthly.component';
+import { ROUTE_CALENDAR_MONTHLY_PAGE, ROUTE_CALENDAR_YEARLY_PAGE, ROUTE_ENTRY_FORM } from './calendar.constants';
 
 const calendarRoutes: Routes = [
   {
@@ -11,15 +12,15 @@ const calendarRoutes: Routes = [
     component: CalendarComponent,
     children: [
       {
-        path: 'monthly',
+        path: ROUTE_CALENDAR_MONTHLY_PAGE,
         component: MonthlyPageComponent
       },
       {
-        path: 'yearly',
+        path: ROUTE_CALENDAR_YEARLY_PAGE,
         component: YearlyPageComponent
       },
       {
-        path: 'entry/:uuid',
+        path: ROUTE_ENTRY_FORM,
         component: EntryForm
       }
     ]

@@ -55,10 +55,9 @@ export default function calendarReducer(state: CalendarState = calendarInitialSt
         days: { ...state.days, ...action.payload }
       };
     case CALENDAR_ACTIONS.GET_ENTRY:
-      console.log('aaa', action.payload);
       return {
         ...state,
-        days: { ...state.days }
+        days: { ...state.days, ...action.payload }
       };
     case CALENDAR_ACTIONS.POST_ENTRY:
     case CALENDAR_ACTIONS.PUT_ENTRY:

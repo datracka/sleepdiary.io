@@ -1,4 +1,4 @@
-import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
 
 import { Login } from './login';
 import { SignUp } from './signup';
@@ -29,7 +29,6 @@ const appRouting: Routes = [
 
 const appRoutes: Routes = [
   ...appRouting,
-
 ];
 
 export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes, {

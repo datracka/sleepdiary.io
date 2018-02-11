@@ -40,7 +40,8 @@ export class MonthlyPageComponent {
           e => moment().isSame(e.date.substring(0, 10), 'day')
         );
         const uuid = (entry.length > 0) ? entry[0].uuid : 'new';
-        this.router.navigate([ROUTE_ENTRY_FORM, uuid, { day: moment().format('YYYY-MM-DD') }]);
+        // TODO '/calendar/entry' should be a CONSTANT
+        this.router.navigate(['/calendar/entry', uuid, { day: moment().format('YYYY-MM-DD') }]);
       }
     );
   }

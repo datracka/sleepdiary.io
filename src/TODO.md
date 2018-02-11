@@ -2,12 +2,14 @@
 
 ## working on: navigateToEntryForm (effects)
 
-Problem: I need the uuid from url param. I can not retrieve it. Following example 'state_management_ngrx_4' looks quite easy. I don"t know why. Theory is that is related to the ROUTE I am looking for... just check how it works in the project example or ask for help in google.
+Problem: Now we have ActivatedRouteSnapshot as parameter and therefore we can get the information in @effects. Issue is get the proper information from object. 
+
+and rememeber to fix the calendare effects call!!
 
 After that the rest of actions to dispatch should be much easier....
 
 
-What we have to do now.
+What we have to do now
 
 - Compoment entry-form dispatch actions.
 - Actions are "catched" by effects() and dispatch request to server

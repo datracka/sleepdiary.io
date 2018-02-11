@@ -1,9 +1,9 @@
-import {Component, style, state, animate, transition, trigger} from '@angular/core';
-import {FormBuilder, FormGroup} from '@angular/forms';
-import {Router} from '@angular/router';
+import { Component, style, state, animate, transition, trigger } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 
-import {LoginService} from '../services/login/login.service';
-import {LoginModel} from './LoginModel';
+import { LoginService } from '../services/login/login.service';
+import { LoginModel } from './LoginModel';
 
 import {
   ERROR_USER_NOT_FOUND,
@@ -14,13 +14,7 @@ import {
   LENGTH_MIN_6,
 } from '../app.constants';
 
-import { ROUTE_CALENDAR_MONTHLY_PAGE } from '../calendar/calendar.constants';
-
-
 const template = require('./login.html');
-
-
-
 
 @Component({
   selector: 'login',
@@ -29,9 +23,9 @@ const template = require('./login.html');
   styleUrls: ['./login.scss'],
   animations: [
     trigger('flyInOut', [
-      state('in', style({opacity: 1})),
+      state('in', style({ opacity: 1 })),
       transition('void => *', [
-        style({opacity: 0}),
+        style({ opacity: 0 }),
         animate(300)
       ])
     ])
@@ -66,14 +60,14 @@ export class Login {
 
       let email: any = this.loginForm.get('email').value;
       let password: any = this.loginForm.get('password').value;
-      let body: any = JSON.stringify({email, password});
+      let body: any = JSON.stringify({ email, password });
 
       this.loginService.login(body).subscribe(
         response => {
 
           localStorage.setItem('id_token', response.json().token_key);
           localStorage.setItem('user', JSON.stringify(response.json()));
-          this.router.navigate([ROUTE_CALENDAR_MONTHLY_PAGE, {actionRef: 'login'}]);
+          this.router.navigate(['/calendar/monthly', { actionRef: 'login' }]); // TODO create & set constant APP + CALENDAR route
         },
         error => {
 
@@ -82,22 +76,22 @@ export class Login {
           if (e.error === ERROR_FIELD_VALIDATION) {
 
             if (e.fields.email === IS_REQUIRED) {
-              this.loginForm.get('email').setErrors({required: true});
+              this.loginForm.get('email').setErrors({ required: true });
               this.loginForm.get('email').markAsTouched();
             }
 
             if (e.fields.email === IS_NOT_EMAIL) {
-              this.loginForm.get('email').setErrors({pattern: {}});
+              this.loginForm.get('email').setErrors({ pattern: {} });
               this.loginForm.get('email').markAsTouched();
             }
 
             if (e.fields.password === IS_REQUIRED) {
-              this.loginForm.get('password').setErrors({required: true});
+              this.loginForm.get('password').setErrors({ required: true });
               this.loginForm.get('password').markAsTouched();
             }
 
             if (e.fields.password === LENGTH_MIN_6) {
-              this.loginForm.get('password').setErrors({minlength: {}});
+              this.loginForm.get('password').setErrors({ minlength: {} });
               this.loginForm.get('password').markAsTouched();
             }
           }

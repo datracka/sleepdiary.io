@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Actions, Effect } from '@ngrx/effects';
 import { ROUTER_NAVIGATION, RouterNavigationAction } from '@ngrx/router-store';
-import { ActivatedRouteSnapshot, ActivatedRoute, RouterStateSnapshot } from '@angular/router';
+import { ActivatedRouteSnapshot } from '@angular/router';
 import { Store } from '@ngrx/store';
 import 'rxjs/observable/of';
 import 'rxjs/add/operator/map';
@@ -36,8 +36,7 @@ import { Action, GetEntry } from './calendar.reducer';
 @Injectable()
 export class CalendarEffects {
 
-  @Effect() navigateToHome = this.handleNavigation(ROUTE_CALENDAR_MONTHLY_PAGE, () => {
-    console.log('ROUTE_CALENDAR_MONTHLY_PAGE');
+  @Effect() navigateToHome = this.handleNavigation(ROUTE_CALENDAR_MONTHLY_PAGE, (r: ActivatedRouteSnapshot, state: any) => {
     this.calendarService.getAll('2018') // ,-- refactor it : param should be in url!!! /calendar/monthly/2018
       .map(response => ({ type: CALENDAR_ACTIONS.GET_YEARLY, payload: response.json() }))
       .subscribe((action) => {
@@ -47,8 +46,13 @@ export class CalendarEffects {
     return of(); // to avoid console warning... nevertheles something is wrong...
   });
 
-  @Effect() navigateToEntryForm = this.handleNavigation('/calendar/entry/:uuid', (r: ActivatedRouteSnapshot) => {
-    console.log('aaaa', +r);
+  @Effect() navigateToEntryForm = this.handleNavigation(ROUTE_ENTRY_FORM, (r: ActivatedRouteSnapshot, state: any) => {
+    this.entryFormService.getEntry(r.paramMap.get('uuid'))
+      .map(response => ({ type: CALENDAR_ACTIONS.GET_ENTRY, payload: response.json() }))
+      .subscribe(action => {
+        this.store.dispatch(action);
+        return of();
+      });
     return of();
   });
   /*   @Effect() getEntry = this.actions.ofType(CALENDAR_ACTIONS.GET_ENTRY)
@@ -73,22 +77,26 @@ export class CalendarEffects {
     @Effect() updateEntry = undefined;
     @Effect() deleteEntry = undefined; */
 
-  constructor(private actions: Actions, private store: Store<CalendarState>,
+  constructor(private actions: Actions,
+    private store: Store<CalendarState>,
     public calendarService: CalendarService,
     public entryFormService: EntryFormService) {
   }
 
-  private handleNavigation(segment: string, callback: (a: ActivatedRouteSnapshot) => Observable<any>) {
-    const nav = this.actions.ofType(ROUTER_NAVIGATION).
-      map(firstSegment).
-      filter(s => {
-        return s.url.includes(segment);
+  private handleNavigation(
+    segment: string,
+    callback: (a: ActivatedRouteSnapshot, state: any) => Observable<any>
+  ) {
+    const nav = this.actions
+      .ofType(ROUTER_NAVIGATION)
+      .map(firstSegment)
+      .filter(s => {
+        return s.routeConfig.path === segment;
       });
 
-    return nav.withLatestFrom(this.store)
-      .switchMap(a => {
-        return callback(a[0]);
-      })
+    return nav
+      .withLatestFrom(this.store)
+      .switchMap(a => callback(a[0], a[1]))
       .catch(e => {
         console.log('Network error', e);
         return of();
@@ -98,5 +106,5 @@ export class CalendarEffects {
 
 // helpers
 function firstSegment(r: RouterNavigationAction) {
-  return r.payload.routerState;
+  return r.payload.routerState.root.children[0].children[0].children[0];
 }

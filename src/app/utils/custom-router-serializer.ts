@@ -10,17 +10,27 @@ import { RouterStateSnapshot, Params } from '@angular/router';
  * returned such as route parameters and static route data.
  */
 
+/* @deprecated
+
+it is a good idea but we get the object direcly when needed
+
+*/
 export interface RouterStateUrl {
   url: string;
   queryParams: Params;
+  paramMap: any;
+  path: string;
 }
 
 export class CustomRouterStateSerializer
   implements RouterStateSerializer<RouterStateUrl> {
   serialize(routerState: RouterStateSnapshot): RouterStateUrl {
+    console.log(routerState);
     const { url } = routerState;
     const queryParams = routerState.root.queryParams;
+    const paramMap = routerState.root.paramMap;
+    const path = 'routerState.root.routeConfig.path';
 
-    return { url, queryParams };
+    return { url, queryParams, paramMap, path };
   }
 }
