@@ -83,20 +83,19 @@ export class EntryForm implements OnInit, AfterViewInit {
   ngAfterViewInit() {
     if (this.params.uuid !== 'new') {
       // update existing entry
-      let uuid: string = this.params.uuid;
+      let uuid: string = this.params ? this.params.uuid : null;
       this.store.select(getCalendarDays)
         .subscribe(entries => {
           const arrEntries = Object.keys(entries).map(key => entries[key]);
           const entry: Array<Entry> = arrEntries.filter(
-            e => {
-              return e.uuid === uuid;
-            });
-          this.entry = entry[0];
+            e => e ? e.uuid === uuid : false);
+          if (entry[0]) {
+            this.entry = entry[0];
+          }
         });
     } else {
       this.entry.date = new Date(this.params.day).toISOString();
     }
-
   }
 
   onSubmit() {
