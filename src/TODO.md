@@ -1,12 +1,19 @@
 # Implementing actions for get, update, insert and delete
 
-## working on: navigateToEntryForm (effects)
+## working on: Make INSERT NEW DAY TO WORK
+
+- Error in entry-form.componnent.ts (ngAfterViewInit). The response from GET server was bad handled. Now we retrieve an array. In this method (ngAfterViewInit) os still handled as an object. We have to understand what in Entry and Date and what the function does. 
+
+- Check that GET all and GET only one requests work properly
+
+- implement reducer for INSERT_STORE taking an account we want to add a new day to the array (no object!!!)
+
+- Check that we navigate properly backwards programatically and everything works properly
+
+Is so... you can move to implement the same to update and delete....
 
 ### Next steps:
 
-- check why is fucking slow!!!
-
-- Add new entry, dispatch action, set effect and implement reducer.
 - Add update entry, dispatch action, set effect and implement reducer.
 - Add delete entry, dispatch action, set effect and implemeent reducer.
 

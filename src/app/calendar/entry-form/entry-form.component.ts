@@ -100,26 +100,17 @@ export class EntryForm implements OnInit, AfterViewInit {
 
   onSubmit() {
     if (this.entry.uuid !== '') {
-      this.store.dispatch({
-        type: CALENDAR_ACTIONS.POST_ENTRY,
-        payload: this.entry
-      });
-      /*  this.entryFormService.updateEntry(this.entry).subscribe(
-         response => {
-           this.router.navigate([ROUTE_CALENDAR_MONTHLY_PAGE, { actionRef: 'update', day: this.params.day }]);
-         }
-       ); */
+      /*  this.store.dispatch({
+         type: CALENDAR_ACTIONS.POST_ENTRY,
+         payload: this.entry
+       });
+       this.router.navigate(['calendar/monthly', { actionRef: 'update', day: this.params.day }]); */
     } else {
       this.store.dispatch({
         type: CALENDAR_ACTIONS.PUT_ENTRY,
         payload: this.entry
       });
-      /* this.entryFormService.newEntry(this.entry).subscribe(
-        response => {
-          // do something!!
-          this.router.navigate([ROUTE_CALENDAR_MONTHLY_PAGE, { actionRef: 'insert', day: this.params.day }]);
-        }
-      ); */
+      this.router.navigate(['calendar/monthly', { actionRef: 'insert', day: this.params.day }]);
     }
     this.submitted = true;
   }

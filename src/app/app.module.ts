@@ -35,7 +35,10 @@ import { CustomRouterStateSerializer } from './utils/custom-router-serializer';
     MdlModule,
     StoreModule.forRoot(reducers, { metaReducers }),
     StoreRouterConnectingModule,
-
+    // makes everything super slow!
+    /*     StoreDevtoolsModule.instrument({
+          maxAge: 25 // Retains last 25 states
+        }) */
   ],
   providers: [
     {

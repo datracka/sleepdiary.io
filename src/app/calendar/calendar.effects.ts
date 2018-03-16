@@ -64,18 +64,39 @@ export class CalendarEffects {
         console.log('Error', e);
         return of();
       }); */
-  /* maybe move this effects to his own file ... */
-  /*   @Effect() newEntry = this.actions.ofType(GET_ENTRY)
+
+  @Effect() newEntry = this.actions.ofType(CALENDAR_ACTIONS.PUT_ENTRY)
+    .switchMap((entry: any) => {
+      return this.entryFormService.newEntry(entry.payload)
+        .map(response => ({ type: CALENDAR_ACTIONS.INSERT_STORE, payload: response.json() }))
+        .catch(e => {
+          console.log('Error', e);
+          return of(); // do nothing when fails
+          // return of({ type: 'ROLLBACK_EXAMPLE', payload: {} }); // optimistic update
+        });
+    });
+
+  /*   @Effect() updateEntry = this.actions.ofType(CALENDAR_ACTIONS.POST_ENTRY)
       .switchMap((entry: any) => {
-        return this.entryFormService.newEntry(entry)
+        return this.entryFormService.updateEntry(entry.payload)
           .switchMap(() => of()). // do nothing when it succeeds
           catch(e => {
             console.log('Error', e);
-            return of({ type: 'ROLLBACK_EXAMPLE', payload: {} }); // example. Here (get) no useful!
+            return of(); // do nothing when fails
+            // return of({ type: 'ROLLBACK_EXAMPLE', payload: {} }); // optimistic update
           });
-      });
-    @Effect() updateEntry = undefined;
-    @Effect() deleteEntry = undefined; */
+      }); */
+
+  /*   @Effect() deleteEntry = this.actions.ofType(CALENDAR_ACTIONS.DELETE_ENTRY)
+      .switchMap((entry: any) => {
+        return this.entryFormService.dele(entry.payload)
+          .switchMap(() => of()). // do nothing when it succeeds
+          catch(e => {
+            console.log('Error', e);
+            return of(); // do nothing when fails
+            // return of({ type: 'ROLLBACK_EXAMPLE', payload: {} }); // optimistic update
+          });
+      }); */
 
   constructor(private actions: Actions,
     private store: Store<CalendarState>,

@@ -23,16 +23,17 @@ export type CalendarState = {
   filters: Filters
 };
 
-export type GetCalendarByYear = { type: '[CALENDAR] GET_YEARLY', payload: {} };
-export type GetEntry = { type: '[CALENDAR] GET_ENTRY', payload: {} };
+export type GetCalendarByYear = { type: '[CALENDAR] GET_YEARLY', payload: Array<Day> };
+export type GetEntry = { type: '[CALENDAR] GET_ENTRY', payload: Day };
 export type PostEntry = { type: '[CALENDAR] POST_ENTRY', payload: {} };
-export type PutEntry = { type: '[CALENDAR] PUT_ENTRY', payload: {} };
+export type PutEntry = { type: '[CALENDAR] PUT_ENTRY', payload: Day };
+export type InsertStore = { type: '[CALENDAR] INSERT_STORE', payload: Day };
 export type DeleteEntry = { type: '[CALENDAR] DELETE_ENTRY', payload: {} };
 export type SelectMetric = { type: '[CALENDAR] SELECT_METRIC', payload: string };
 export type SelectYear = { type: '[CALENDAR] SELECT_YEAR', payload: number };
 export type Action = RouterAction<CalendarState> |
   GetCalendarByYear |
-  GetEntry | PostEntry | PutEntry | DeleteEntry | SelectMetric | SelectYear;
+  GetEntry | PostEntry | PutEntry | DeleteEntry | SelectMetric | SelectYear | InsertStore;
 
 
 // InititalState
@@ -52,16 +53,26 @@ export default function calendarReducer(state: CalendarState = calendarInitialSt
     case CALENDAR_ACTIONS.GET_YEARLY:
       return {
         ...state,
-        days: { ...state.days, ...action.payload }
+        days: action.payload
       };
     case CALENDAR_ACTIONS.GET_ENTRY:
       return {
         ...state,
-        days: { ...state.days, ...action.payload }
+        days: [action.payload]
       };
     case CALENDAR_ACTIONS.POST_ENTRY:
-    case CALENDAR_ACTIONS.PUT_ENTRY:
+      // do nothing
+      return state;
+    case CALENDAR_ACTIONS.INSERT_STORE:
+      let newDays = state.days.slice();
+      newDays.splice(newDays.length, 0, action.payload);
+      return {
+        ...state,
+        days: newDays
+      };
     case CALENDAR_ACTIONS.DELETE_ENTRY:
+      // do nothing
+      return state;
     case CALENDAR_ACTIONS.SELECT_METRIC:
       return {
         ...state,
