@@ -1,10 +1,10 @@
 # Implementing actions for get, update, insert and delete
 
-## working on: Make UPDATE DAY to work
+## working on: Make DELETE DAY to work
 
 ### Next steps
 
-- Add delete entry, dispatch action, set effect and implemeent reducer.
+- Refer to trello
 
 Optional: implement optimistic updated. So for example for add new entry
 ACTION: NEW_ENTRY -> UI sets back to calendar but in the meanwhile is triggered the  EFFECT (POST) and if it fails, it triggers another action REMOVE_NEW_ENTRY that says the user it was a problem adding the entry.

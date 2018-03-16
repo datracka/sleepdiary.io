@@ -31,12 +31,13 @@ export type GetEntry = { type: '[CALENDAR] GET_ENTRY', payload: Day };
 export type PostEntry = { type: '[CALENDAR] POST_ENTRY', payload: {} };
 export type PutEntry = { type: '[CALENDAR] PUT_ENTRY', payload: Day };
 export type InsertStore = { type: '[CALENDAR] INSERT_STORE', payload: Day };
+export type UpdateStore = { type: '[CALENDAR] UPDATE_STORE', payload: Day };
 export type DeleteEntry = { type: '[CALENDAR] DELETE_ENTRY', payload: {} };
 export type SelectMetric = { type: '[CALENDAR] SELECT_METRIC', payload: string };
 export type SelectYear = { type: '[CALENDAR] SELECT_YEAR', payload: number };
 export type Action = RouterAction<CalendarState> |
   GetCalendarByYear |
-  GetEntry | PostEntry | PutEntry | DeleteEntry | SelectMetric | SelectYear | InsertStore;
+  GetEntry | PostEntry | PutEntry | DeleteEntry | SelectMetric | SelectYear | InsertStore | UpdateStore;
 
 
 // InititalState
@@ -72,6 +73,21 @@ export default function calendarReducer(state: CalendarState = calendarInitialSt
         days: newDays
       };
       return newState;
+    case CALENDAR_ACTIONS.UPDATE_STORE:
+      const a = state.days.map(day => {
+        if (day.uuid !== action.payload.uuid) {
+          return day;
+        }
+
+        return {
+          ...day,
+          ...action.payload
+        };
+      });
+      return {
+        ...state,
+        days: a
+      };
     case CALENDAR_ACTIONS.DELETE_ENTRY:
       // do nothing
       return state;

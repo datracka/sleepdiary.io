@@ -17,22 +17,10 @@ import {
   ROUTE_CALENDAR_MONTHLY_PAGE,
   ROUTE_ENTRY_FORM,
   CALENDAR_ACTIONS,
-  GET_ENTRY,
-  POST_ENTRY,
-  PUT_ENTRY,
-  DELETE_ENTRY
 } from './calendar.constants';
 import { CalendarState } from './calendar.reducer';
-import { Entry } from '../services/common/entry';
 import { EntryFormService } from '../services/entry-form/entry-form.service';
-import { CALENDAR_ACTIONS } from './calendar.constants';
-import { Action, GetEntry } from './calendar.reducer';
 
-
-// TODO:
-// state <any>
-// params instead 2017
-// (pre)append & (post)append LOADING status Action
 @Injectable()
 export class CalendarEffects {
 
@@ -57,15 +45,6 @@ export class CalendarEffects {
     } // to avoid console warning... nevertheles something is wrong..
     return of();
   });
-  /*   @Effect() getEntry = this.actions.ofType(CALENDAR_ACTIONS.GET_ENTRY)
-      .switchMap((action: GetEntry) => {
-        return this.entryFormService.getEntry(action.payload);
-      })
-      .map(response => ({ type: CALENDAR_ACTIONS.GET_YEARLY, payload: response.json() }))
-      .catch(e => {
-        console.log('Error', e);
-        return of();
-      }); */
 
   @Effect() newEntry = this.actions.ofType(CALENDAR_ACTIONS.PUT_ENTRY)
     .switchMap((entry: any) => {
@@ -78,16 +57,16 @@ export class CalendarEffects {
         });
     });
 
-  /*   @Effect() updateEntry = this.actions.ofType(CALENDAR_ACTIONS.POST_ENTRY)
-      .switchMap((entry: any) => {
-        return this.entryFormService.updateEntry(entry.payload)
-          .switchMap(() => of()). // do nothing when it succeeds
-          catch(e => {
-            console.log('Error', e);
-            return of(); // do nothing when fails
-            // return of({ type: 'ROLLBACK_EXAMPLE', payload: {} }); // optimistic update
-          });
-      }); */
+  @Effect() updateEntry = this.actions.ofType(CALENDAR_ACTIONS.POST_ENTRY)
+    .switchMap((entry: any) => {
+      return this.entryFormService.updateEntry(entry.payload)
+        .map(response => ({ type: CALENDAR_ACTIONS.UPDATE_STORE, payload: response.json() })).
+        catch(e => {
+          console.log('Error', e);
+          return of(); // do nothing when fails
+          // return of({ type: 'ROLLBACK_EXAMPLE', payload: {} }); // optimistic update
+        });
+    });
 
   /*   @Effect() deleteEntry = this.actions.ofType(CALENDAR_ACTIONS.DELETE_ENTRY)
       .switchMap((entry: any) => {

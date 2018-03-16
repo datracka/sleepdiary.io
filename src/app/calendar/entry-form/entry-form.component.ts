@@ -88,8 +88,8 @@ export class EntryForm implements OnInit, AfterViewInit {
         .subscribe(days => {
           const entry: Entry = days.filter(
             e => e ? e.uuid === uuid : false)[0];
-          if (entry && entry[0]) {
-            this.entry = entry[0];
+          if (entry) {
+            this.entry = entry;
           }
         });
     } else {
@@ -99,11 +99,11 @@ export class EntryForm implements OnInit, AfterViewInit {
 
   onSubmit() {
     if (this.entry.uuid !== '') {
-      /*  this.store.dispatch({
-         type: CALENDAR_ACTIONS.POST_ENTRY,
-         payload: this.entry
-       });
-       this.router.navigate(['calendar/monthly', { actionRef: 'update', day: this.params.day }]); */
+      this.store.dispatch({
+        type: CALENDAR_ACTIONS.POST_ENTRY,
+        payload: this.entry
+      });
+      this.router.navigate(['calendar/monthly', { actionRef: 'update', day: this.params.day }]);
     } else {
       this.store.dispatch({
         type: CALENDAR_ACTIONS.PUT_ENTRY,
