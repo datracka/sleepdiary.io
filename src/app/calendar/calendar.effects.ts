@@ -47,12 +47,14 @@ export class CalendarEffects {
   });
 
   @Effect() navigateToEntryForm = this.handleNavigation(ROUTE_ENTRY_FORM, (r: ActivatedRouteSnapshot, state: any) => {
-    this.entryFormService.getEntry(r.paramMap.get('uuid'))
-      .map(response => ({ type: CALENDAR_ACTIONS.GET_ENTRY, payload: response.json() }))
-      .subscribe(action => {
-        this.store.dispatch(action);
-        return of();
-      });
+    if (state.calendar.days.length <= 0 && r.paramMap.get('uuid') !== 'new') {
+      this.calendarService.getAll('2018') // TODO: param should be in url! ex: /calendar/monthly/2018 -> r.paramMap.get('year')
+        .map(response => ({ type: CALENDAR_ACTIONS.GET_YEARLY, payload: response.json() }))
+        .subscribe((action) => {
+          this.store.dispatch(action);
+          return of();
+        });
+    } // to avoid console warning... nevertheles something is wrong..
     return of();
   });
   /*   @Effect() getEntry = this.actions.ofType(CALENDAR_ACTIONS.GET_ENTRY)

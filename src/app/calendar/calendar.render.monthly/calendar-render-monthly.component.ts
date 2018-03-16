@@ -84,7 +84,7 @@ export class CalendarRenderMonthly implements OnChanges {
   }
 
   ngOnChanges() {
-    console.log('calendar-render-monthly OnChange', this.year);
+    // console.log('calendar-render-monthly OnChange', this.year);
     this.buildMonths('en', this.year);
   }
 

@@ -59,20 +59,19 @@ export default function calendarReducer(state: CalendarState = calendarInitialSt
         days: action.payload
       };
     case CALENDAR_ACTIONS.GET_ENTRY:
-      return {
-        ...state,
-        days: [action.payload]
-      };
+      // not used
+      return state;
     case CALENDAR_ACTIONS.POST_ENTRY:
-      // do nothing
+      // noy used
       return state;
     case CALENDAR_ACTIONS.INSERT_STORE:
       let newDays = state.days.slice();
       newDays.splice(newDays.length, 0, action.payload);
-      return {
+      const newState = {
         ...state,
         days: newDays
       };
+      return newState;
     case CALENDAR_ACTIONS.DELETE_ENTRY:
       // do nothing
       return state;

@@ -8,7 +8,6 @@ import {
 } from '@angular/core';
 import { Router } from '@angular/router';
 import { Entry } from '../../../services/common/entry';
-import { ROUTE_ENTRY_FORM } from '../../calendar.constants';
 let template = require('./day.html');
 
 @Component({
@@ -30,10 +29,9 @@ export class Day implements OnInit {
   ngOnInit() {
     this.entries$.subscribe(
       entries => {
-        const arr = Object.keys(entries).map((k) => entries[k]);
-        this.entry = arr.filter(
-          entry => this.dayRender.date.isSame(entry.date.substring(0, 10), 'day')
-        );
+        this.entry = entries && entries.length > 0 ? entries.filter(
+          entry => entry ? this.dayRender.date.isSame(entry.date.substring(0, 10), 'day') : false
+        ) : [];
         if (this.entry.length > 0) {
           this.sleepingQuality = this.entry[0].sleepingQuality;
           this.tirednessFeeling = this.entry[0].tirednessFeeling;
