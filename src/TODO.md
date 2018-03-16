@@ -6,7 +6,7 @@
 
 - check why is fucking slow!!!
 
-- Add new entry, dispatch action, set effect and implement reducer. 
+- Add new entry, dispatch action, set effect and implement reducer.
 - Add update entry, dispatch action, set effect and implement reducer.
 - Add delete entry, dispatch action, set effect and implemeent reducer.
 
@@ -26,7 +26,7 @@ Architectural challenge:
 - When listing calendar we get all items
 - When asking for an element in form we get element from backend
 - - if element already exists we dont do anything
-- - we retrieve the element from the state
+- - else we retrieve the element from the state
 - Wnen listing calendar second time retrieve all items updating list with only missing one. 
 
 

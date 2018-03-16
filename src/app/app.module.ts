@@ -35,9 +35,7 @@ import { CustomRouterStateSerializer } from './utils/custom-router-serializer';
     MdlModule,
     StoreModule.forRoot(reducers, { metaReducers }),
     StoreRouterConnectingModule,
-    StoreDevtoolsModule.instrument({
-      maxAge: 10
-    })
+
   ],
   providers: [
     {

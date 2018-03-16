@@ -24,7 +24,7 @@ export type CalendarState = {
 };
 
 export type GetCalendarByYear = { type: '[CALENDAR] GET_YEARLY', payload: {} };
-export type GetEntry = { type: '[CALENDAR] GET_ENTRY', payload: string };
+export type GetEntry = { type: '[CALENDAR] GET_ENTRY', payload: {} };
 export type PostEntry = { type: '[CALENDAR] POST_ENTRY', payload: {} };
 export type PutEntry = { type: '[CALENDAR] PUT_ENTRY', payload: {} };
 export type DeleteEntry = { type: '[CALENDAR] DELETE_ENTRY', payload: {} };
