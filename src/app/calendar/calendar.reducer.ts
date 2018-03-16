@@ -6,15 +6,18 @@ import {
 import { MetricsIndicators } from '../services/common/metrics-indicators';
 // types
 
+// Entry and Day are 2 model structure for the
 export type Day = {
-  uuid: number,
+  id: number,
+  uuid: string,
+  date: string,
   user: number,
-  sleepingQuality: String,
-  tirednessFeeling: String
+  sleepingQuality: string,
+  tirednessFeeling: string
 };
 
 export type Filters = {
-  metric: String | {},
+  metric: string | {},
   year: number
 };
 

@@ -85,10 +85,10 @@ export class EntryForm implements OnInit, AfterViewInit {
       // update existing entry
       let uuid: string = this.params ? this.params.uuid : null;
       this.store.select(getCalendarDays)
-        .subscribe(entries => {
-          const arrEntries = Object.keys(entries).map(key => entries[key]);
-          const entry: Array<Entry> = arrEntries.filter(
-            e => e ? e.uuid === uuid : false);
+        .subscribe(days => {
+          // const arrEntries = Object.keys(entries).map(key => entries[key]);
+          const entry: Entry = days.filter(
+            e => e ? e.uuid === uuid : false)[0];
           if (entry[0]) {
             this.entry = entry[0];
           }
