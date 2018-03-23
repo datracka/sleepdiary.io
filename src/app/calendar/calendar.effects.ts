@@ -71,6 +71,7 @@ export class CalendarEffects {
   @Effect() deleteEntry = this.actions.ofType(CALENDAR_ACTIONS.DELETE_ENTRY)
     .switchMap((entry: any) => {
       return this.entryFormService.deleteEntry(entry.payload)
+        .switchMap(() => of())
         .catch(e => {
           console.log('Error', e);
           return of(); // do nothing when fails
