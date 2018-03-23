@@ -35,8 +35,8 @@ export class Day implements OnInit {
         if (this.entry.length > 0) {
           this.sleepingQuality = this.entry[0].sleepingQuality;
           this.tirednessFeeling = this.entry[0].tirednessFeeling;
-          this.cdr.markForCheck();
         }
+        this.cdr.markForCheck();
       }
     );
   }
