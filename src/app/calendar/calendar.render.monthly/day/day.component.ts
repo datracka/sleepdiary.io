@@ -33,7 +33,6 @@ export class Day implements OnInit {
           entry => entry ? this.dayRender.date.isSame(entry.date.substring(0, 10), 'day') : false
         ) : [];
         if (this.entry.length > 0) {
-          console.log(this.entry[0].sleepingQuality, this.entry[0].tirednessFeeling);
           this.sleepingQuality = this.entry[0].sleepingQuality;
           this.tirednessFeeling = this.entry[0].tirednessFeeling;
           this.cdr.markForCheck();
