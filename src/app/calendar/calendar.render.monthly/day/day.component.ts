@@ -27,18 +27,20 @@ export class Day implements OnInit {
   constructor(private cdr: ChangeDetectorRef, private router: Router) { }
 
   ngOnInit() {
-    this.entries$.subscribe(
-      entries => {
-        this.entry = entries && entries.length > 0 ? entries.filter(
-          entry => entry ? this.dayRender.date.isSame(entry.date.substring(0, 10), 'day') : false
-        ) : [];
-        if (this.entry.length > 0) {
-          this.sleepingQuality = this.entry[0].sleepingQuality;
-          this.tirednessFeeling = this.entry[0].tirednessFeeling;
+    if (this.dayRender.isCurrentMonth) {
+      this.entries$.subscribe(
+        entries => {
+          this.entry = entries && entries.length > 0 ? entries.filter(
+            entry => entry ? this.dayRender.date.isSame(entry.date.substring(0, 10), 'day') : false
+          ) : [];
+          if (this.entry.length > 0) {
+            this.sleepingQuality = this.entry[0].sleepingQuality;
+            this.tirednessFeeling = this.entry[0].tirednessFeeling;
+          }
+          this.cdr.markForCheck();
         }
-        this.cdr.markForCheck();
-      }
-    );
+      );
+    }
   }
 
   handleClick() {
