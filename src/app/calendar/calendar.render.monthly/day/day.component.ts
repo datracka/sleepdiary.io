@@ -33,6 +33,7 @@ export class Day implements OnInit {
           entry => entry ? this.dayRender.date.isSame(entry.date.substring(0, 10), 'day') : false
         ) : [];
         if (this.entry.length > 0) {
+          console.log(this.entry[0].sleepingQuality, this.entry[0].tirednessFeeling);
           this.sleepingQuality = this.entry[0].sleepingQuality;
           this.tirednessFeeling = this.entry[0].tirednessFeeling;
           this.cdr.markForCheck();
@@ -44,7 +45,6 @@ export class Day implements OnInit {
   handleClick() {
     if (!this.dayRender.isCurrentMonth) { return false; }
     const uuid = (this.entry.length > 0) ? this.entry[0].uuid : 'new';
-    // TODO '/calendar/entry' should be a CONSTANT
     this.router.navigate(['/calendar/entry', uuid, { day: this.dayRender.date.format('YYYY-MM-DD') }]);
   }
 }

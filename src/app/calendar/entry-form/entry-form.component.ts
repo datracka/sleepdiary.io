@@ -52,8 +52,6 @@ export class EntryForm implements OnInit, AfterViewInit {
     { value: 'bad', display: 'Bad' }
   ];
 
-  // https://scotch.io/tutorials/how-to-deal-with-different-form-controls-in-angular-2
-  // http://blog.angular-university.io/introduction-to-angular-2-forms-template-driven-vs-model-driven/
   constructor(private router: Router,
     public route: ActivatedRoute,
     private store: Store<State>,
@@ -115,7 +113,6 @@ export class EntryForm implements OnInit, AfterViewInit {
   }
 
   back() {
-    // TODO 'calendar/monthly' should be a constant
     this.router.navigate(['calendar/monthly', { day: this.params.day }]);
   }
 
@@ -125,11 +122,7 @@ export class EntryForm implements OnInit, AfterViewInit {
         type: CALENDAR_ACTIONS.DELETE_ENTRY,
         payload: uuid
       });
-      /* this.entryFormService.deleteEntry(uuid).subscribe(
-        response => {
-          this.router.navigate([ROUTE_CALENDAR_MONTHLY_PAGE, { actionRef: 'delete', day: this.params.day }]);
-        }
-      ); */
+      this.router.navigate(['calendar/monthly', { actionRef: 'delete', day: this.params.day }]);
     }
   }
 

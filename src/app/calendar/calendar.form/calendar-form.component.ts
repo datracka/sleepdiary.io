@@ -40,7 +40,6 @@ export class CalendarForm implements OnInit {
   }
 
   ngOnInit() {
-
     this.form = {
       yearSelected: this.currentYearSelected,
       metricSelected: this.metricIndicator

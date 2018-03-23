@@ -1,16 +1,14 @@
 <form #f="ngForm" novalidate style="width: 100%">
-  <div>{{year}}</div>
-  <div class="sd-formGroup">
-    <div style="float:right">
-      <span style="font-size:1.4rem; vertical-align: sub">{{form.yearSelected}}</span>
-      <button mdl-button #btn1="mdlButton" (click)="m1.toggle($event, btn1)" mdl-button-type="icon" mdl-ripple>
-        <mdl-icon>more_vert</mdl-icon>
-      </button>
-      <mdl-menu #m1="mdlMenu" mdl-menu-position="bottom-right">
-        <mdl-menu-item mdl-ripple (click)="setYear(year.value)" *ngFor="let year of years">{{year.name}}
-        </mdl-menu-item>
-      </mdl-menu>
-    </div>
+  <div class="sd-formGroup" style="float:right">
+    <span style="font-size:1.4rem; vertical-align: sub">{{year}}</span>
+    <button mdl-button #btn1="mdlButton" (click)="m1.toggle($event, btn1)" mdl-button-type="icon" mdl-ripple>
+      <mdl-icon>more_vert</mdl-icon>
+    </button>
+    <mdl-menu #m1="mdlMenu" mdl-menu-position="bottom-right">
+      <mdl-menu-item mdl-ripple (click)="setYear(year.value)" *ngFor="let year of years">
+        {{ year.name }}
+      </mdl-menu-item>
+    </mdl-menu>
   </div>
   <div class="sd-formGroup">
     <mdl-radio [(ngModel)]="form.metricSelected" (click)="setMetric('sleeping-quality')" name="metrics" value="sleeping-quality"

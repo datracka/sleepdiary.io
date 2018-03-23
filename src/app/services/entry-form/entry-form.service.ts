@@ -36,7 +36,7 @@ export class EntryFormService {
 
   deleteEntry(uuid: String): Observable<Response> {
     return this._authHttp
-      .delete(this.actionUrl + 'calendar/uuid/' + uuid, this.options)
+      .delete(this.actionUrl + 'calendar/uuid/' + uuid, this.options);
   }
 
   private handleError(error: any) {

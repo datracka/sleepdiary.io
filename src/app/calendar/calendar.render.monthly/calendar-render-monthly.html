@@ -1,6 +1,6 @@
 <div [@flyInOut]="'in'" class="mdl-grid">
-  <div class="mdl-grid mdl-cell--12-col sd-align-right">
-    <calendar-form [currentYearSelected]="currentYearSelected" (onSetYear)="onSetYear($event)" (onSetMetric)="onSetMetric($event)"
+  <div class="mdl-grid mdl-cell--12-col">
+    <calendar-form style="width:100%" [currentYearSelected]="currentYearSelected" (onSetYear)="onSetYear($event)" (onSetMetric)="onSetMetric($event)"
       [year]="year">
     </calendar-form>
   </div>

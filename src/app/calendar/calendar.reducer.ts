@@ -32,12 +32,13 @@ export type PostEntry = { type: '[CALENDAR] POST_ENTRY', payload: {} };
 export type PutEntry = { type: '[CALENDAR] PUT_ENTRY', payload: Day };
 export type InsertStore = { type: '[CALENDAR] INSERT_STORE', payload: Day };
 export type UpdateStore = { type: '[CALENDAR] UPDATE_STORE', payload: Day };
-export type DeleteEntry = { type: '[CALENDAR] DELETE_ENTRY', payload: {} };
+export type DeleteEntry = { type: '[CALENDAR] DELETE_ENTRY', payload: string };
 export type SelectMetric = { type: '[CALENDAR] SELECT_METRIC', payload: string };
 export type SelectYear = { type: '[CALENDAR] SELECT_YEAR', payload: number };
+export type DeleteStore = { type: '[CALENDAR] DELETE_STORE', payload: string };
 export type Action = RouterAction<CalendarState> |
   GetCalendarByYear |
-  GetEntry | PostEntry | PutEntry | DeleteEntry | SelectMetric | SelectYear | InsertStore | UpdateStore;
+  GetEntry | PostEntry | PutEntry | DeleteEntry | SelectMetric | SelectYear | InsertStore | UpdateStore | DeleteStore;
 
 
 // InititalState
@@ -68,11 +69,10 @@ export default function calendarReducer(state: CalendarState = calendarInitialSt
     case CALENDAR_ACTIONS.INSERT_STORE:
       let newDays = state.days.slice();
       newDays.splice(newDays.length, 0, action.payload);
-      const newState = {
+      return {
         ...state,
         days: newDays
       };
-      return newState;
     case CALENDAR_ACTIONS.UPDATE_STORE:
       const a = state.days.map(day => {
         if (day.uuid !== action.payload.uuid) {
@@ -88,9 +88,16 @@ export default function calendarReducer(state: CalendarState = calendarInitialSt
         ...state,
         days: a
       };
-    case CALENDAR_ACTIONS.DELETE_ENTRY:
-      // do nothing
-      return state;
+    case CALENDAR_ACTIONS.DELETE_STORE:
+      const newDeletedDays = state.days.filter(day => {
+        return day.uuid !== action.payload;
+      });
+      const newDeletedState = {
+        ...state,
+        days: newDeletedDays
+      };
+      console.log(newDeletedState);
+      return newDeletedState;
     case CALENDAR_ACTIONS.SELECT_METRIC:
       return {
         ...state,
