@@ -1,7 +1,6 @@
 <div [@flyInOut]="'in'" class="mdl-grid">
   <div class="mdl-grid mdl-cell--12-col">
-    <calendar-form style="width:100%" [currentYearSelected]="currentYearSelected" (onSetYear)="onSetYear($event)" (onSetMetric)="onSetMetric($event)"
-      [year]="year">
+    <calendar-form style="width:100%" (onSetYear)="onSetYear($event)" (onSetMetric)="onSetMetric($event)" [year]="year">
     </calendar-form>
   </div>
   <month class="mdl-cell mdl-cell--4-col" [class.sleeping-quality]="metric === 'sleeping-quality'" [class.tiredness-feeling]="metric === 'tiredness-feeling'"

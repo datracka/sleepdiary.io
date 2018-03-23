@@ -1,9 +1,7 @@
 import {
   Input,
   Component,
-  EventEmitter,
-  OnInit,
-  Output
+  OnInit
 } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { State } from '../../app.reducer';
@@ -23,7 +21,6 @@ export class CalendarForm implements OnInit {
 
   public form: any;
   filters: Filters;
-  @Input() currentYearSelected: String;
   @Input() year: number;
   public metricIndicator: MetricsIndicators = MetricsIndicators.SLEEPING_QUALITY;
   years: any = [
@@ -41,8 +38,8 @@ export class CalendarForm implements OnInit {
 
   ngOnInit() {
     this.form = {
-      yearSelected: this.currentYearSelected,
-      metricSelected: this.metricIndicator
+      yearSelected: this.filters.year,
+      metricSelected: this.filters.metric
     };
   }
 
