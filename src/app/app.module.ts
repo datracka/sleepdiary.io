@@ -4,23 +4,20 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgModule, ApplicationRef } from '@angular/core';
 import { HttpModule, Http } from '@angular/http';
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+// import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { AuthHttp, AuthConfig } from 'angular2-jwt';
 import { MdlModule } from 'angular2-mdl';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { EffectsModule } from '@ngrx/effects';
 import {
-  StoreRouterConnectingModule,
-  RouterStateSerializer,
+  StoreRouterConnectingModule
 } from '@ngrx/router-store';
-
 import { routing } from './app.routes';
 import { Login } from './login/login.component';
 import { SignUp } from './signup/signup.component';
 import { AppComponent } from './app.component';
 import { StatisticsModule } from './statistics/statistics.module';
 import { reducers, metaReducers } from './app.reducer';
-import { CustomRouterStateSerializer } from './utils/custom-router-serializer';
+// import { CustomRouterStateSerializer } from './utils/custom-router-serializer';
 
 /*https://angular.io/docs/ts/latest/cookbook/dependency-injection.html#!#usefactory*/
 @NgModule({

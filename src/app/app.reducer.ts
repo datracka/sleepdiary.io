@@ -1,13 +1,9 @@
 import {
   ActionReducerMap,
-  createSelector,
-  createFeatureSelector,
   ActionReducer,
   MetaReducer,
 } from '@ngrx/store';
 import * as fromRouter from '@ngrx/router-store';
-
-import { storeFreeze } from 'ngrx-store-freeze';
 import { CustomRouterStateSerializer as RouterStateUrl } from './utils/custom-router-serializer';
 
 export interface State {
@@ -21,28 +17,16 @@ export const reducers: ActionReducerMap<State> = {
 // console.log all actions
 export function logger(reducer: ActionReducer<State>): ActionReducer<State> {
   return function (state: State, action: any): State {
-    console.log('state', state);
-    console.log('action', action);
-
-    return reducer(state, action);
+    console.group(action.type);
+    const nextState = reducer(state, action);
+    console.log(`%c prev state`, `color: #9E9E9E; font-weight: bold`, state);
+    console.log(`%c action`, `color: #03A9F4; font-weight: bold`, action);
+    console.log(`%c next state`, `color: #4CAF50; font-weight: bold`, nextState);
+    console.groupEnd();
+    return nextState;
   };
 }
 
 export const metaReducers: MetaReducer<State>[] = process.env.ENVIRONMENT !== 'prod'
-  ? [logger, storeFreeze]
+  ? [logger]
   : [];
-
-
-/* export type AppState = {
-  calendar: CalendarState
-};
-
-export const appReducer = {
-  calendar: calendarReducer
-};
-
-export const initialState = {
-  calendar: calendarInitialState
-}; */
-
-
