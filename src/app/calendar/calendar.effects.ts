@@ -25,12 +25,22 @@ import { EntryFormService } from '../services/entry-form/entry-form.service';
 export class CalendarEffects {
 
   @Effect() navigateToHome = this.handleNavigation(ROUTE_CALENDAR_MONTHLY_PAGE, (r: ActivatedRouteSnapshot, state: any) => {
-    this.calendarService.getAll('2018') // ,-- refactor it : param should be in url!!! /calendar/monthly/2018
-      .map(response => ({ type: CALENDAR_ACTIONS.GET_YEARLY, payload: response.json() }))
-      .subscribe((action) => {
-        this.store.dispatch(action);
-        return of();
-      });
+    /*
+      To avoid race condition. Store is updated (insert / update / delete)
+      and slightly before a getAll from Database is requested.
+
+      Solution: if(|1| |2|) only request get all items when coming from login (1) or when
+      reload (2)
+    */
+    if (r.paramMap.get('actionRef') === 'login' || state.routerReducer.navigationId === 1) {
+      console.log('get all days data');
+      this.calendarService.getAll('2018') // ,-- refactor it : param should be in url!!! /calendar/monthly/2018
+        .map(response => ({ type: CALENDAR_ACTIONS.GET_YEARLY, payload: response.json() }))
+        .subscribe((action) => {
+          this.store.dispatch(action);
+          return of();
+        });
+    }
     return of(); // to avoid console warning... nevertheles something is wrong...
   });
 
