@@ -113,7 +113,8 @@ export class EntryForm implements OnInit, AfterViewInit {
   }
 
   back() {
-    this.router.navigate(['calendar/monthly', { day: this.params.day }]);
+    // TODO: we set actionRef to login to force Calendar form to update
+    this.router.navigate(['calendar/monthly', { actionRef: 'login', day: this.params.day }]);
   }
 
   deleteEntry(uuid: string) {

@@ -11,11 +11,10 @@
     </mdl-menu>
   </div>
   <div class="sd-formGroup">
-    <mdl-radio [(ngModel)]="form.metricSelected" (click)="setMetric('sleeping-quality')" name="metrics" value="sleeping-quality"
-      mdl-ripple>
+    <mdl-radio [(ngModel)]="metricSelected" (click)="setMetric('sleeping-quality')" name="metrics" value="sleeping-quality" mdl-ripple>
       Sleeping Quality
     </mdl-radio>
-    <mdl-radio [(ngModel)]="form.metricSelected" (click)="setMetric('tiredness-feeling')" name="metrics" value="tiredness-feeling"
+    <mdl-radio [(ngModel)]="metricSelected" (click)="setMetric('tiredness-feeling')" name="metrics" value="tiredness-feeling"
       mdl-ripple>
       Tiredness Feeling
     </mdl-radio>

@@ -17,7 +17,7 @@ export type Day = {
 };
 
 export type Filters = {
-  metric: string | {},
+  metric: string,
   year: number
 };
 

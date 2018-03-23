@@ -1,12 +1,11 @@
 import {
   Input,
   Component,
-  OnInit
+  OnChanges
 } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { State } from '../../app.reducer';
 import { getCalendarFilters, Filters } from '../calendar.reducer';
-import { MetricsIndicators } from '../../services/common/metrics-indicators';
 import {
   CALENDAR_ACTIONS
 } from '../calendar.constants';
@@ -17,12 +16,11 @@ let template = require('./calendar-form.html');
   template: template,
   styleUrls: ['./calendar-form.scss']
 })
-export class CalendarForm implements OnInit {
+export class CalendarForm implements OnChanges {
 
-  public form: any;
+  metricSelected: string;
   filters: Filters;
   @Input() year: number;
-  public metricIndicator: MetricsIndicators = MetricsIndicators.SLEEPING_QUALITY;
   years: any = [
     { value: '2016', name: '2016' },
     { value: '2017', name: '2017' },
@@ -36,11 +34,8 @@ export class CalendarForm implements OnInit {
     });
   }
 
-  ngOnInit() {
-    this.form = {
-      yearSelected: this.filters.year,
-      metricSelected: this.filters.metric
-    };
+  ngOnChanges() {
+    this.metricSelected = this.filters.metric;
   }
 
   setMetric(value) {
