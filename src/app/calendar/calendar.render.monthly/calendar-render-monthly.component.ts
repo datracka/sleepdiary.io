@@ -1,4 +1,4 @@
-import { ActivatedRoute, Router } from "@angular/router";
+import { ActivatedRoute, Router } from '@angular/router';
 import {
   Component,
   Input,
@@ -7,7 +7,6 @@ import {
   animate,
   transition,
   trigger,
-  OnInit,
   OnChanges,
   ChangeDetectionStrategy,
   Output,
@@ -22,7 +21,6 @@ import { WeekRender } from './week/week.render';
 import { Observable } from 'rxjs/Rx';
 import { Store } from '@ngrx/store';
 import * as fromCalendar from '../calendar.reducer';
-
 
 let template = require('./calendar-render-monthly.html');
 
@@ -47,6 +45,7 @@ export class CalendarRenderMonthly implements OnChanges {
   totalDays: any = new Map(); // data structure for interpolating styles
   @Input() entries$: Observable<any[]>;
   @Input() year: number;
+  @Input() metric: string;
   @Output() clickOnAdd: EventEmitter<any> = new EventEmitter<any>();
 
   private nmonthsName = [
@@ -64,19 +63,13 @@ export class CalendarRenderMonthly implements OnChanges {
     'December'
   ];
   yearRender: Array<MonthRender> = [];
-  metric: string | {};
 
   constructor(
     private mdlSnackbarService: MdlSnackbarService,
     private router: Router,
     public route: ActivatedRoute,
     public calendarService: CalendarService,
-    private store: Store<fromCalendar.CalendarState>) {
-    this.store.select(fromCalendar.getFilterMetric).subscribe(metric => {
-      this.metric = metric;
-    });
-
-  }
+    private store: Store<fromCalendar.CalendarState>) { }
 
 
   handleClick() {
@@ -116,7 +109,7 @@ export class CalendarRenderMonthly implements OnChanges {
 
     let days: Array<WeekRender> = [],
       currentDate: any = startDateOfWeek.clone(),
-      nextMonth: number = 0;
+      nextMonth = 0;
 
     if (currentMonth == 11) {
       nextMonth = 0;
@@ -128,27 +121,26 @@ export class CalendarRenderMonthly implements OnChanges {
       let week: WeekRender = new WeekRender(
         this.buildDays(currentDate.clone(), currentMonth));
       days.push(week);
-      currentDate.add(1, "w");
+      currentDate.add(1, 'w');
     }
     return days;
   }
 
   buildDays(date: any, month: any) {
-    var days: Array<DayRender> = [];
-    for (var i = 0; i < 7; i++) {
+    let days: Array<DayRender> = [];
+    for (let i = 0; i < 7; i++) {
       let day: DayRender = new DayRender(
-        date.format("dd").substring(0, 1),
+        date.format('dd').substring(0, 1),
         date.date(),
         date.month() === month,
-        date.isSame(new Date(), "day"),
+        date.isSame(new Date(), 'day'),
         date);
 
       days.push(day);
       this.totalDays.set(date.format('YYYY-MM-DD'), day);
-      //increase "counter"
+      // increase "counter"
       date = date.clone();
-      date.add(1, "d");
-
+      date.add(1, 'd');
     }
 
     return days;

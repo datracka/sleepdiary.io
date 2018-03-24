@@ -6,6 +6,7 @@ import { Observable } from 'rxjs/Rx';
 import * as moment from 'moment';
 import { Entry } from '../../services/common/entry';
 import { Router } from '@angular/router';
+import { Filters } from '../calendar.reducer';
 
 const template = require('./monthly.html');
 
@@ -21,10 +22,12 @@ export class MonthlyPageComponent {
 
   entries$: Observable<any[]>;
   year: number;
+  metric: string;
 
   constructor(private store: Store<fromCalendar.CalendarState>, private router: Router) {
     this.entries$ = this.store.select(fromCalendar.getCalendarDays);
     this.store.select(fromCalendar.getFilterYear).subscribe(year => this.year = year);
+    this.store.select(fromCalendar.getFilterMetric).subscribe(metric => this.metric = metric);
   }
   /*
     We check if the current day is already filled and if so we retrieve the uuid to send to entry-form

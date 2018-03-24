@@ -1,7 +1,10 @@
 import {
   Input,
   Component,
-  OnChanges
+  OnChanges,
+  OnInit,
+  ChangeDetectionStrategy,
+  ChangeDetectorRef
 } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { State } from '../../app.reducer';
@@ -14,12 +17,13 @@ let template = require('./calendar-form.html');
 @Component({
   selector: 'calendar-form',
   template: template,
-  styleUrls: ['./calendar-form.scss']
+  styleUrls: ['./calendar-form.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CalendarForm implements OnChanges {
+export class CalendarForm implements OnInit, OnChanges {
 
   metricSelected: string;
-  filters: Filters;
+  @Input() metric: string;
   @Input() year: number;
   years: any = [
     { value: '2016', name: '2016' },
@@ -28,14 +32,14 @@ export class CalendarForm implements OnChanges {
     { value: '2019', name: '2019' }
   ];
 
-  constructor(private store: Store<State>) {
-    this.store.select(getCalendarFilters).subscribe(filters => {
-      this.filters = filters;
-    });
+  constructor(private store: Store<State>) { }
+
+  ngOnInit() {
+    this.metricSelected = this.metric;
   }
 
   ngOnChanges() {
-    this.metricSelected = this.filters.metric;
+    this.metricSelected = this.metric;
   }
 
   setMetric(value) {

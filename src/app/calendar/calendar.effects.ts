@@ -33,7 +33,6 @@ export class CalendarEffects {
       reload (2)
     */
     if (r.paramMap.get('actionRef') === 'login' || state.routerReducer.navigationId === 1) {
-      console.log('get all days data');
       this.calendarService.getAll('2018') // ,-- refactor it : param should be in url!!! /calendar/monthly/2018
         .map(response => ({ type: CALENDAR_ACTIONS.GET_YEARLY, payload: response.json() }))
         .subscribe((action) => {
