@@ -12,11 +12,12 @@
   </div>
   <div class="sd-formGroup">
     <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-1">
-      <input [ngModel]="metricSelected" type="radio" class="mdl-radio__button" name="metricSelected" value="sleeping-quality" (click)="setMetric('sleeping-quality')">
+      <input style="cursor: pointer" [ngModel]="metricSelected" type="radio" class="mdl-radio__button" name="metricSelected" value="sleeping-quality"
+        (click)="setMetric('sleeping-quality')">
       <span class="mdl-radio__label">Sleeping quality</span>
     </label>
     <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-2">
-      <input [ngModel]="metricSelected" type="radio" class="mdl-radio__button" name="metricSelected" value="tiredness-feeling"
+      <input style="cursor: pointer" [ngModel]="metricSelected" type="radio" class="mdl-radio__button" name="metricSelected" value="tiredness-feeling"
         (click)="setMetric('tiredness-feeling')">
       <span class="mdl-radio__label">Tiredness feeling</span>
     </label>
