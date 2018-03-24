@@ -1,89 +1,74 @@
 <div class="demo-layout mdl-layout mdl-js-layout  mdl-layout--fixed-header">
-    <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
-        <div class="mdl-layout__header-row">
-            <span class="mdl-layout-title">Statistics - January 2017</span>
-            <div class="mdl-layout-spacer"></div>
+  <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
+    <div class="mdl-layout__header-row">
+      <span class="mdl-layout-title">Statistics - January 2017</span>
+      <div class="mdl-layout-spacer"></div>
+    </div>
+  </header>
+  <main class="mdl-layout__content mdl-color--grey-100">
+    <div class="mdl-grid">
+      <div class="mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid sd-align-center">
+        <div class="mdl-cell mdl-cell--3-col">
+          <div>
+            <strong>Sleeping Quality</strong>
+          </div>
+          <canvas baseChart [data]="pieChartData1" [labels]="pieChartLabels" [chartType]="pieChartType" (chartClick)="chartClicked($event)"></canvas>
         </div>
-    </header>
-    <main class="mdl-layout__content mdl-color--grey-100">
-        <div class="mdl-grid">
-            <div class="mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid sd-align-center">
-                <div class="mdl-cell mdl-cell--3-col">
-                    <div><strong>Sleeping Quality</strong></div>
-                    <canvas baseChart
-                            [data]="pieChartData1"
-                            [labels]="pieChartLabels"
-                            [chartType]="pieChartType"
-                            (chartHover)="chartHovered($event)"
-                            (chartClick)="chartClicked($event)"></canvas>
-                </div>
-                <div class="mdl-cell mdl-cell--3-col">
-                    <div><strong>Tiredness Feeling</strong></div>
-                    <canvas baseChart
-                            [data]="pieChartData2"
-                            [labels]="pieChartLabels"
-                            [chartType]="pieChartType"
-                            (chartHover)="chartHovered($event)"
-                            (chartClick)="chartClicked($event)"></canvas>
-                </div>
-                <div class="mdl-cell mdl-cell--3-col">
-                    <div><strong>Dreaming</strong></div>
-                    <canvas baseChart
-                            [data]="pieChartData3"
-                            [labels]="pieChartLabelsDreams"
-                            [chartType]="pieChartType"
-                            (chartHover)="chartHovered($event)"
-                            (chartClick)="chartClicked($event)"></canvas>
-                </div>
-                <div class="mdl-cell mdl-cell--3-col">
-                    <div><strong>Triggers</strong></div>
-                    <canvas baseChart
-                            [data]="pieChartData4"
-                            [labels]="pieChartLabelsTrigers"
-                            [chartType]="pieChartType"
-                            (chartHover)="chartHovered($event)"
-                            (chartClick)="chartClicked($event)"></canvas>
-                </div>
-            </div>
-            <div class="demo-graphs mdl-shadow--2dp mdl-color--white mdl-cell mdl-cell--8-col">
-                <canvas baseChart
-                        [datasets]="lineChartData"
-                        [labels]="lineChartLabels"
-                        [legend]="lineChartLegend"
-                        [chartType]="lineChartType"></canvas>
-            </div>
-            <div class="demo-cards mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet mdl-grid mdl-grid--no-spacing">
-                <div class="demo-updates mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--12-col-desktop">
-                    <div class="mdl-card__title mdl-card--expand mdl-color--teal-300">
-                        <h2 class="mdl-card__title-text" style="color: white">Summary</h2>
-                    </div>
-                    <div class="mdl-card__actions mdl-card--border">
-                        <a href="#" class="mdl-button mdl-js-button mdl-js-ripple-effect">
-                            This month you slept better! Congrats :)
-                        </a>
-                    </div>
-                    <div class="mdl-card__supporting-text mdl-color-text--grey-600">
-                         <i>Sentence deducted from the following <a href="#">statistic serie</a></i>
-                    </div>
-
-                </div>
-                <div class="demo-separator mdl-cell--1-col"></div>
-                <div class="demo-options mdl-card mdl-color--deep-purple-500 mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--3-col-tablet mdl-cell--12-col-desktop">
-                    <div class="mdl-card__supporting-text mdl-color-text--blue-grey-50">
-                        <h3>Longest best sleep streak</h3>
-                    </div>
-                    <div class="mdl-card__actions mdl-card--border" style=" text-align: center;">
-                        <div class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--blue-grey-50"
-                             style="height: 100%">
-                            <img src="img/cup.svg" alt="cup">
-                            <div>5 days in a row</div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
+        <div class="mdl-cell mdl-cell--3-col">
+          <div>
+            <strong>Tiredness Feeling</strong>
+          </div>
+          <canvas baseChart [data]="pieChartData2" [labels]="pieChartLabels" [chartType]="pieChartType" (chartClick)="chartClicked($event)"></canvas>
         </div>
-    </main>
+        <div class="mdl-cell mdl-cell--3-col">
+          <div>
+            <strong>Dreaming</strong>
+          </div>
+          <canvas baseChart [data]="pieChartData3" [labels]="pieChartLabelsDreams" [chartType]="pieChartType" (chartClick)="chartClicked($event)"></canvas>
+        </div>
+        <div class="mdl-cell mdl-cell--3-col">
+          <div>
+            <strong>Triggers</strong>
+          </div>
+          <canvas baseChart [data]="pieChartData4" [labels]="pieChartLabelsTrigers" [chartType]="pieChartType" (chartClick)="chartClicked($event)"></canvas>
+        </div>
+      </div>
+      <div class="demo-graphs mdl-shadow--2dp mdl-color--white mdl-cell mdl-cell--8-col">
+        <canvas baseChart [datasets]="lineChartData" [labels]="lineChartLabels" [legend]="lineChartLegend" [chartType]="lineChartType"></canvas>
+      </div>
+      <div class="demo-cards mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet mdl-grid mdl-grid--no-spacing">
+        <div class="demo-updates mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--12-col-desktop">
+          <div class="mdl-card__title mdl-card--expand mdl-color--teal-300">
+            <h2 class="mdl-card__title-text" style="color: white">Summary</h2>
+          </div>
+          <div class="mdl-card__actions mdl-card--border">
+            <a href="#" class="mdl-button mdl-js-button mdl-js-ripple-effect">
+              This month you slept better! Congrats :)
+            </a>
+          </div>
+          <div class="mdl-card__supporting-text mdl-color-text--grey-600">
+            <i>Sentence deducted from the following
+              <a href="#">statistic serie</a>
+            </i>
+          </div>
+
+        </div>
+        <div class="demo-separator mdl-cell--1-col"></div>
+        <div class="demo-options mdl-card mdl-color--deep-purple-500 mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--3-col-tablet mdl-cell--12-col-desktop">
+          <div class="mdl-card__supporting-text mdl-color-text--blue-grey-50">
+            <h3>Longest best sleep streak</h3>
+          </div>
+          <div class="mdl-card__actions mdl-card--border" style=" text-align: center;">
+            <div class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--blue-grey-50" style="height: 100%">
+              <img src="img/cup.svg" alt="cup">
+              <div>5 days in a row</div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
 </div>
 
 <!--

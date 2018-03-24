@@ -114,7 +114,7 @@ export class CalendarEffects {
       .ofType(ROUTER_NAVIGATION)
       .map(firstSegment)
       .filter(s => {
-        return s.routeConfig.path === segment;
+        return s ? s.routeConfig.path === segment : false;
       });
 
     return nav

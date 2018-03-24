@@ -1,29 +1,31 @@
 import { Component } from '@angular/core';
-import {MdlLayoutComponent} from "angular2-mdl";
-import {Router} from "@angular/router";
+import { MdlLayoutComponent } from 'angular2-mdl';
+import { Router } from '@angular/router';
 import {
   ROUTE_LOGIN
 } from '../../app.constants';
 
 const template = require('./drawer.html');
 @Component({
-    selector: 'drawer-comp',
-    template: template,
-    providers: [
-        MdlLayoutComponent
-    ]
+  selector: 'drawer-comp',
+  template: template,
+  providers: [
+    MdlLayoutComponent
+  ]
 
 })
 export class Drawer {
 
-    constructor(public router: Router) {
+  constructor(public router: Router) { }
 
-    }
+  navigateToCalendar(event) {
+    this.router.navigate(['calendar/monthly', { actionRef: 'login' }]);
+  }
 
-    logOut() {
-        //remove items
-        localStorage.removeItem('user');
-        localStorage.removeItem('id_token');
-        this.router.navigate([ROUTE_LOGIN]);
-    }
+  logOut() {
+    // remove items
+    localStorage.removeItem('user');
+    localStorage.removeItem('id_token');
+    this.router.navigate([ROUTE_LOGIN]);
+  }
 }
