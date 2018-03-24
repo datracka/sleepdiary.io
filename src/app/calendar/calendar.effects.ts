@@ -33,7 +33,7 @@ export class CalendarEffects {
       reload (2)
     */
     if (r.paramMap.get('actionRef') === 'login' || state.routerReducer.navigationId === 1) {
-      this.calendarService.getAll('2018') // ,-- refactor it : param should be in url!!! /calendar/monthly/2018
+      this.calendarService.getAll(state.calendar.filters.year)
         .map(response => ({ type: CALENDAR_ACTIONS.GET_YEARLY, payload: response.json() }))
         .subscribe((action) => {
           this.store.dispatch(action);
@@ -45,7 +45,7 @@ export class CalendarEffects {
 
   @Effect() navigateToEntryForm = this.handleNavigation(ROUTE_ENTRY_FORM, (r: ActivatedRouteSnapshot, state: any) => {
     if (state.calendar.days.length <= 0 && r.paramMap.get('uuid') !== 'new') {
-      this.calendarService.getAll('2018') // TODO: param should be in url! ex: /calendar/monthly/2018 -> r.paramMap.get('year')
+      this.calendarService.getAll(state.calendar.filters.year)
         .map(response => ({ type: CALENDAR_ACTIONS.GET_YEARLY, payload: response.json() }))
         .subscribe((action) => {
           this.store.dispatch(action);
@@ -87,6 +87,18 @@ export class CalendarEffects {
           // return of({ type: 'ROLLBACK_EXAMPLE', payload: {} }); // optimistic update
         });
     });
+
+  @Effect() getEntries = this.actions.ofType(CALENDAR_ACTIONS.SELECT_YEAR)
+    .switchMap((entry: any) => {
+      return this.calendarService.getAll(entry.payload)
+        .map(response => ({ type: CALENDAR_ACTIONS.GET_YEARLY, payload: response.json() }))
+        .catch(e => {
+          console.log('Error', e);
+          return of(); // do nothing when fails
+          // return of({ type: 'ROLLBACK_EXAMPLE', payload: {} }); // optimistic update
+        });
+    });
+
 
   constructor(private actions: Actions,
     private store: Store<CalendarState>,
