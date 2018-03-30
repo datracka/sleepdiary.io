@@ -34,7 +34,7 @@ const template = require('./login.html');
 })
 export class Login {
 
-  //FIX loginModel is not used!
+  // FIX loginModel is not used!
   public loginModel: LoginModel;
   public loginForm: FormGroup;
   public userNotExists: boolean;

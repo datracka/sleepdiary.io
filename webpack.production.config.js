@@ -1,5 +1,5 @@
 var path = require('path');
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+// const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 var DotenvPlugin = require('webpack-dotenv-plugin');
 
 /**
@@ -10,11 +10,11 @@ console.log("prod!! ENV " + ENV);
 // Webpack Config
 
 var webpackConfig = {
-
+  mode: 'production',
   entry: {
     'polyfills': './src/polyfills.browser.ts',
-    'vendor':    './src/vendor.browser.ts',
-    'main':       './src/main.browser.ts',
+    'vendor': './src/vendor.browser.ts',
+    'main': './src/main.browser.ts',
   },
 
   output: {
@@ -22,9 +22,9 @@ var webpackConfig = {
   },
   plugins: [
     new UglifyJSPlugin({
-        mangle: true,
-        compress: false
-      })
+      mangle: true,
+      compress: false
+    })
   ],
 
   module: {
@@ -43,7 +43,6 @@ var webpackConfig = {
 };
 
 /** plugins **/
-
 webpackConfig.plugins.push(new DotenvPlugin({ sample: './.env.default', path: './.env.prod' }))
 
 // Our Webpack Defaults

@@ -1,5 +1,5 @@
-<mdl-layout mdl-layout-fixed-header mdl-layout-header-seamed>
-  <mdl-layout-content>
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
+  <div class="sd-align-center">
     <div class="sd-align-center">
       <main class="mdl-layout__content">
         <div class="mdl-layout__tab-panel is-active" id="overview">
@@ -7,19 +7,14 @@
             <div>
               <form role="form" [formGroup]="signUpForm" (ngSubmit)="signUp()" novalidate>
                 <div class="group">
-                  <input type="text" class="form-control" id="name"
-                         required
-                         name="name" formControlName="name">
+                  <input type="text" class="form-control" id="name" required name="name" formControlName="name">
                   <span class="highlight"></span>
                   <span class="bar"></span>
                   <label>Name</label>
                   <span *ngIf="signUpForm.get('name').touched && signUpForm.get('name').getError('required')">This field is required</span>
                 </div>
                 <div class="group">
-                  <input type="text" class="form-control" id="email"
-                         required
-                         pattern="[^@\s]+@[^@\s]+\.[^@\s]+"
-                         name="email" formControlName="email">
+                  <input type="text" class="form-control" id="email" required pattern="[^@\s]+@[^@\s]+\.[^@\s]+" name="email" formControlName="email">
                   <span class="highlight"></span>
                   <span class="bar"></span>
                   <label>E-mail</label>
@@ -27,9 +22,7 @@
                   <span *ngIf="signUpForm.get('email').touched && signUpForm.get('email').touched && signUpForm.get('email').getError('pattern')">It does not look as a valid e-mail</span>
                 </div>
                 <div class="group">
-                  <input type="password" class="form-control" id="password"
-                         name="password" formControlName="password"
-                         required minlength="6">
+                  <input type="password" class="form-control" id="password" name="password" formControlName="password" required minlength="6">
                   <span class="highlight"></span>
                   <span class="bar"></span>
                   <label>Password</label>
@@ -39,19 +32,16 @@
                 <p *ngIf="userNotExists">Ups!! User entered already exists!</p>
                 <p *ngIf="miscellaneousError">Ups!! User entered is not active!</p>
                 <div class="mdl-layout-spacer"></div>
-                <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-button--align-right"
-                        type="submit">Sign up
+                <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-button--align-right" type="submit">Sign up
                 </button>
               </form>
-              <div style="text-align: right">You have already an account? <a routerLink="/login" href="#">Sign in</a>
+              <div style="text-align: right">You have already an account?
+                <a routerLink="/login" href="#">Sign in</a>
               </div>
-
             </div>
           </section>
         </div>
       </main>
     </div>
-  </mdl-layout-content>
-</mdl-layout>
-
-
+  </div>
+</div>

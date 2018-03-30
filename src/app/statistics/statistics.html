@@ -1,14 +1,15 @@
-<mdl-layout mdl-layout-fixed-header mdl-layout-header-seamed>
-    <mdl-layout-header>
-        <header-comp></header-comp>
-    </mdl-layout-header>
-    <mdl-layout-drawer closeDrawerOnClick>
-        <mdl-layout-title>Menu</mdl-layout-title>
-        <drawer-comp></drawer-comp>
-    </mdl-layout-drawer>
-    <mdl-layout-content>
-        <router-outlet ></router-outlet>
-        <!-- <footer-comp></footer-comp>-->
-    </mdl-layout-content>
-</mdl-layout>
-<dialog-outlet></dialog-outlet>
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer
+mdl-layout--fixed-header">
+  <header class="mdl-layout__header mdl-layout__header--transparent">
+    <header-comp></header-comp>
+  </header>
+  <div class="mdl-layout__drawer">
+    <span class="mdl-layout-title">Menu</span>
+    <drawer-comp></drawer-comp>
+  </div>
+  <main class="mdl-layout__content">
+    <router-outlet></router-outlet>
+    <!-- <footer-comp></footer-comp> -->
+  </main>
+</div>
+<!-- <dialog-outlet></dialog-outlet> -->

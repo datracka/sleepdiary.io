@@ -1,50 +1,51 @@
 <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
-    <div class="mdl-layout__header-row">
-        <span class="mdl-layout-title">Calendar Monthly view</span>
-        <div class="mdl-layout-spacer"></div>
-    </div>
+  <div class="mdl-layout__header-row">
+    <span class="mdl-layout-title">Calendar Monthly view</span>
+    <div class="mdl-layout-spacer"></div>
+  </div>
 </header>
 <form [@flyInOut]="'in'" mdl #f="ngForm" novalidate (ngSubmit)="onSubmit()">
-    <input [ngModel]="entry.uuid" type="hidden" class="form-control" name="uuid" id="uuid">
-    <input [ngModel]="entry.date" type="hidden" class="form-control" name="date" id="date">
-    <div class="mdl-grid">
-        <div class="mdl-layout-spacer"></div>
-        <div class="mdl-cell mdl-cell--12-col sd-text-align">
-            <a style="text-decoration: none" (click)="back()">
-                <mdl-icon style="vertical-align: middle;">chevron_left</mdl-icon>
-            </a>
-            <span>{{ entry.date | date: 'fullDate'}}</span>
-        </div>
-        <div style="text-align: left;" class="mdl-cell mdl-cell--12-col">
-            <div class="form-group">
-                <h5>How did you sleep last night?</h5>
-                <div *ngFor="let sleepingQuality of sleepingQualityValues" style="display: block;">
-                    <mdl-radio name="sleepingQuality" [value]="sleepingQuality.value"
-                               [(ngModel)]="entry.sleepingQuality" mdl-ripple>
-                        {{sleepingQuality.display}}
-                    </mdl-radio>
-                </div>
-            </div>
-        </div>
-        <div style="text-align: left;" class="mdl-cell mdl-cell--12-col">
-            <div class="form-group">
-                <h5>how fit do you feel today?</h5>
-                <div *ngFor="let tirednessFeeling of tirednessFeelingValues" style="display: block;">
-                    <mdl-radio name="tirednessFeeling" [value]="tirednessFeeling.value"
-                               [(ngModel)]="entry.tirednessFeeling" mdl-ripple>
-                        {{tirednessFeeling.display}}
-                    </mdl-radio>
-                </div>
-            </div>
-        </div>
-        <div style="text-align: left;" class="mdl-cell mdl-cell--12-col">
-            <button mdl-button mdl-button-type="raised" mdl-colored="accent" type="submit" mdl-ripple>Submit</button>
-            <button mdl-button mdl-button-type="raised" mdl-colored="primary" *ngIf="entry.uuid" type="button"
-                    (click)="deleteEntry(entry.uuid)">Delete register
-            </button>
-        </div>
-        <div class="mdl-layout-spacer"></div>
+  <input [ngModel]="entry.uuid" type="hidden" class="form-control" name="uuid" id="uuid">
+  <input [ngModel]="entry.date" type="hidden" class="form-control" name="date" id="date">
+  <div class="mdl-grid">
+    <div class="mdl-layout-spacer"></div>
+    <div class="mdl-cell mdl-cell--12-col sd-text-align">
+      <a style="text-decoration: none" (click)="back()">
+        <i class="material-icons" style="vertical-align: middle;">chevron_left</i>
+      </a>
+      <span>{{ entry.date | date: 'fullDate'}}</span>
     </div>
+    <div style="text-align: left;" class="mdl-cell mdl-cell--12-col">
+      <div class="form-group">
+        <h5>How did you sleep last night?</h5>
+        <div *ngFor="let sleepingQuality of sleepingQualityValues" style="display: block;">
+          <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-1">
+            <input style="cursor: pointer" type="radio" class="mdl-radio__button" name="sleepingQuality" [value]="sleepingQuality.value"
+              [(ngModel)]="entry.sleepingQuality" mdl-ripple>
+            <span class="mdl-radio__label">{{sleepingQuality.display}}</span>
+          </label>
+        </div>
+      </div>
+    </div>
+    <div style="text-align: left;" class="mdl-cell mdl-cell--12-col">
+      <div class="form-group">
+        <h5>how fit do you feel today?</h5>
+        <div *ngFor="let tirednessFeeling of tirednessFeelingValues" style="display: block;">
+          <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-2">
+            <input style="cursor: pointer" type="radio" class="mdl-radio__button" name="tirednessFeeling" [value]="tirednessFeeling.value"
+              [(ngModel)]="entry.tirednessFeeling" mdl-ripple>
+            <span class="mdl-radio__label">{{tirednessFeeling.display}}</span>
+          </label>
+        </div>
+      </div>
+    </div>
+    <div style="text-align: left;" class="mdl-cell mdl-cell--12-col">
+      <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" type="submit">
+        Submit
+      </button>
+      <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" *ngIf="entry.uuid" type="button" (click)="deleteEntry(entry.uuid)">Delete register
+      </button>
+    </div>
+    <div class="mdl-layout-spacer"></div>
+  </div>
 </form>
-
-

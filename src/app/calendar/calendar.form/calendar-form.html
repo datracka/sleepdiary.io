@@ -1,14 +1,14 @@
 <form #f="ngForm" novalidate style="width: 100%">
   <div class="sd-formGroup" style="float:right">
     <span style="font-size:1.4rem; vertical-align: sub">{{year}}</span>
-    <button mdl-button #btn1="mdlButton" (click)="m1.toggle($event, btn1)" mdl-button-type="icon" mdl-ripple>
-      <mdl-icon>more_vert</mdl-icon>
+    <button id="demo-menu-lower-right" class="mdl-button mdl-js-button mdl-button--icon">
+      <i class="material-icons">more_vert</i>
     </button>
-    <mdl-menu #m1="mdlMenu" mdl-menu-position="bottom-right">
-      <mdl-menu-item mdl-ripple (click)="setYear(year.value)" *ngFor="let year of years">
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="demo-menu-lower-right" mdl-menu-position="bottom-right">
+      <li class="mdl-menu__item" (click)="setYear(year.value)" *ngFor="let year of years">
         {{ year.name }}
-      </mdl-menu-item>
-    </mdl-menu>
+      </li>
+    </ul>
   </div>
   <div class="sd-formGroup">
     <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-1">

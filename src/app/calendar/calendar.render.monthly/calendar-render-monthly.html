@@ -5,7 +5,7 @@
   </div>
   <month class="mdl-cell mdl-cell--4-col" [class.sleeping-quality]="metric === 'sleeping-quality'" [class.tiredness-feeling]="metric === 'tiredness-feeling'"
     [monthRender]="month" *ngFor="let month of yearRender" [entries$]="entries$"></month>
-  <a (click)="handleClick()" class="sd-add-button" mdl-button mdl-button-type="fab" mdl-colored="accent" mdl-ripple>
-    <mdl-icon>add</mdl-icon>
-  </a>
+  <button (click)="handleClick()" class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored sd-add-button">
+    <i class="material-icons">add</i>
+  </button>
 </div>

@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { MdlLayoutComponent } from 'angular2-mdl';
 import { Router } from '@angular/router';
 import {
   ROUTE_LOGIN
@@ -8,11 +7,7 @@ import {
 const template = require('./drawer.html');
 @Component({
   selector: 'drawer-comp',
-  template: template,
-  providers: [
-    MdlLayoutComponent
-  ]
-
+  template: template
 })
 export class Drawer {
 

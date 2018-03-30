@@ -1,4 +1,5 @@
 import { StoreModule } from '@ngrx/store';
+import { APP_BASE_HREF } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -6,7 +7,6 @@ import { NgModule, ApplicationRef } from '@angular/core';
 import { HttpModule, Http } from '@angular/http';
 // import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { AuthHttp, AuthConfig } from 'angular2-jwt';
-import { MdlModule } from '@angular-mdl';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   StoreRouterConnectingModule
@@ -29,7 +29,6 @@ import { reducers, metaReducers } from './app.reducer';
     routing,
     StatisticsModule,
     HttpModule,
-    MdlModule,
     StoreModule.forRoot(reducers, { metaReducers }),
     StoreRouterConnectingModule,
     // makes everything super slow!
@@ -53,6 +52,7 @@ import { reducers, metaReducers } from './app.reducer';
       },
       deps: [Http]
     },
+    { provide: APP_BASE_HREF, useValue: '/' }
     /* { provide: RouterStateSerializer, useClass: CustomRouterStateSerializer }, */
   ],
   declarations: [
