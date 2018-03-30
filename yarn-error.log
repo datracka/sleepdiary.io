@@ -1,5 +1,5 @@
 Arguments: 
-  /Users/vicensfayos/.nvm/versions/node/v9.4.0/bin/node /usr/local/Cellar/yarn/1.5.1/libexec/bin/yarn.js dev
+  /Users/vicensfayos/.nvm/versions/node/v9.4.0/bin/node /usr/local/Cellar/yarn/1.5.1/libexec/bin/yarn.js run prod
 
 PATH: 
   /Users/vicensfayos/.rvm/gems/ruby-2.4.1/bin:/Users/vicensfayos/.rvm/gems/ruby-2.4.1@global/bin:/Users/vicensfayos/.rvm/rubies/ruby-2.4.1/bin:/Users/vicensfayos/.nvm/versions/node/v9.4.0/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/vicensfayos/.rvm/bin
@@ -242,6 +242,10 @@ Lockfile:
     version "0.7.0"
     resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-0.7.0.tgz#9a06f4f137ee84d7df0460c1fdb1135ffa6c50fd"
   
+  "@types/clean-css@*":
+    version "3.4.30"
+    resolved "https://registry.yarnpkg.com/@types/clean-css/-/clean-css-3.4.30.tgz#0052c136f5248002428e3638b37de4a39818641d"
+  
   "@types/events@*":
     version "1.2.0"
     resolved "https://registry.yarnpkg.com/@types/events/-/events-1.2.0.tgz#81a6731ce4df43619e5c8c945383b3e62a89ea86"
@@ -268,6 +272,21 @@ Lockfile:
     version "9.12.2"
     resolved "https://registry.yarnpkg.com/@types/highlight.js/-/highlight.js-9.12.2.tgz#6ee7cd395effe5ec80b515d3ff1699068cd0cd1d"
   
+  "@types/html-minifier@*":
+    version "3.5.2"
+    resolved "https://registry.yarnpkg.com/@types/html-minifier/-/html-minifier-3.5.2.tgz#f897a13d847a774e9b6fd91497e9b0e0ead71c35"
+    dependencies:
+      "@types/clean-css" "*"
+      "@types/relateurl" "*"
+      "@types/uglify-js" "*"
+  
+  "@types/html-webpack-plugin@^2.30.3":
+    version "2.30.3"
+    resolved "https://registry.yarnpkg.com/@types/html-webpack-plugin/-/html-webpack-plugin-2.30.3.tgz#848baba8e35010c6ef6d36b04174820b9d884583"
+    dependencies:
+      "@types/html-minifier" "*"
+      "@types/webpack" "*"
+  
   "@types/lodash@4.14.104":
     version "4.14.104"
     resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.104.tgz#53ee2357fa2e6e68379341d92eb2ecea4b11bb80"
@@ -292,6 +311,10 @@ Lockfile:
     version "0.0.32"
     resolved "https://registry.yarnpkg.com/@types/q/-/q-0.0.32.tgz#bd284e57c84f1325da702babfc82a5328190c0c5"
   
+  "@types/relateurl@*":
+    version "0.2.28"
+    resolved "https://registry.yarnpkg.com/@types/relateurl/-/relateurl-0.2.28.tgz#6bda7db8653fa62643f5ee69e9f69c11a392e3a6"
+  
   "@types/selenium-webdriver@3.0.8":
     version "3.0.8"
     resolved "https://registry.yarnpkg.com/@types/selenium-webdriver/-/selenium-webdriver-3.0.8.tgz#83de9dd7aaf25f7fbd967c0d4fcc8112746dbf31"
@@ -306,6 +329,25 @@ Lockfile:
     dependencies:
       "@types/glob" "*"
       "@types/node" "*"
+  
+  "@types/tapable@*":
+    version "1.0.1"
+    resolved "https://registry.yarnpkg.com/@types/tapable/-/tapable-1.0.1.tgz#938bfcc018eda2f386c34e37f084e6e961c08ca6"
+  
+  "@types/uglify-js@*":
+    version "3.0.0"
+    resolved "https://registry.yarnpkg.com/@types/uglify-js/-/uglify-js-3.0.0.tgz#b765cf23abdc6ab2a67f2b72a9e94a1d43c6432e"
+    dependencies:
+      source-map "^0.6.1"
+  
+  "@types/webpack@*":
+    version "4.1.3"
+    resolved "https://registry.yarnpkg.com/@types/webpack/-/webpack-4.1.3.tgz#1cbb3fceb275590b63addf7cfb1534fda7e645a1"
+    dependencies:
+      "@types/node" "*"
+      "@types/tapable" "*"
+      "@types/uglify-js" "*"
+      source-map "^0.6.0"
   
   JSONStream@^1.0.3:
     version "1.3.2"
@@ -8739,7 +8781,7 @@ Lockfile:
     dependencies:
       amdefine ">=0.0.4"
   
-  source-map@^0.6.1, source-map@~0.6.1:
+  source-map@^0.6.0, source-map@^0.6.1, source-map@~0.6.1:
     version "0.6.1"
     resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.6.1.tgz#74722af32e9614e9c287a8d0bbde48b5e2f1a263"
   
@@ -10273,9 +10315,9 @@ Lockfile:
 
 Trace: 
   Error: Command failed.
-  Exit code: 1
+  Exit code: 2
   Command: sh
-  Arguments: -c node_modules/webpack-dev-server/bin/webpack-dev-server.js --progress --colors --inline --config webpack.config.js
+  Arguments: -c npm run clean & webpack --define process.env.NODE_ENV="production" --config webpack.production.config.js  --progress --profile --colors  --display-cached
   Directory: /Users/vicensfayos/Projects/sleepdiary.io
   Output:
   

@@ -1,5 +1,5 @@
 var path = require('path');
-// const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 var DotenvPlugin = require('webpack-dotenv-plugin');
 
 /**
@@ -18,20 +18,18 @@ var webpackConfig = {
   },
 
   output: {
-    path: path.resolve(__dirname, 'dist_prod')
+    path: path.resolve(__dirname, 'dist_prod'),
+    filename: '[name].bundle.js',
   },
   plugins: [
-    new UglifyJSPlugin({
-      mangle: true,
-      compress: false
-    })
+    new UglifyJSPlugin()
   ],
 
   module: {
     exprContextCritical: false, //used for removing warning "Critical dependency: the request of a dependency is an expression"
     rules: [
       // .ts files for TypeScript
-      { test: /\.ts$/, loaders: ['awesome-typescript-loader', 'angular2-template-loader'] },
+      { test: /\.ts$/, loaders: ['ts-loader', 'angular2-template-loader'] },
       { test: /\.css$/, loaders: ['to-string-loader', 'css-loader', 'postcss-loader'] },
       { test: /\.html$/, loader: 'raw-loader' },
       {

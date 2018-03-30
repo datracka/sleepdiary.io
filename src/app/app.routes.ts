@@ -22,13 +22,13 @@ const appRouting: Routes = [
   },
   {
     path: 'calendar',
-    loadChildren: './calendar/calendar.module#CalendarModule'
-    // canActivate: [AuthGuard],
+    loadChildren: './calendar/calendar.module#CalendarModule',
+    canActivate: [AuthGuard],
   },
   {
     path: 'statistics',
-    loadChildren: './statistics/statistics.module#StatisticsModule'
-    // canActivate: [AuthGuard],
+    loadChildren: './statistics/statistics.module#StatisticsModule',
+    canActivate: [AuthGuard],
   }
 ];
 
