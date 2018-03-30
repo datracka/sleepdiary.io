@@ -13,7 +13,7 @@ let template = require('./day.html');
 @Component({
   selector: 'day',
   template: template,
-  styleUrls: ['./day.scss'],
+  styleUrls: ['./day.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class Day implements OnInit {

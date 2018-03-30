@@ -20,7 +20,7 @@ const template = require('./login.html');
   selector: 'login',
   providers: [LoginService],
   template: template,
-  styleUrls: ['./login.scss'],
+  styleUrls: ['./login.css'],
   animations: [
     trigger('flyInOut', [
       state('in', style({ opacity: 1 })),

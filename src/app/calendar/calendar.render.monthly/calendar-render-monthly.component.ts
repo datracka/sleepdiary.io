@@ -12,7 +12,7 @@ import {
   Output,
   EventEmitter
 } from '@angular/core';
-import { MdlSnackbarService } from 'angular2-mdl';
+// import { MdlSnackbarService } from 'angular2-mdl';
 import * as moment from 'moment';
 import { DayRender } from './day/day.render';
 import { CalendarService } from '../../services/calendar/calendar.service';
@@ -27,7 +27,7 @@ let template = require('./calendar-render-monthly.html');
 @Component({
   selector: 'calendar-render-monthly',
   template: template,
-  styleUrls: ['./calendar-render-monthly.scss'],
+  styleUrls: ['./calendar-render-monthly.css'],
   providers: [CalendarService],
   changeDetection: ChangeDetectionStrategy.OnPush,
   animations: [
@@ -65,7 +65,7 @@ export class CalendarRenderMonthly implements OnChanges {
   yearRender: Array<MonthRender> = [];
 
   constructor(
-    private mdlSnackbarService: MdlSnackbarService,
+    // private mdlSnackbarService: MdlSnackbarService,
     private router: Router,
     public route: ActivatedRoute,
     public calendarService: CalendarService,

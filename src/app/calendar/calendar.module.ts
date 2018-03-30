@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
-import { MdlSelectModule } from '@angular2-mdl-ext/select';
-import { MdlPopoverModule } from '@angular2-mdl-ext/popover';
 import { FormsModule } from '@angular/forms';
 
 import { EntryForm } from './entry-form';
@@ -29,8 +27,6 @@ import { EntryFormService } from '../services/entry-form/entry-form.service';
     SharedModule,
     FormsModule,
     calendarRouting,
-    MdlPopoverModule,
-    MdlSelectModule,
     EffectsModule.forRoot([
       CalendarEffects
     ]),

@@ -6,7 +6,7 @@ import { NgModule, ApplicationRef } from '@angular/core';
 import { HttpModule, Http } from '@angular/http';
 // import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { AuthHttp, AuthConfig } from 'angular2-jwt';
-import { MdlModule } from 'angular2-mdl';
+import { MdlModule } from '@angular-mdl';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   StoreRouterConnectingModule

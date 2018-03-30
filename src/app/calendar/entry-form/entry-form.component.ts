@@ -15,7 +15,7 @@ let template = require('./entry-form.html');
 @Component({
   selector: 'form-view',
   template: template,
-  styleUrls: ['./entry-form.scss'],
+  styleUrls: ['./entry-form.css'],
   providers: [EntryFormService],
   animations: [
     trigger('flyInOut', [

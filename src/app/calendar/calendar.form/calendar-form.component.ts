@@ -17,7 +17,7 @@ let template = require('./calendar-form.html');
 @Component({
   selector: 'calendar-form',
   template: template,
-  styleUrls: ['./calendar-form.scss'],
+  styleUrls: ['./calendar-form.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CalendarForm implements OnInit, OnChanges {

@@ -5,7 +5,7 @@ const template = require('./sample.html');
 @Component({
   selector: 'pie-chart-demo',
   template: template,
-  styleUrls: ['./sample.scss'],
+  styleUrls: ['./sample.css'],
 })
 export class SampleComponent {
 

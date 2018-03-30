@@ -6,7 +6,7 @@ var DotenvPlugin = require('webpack-dotenv-plugin');
  * Webpack Constants
  */
 const ENV = process.env.NODE_ENV = process.env.ENV = process.env.npm_lifecycle_event;
-console.log("ENV " + ENV);
+console.log("prod!! ENV " + ENV);
 // Webpack Config
 
 var webpackConfig = {
@@ -35,17 +35,8 @@ var webpackConfig = {
       { test: /\.css$/, loaders: ['to-string-loader', 'css-loader', 'postcss-loader'] },
       { test: /\.html$/, loader: 'raw-loader' },
       {
-        test: /\.scss$/,
-        exclude: [/\.global\.scss$/],
-        loaders: ['raw-loader', 'sass-loader']
-      },
-      {
         test: /\.(eot|svg|ttf|woff|woff2)$/,
         loader: 'file-loader'
-      },
-      {
-        test: /\.global\.scss$/,
-        loaders: ['style-loader', 'css-loader', 'sass-loader']
       }
     ]
   }
