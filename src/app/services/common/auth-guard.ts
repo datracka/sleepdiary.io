@@ -9,7 +9,6 @@ export class AuthGuard implements CanActivate {
   constructor(private router: Router) { }
 
   canActivate() {
-    console.log(tokenNotExpired());
     if (tokenNotExpired('id_token')) {
       return true;
     }

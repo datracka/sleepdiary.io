@@ -1,5 +1,4 @@
 import { Component, ViewEncapsulation } from '@angular/core';
-
 const template = require('./app.html');
 
 @Component({
@@ -8,11 +7,10 @@ const template = require('./app.html');
   styleUrls: [
     '../../node_modules/material-design-lite/dist/material.green-teal.min.css',
     '../../node_modules/material-design-lite/material.min.css',
-    '../../node_modules/material-design-icons/iconfont/material-icons.css',
+    /* '../../node_modules/material-design-icons/iconfont/material-icons.css', */
     './app.component.css'],
   encapsulation: ViewEncapsulation.None
 })
-export class AppComponent {
-}
+export class AppComponent { }
 
 

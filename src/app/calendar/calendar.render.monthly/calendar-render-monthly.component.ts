@@ -10,7 +10,8 @@ import {
   OnChanges,
   ChangeDetectionStrategy,
   Output,
-  EventEmitter
+  EventEmitter,
+  AfterViewInit
 } from '@angular/core';
 // import { MdlSnackbarService } from 'angular2-mdl';
 import * as moment from 'moment';
@@ -21,6 +22,8 @@ import { WeekRender } from './week/week.render';
 import { Observable } from 'rxjs/Rx';
 import { Store } from '@ngrx/store';
 import * as fromCalendar from '../calendar.reducer';
+// import * as mdl from '../../../../node_modules/material-design-lite/dist/material.min.js'
+
 
 let template = require('./calendar-render-monthly.html');
 
@@ -40,7 +43,7 @@ let template = require('./calendar-render-monthly.html');
     ])
   ]
 })
-export class CalendarRenderMonthly implements OnChanges {
+export class CalendarRenderMonthly implements OnChanges, AfterViewInit {
 
   totalDays: any = new Map(); // data structure for interpolating styles
   @Input() entries$: Observable<any[]>;
@@ -74,6 +77,12 @@ export class CalendarRenderMonthly implements OnChanges {
 
   handleClick() {
     this.clickOnAdd.emit();
+  }
+
+  ngAfterViewInit() {
+    import('../../../../node_modules/material-design-lite/dist/material.min.js').then(() => {
+      componentHandler.upgradeAllRegistered();
+    });
   }
 
   ngOnChanges() {
